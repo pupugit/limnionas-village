@@ -1,0 +1,24 @@
+{
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@intlify/unplugin-vue-i18n": "^0.7.0",
+    "@vueuse/nuxt": "^9.4.0",
+    "nuxt": "^3.0.0-rc.12",
+    "nuxt-directus": "^3.1.0",
+    "nuxt-icon": "^0.1.7",
+    "sass": "^1.55.0",
+    "vue": "^3.2.41",
+    "vue-i18n": "^9.2.2"
+  },
+  "dependencies": {
+    "gsap": "npm:@gsap/shockingly@^3.11.3"
+  }
+}

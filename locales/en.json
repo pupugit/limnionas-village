@@ -1,0 +1,32 @@
+{
+  "button": {
+    "about": "About",
+    "back": "Back",
+    "go": "GO",
+    "home": "Home",
+    "toggle_dark": "Toggle dark mode",
+    "toggle_langs": "Change languages"
+  },
+  "house_not_found": "House not found!",
+  "intro": {
+    "aka": "Also known as",
+    "desc": "Opinionated Vite Starter Template",
+    "dynamic-route": "Demo of dynamic route",
+    "hi": "Hi, {name}!",
+    "whats-your-name": "What's your name?"
+  },
+  "not-found": "Not found",
+  "prices": "Prices",
+  "seasons": {
+    "autumn": "End of Year",
+    "early": "Pre Season",
+    "late": "Late Season",
+    "main": "Main Season",
+    "spring": "Spring"
+  },
+  "more_informations": "More Informations",
+  "people": "People",
+  "prices_per_night": "Prices per Night",
+  "to": "to",
+  "furnishing": "Furnishing"
+}
