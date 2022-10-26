@@ -7,10 +7,11 @@
 <script setup lang="ts">
 
 // await initHousesBasic()
-await initHouses()
-await initPrices()
 await initSpecials()
 await initTexts()
+await initHouses()
+await initArticles()
+await initPrices()
 </script>
 
 <style>

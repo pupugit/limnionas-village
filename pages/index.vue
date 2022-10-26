@@ -2,6 +2,7 @@
   <div id="grid-index" class="grid-index" @scroll="onScroll">
     <WelcomeBlock />
     <HouseBlock v-for="house in localeHouses" :house="house" :key="house.id" />
+    <ArticleBlock v-for="article in articles" :article="article" :key="article.id" />
   </div>
 </template>
 
@@ -11,6 +12,7 @@ useHead({ title: 'Limnionas Village' })
 const bgStyle = useBackgroundImageState()
 bgStyle.value = ''
 const houses = useHouses()
+const articles = useArticles()
 const isScrolled = useScrollState()
 const onScroll = (e) => {
   if (e.target.scrollTop > 200) isScrolled.value = true
