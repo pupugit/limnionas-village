@@ -21,7 +21,7 @@ export const initHousesBasic = async () => {
   const { getItems } = useDirectusItems()
   const houses = useHousesBasic()
   if (houses.value.length === 0) {
-    const hItems: House[] = await getItems({ collection: 'houses', params: { fields: ['letter', 'logo', 'name', 'people', 'short', 'big_picture', 'translations.name', 'translations.short'] } })
+    const hItems: House[] = await getItems({ collection: 'houses', params: { sort: 'letter', fields: ['id', 'letter', 'logo', 'name', 'people', 'short', 'big_picture', 'translations.name', 'translations.short'] } })
     houses.value = hItems
   }
 }
