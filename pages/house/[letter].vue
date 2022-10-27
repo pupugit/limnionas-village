@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { DatetimeFormat, useI18n } from 'vue-i18n'
+import { useI18n } from 'vue-i18n'
 
+await initHouses()
+await initPrices()
 const config = useRuntimeConfig()
 const houses = useHouses()
 const prices = usePrices()
@@ -13,7 +15,8 @@ const activeSeason = computed(() => {
     return s.start.slice(5, 10).localeCompare(nowFormat) <= 0 && s.end.slice(5, 10).localeCompare(nowFormat) >= 0
   })
 })
-const house = houses.value.find(h => h.letter === route.params.letter)
+const letter: string = route.params.letter.toString()
+const house = houses.value.find(h => h.letter.toLowerCase() === letter.toLowerCase())
 const localeHouse = computed(() => {
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
     const ret = Object.assign({}, house)

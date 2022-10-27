@@ -34,13 +34,13 @@ const calcBG = computed(() => {
   <div class="house-box">
     <div class="house-bg" :style="calcBG">
       <div ref="houseBlock" :class="`house-info${isBlockVisible ? ' clicked' : ''}`"
-        @click="$router.push(`/house/${house.letter}`)">
+        @click="$router.push(`/house/${house.letter.toLowerCase()}`)">
         <h2>{{ house.name }}</h2>
         <img v-if="house.logo" :src="`${config.public.directusBase}/assets/${house.logo}`">
         <p class="house-details">{{ house.people }} {{ $t('people') }}</p>
         <div class="house-details" v-html="house.short"></div>
         <p class="house-details">
-          <NuxtLink :to="`/house/${house.letter}`">{{ $t('more_informations') }}</NuxtLink>
+          <NuxtLink :to="`/house/${house.letter.toLowerCase()}`">{{ $t('more_informations') }}</NuxtLink>
         </p>
       </div>
     </div>

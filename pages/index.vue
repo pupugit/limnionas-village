@@ -11,7 +11,11 @@ import { useI18n } from 'vue-i18n'
 useHead({ title: 'Limnionas Village' })
 const bgStyle = useBackgroundImageState()
 bgStyle.value = ''
-const houses = useHouses()
+await initHousesBasic()
+await initSpecials()
+await initTexts()
+await initArticles()
+const houses = useHousesBasic()
 const articles = useArticles()
 const isScrolled = useScrollState()
 const onScroll = (e) => {
@@ -31,8 +35,6 @@ const localeHouses = computed(() => {
         const t = h.translations.find(trans => trans.languages_id === i18n.locale.value)
         if (t) {
           ret.name = t.name
-          ret.description = t.description
-          ret.furnishing = t.furnishing
           ret.short = t.short
         }
       }
