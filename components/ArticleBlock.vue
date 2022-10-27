@@ -17,9 +17,15 @@ onMounted(() => {
 </script>
 
 <template>
-  <div v-for="s in article.sections" class="article-block">
+  <div v-for="(s, idx) in article.sections" class="article-block" :key="s.id">
     <div v-if="width" class="article-section-bg"
       :style="`background-image: url(${config.public.directusBase}/assets/${s.image_back}?fit=cover&width=${width}&height=${height})`">
+      <div v-if="idx > 0" class="article-section-top"></div>
+      <div class="article-section-info">
+        <h3>{{ article.title}}</h3>
+        <div v-html="s.content"></div>
+      </div>
+      <div v-if="idx < article.sections.length-1" class="article-section-bottom"></div>
     </div>
   </div>
 </template>
@@ -28,11 +34,43 @@ onMounted(() => {
 .article-section-bg {
   width: 100vw;
   height: 100vh;
+  display: grid;
   place-content: center;
   background-position: center;
   background-size: cover;
-  padding-top: 72px;
   box-sizing: border-box;
+  grid-template-rows: 1fr auto 1fr;
+  grid-template-areas: "top" "content" "bottom";
+}
 
+.article-section-top {
+  grid-area: top;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, var(--trans)) 0%, rgba(255, 255, 255, var(--trans)) 30%, transparent 30%);
+  background-size: 30px 30px;
+  background-repeat: repeat-y;
+  background-position: center 15px;
+}
+
+.article-section-bottom {
+  grid-area: bottom;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, var(--trans)) 0%, rgba(255, 255, 255, var(--trans)) 30%, transparent 30%);
+  background-size: 30px 30px;
+  background-repeat: repeat-y;
+  background-position: center 15px;
+}
+
+.article-section-info {
+  grid-area: content;
+  display: grid;
+  place-items: center;
+  background-color: rgba(255, 255, 255, var(--trans));
+  border-radius: 50%;
+  transition: all .5s ease-out;
+  cursor: pointer;
+  border-radius: 32px;
+  color: var(--col-main);
+  padding: 32px;
+  width: min(600px, 85vw);
+  box-sizing: border-box;
 }
 </style>

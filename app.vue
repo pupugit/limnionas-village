@@ -32,6 +32,20 @@ body {
   background-color: white;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  margin-bottom: .25em;
+}
+
+h1~p,
+h2~p,
+h3~p,
+h4~p {
+  margin-top: .5em;
+}
+
 .layout {
   height: 100dvh;
   height: 100vh;
