@@ -42,7 +42,6 @@ const localeHouses = computed(() => {
   }
   return []
 })
-console.log(localeHouses.value)
 </script>
 
 <style lang="scss">
