@@ -12,7 +12,6 @@ useHead({ title: 'Limnionas Village' })
 const bgStyle = useBackgroundImageState()
 bgStyle.value = ''
 await initHousesBasic()
-await initSpecials()
 await initTexts()
 await initArticles()
 const houses = useHousesBasic()

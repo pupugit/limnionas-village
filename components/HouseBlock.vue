@@ -7,13 +7,12 @@ const props = defineProps<{
 }>()
 const width = ref(0)
 const height = ref(1024)
-const clicked = ref(false)
 
 const houseBlock = ref(null)
 const isBlockVisible = ref(false)
 useIntersectionObserver(
   houseBlock,
-  ([{ isIntersecting }], observerElement) => {
+  ([{ isIntersecting }]) => {
     isBlockVisible.value = isIntersecting
   },
 )

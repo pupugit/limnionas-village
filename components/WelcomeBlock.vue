@@ -21,6 +21,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 const config = useRuntimeConfig()
+await initSpecials()
 const specials = useSpecials()
 const texts = useTexts()
 const width = ref(0)
