@@ -7,6 +7,7 @@
     "toggle_dark": "Toggle dark mode",
     "toggle_langs": "Change languages"
   },
+  "furnishing": "Furnishing",
   "house_not_found": "House not found!",
   "intro": {
     "aka": "Also known as",
@@ -15,8 +16,11 @@
     "hi": "Hi, {name}!",
     "whats-your-name": "What's your name?"
   },
+  "more_informations": "More Informations",
   "not-found": "Not found",
+  "people": "people",
   "prices": "Prices",
+  "prices_per_night": "Prices per Night",
   "seasons": {
     "autumn": "End of Year",
     "early": "Pre Season",
@@ -24,9 +28,5 @@
     "main": "Main Season",
     "spring": "Spring"
   },
-  "more_informations": "More Informations",
-  "people": "People",
-  "prices_per_night": "Prices per Night",
-  "to": "to",
-  "furnishing": "Furnishing"
+  "to": "to"
 }
