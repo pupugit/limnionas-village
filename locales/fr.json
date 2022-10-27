@@ -1,18 +1,24 @@
 {
-  "button": {
+   "button": {
      "about": "À propos",
      "back": "Retour",
      "go": "Essayer",
      "home": "Accueil",
      "toggle_dark": "Basculer en mode sombre",
      "toggle_langs": "Changer de langue"
-  },
-  "intro": {
+   },
+   "furnishing": "Ameublement",
+   "intro": {
+     "aka": "Aussi connu sous le nom de",
      "desc": "Exemple d'application Vite",
      "dynamic-route": "Démo de route dynamique",
      "hi": "Salut, {name}!",
-     "aka": "Aussi connu sous le nom de",
      "whats-your-name": "Comment t'appelles-tu ?"
-  },
-  "not-found": "Page non trouvée"
-}
+   },
+   "more_informations": "Plus d'informations",
+   "not-found": "Page non trouvée",
+   "people": "personnes",
+   "prices": "Prix",
+   "prices_per_night": "Prix et nuit",
+   "to": "à"
+ }
