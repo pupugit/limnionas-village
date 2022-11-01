@@ -6,6 +6,7 @@ export type Article = {
 }
 
 export type ArticleSection = {
+  id: string
   name: string
   content: string
   image_back: string
