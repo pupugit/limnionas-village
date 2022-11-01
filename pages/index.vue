@@ -16,13 +16,21 @@ await initTexts()
 await initArticles()
 const houses = useHousesBasic()
 const articles = useArticles()
-const isScrolled = useScrollState()
+const scrollState = useScrollState()
 const onScroll = (e) => {
-  if (e.target.scrollTop > 200) isScrolled.value = true
-  else isScrolled.value = false
+  scrollState.value.scrollPos = e.target.scrollTop
+  if (e.target.scrollTop > 200) scrollState.value.isScrolled = true
+  else scrollState.value.isScrolled = false
 }
-
-onBeforeUnmount(() => { isScrolled.value = false })
+onMounted(async () => {
+  console.log('mounted')
+  window.setTimeout(() => {
+    const gEl = document.getElementById('grid-index')
+    console.log(gEl, scrollState.value.scrollPos)
+    if (gEl) gEl.scrollTo(0, scrollState.value.scrollPos)
+  }, 450)
+})
+onBeforeUnmount(() => { scrollState.value.isScrolled = false })
 
 const i18n = useI18n()
 const localeHouses = computed(() => {
