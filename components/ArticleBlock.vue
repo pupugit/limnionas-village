@@ -22,10 +22,10 @@ onMounted(() => {
       :style="`background-image: url(${config.public.directusBase}/assets/${s.image_back}?fit=cover&width=${width}&height=${height}&format=webp)`">
       <div v-if="idx > 0" class="article-section-top"></div>
       <div class="article-section-info">
-        <h3>{{ article.title}}</h3>
         <div v-html="s.content"></div>
+        <p v-if="article.title && idx == article.sections.length - 1" class="source">{{ article.title }}</p>
       </div>
-      <div v-if="idx < article.sections.length-1" class="article-section-bottom"></div>
+      <div v-if="idx < article.sections.length - 1" class="article-section-bottom"></div>
     </div>
   </div>
 </template>
@@ -40,7 +40,7 @@ onMounted(() => {
   background-size: cover;
   box-sizing: border-box;
   grid-template-rows: 1fr auto 1fr;
-  grid-template-areas: "top" "content" "bottom";
+  grid-template-areas: "top""content""bottom";
 }
 
 .article-section-top {
@@ -72,5 +72,14 @@ onMounted(() => {
   padding: 32px;
   width: min(600px, 85vw);
   box-sizing: border-box;
+}
+
+.article-section-info .source {
+  margin-top: 0;
+  text-align: center;
+  font-size: .90em;
+  font-weight: bold;
+  font-style: italic;
+  margin-top: .5em;
 }
 </style>
