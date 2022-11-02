@@ -38,11 +38,11 @@ const localeHouse = computed(() => {
 useHead({ title: localeHouse ? localeHouse.value.name : 'Limnionas Village' })
 const bgStyle = useBackgroundImageState()
 if (typeof window !== 'undefined' && house) {
-  bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${window.innerWidth}&height=${window.innerHeight});`
+  bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${window.innerWidth}&height=${window.innerHeight}&format=webp);`
 }
 onMounted(() => {
   if (window && house && !bgStyle.value) {
-    bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${window.innerWidth}&height=${window.innerHeight});`
+    bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${window.innerWidth}&height=${window.innerHeight}&format=webp);`
   }
 })
 </script>
@@ -51,7 +51,7 @@ onMounted(() => {
   <div class="house-page" v-if="house">
     <div class="house-content">
       <p style="text-align: center;text-align-last:center;">
-        <img v-if="house.logo" :src="`${config.public.directusBase}/assets/${house.logo}`">
+        <img lazy v-if="house.logo" :src="`${config.public.directusBase}/assets/${house.logo}`">
       </p>
       <h2>{{ localeHouse.name }}</h2>
       <div v-html="localeHouse.description" />

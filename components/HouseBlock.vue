@@ -24,7 +24,7 @@ onMounted(() => {
 })
 const calcBG = computed(() => {
   if (!props.house.big_picture || width.value == 0) return ''
-  return `background-image: url(${config.public.directusBase}/assets/${props.house.big_picture}?fit=cover&width=${width.value}&height=${height.value});`
+  return `background-image: url(${config.public.directusBase}/assets/${props.house.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=webp);`
 })
 
 </script>
@@ -35,7 +35,7 @@ const calcBG = computed(() => {
       <div ref="houseBlock" :class="`house-info${isBlockVisible ? ' clicked' : ''}`"
         @click="$router.push(`/house/${house.letter.toLowerCase()}`)">
         <h2>{{ house.name }}</h2>
-        <img v-if="house.logo" :src="`${config.public.directusBase}/assets/${house.logo}`">
+        <img lazy v-if="house.logo" :src="`${config.public.directusBase}/assets/${house.logo}`">
         <p class="house-details">{{ house.people }} {{ $t('people') }}</p>
         <div class="house-details" v-html="house.short"></div>
         <p class="house-details">

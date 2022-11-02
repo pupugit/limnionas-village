@@ -19,7 +19,7 @@ onMounted(() => {
 <template>
   <div v-for="(s, idx) in article.sections" class="article-block" :key="s.id">
     <div v-if="width" class="article-section-bg"
-      :style="`background-image: url(${config.public.directusBase}/assets/${s.image_back}?fit=cover&width=${width}&height=${height})`">
+      :style="`background-image: url(${config.public.directusBase}/assets/${s.image_back}?fit=cover&width=${width}&height=${height}&format=webp)`">
       <div v-if="idx > 0" class="article-section-top"></div>
       <div class="article-section-info">
         <h3>{{ article.title}}</h3>

@@ -82,20 +82,20 @@ onMounted(() => {
 })
 const calcPic = computed(() => {
   if (!specials.value.welcome_pic || width.value == 0) return ''
-  return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_pic}?fit=inside&width=${width.value}&height=${height.value}&withoutEnlargement);`
+  return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_pic}?fit=inside&width=${width.value}&height=${height.value}&withoutEnlargement&format=webp);`
 })
 const calcBG = computed(() => {
   if (!specials.value.welcome_back || width.value == 0) return ''
-  return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_back}?fit=cover&width=${width.value}&height=${height.value});`
+  return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_back}?fit=cover&width=${width.value}&height=${height.value}&format=webp);`
 })
 
 const calcBG2 = computed(() => {
   if (!specials.value.welcome_back || width.value == 0) return ''
-  return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_back2}?fit=cover&width=${width.value}&height=${height.value});`
+  return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_back2}?fit=cover&width=${width.value}&height=${height.value}&format=webp);`
 })
 const calcBG3 = computed(() => {
   if (!specials.value.welcome_back || width.value == 0) return ''
-  return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_back3}?fit=cover&width=${width.value}&height=${height.value});`
+  return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_back3}?fit=cover&width=${width.value}&height=${height.value}&format=webp);`
 })
 
 </script>
