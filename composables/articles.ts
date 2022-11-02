@@ -12,7 +12,7 @@ export const initArticles = async () => {
   const { getItems } = useDirectusItems()
   const articles = useArticles()
   if (articles.value.length === 0) {
-    const hItems = await getItems<Article[]>({ collection: 'articles', params: { sort: 'sort', fields: ['*', 'sections.*'] } })
+    const hItems = await getItems<Article[]>({ collection: 'articles', params: { sort: 'sort', fields: ['*', 'sections.*', 'sections.translations.*'] } })
     articles.value = hItems
   }
 }

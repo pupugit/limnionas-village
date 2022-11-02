@@ -50,6 +50,24 @@ const localeHouses = computed(() => {
   }
   return []
 })
+// const localeArticles = computed(() => {
+//   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
+//     return articles.value.map((a) => {
+//       const ret = Object.assign({}, a)
+
+//       ret.translations = []
+//       if (i18n.locale.value !== 'en') {
+//         const t = h.translations.find(trans => trans.languages_id === i18n.locale.value)
+//         if (t) {
+//           ret.name = t.name
+//           ret.short = t.short
+//         }
+//       }
+//       return ret
+//     })
+//   }
+//   return []
+// })
 </script>
 
 <style lang="scss">

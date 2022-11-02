@@ -10,4 +10,11 @@ export type ArticleSection = {
   name: string
   content: string
   image_back: string
+  translations: TextsTranslation[]
+}
+
+export type ArticleSectionTranslation = {
+  id: string
+  languages_code: string
+  content: string
 }
