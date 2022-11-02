@@ -8,7 +8,11 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 const { locale } = useI18n()
-
+useHead({
+  htmlAttrs: {
+    lang: 'en'
+  }
+})
 
 onMounted(() => {
   window.setTimeout(() => {
@@ -23,6 +27,11 @@ onMounted(() => {
         break
       }
     }
+    useHead({
+      htmlAttrs: {
+        lang: locale.value
+      }
+    })
   }, 500)
 })
 
