@@ -151,6 +151,8 @@ const calcBG3 = computed(() => {
 .welcome-wave {
   grid-area: top;
   place-self: end;
+  height: 50px;
+  width: 100vw;
 }
 
 .welcome-text {

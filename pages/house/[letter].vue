@@ -98,6 +98,8 @@ onMounted(() => {
 
 .house-wave {
   margin-top: calc(100vh - 280px);
+  height: 50px;
+  width: 100vw;
 }
 
 .house-content {

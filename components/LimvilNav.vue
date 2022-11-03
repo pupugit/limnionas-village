@@ -79,10 +79,6 @@ const clickLogo = () => {
 
 }
 
-.scrolled>.top-logo-inner:hover {
-  background-color: white;
-}
-
 @media screen and (max-height:620px) {
   .top-logo {
     top: 0;
