@@ -102,11 +102,15 @@ onMounted(() => {
       </div>
     </div>
     <div class="house-fotos">
-      <TransitionGroup name="pic-fade" :duration="500">
-        <LimvilWave :key="curImagePath" class="house-foto pic-wave-top" fill="white" />
-        <img :key="curImagePath" :src="curImagePath" lazy class="house-foto" />
-        <LimvilWave :key="curImagePath" class="house-foto pic-wave-bottom" fill="white" />
-      </TransitionGroup>
+      <Transition name="pic-fade" :duration="500" mode="in-out">
+        <LimvilWave :key="`t-${curImage}`" class="house-foto pic-wave-top" fill="white" />
+      </Transition>
+      <Transition name="pic-fade" :duration="500">
+        <img :key="`i-${curImage}`" :src="curImagePath" lazy class="house-foto" />
+      </Transition>
+      <Transition name="pic-fade" :duration="500" mode="in-out">
+        <LimvilWave :key="`b-${curImage}`" class="house-foto pic-wave-bottom" fill="white" />
+      </Transition>
     </div>
   </div>
   <div v-else>
@@ -117,10 +121,15 @@ onMounted(() => {
 .house-fotos {
   display: grid;
   grid-template-areas: 'foto';
+  justify-content: center;
 }
 
 .house-foto {
   grid-area: foto;
+  max-width: 600px;
+  max-height: 600px;
+  width: 100vw;
+  height: 100vw;
 }
 
 .house-page {

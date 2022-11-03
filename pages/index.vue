@@ -22,7 +22,7 @@ onMounted(async () => {
   window.setTimeout(() => {
     console.log('index: scrolling to ', scrollState.value.scrollPos)
     window.scrollTo(0, scrollState.value.scrollPos)
-  }, 500)
+  }, 1200)
 })
 onBeforeUnmount(() => {
   console.log('setting scrollPos to ', window.scrollY)
