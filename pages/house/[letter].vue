@@ -92,7 +92,7 @@ useHead({
     hid: 'og:description',
     name: 'og:description',
     property: 'og:description',
-    content: house?.short || ''
+    content: house?.short.replace(/<[^>]+>/g, '') || ''
   }]
 })
 
