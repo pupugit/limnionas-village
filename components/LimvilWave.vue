@@ -1,11 +1,15 @@
 <template>
   <svg version="1.1" viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path :d="path" fill="rgba(255, 255, 255, var(--trans))" stroke-width="0" />
+    <path :d="path" :fill="fill || 'rgba(255, 255, 255, var(--trans))'" stroke-width="0" />
   </svg>
 </template>
 
 <script setup lang="ts">
 import { rand } from '@vueuse/core';
+
+const props = defineProps<{
+  fill?: string,
+}>()
 
 const pos1 = ref<number>(0)
 const pos2 = ref<number>(0)

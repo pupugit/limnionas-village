@@ -68,6 +68,16 @@ h4~p {
   filter: blur(1rem);
 }
 
+.pic-fade-enter-active,
+.pic-fade-leave-active {
+  transition: all 1s;
+}
+
+.pic-fade-enter-from,
+.pic-fade-leave-to {
+  opacity: 0;
+}
+
 
 .page-enter-active,
 .page-leave-active {

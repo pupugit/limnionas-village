@@ -102,9 +102,11 @@ onMounted(() => {
       </div>
     </div>
     <div class="house-fotos">
-      <Transition name="fade" :duration="500">
+      <TransitionGroup name="pic-fade" :duration="500">
+        <LimvilWave :key="curImagePath" class="house-foto pic-wave-top" fill="white" />
         <img :key="curImagePath" :src="curImagePath" lazy class="house-foto" />
-      </Transition>
+        <LimvilWave :key="curImagePath" class="house-foto pic-wave-bottom" fill="white" />
+      </TransitionGroup>
     </div>
   </div>
   <div v-else>
@@ -128,6 +130,21 @@ onMounted(() => {
   justify-content: stretch;
   align-content: start;
 }
+
+.pic-wave-top {
+  z-index: 50;
+  height: 25px;
+  width: 100vw;
+  transform: rotate(180deg);
+}
+
+.pic-wave-bottom {
+  z-index: 50;
+  height: 25px;
+  width: 100vw;
+  align-self: end;
+}
+
 
 .house-wave {
   margin-top: calc(100vh - 280px);
