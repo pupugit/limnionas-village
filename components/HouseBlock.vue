@@ -37,7 +37,7 @@ const calcBG = computed(() => {
         <h2>{{ house.name }}</h2>
         <img lazy v-if="house.logo" :src="`${config.public.directusBase}/assets/${house.logo}`">
         <p class="house-details">{{ house.people }} {{ $t('people') }}</p>
-        <div class="house-details" v-html="house.short"></div>
+        <div class="house-details" v-html="house.short" />
         <p class="house-details">
           <NuxtLink :to="`/house/${house.letter.toLowerCase()}`">{{ $t('more_informations') }}</NuxtLink>
         </p>

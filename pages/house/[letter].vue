@@ -44,11 +44,16 @@ onMounted(() => {
   if (window && house && !bgStyle.value) {
     bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${window.innerWidth}&height=${window.innerHeight}&format=webp);`
   }
+  window.setTimeout(() => {
+    console.log('house: scrolling to ', 0)
+    window.scrollTo(0, 0)
+  }, 500)
 })
 </script>
 
 <template>
   <div class="house-page" v-if="house">
+    <LimvilWave class="house-wave" />
     <div class="house-content">
       <p style="text-align: center;text-align-last:center;">
         <img lazy v-if="house.logo" :src="`${config.public.directusBase}/assets/${house.logo}`">
@@ -81,6 +86,35 @@ onMounted(() => {
   </div>
 </template>
 <style>
+.house-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  justify-content: center;
+  align-content: start;
+}
+
+.house-wave {
+  margin-top: calc(100vh - 240px);
+}
+
+.house-content {
+  padding: 32px;
+  background-color: rgba(255, 255, 255, var(--trans));
+  border-radius: 32px;
+  max-width: 600px;
+}
+
+@media screen and (max-width: 400px) {
+  .house-content {
+    margin: 0;
+    padding: 16px;
+    background-color: rgba(255, 255, 255, var(--trans));
+    border-radius: 0;
+    max-width: 600px;
+  }
+}
+
 .house-furnishing-and-prices {
   display: grid;
   grid-template-columns: 1fr 1fr;

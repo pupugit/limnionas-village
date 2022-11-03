@@ -45,8 +45,9 @@ h4~p {
 .layout {
   min-height: 100vh;
   min-height: 100dvh;
-  background-position: center;
-  background-size: cover;
+  background-position: top;
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
   display: grid;
   grid-template-areas: 'first';
   align-items: start;
@@ -104,31 +105,5 @@ p:first-child {
 
 p:last-child {
   margin-bottom: 0;
-}
-
-.house-page {
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: grid;
-  justify-content: center;
-  align-content: start;
-}
-
-.house-content {
-  margin: 148px 32px 32px 32px;
-  padding: 32px;
-  background-color: rgba(255, 255, 255, var(--trans));
-  border-radius: 32px;
-  max-width: 600px;
-}
-
-@media screen and (max-width: 400px) {
-  .house-content {
-    margin: 96px 0 0 0;
-    padding: 16px;
-    background-color: rgba(255, 255, 255, var(--trans));
-    border-radius: 0;
-    max-width: 600px;
-  }
 }
 </style>
