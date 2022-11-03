@@ -34,6 +34,20 @@ const localeHouse = computed(() => {
   }
 })
 
+const curImage = ref<number>(-1)
+const nextImage = () => {
+  curImage.value += 1
+  if (curImage.value >= house.fotos.length)
+    curImage.value = 0
+}
+const curImagePath = computed(() => {
+  if (typeof window !== 'undefined' && house && curImage.value !== -1) {
+    return `${config.public.directusBase}/assets/${house.fotos[curImage.value].directus_files_id}?fit=cover&width=${window.innerWidth}&height=${window.innerWidth}&format=webp`
+  } else {
+    return ''
+  }
+
+})
 
 useHead({ title: localeHouse ? localeHouse.value.name : 'Limnionas Village' })
 const bgStyle = useBackgroundImageState()
@@ -41,13 +55,18 @@ if (typeof window !== 'undefined' && house) {
   bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${window.innerWidth}&height=${window.innerHeight}&format=webp);`
 }
 onMounted(() => {
-  if (window && house && !bgStyle.value) {
+  if (house && !bgStyle.value) {
     bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${window.innerWidth}&height=${window.innerHeight}&format=webp);`
+
   }
   window.setTimeout(() => {
     console.log('house: scrolling to ', 0)
     window.scrollTo(0, 0)
+    curImage.value += 1
   }, 500)
+  window.setInterval(() => {
+    nextImage()
+  }, 4000)
 })
 </script>
 
@@ -82,12 +101,26 @@ onMounted(() => {
         </div>
       </div>
     </div>
+    <div class="house-fotos">
+      <Transition name="fade" :duration="500">
+        <img :key="curImagePath" :src="curImagePath" lazy class="house-foto" />
+      </Transition>
+    </div>
   </div>
   <div v-else>
     {{ $t('house_not_found') }}
   </div>
 </template>
 <style>
+.house-fotos {
+  display: grid;
+  grid-template-areas: 'foto';
+}
+
+.house-foto {
+  grid-area: foto;
+}
+
 .house-page {
   min-height: 100vh;
   min-height: 100dvh;

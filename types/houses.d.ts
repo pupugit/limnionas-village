@@ -1,3 +1,5 @@
+import { DirectusFile } from "nuxt-directus/dist/runtime/types"
+
 export type House = {
 
   /** File ID from house */
@@ -28,8 +30,11 @@ export type House = {
 
   /** uid of the assigned big picture */
   big_picture: string | null
+  fotos: LimvilFile[]
 }
-
+export type LimvilFile = {
+  directus_files_id: string
+}
 export type HouseTranslation = {
   id: string
   houses_id: string
