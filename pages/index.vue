@@ -24,21 +24,25 @@ useHead({
     {
       hid: 'og:title',
       name: 'og:title',
+      property: 'og:title',
       content: 'Welcome!',
     },
     {
       hid: 'og:site_name',
       name: 'og:site_name',
+      property: 'og:site_name',
       content: 'Limnionas Village',
     },
     {
       hid: 'og:image',
       name: 'og:image',
+      property: 'og:image',
       content: 'https://limnionas.netlify.app/limvil-picture.png',
     },
     {
       hid: 'og:description',
       name: 'og:description',
+      property: 'og:description',
       content: 'Our small Cycladic style holiday village Limnionas Village is embedded in a spacious old olive grove directly beside the sea.',
     }],
 })

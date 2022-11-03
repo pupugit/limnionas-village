@@ -67,18 +67,22 @@ useHead({
   }, {
     hid: 'og:site_name',
     name: 'og:site_name',
+    property: 'og:site_name',
     content: 'Limnionas Village',
   }, {
     hid: 'og:title',
     name: 'og:title',
+    property: 'og:title',
     content: house?.name || 'Limnionas Village'
   }, {
     hid: 'og:image',
     name: 'og:image',
+    property: 'og:image',
     content: house?.logo ? `${config.public.directusBase}/assets/${house.logo}` : ''
   }, {
     hid: 'og:description',
     name: 'og:description',
+    property: 'og:description',
     content: house?.short || ''
   }]
 })
