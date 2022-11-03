@@ -12,6 +12,7 @@ export type House = {
 
   /** Asset ID for the logo */
   logo: string
+  logo_raster: string
   price_night: number
   color: string
   color2: string

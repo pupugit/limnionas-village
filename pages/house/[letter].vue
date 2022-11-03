@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-
-await initHouses()
+const route = useRoute()
+const letter: string = route.params.letter.toString().toLowerCase()
+await initHouses(letter)
 await initPrices()
 const config = useRuntimeConfig()
 const houses = useHouses()
 const prices = usePrices()
-const route = useRoute()
 const i18n = useI18n()
 const now = new Date()
 const nowFormat = now.toISOString().slice(5, 10)
@@ -15,7 +15,6 @@ const activeSeason = computed(() => {
     return s.start.slice(5, 10).localeCompare(nowFormat) <= 0 && s.end.slice(5, 10).localeCompare(nowFormat) >= 0
   })
 })
-const letter: string = route.params.letter.toString()
 const house = houses.value.find(h => h.letter.toLowerCase() === letter.toLowerCase())
 const localeHouse = computed(() => {
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
@@ -78,7 +77,7 @@ useHead({
     hid: 'og:image',
     name: 'og:image',
     property: 'og:image',
-    content: house?.logo ? `${config.public.directusBase}/assets/${house.logo}` : 'https://limnionas.netlify.app/limvil-picture.png'
+    content: house?.logo_raster ? `${config.public.directusBase}/assets/${house.logo_raster}` : 'https://limnionas.netlify.app/limvil-picture.png'
   }, {
     hid: 'og:image:height',
     name: 'og:image:height',
