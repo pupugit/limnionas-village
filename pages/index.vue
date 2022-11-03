@@ -87,17 +87,13 @@ const localeArticles = computed(() => {
 <style lang="scss">
 .grid-index {
   display: grid;
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  scrollbar-width: thin;
-  overflow-x: clip;
-  height: 100vh;
-  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
 
   &>div {
     scroll-snap-align: start;
-    height: 100vh;
-    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
     display: grid;
     place-content: center;
   }

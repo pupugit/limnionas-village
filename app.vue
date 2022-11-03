@@ -8,6 +8,13 @@
 </script>
 
 <style>
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--col-main);
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
 body {
   --col-main: #363c90;
   --trans: .85;
@@ -15,13 +22,8 @@ body {
   color: var(--col-main);
   border-color: var(--col-main);
   margin: 0;
-  scrollbar-width: thin;
-  overflow: hidden;
-  scrollbar-color: var(--col-main);
-  height: 100dvh;
-  max-height: 100dvh;
-  height: 100vh;
-  max-height: 100vh;
+  min-height: 100vh;
+  min-height: 100dvh;
   background-color: white;
 }
 
@@ -97,9 +99,8 @@ p:last-child {
 }
 
 .house-page {
-  overflow-y: scroll;
-  height: 100dvh;
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100dvh;
   display: grid;
   justify-content: center;
   align-content: start;
