@@ -78,7 +78,17 @@ useHead({
     hid: 'og:image',
     name: 'og:image',
     property: 'og:image',
-    content: house?.logo ? `${config.public.directusBase}/assets/${house.logo}` : ''
+    content: house?.logo ? `${config.public.directusBase}/assets/${house.logo}` : 'https://limnionas.netlify.app/limvil-picture.png'
+  }, {
+    hid: 'og:image:height',
+    name: 'og:image:height',
+    property: 'og:image:height',
+    content: '350',
+  }, {
+    hid: 'og:image:width',
+    name: 'og:image:width',
+    property: 'og:image:width',
+    content: '350',
   }, {
     hid: 'og:description',
     name: 'og:description',
