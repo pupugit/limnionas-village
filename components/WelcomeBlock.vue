@@ -111,7 +111,6 @@ const calcBG3 = computed(() => {
 }
 
 .welcome-back {
-  padding-top: 92px;
   width: 100vw;
   width: 100dvw;
   height: 100vh;

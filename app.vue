@@ -42,10 +42,17 @@ h4~p {
 }
 
 .layout {
-  height: 100dvh;
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100dvh;
   background-position: center;
   background-size: cover;
+  display: grid;
+  grid-template-areas: 'first';
+  align-items: start;
+}
+
+.layout>div {
+  grid-area: first;
 }
 
 .page-enter-active,
@@ -107,7 +114,7 @@ p:last-child {
 }
 
 .house-content {
-  margin: 128px 32px 32px 32px;
+  margin: 148px 32px 32px 32px;
   padding: 32px;
   background-color: rgba(255, 255, 255, var(--trans));
   border-radius: 32px;

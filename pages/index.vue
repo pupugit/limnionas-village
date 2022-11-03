@@ -1,5 +1,5 @@
 <template>
-  <div id="grid-index" class="grid-index" @scroll="onScroll">
+  <div id="grid-index" class="grid-index">
     <WelcomeBlock />
     <HouseBlock v-for="house in localeHouses" :house="house" :key="house.id" />
     <ArticleBlock v-for="article in localeArticles" :article="article" :key="article.id" />
@@ -17,20 +17,17 @@ await initArticles()
 const houses = useHousesBasic()
 const articles = useArticles()
 const scrollState = useScrollState()
-const onScroll = (e) => {
-  scrollState.value.scrollPos = e.target.scrollTop
-  if (e.target.scrollTop > 200) scrollState.value.isScrolled = true
-  else scrollState.value.isScrolled = false
-}
+
 onMounted(async () => {
-  console.log('mounted')
   window.setTimeout(() => {
-    const gEl = document.getElementById('grid-index')
-    console.log(gEl, scrollState.value.scrollPos)
-    if (gEl) gEl.scrollTo(0, scrollState.value.scrollPos)
-  }, 450)
+    console.log('scrolling to ', scrollState.value.scrollPos)
+    window.scrollTo(0, scrollState.value.scrollPos)
+  }, 500)
 })
-onBeforeUnmount(() => { scrollState.value.isScrolled = false })
+onBeforeUnmount(() => {
+  console.log('setting scrollPos to ', window.scrollY)
+  scrollState.value.scrollPos = window.scrollY
+})
 
 const i18n = useI18n()
 const localeHouses = computed(() => {

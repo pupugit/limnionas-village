@@ -10,8 +10,8 @@
 </template>
 <script setup>
 import { useI18n } from 'vue-i18n'
-const miniLogo = computed(() => isScrolled.value || route.path !== '/')
-const isScrolled = useScrollState()
+const { y } = useWindowScroll()
+const miniLogo = computed(() => y.value > 200 || route.path !== '/')
 const router = useRouter()
 const route = useRoute()
 const showMenu = ref(false)
@@ -23,15 +23,13 @@ const toggleLocales = () => {
 
 const clickLogo = () => {
   if (router.currentRoute.value.path === '/') {
-    const el = document.getElementById('grid-index')
-    if (el) {
-      if (showMenu.value === true) {
-        showMenu.value = false
-      } else if (el.scrollTop === 0) {
-        showMenu.value = true
-      } else {
-        el.scrollTo({ top: 0, behavior: 'smooth' })
-      }
+    // const el = document.getElementById('grid-index')
+    if (showMenu.value === true) {
+      showMenu.value = false
+    } else if (window.scrollY === 0) {
+      showMenu.value = true
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }
   else router.push('/')
@@ -51,7 +49,7 @@ const clickLogo = () => {
 
 .top-logo {
   width: 100vw;
-  position: absolute;
+  position: sticky;
   z-index: 200;
   display: grid;
   place-items: center;

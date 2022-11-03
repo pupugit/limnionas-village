@@ -1,13 +1,21 @@
 <template>
   <div class="layout" :style="bgStyle">
-    <LimvilNav />
     <slot />
+    <LimvilNav />
   </div>
 </template>
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 const { locale } = useI18n()
+// const scrollState = useScrollState()
+// const wScroll = useWindowScroll()
+// const onScroll = (e) => {
+//   scrollState.value.scrollPos = e.target.scrollTop
+//   if (e.target.scrollTop > 200) scrollState.value.isScrolled = true
+//   else scrollState.value.isScrolled = false
+// }
+
 useHead({
   htmlAttrs: {
     lang: 'en'
