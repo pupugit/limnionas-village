@@ -39,6 +39,10 @@ const nextImage = () => {
   curImage.value += 1
   if (curImage.value >= house.fotos.length)
     curImage.value = 0
+  const img1 = new Image()
+  let nextIdx = curImage.value + 1
+  if (nextIdx >= house.fotos.length) nextIdx = 0
+  img1.src = `${config.public.directusBase}/assets/${house.fotos[nextIdx].directus_files_id}?fit=cover&width=${window.innerWidth}&height=${window.innerWidth}&format=webp`
 }
 const curImagePath = computed(() => {
   if (typeof window !== 'undefined' && house && curImage.value !== -1) {
@@ -62,7 +66,7 @@ onMounted(() => {
   window.setTimeout(() => {
     console.log('house: scrolling to ', 0)
     window.scrollTo(0, 0)
-    curImage.value += 1
+    nextImage()
   }, 500)
   window.setInterval(() => {
     nextImage()
