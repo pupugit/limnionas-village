@@ -1,17 +1,20 @@
 <template>
-  <div class="welcome-back first" :style="calcPic">
+  <div class="welcome-first" :style="calcPic">
   </div>
-  <div class="welcome-back" :style="calcBG">
+  <div class="welcome-other" :style="calcBG">
+    <LimvilWave class="welcome-wave" />
     <div class="welcome-info">
       <div class="welcome-text" v-html="localWelcome" />
     </div>
   </div>
-  <div class="welcome-back" :style="calcBG2">
+  <div class="welcome-other" :style="calcBG2">
+    <LimvilWave class="welcome-wave" />
     <div class="welcome-info">
       <div class="welcome-text" v-html="localWelcome2" />
     </div>
   </div>
-  <div class="welcome-back" :style="calcBG3">
+  <div class="welcome-other" :style="calcBG3">
+    <LimvilWave class="welcome-wave" />
     <div class="welcome-info">
       <div class="welcome-text" v-html="localWelcome3" />
     </div>
@@ -84,6 +87,10 @@ const calcPic = computed(() => {
   if (!specials.value.welcome_pic || width.value == 0) return ''
   return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_pic}?fit=inside&width=${width.value}&height=${height.value}&withoutEnlargement&format=webp);`
 })
+const calcBGSrc = computed(() => {
+  if (!specials.value.welcome_back || width.value == 0) return ''
+  return `${config.public.directusBase}/assets/${specials.value.welcome_back}?fit=cover&width=${width.value}&height=${height.value}&format=webp`
+})
 const calcBG = computed(() => {
   if (!specials.value.welcome_back || width.value == 0) return ''
   return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_back}?fit=cover&width=${width.value}&height=${height.value}&format=webp);`
@@ -101,16 +108,25 @@ const calcBG3 = computed(() => {
 </script>
 
 <style>
-.welcome-pic {
-  height: 25vh;
-  height: 25dvh;
-  width: 50vw;
-  width: 50dvw;
+.grid-index div.welcome-other {
+  width: 100vw;
+  width: 100dvw;
+  height: 100vh;
+  height: 100dvh;
+  display: grid;
   background-position: center;
+  background-size: contain;
   background-repeat: no-repeat;
+  transition: 0.5s opacity;
+  box-sizing: border-box;
+  grid-template-rows: 1fr auto;
+  justify-content: stretch;
+  align-content: end;
+  grid-template-areas: 'top''bottom';
+
 }
 
-.welcome-back {
+.welcome-first {
   width: 100vw;
   width: 100dvw;
   height: 100vh;
@@ -119,31 +135,35 @@ const calcBG3 = computed(() => {
   place-items: center;
   place-content: center;
   background-position: center;
-  background-size: contain;
   background-repeat: no-repeat;
   transition: 0.5s opacity;
   box-sizing: border-box;
-}
-
-.welcome-back.first {
   background-position-y: bottom 96px;
   background-size: auto calc(100vh - 256px);
+}
+
+.welcome-pic {
+  width: 100%;
+  height: 100%;
+  grid-area: top;
+}
+
+.welcome-wave {
+  grid-area: top;
+  place-self: end;
 }
 
 .welcome-text {
   text-align: justify;
   text-align-last: left;
-  padding: 32px;
+  padding: 0 24px 24px 24px;
 }
 
 .welcome-info {
+  grid-area: bottom;
   text-align: center;
-  background-position: center;
-  background-size: cover;
   background-color: rgba(255, 255, 255, var(--trans));
-  border-radius: 16px;
   transition: all 0.5s ease-out;
-  width: min(600px, 85vw);
   display: grid;
   place-content: center;
 }
@@ -162,9 +182,6 @@ const calcBG3 = computed(() => {
   }
 }
 
-.welcome-info:hover {
-  background-color: white;
-}
 
 /* @media screen and (max-width: 400px) {
   .welcome-info {

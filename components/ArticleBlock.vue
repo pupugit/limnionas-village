@@ -48,6 +48,7 @@ onMounted(() => {
   background: radial-gradient(ellipse at center, rgba(255, 255, 255, var(--trans)) 0%, rgba(255, 255, 255, var(--trans)) 30%, transparent 30%);
   background-size: 30px 30px;
   background-repeat: repeat-y;
+  min-height: 96px;
   background-position: center 15px;
 }
 
