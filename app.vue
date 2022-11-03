@@ -12,7 +12,8 @@ html {
   scrollbar-width: thin;
   scrollbar-color: var(--col-main);
   scroll-snap-type: y mandatory;
-  overflow-y: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 body {
@@ -85,12 +86,12 @@ h2 {
   text-align: center;
 }
 
-.svg-glow {
+/* .svg-glow {
   stroke: lime;
   stroke-width: .7;
   fill: none;
   opacity: .5;
-}
+} */
 
 p {
   text-align: justify;

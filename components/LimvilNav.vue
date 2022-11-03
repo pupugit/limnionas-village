@@ -1,7 +1,7 @@
 <template>
   <div :class="`top-logo${miniLogo ? ' scrolled' : ''}`">
     <LimvilLogo class="top-logo-inner click-it" @click="clickLogo" />
-    <div :class="`top-menu${showMenu ? ' show-it':''}`">
+    <div :class="`top-menu${showMenu ? ' show-it' : ''}`">
       <a :title="$t('button.toggle_langs')" @click="toggleLocales()">
         <Icon name="carbon:language" />{{ locale }}
       </a>
@@ -56,7 +56,7 @@ const clickLogo = () => {
   box-sizing: border-box;
   transition: all .5s;
   top: 0;
-  filter: drop-shadow(1px 1px 2px white) drop-shadow(-1px 1px 2px white) drop-shadow(1px -1px 2px white) drop-shadow(-1px -1px 2px white);
+  /* filter: drop-shadow(1px 1px 2px white) drop-shadow(-1px 1px 2px white) drop-shadow(1px -1px 2px white) drop-shadow(-1px -1px 2px white); */
 }
 
 .top-logo-inner {
