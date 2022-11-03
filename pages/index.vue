@@ -8,7 +8,40 @@
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-useHead({ title: 'Limnionas Village' })
+useHead({
+  title: 'Limnionas Village',
+  link: [{
+    rel: 'icon',
+    href: 'https://limnionas.netlify.app/favicon.ico',
+    type: 'image/x-icon'
+  }],
+  meta:
+    [{
+      hid: 'description',
+      name: 'description',
+      content: 'Our small Cycladic style holiday village Limnionas Village is embedded in a spacious old olive grove directly beside the sea.',
+    },
+    {
+      hid: 'og:title',
+      name: 'og:title',
+      content: 'Welcome!',
+    },
+    {
+      hid: 'og:site_name',
+      name: 'og:site_name',
+      content: 'Limnionas Village',
+    },
+    {
+      hid: 'og:image',
+      name: 'og:image',
+      content: 'https://limnionas.netlify.app/limvil-picture.png',
+    },
+    {
+      hid: 'og:description',
+      name: 'og:description',
+      content: 'Our small Cycladic style holiday village Limnionas Village is embedded in a spacious old olive grove directly beside the sea.',
+    }],
+})
 const bgStyle = useBackgroundImageState()
 bgStyle.value = ''
 await initHousesBasic()

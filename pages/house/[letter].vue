@@ -53,7 +53,23 @@ const curImagePath = computed(() => {
 
 })
 
-useHead({ title: localeHouse ? localeHouse.value.name : 'Limnionas Village' })
+useHead({
+  title: localeHouse?.value?.name || house?.name || 'Limnionas Village',
+  meta: [{
+    name: 'description',
+    content: house?.short || ''
+  }, {
+    name: 'og:title',
+    content: house?.name || 'Limnionas Village'
+  }, {
+    name: 'og:image',
+    content: house?.logo ? `${config.public.directusBase}/assets/${house.logo}` : ''
+  }, {
+    name: 'og:description',
+    content: house?.short || ''
+  }]
+})
+
 const bgStyle = useBackgroundImageState()
 if (typeof window !== 'undefined' && house) {
   bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${window.innerWidth}&height=${window.innerHeight}&format=webp);`
