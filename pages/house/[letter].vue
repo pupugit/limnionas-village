@@ -55,16 +55,29 @@ const curImagePath = computed(() => {
 
 useHead({
   title: localeHouse?.value?.name || house?.name || 'Limnionas Village',
+  link: [{
+    rel: 'icon',
+    href: 'https://limnionas.netlify.app/favicon.ico',
+    type: 'image/x-icon'
+  }],
   meta: [{
     name: 'description',
     content: house?.short || ''
+
   }, {
+    hid: 'og:site_name',
+    name: 'og:site_name',
+    content: 'Limnionas Village',
+  }, {
+    hid: 'og:title',
     name: 'og:title',
     content: house?.name || 'Limnionas Village'
   }, {
+    hid: 'og:image',
     name: 'og:image',
     content: house?.logo ? `${config.public.directusBase}/assets/${house.logo}` : ''
   }, {
+    hid: 'og:description',
     name: 'og:description',
     content: house?.short || ''
   }]
