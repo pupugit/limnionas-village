@@ -20,7 +20,7 @@
   transition: all 1s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  animation-duration: 10s;
+  animation-duration: 20s;
 }
 
 .path-0 {
