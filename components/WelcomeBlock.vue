@@ -1,19 +1,19 @@
 <template>
   <div class="welcome-first" :style="calcPic">
   </div>
-  <div class="welcome-other" :style="calcBG">
+  <div :class="`welcome-other${zenMode ? ' zen-mode' : ''}`" :style="calcBG" @click="zenMode = !zenMode">
     <LimvilAnimWave class="welcome-wave" fill="#fff" />
     <div class="welcome-info">
       <div class="welcome-text" v-html="localWelcome" />
     </div>
   </div>
-  <div class="welcome-other" :style="calcBG2">
+  <div :class="`welcome-other${zenMode ? ' zen-mode' : ''}`" :style="calcBG2" @click="zenMode = !zenMode">
     <LimvilAnimWave class="welcome-wave" fill="#fff" />
     <div class="welcome-info">
       <div class="welcome-text" v-html="localWelcome2" />
     </div>
   </div>
-  <div class="welcome-other" :style="calcBG3">
+  <div :class="`welcome-other${zenMode ? ' zen-mode' : ''}`" :style="calcBG3" @click="zenMode = !zenMode">
     <LimvilAnimWave class="welcome-wave" fill="#fff" />
     <div class="welcome-info">
       <div class="welcome-text" v-html="localWelcome3" />
@@ -31,6 +31,8 @@ const width = ref(0)
 const height = ref(1024)
 const loaded = ref(false)
 const i18n = useI18n()
+const zenMode = useZenMode()
+
 const localWelcome = computed(() => {
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
     const found = texts.value.find(t => t.id === 'welcome')
@@ -124,6 +126,12 @@ const calcBG3 = computed(() => {
   align-content: end;
   grid-template-areas: 'top' 'bottom';
 
+}
+
+.welcome-other.zen-mode>div,
+.welcome-other.zen-mode>svg {
+  visibility: hidden;
+  opacity: 0;
 }
 
 .welcome-first {

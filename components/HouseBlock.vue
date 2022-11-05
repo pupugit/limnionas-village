@@ -10,6 +10,8 @@ const height = ref(1024)
 
 const houseBlock = ref(null)
 const isBlockVisible = ref(false)
+const zenMode = useZenMode()
+
 useIntersectionObserver(
   houseBlock,
   ([{ isIntersecting }]) => {
@@ -31,7 +33,7 @@ const calcBG = computed(() => {
 
 <template>
   <div class="house-box">
-    <div class="house-bg" :style="calcBG">
+    <div :class="`house-bg${zenMode ? ' zen-mode' : ''}`" :style="calcBG" @click="zenMode = !zenMode">
       <div ref="houseBlock" :class="`house-info${isBlockVisible ? ' clicked' : ''}`"
         @click="$router.push(`/house/${house.letter.toLowerCase()}`)">
         <h2>{{ house.name }}</h2>
@@ -62,6 +64,11 @@ const calcBG = computed(() => {
   background-size: cover;
   padding-top: 72px;
   box-sizing: border-box;
+}
+
+.house-bg.zen-mode>.house-info {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .house-info {

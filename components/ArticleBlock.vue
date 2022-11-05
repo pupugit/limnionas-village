@@ -7,6 +7,7 @@ const props = defineProps<{
 }>()
 const width = ref(0)
 const height = ref(1024)
+const zenMode = useZenMode()
 
 onMounted(() => {
   if (window) {
@@ -18,7 +19,7 @@ onMounted(() => {
 
 <template>
   <div v-for="(s, idx) in article.sections" class="article-block" :key="s.id">
-    <div v-if="width" class="article-section-bg"
+    <div v-if="width" :class="`article-section-bg${zenMode ? ' zen-mode' : ''}`" @click="zenMode = !zenMode"
       :style="`background-image: url(${config.public.directusBase}/assets/${s.image_back}?fit=cover&width=${width}&height=${height}&format=webp)`">
       <div v-if="idx > 0" class="article-section-top"></div>
       <div class="article-section-info">
@@ -40,7 +41,12 @@ onMounted(() => {
   background-size: cover;
   box-sizing: border-box;
   grid-template-rows: 1fr auto 1fr;
-  grid-template-areas: "top""content""bottom";
+  grid-template-areas: "top" "content" "bottom";
+}
+
+.article-section-bg.zen-mode>div {
+  visibility: hidden;
+  opacity: 0;
 }
 
 .article-section-top {
