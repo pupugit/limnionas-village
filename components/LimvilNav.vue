@@ -44,7 +44,7 @@ const clickLogo = () => {
 }
 
 .top-menu.show-it {
-  top: 64px;
+  top: 128px;
 }
 
 .top-logo {

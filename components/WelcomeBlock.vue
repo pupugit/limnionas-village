@@ -2,19 +2,19 @@
   <div class="welcome-first" :style="calcPic">
   </div>
   <div class="welcome-other" :style="calcBG">
-    <LimvilWave class="welcome-wave" />
+    <LimvilAnimWave class="welcome-wave" fill="#fff" />
     <div class="welcome-info">
       <div class="welcome-text" v-html="localWelcome" />
     </div>
   </div>
   <div class="welcome-other" :style="calcBG2">
-    <LimvilWave class="welcome-wave" />
+    <LimvilAnimWave class="welcome-wave" fill="#fff" />
     <div class="welcome-info">
       <div class="welcome-text" v-html="localWelcome2" />
     </div>
   </div>
   <div class="welcome-other" :style="calcBG3">
-    <LimvilWave class="welcome-wave" />
+    <LimvilAnimWave class="welcome-wave" fill="#fff" />
     <div class="welcome-info">
       <div class="welcome-text" v-html="localWelcome3" />
     </div>
@@ -122,7 +122,7 @@ const calcBG3 = computed(() => {
   grid-template-rows: 1fr auto;
   justify-content: stretch;
   align-content: end;
-  grid-template-areas: 'top''bottom';
+  grid-template-areas: 'top' 'bottom';
 
 }
 
@@ -164,7 +164,7 @@ const calcBG3 = computed(() => {
 .welcome-info {
   grid-area: bottom;
   text-align: center;
-  background-color: rgba(255, 255, 255, var(--trans));
+  background-color: white;
   transition: all 0.5s ease-out;
   display: grid;
   place-content: center;

@@ -18,11 +18,9 @@ const random = (length = 16) => {
   return str
 }
 if (!props.suid) uid.value = random()
-console.log('uid', uid.value)
 const drawIt = gsap.timeline({ repeat: 0 })
 onMounted(async () => {
   const { DrawSVGPlugin } = await import('gsap/dist/DrawSVGPlugin')
-  console.log('uid', uid.value)
   gsap.registerPlugin(DrawSVGPlugin)
   drawIt.from(`#${uid.value}-p01`, { drawSVG: 0, duration: 0.5 })
   drawIt.from(`#${uid.value}-d02`, { opacity: 0, ease: 'power2.in', duration: 0.5 })
