@@ -1,6 +1,6 @@
 <template>
   <div :class="`top-logo${miniLogo ? ' scrolled' : ''}`">
-    <LimvilLogo class="top-logo-inner click-it" @click="clickLogo" />
+    <LimvilLogo class="top-logo-inner click-it" @click="clickLogo" suid="limvil-logo" />
     <div :class="`top-menu${showMenu ? ' show-it' : ''}`">
       <a :title="$t('button.toggle_langs')" @click="toggleLocales()">
         <Icon name="carbon:language" />{{ locale }}
