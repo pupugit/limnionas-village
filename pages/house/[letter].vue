@@ -15,8 +15,9 @@ const activeSeason = computed(() => {
     return s.start.slice(5, 10).localeCompare(nowFormat) <= 0 && s.end.slice(5, 10).localeCompare(nowFormat) >= 0
   })
 })
-const house = houses.value.find(h => h.letter.toLowerCase() === letter.toLowerCase())
+const house = houses.value.find(h => h.letter.toLowerCase() === letter.toLowerCase()) || null
 const localeHouse = computed(() => {
+  if (!house) return null
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
     const ret = Object.assign({}, house)
     ret.translations = []
@@ -35,6 +36,7 @@ const localeHouse = computed(() => {
 
 const curImage = ref<number>(-1)
 const nextImage = () => {
+  if (!house) return
   curImage.value += 1
   if (curImage.value >= house.fotos.length)
     curImage.value = 0
@@ -103,7 +105,6 @@ if (typeof window !== 'undefined' && house) {
 onMounted(() => {
   if (house && !bgStyle.value) {
     bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${window.innerWidth}&height=${window.innerHeight}&format=webp);`
-
   }
   window.setTimeout(() => {
     console.log('house: scrolling to ', 0)
@@ -117,7 +118,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="house-page" v-if="house">
+  <div class="house-page" v-if="house && localeHouse">
     <LimvilWave class="house-wave" />
     <div class="house-content">
       <p style="text-align: center;text-align-last:center;">
