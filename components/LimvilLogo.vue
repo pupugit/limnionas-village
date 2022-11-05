@@ -5,6 +5,7 @@ const props = defineProps<{
   loading?: boolean,
   suid?: string
 }>()
+const logoClass = ref('limvil-logo')
 const uid = ref('')
 if (props.suid) uid.value = props.suid
 const random = (length = 16) => {
@@ -47,12 +48,13 @@ onMounted(async () => {
   drawIt.from(`#${uid.value}-p161`, { drawSVG: 0, duration: 0.5 })
   drawIt.from(`#${uid.value}-p162`, { drawSVG: 0, duration: 0.5 })
   drawIt.timeScale(1.5)
+  logoClass.value = 'limvil-logo show'
 })
 
 </script>
 
 <template>
-  <svg :id="`${uid}-svgLogo`" version="1.0" viewBox="0 0 346 59" xmlns="http://www.w3.org/2000/svg">
+  <svg :id="`${uid}-svgLogo`" version="1.0" viewBox="0 0 346 59" xmlns="http://www.w3.org/2000/svg" :class="logoClass">
     <g :id="`${uid}-clips`" fill="#363c90">
       <clipPath :id="`${uid}-c01`">
         <path :id="`${uid}-l01`"
@@ -163,3 +165,13 @@ onMounted(async () => {
     </g>
   </svg>
 </template>
+
+<style>
+.limvil-logo {
+  opacity: 0;
+}
+
+.limvil-logo.show {
+  opacity: 1;
+}
+</style>
