@@ -108,8 +108,6 @@ onMounted(() => {
   }
   window.setTimeout(() => {
     window.scrollTo(0, 0)
-  }, 100)
-  window.setTimeout(() => {
     nextImage()
   }, 500)
   window.setInterval(() => {
