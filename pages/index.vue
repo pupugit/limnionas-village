@@ -67,7 +67,6 @@ onMounted(async () => {
 onBeforeUnmount(() => {
   console.log('setting scrollPos to ', window.scrollY)
   scrollState.value.scrollPos = window.scrollY
-  window.scrollTo(0, 0)
 })
 
 const i18n = useI18n()
