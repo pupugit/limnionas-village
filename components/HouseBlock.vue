@@ -43,7 +43,8 @@ const calcBG = computed(() => {
       <div ref="houseBlock" :class="`house-info${isBlockVisible ? ' clicked' : ''}`"
         @click="$router.push(`/house/${house.letter.toLowerCase()}`)">
         <h2>{{ house.name }}</h2>
-        <img loading="lazy" v-if="house.logo" :src="`${config.public.directusBase}/assets/${house.logo}`">
+        <img loading="lazy" v-if="house.logo" :src="`${config.public.directusBase}/assets/${house.logo}`"
+          :alt="`Logo {{ house.name }}`">
         <p class="house-details">{{ house.people }} {{ $t('people') }}</p>
         <div class="house-details" v-html="house.short" />
         <p class="house-details">
