@@ -122,7 +122,7 @@ onMounted(() => {
     <LimvilWave class="house-wave" />
     <div class="house-content">
       <p style="text-align: center;text-align-last:center;">
-        <img lazy v-if="house.logo" :src="`${config.public.directusBase}/assets/${house.logo}`">
+        <img loading="lazy" v-if="house.logo" :src="`${config.public.directusBase}/assets/${house.logo}`">
       </p>
       <h2>{{ localeHouse.name }}</h2>
       <div class="house-infos">
