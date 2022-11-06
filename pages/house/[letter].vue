@@ -107,8 +107,6 @@ onMounted(() => {
     bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${window.innerWidth}&height=${window.innerHeight}&format=webp);`
   }
   window.setTimeout(() => {
-    console.log('house: scrolling to ', 0)
-    window.scrollTo(0, 0)
     nextImage()
   }, 500)
   window.setInterval(() => {
