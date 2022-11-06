@@ -20,8 +20,10 @@ useIntersectionObserver(
 )
 onMounted(() => {
   if (window) {
-    width.value = window.innerWidth
-    height.value = window.innerHeight
+    window.setTimeout(() => {
+      width.value = window.innerWidth
+      height.value = window.innerHeight
+    }, 100)
   }
 })
 const calcBG = computed(() => {

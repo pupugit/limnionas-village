@@ -1,10 +1,8 @@
 <template>
   <div id="grid-index" class="grid-index">
     <WelcomeBlock />
-    <template v-if="isMounted">
-      <HouseBlock v-for="house in localeHouses" :house="house" :key="house.id" />
-      <ArticleBlock v-for="article in localeArticles" :article="article" :key="article.id" />
-    </template>
+    <HouseBlock v-for="house in localeHouses" :house="house" :key="house.id" />
+    <ArticleBlock v-for="article in localeArticles" :article="article" :key="article.id" />
   </div>
 </template>
 
@@ -50,7 +48,7 @@ useHead({
 })
 const bgStyle = useBackgroundImageState()
 bgStyle.value = ''
-const isMounted = ref(false)
+
 await initHousesBasic()
 await initTexts()
 await initArticles()
@@ -59,7 +57,6 @@ const articles = useArticles()
 const scrollState = useScrollState()
 
 onMounted(async () => {
-  isMounted.value = true
   window.setTimeout(() => {
     console.log('index: scrolling to ', scrollState.value.scrollPos)
     window.scrollTo(0, scrollState.value.scrollPos)
