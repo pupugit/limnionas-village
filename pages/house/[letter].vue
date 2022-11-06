@@ -2,7 +2,7 @@
 import { useI18n } from 'vue-i18n'
 const route = useRoute()
 const letter: string = route.params.letter.toString().toLowerCase()
-await initHouses(letter)
+await initHouses(letter.toUpperCase())
 await initPrices()
 const config = useRuntimeConfig()
 const houses = useHouses()
