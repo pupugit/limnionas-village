@@ -15,6 +15,9 @@
         <Icon name="clarity:book-solid" />
       </div>
       <div>
+        <Icon name="clarity:image-gallery-solid" />
+      </div>
+      <div>
         <Icon name="ic:round-contact-phone" />
       </div>
       <div>
