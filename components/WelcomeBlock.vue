@@ -1,19 +1,19 @@
 <template>
   <div class="welcome-first" :style="calcPic">
   </div>
-  <div :class="`welcome-other${zenMode ? ' zen-mode' : ''}`" :style="calcBG" @click="zenMode = !zenMode">
+  <div :class="`welcome-other${zenMode ? ' zen-mode' : ''}`" :style="calcBG" @click.self="zenMode = !zenMode">
     <LimvilAnimWave class="welcome-wave" fill="#fff" />
     <div class="welcome-info">
       <div class="welcome-text" v-html="localWelcome" />
     </div>
   </div>
-  <div :class="`welcome-other${zenMode ? ' zen-mode' : ''}`" :style="calcBG2" @click="zenMode = !zenMode">
+  <div :class="`welcome-other${zenMode ? ' zen-mode' : ''}`" :style="calcBG2" @click.self="zenMode = !zenMode">
     <LimvilAnimWave class="welcome-wave" fill="#fff" />
     <div class="welcome-info">
       <div class="welcome-text" v-html="localWelcome2" />
     </div>
   </div>
-  <div :class="`welcome-other${zenMode ? ' zen-mode' : ''}`" :style="calcBG3" @click="zenMode = !zenMode">
+  <div :class="`welcome-other${zenMode ? ' zen-mode' : ''}`" :style="calcBG3" @click.self="zenMode = !zenMode">
     <LimvilAnimWave class="welcome-wave" fill="#fff" />
     <div class="welcome-info">
       <div class="welcome-text" v-html="localWelcome3" />

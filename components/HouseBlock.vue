@@ -23,7 +23,7 @@ onMounted(() => {
     window.setTimeout(() => {
       width.value = window.innerWidth
       height.value = window.innerHeight
-    }, 100)
+    }, 500)
   }
 })
 const calcBG = computed(() => {
@@ -35,7 +35,7 @@ const calcBG = computed(() => {
 
 <template>
   <div class="house-box">
-    <div :class="`house-bg${zenMode ? ' zen-mode' : ''}`" :style="calcBG" @click="zenMode = !zenMode">
+    <div :class="`house-bg${zenMode ? ' zen-mode' : ''}`" :style="calcBG" @click.self="zenMode = !zenMode">
       <div ref="houseBlock" :class="`house-info${isBlockVisible ? ' clicked' : ''}`"
         @click="$router.push(`/house/${house.letter.toLowerCase()}`)">
         <h2>{{ house.name }}</h2>
