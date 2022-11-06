@@ -57,10 +57,12 @@ const articles = useArticles()
 const scrollState = useScrollState()
 
 onMounted(async () => {
-  window.setTimeout(() => {
-    console.log('index: scrolling to ', scrollState.value.scrollPos)
-    window.scrollTo(0, scrollState.value.scrollPos)
-  }, 1200)
+  if (scrollState.value.scrollPos > 0) {
+    window.setTimeout(() => {
+      console.log('index: scrolling to ', scrollState.value.scrollPos)
+      window.scrollTo(0, scrollState.value.scrollPos)
+    }, 1200)
+  }
 })
 onBeforeUnmount(() => {
   console.log('setting scrollPos to ', window.scrollY)
