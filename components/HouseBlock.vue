@@ -39,7 +39,7 @@ const calcBG = computed(() => {
 <template>
   <div class="house-box">
     <div :class="`house-bg${zenMode ? ' zen-mode' : ''}`">
-      <img :src="calcBGSrc" lazy class="house-img" @click.self="zenMode = !zenMode">
+      <img :src="calcBGSrc" loading="lazy" class="house-img" @click.self="zenMode = !zenMode">
       <div ref="houseBlock" :class="`house-info${isBlockVisible ? ' clicked' : ''}`"
         @click="$router.push(`/house/${house.letter.toLowerCase()}`)">
         <h2>{{ house.name }}</h2>
