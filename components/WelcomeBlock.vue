@@ -176,7 +176,7 @@ const calcBG3 = computed(() => {
   transition: all 0.5s ease-out;
   display: grid;
   place-content: center;
-  margin-top: -0.5px;
+  margin-top: -1px;
 }
 
 .welcome-info.big {

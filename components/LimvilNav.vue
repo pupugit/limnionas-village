@@ -2,9 +2,25 @@
   <div :class="`top-logo${miniLogo ? ' scrolled' : ''}${zenMode ? ' zen-mode' : ''}`">
     <LimvilLogo class="top-logo-inner click-it" @click="clickLogo" suid="limvil-logo" />
     <div :class="`top-menu${showMenu ? ' show-it' : ''}`">
-      <a :title="$t('button.toggle_langs')" @click="toggleLocales()">
-        <Icon name="carbon:language" />{{ locale }}
-      </a>
+      <div v-if="y > 200">
+        <Icon name="mdi:arrow-up-circle" @click="goTop" />
+      </div>
+      <div>
+        <Icon name="clarity:house-solid" />
+      </div>
+      <div>
+        <Icon name="dashicons:welcome-write-blog" />
+      </div>
+      <div>
+        <Icon name="clarity:book-solid" />
+      </div>
+      <div>
+        <Icon name="ic:round-contact-phone" />
+      </div>
+      <div>
+        <Icon name="carbon:language" :title="$t('button.toggle_langs')" @click="toggleLocales()" /><span
+          style="font-size:.75em;">{{ locale }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -22,7 +38,9 @@ const toggleLocales = () => {
   const locales = availableLocales
   locale.value = locales[(locales.indexOf(locale.value) + 1) % locales.length]
 }
-
+const goTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
 const clickLogo = () => {
   if (router.currentRoute.value.path === '/') {
     // const el = document.getElementById('grid-index')
@@ -39,14 +57,30 @@ const clickLogo = () => {
 </script>
 <style>
 .top-menu {
-  position: absolute;
+  background-color: rgba(255, 255, 255, var(--trans));
+  padding: 16px;
+  border-radius: 0 0 16px 16px;
   transition: all 1s;
-  top: -400px;
-  z-index: 199;
+  visibility: hidden;
+  opacity: 0;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 8px;
+  font-size: 2em;
 }
 
 .top-menu.show-it {
-  top: 128px;
+  visibility: visible;
+  opacity: 1;
+}
+
+.top-menu>div {
+  cursor: pointer;
+  transition: all .5s;
+}
+
+.top-menu>div:hover {
+  color: var(--col-sub);
 }
 
 .top-logo.zen-mode {

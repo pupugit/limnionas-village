@@ -18,6 +18,7 @@ html {
 
 body {
   --col-main: #363c90;
+  --col-sub: #86bd97;
   --trans: .85;
   font-family: 'Verdana', Arial, Helvetica, sans-serif;
   color: var(--col-main);
