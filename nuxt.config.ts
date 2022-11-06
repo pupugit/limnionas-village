@@ -14,6 +14,11 @@ export default defineNuxtConfig({
       directusBase: process.env.NUXT_PUBLIC_DIRECTUS_BASE || ''
     }
   },
+  app: {
+    pageTransition: {
+      name: 'page', mode: 'out-in'
+    },
+  },
   hooks: {
     'vite:extendConfig'(config, { isServer }) {
       if (isServer) {
