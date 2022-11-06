@@ -20,12 +20,15 @@ useIntersectionObserver(
 )
 onMounted(() => {
   if (window) {
-    window.setTimeout(() => {
-      width.value = window.innerWidth
-      height.value = window.innerHeight
-    }, 500)
+    width.value = window.innerWidth
+    height.value = window.innerHeight
   }
 })
+const calcBGSrc = computed(() => {
+  if (!props.house.big_picture || width.value == 0) return ''
+  return `${config.public.directusBase}/assets/${props.house.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=webp`
+})
+
 const calcBG = computed(() => {
   if (!props.house.big_picture || width.value == 0) return ''
   return `background-image: url(${config.public.directusBase}/assets/${props.house.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=webp);`
@@ -35,7 +38,8 @@ const calcBG = computed(() => {
 
 <template>
   <div class="house-box">
-    <div :class="`house-bg${zenMode ? ' zen-mode' : ''}`" :style="calcBG" @click.self="zenMode = !zenMode">
+    <div :class="`house-bg${zenMode ? ' zen-mode' : ''}`">
+      <img :src="calcBGSrc" lazy class="house-img" @click.self="zenMode = !zenMode">
       <div ref="houseBlock" :class="`house-info${isBlockVisible ? ' clicked' : ''}`"
         @click="$router.push(`/house/${house.letter.toLowerCase()}`)">
         <h2>{{ house.name }}</h2>
@@ -61,11 +65,24 @@ const calcBG = computed(() => {
   height: 100vh;
   height: 100dvh;
   display: grid;
-  place-content: center;
+  place-items: center;
   background-position: center;
   background-size: cover;
-  padding-top: 72px;
+  /* padding-top: 72px; */
   box-sizing: border-box;
+  grid-template-areas: 'main';
+}
+
+.house-bg>div,
+.house-bg>img {
+  grid-area: main;
+}
+
+.house-img {
+  width: 100vw;
+  width: 100dvw;
+  height: 100vh;
+  height: 100dvh;
 }
 
 .house-bg.zen-mode>.house-info {
