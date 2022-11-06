@@ -2,7 +2,7 @@
 import { useI18n } from 'vue-i18n'
 const route = useRoute()
 const letter: string = route.params.letter.toString().toLowerCase()
-await initHouses(letter.toUpperCase())
+await initHouses()
 await initPrices()
 const config = useRuntimeConfig()
 const houses = useHouses()
@@ -15,7 +15,7 @@ const activeSeason = computed(() => {
     return s.start.slice(5, 10).localeCompare(nowFormat) <= 0 && s.end.slice(5, 10).localeCompare(nowFormat) >= 0
   })
 })
-const house = houses.value.find(h => h.letter.toLowerCase() === letter.toLowerCase()) || null
+const house = houses.value.find(h => h.letter.toLowerCase() === letter) || null
 const localeHouse = computed(() => {
   if (!house) return null
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {

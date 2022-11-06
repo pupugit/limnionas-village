@@ -8,11 +8,11 @@ export const useHousesBasic = () => useState<House[]>('housesBasic', () => {
   return []
 })
 
-export const initHouses = async (letter: string = '') => {
+export const initHouses = async () => {
   const { getItems } = useDirectusItems()
   const houses = useHouses()
   if (houses.value.length === 0) {
-    const hItems = await getItems<House[]>({ collection: 'houses', params: { filter: { letter: letter }, sort: 'letter', fields: ['id', 'letter', 'name', 'people', 'short', 'color', 'logo', 'logo_raster', 'big_picture', 'price_main_season', 'price_pre_season', 'price_off_season', 'description', 'furnishing', 'fotos.directus_files_id', 'translations.*'] } })
+    const hItems = await getItems<House[]>({ collection: 'houses', params: { sort: 'letter', fields: ['id', 'letter', 'name', 'people', 'short', 'color', 'logo', 'logo_raster', 'big_picture', 'price_main_season', 'price_pre_season', 'price_off_season', 'description', 'furnishing', 'fotos.directus_files_id', 'translations.*'] } })
     houses.value = hItems
   }
 }
