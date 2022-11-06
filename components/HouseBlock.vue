@@ -70,7 +70,7 @@ const calcBG = computed(() => {
   place-items: center;
   background-position: center;
   background-size: cover;
-  /* padding-top: 72px; */
+  padding-top: 72px;
   box-sizing: border-box;
   grid-template-areas: 'main';
 }
@@ -85,6 +85,7 @@ const calcBG = computed(() => {
   width: 100dvw;
   height: 100vh;
   height: 100dvh;
+  margin-top: -72px;
 }
 
 .house-bg.zen-mode>.house-info {

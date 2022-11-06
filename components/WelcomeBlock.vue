@@ -124,7 +124,7 @@ const calcBG3 = computed(() => {
   grid-template-rows: 1fr auto;
   justify-content: stretch;
   align-content: end;
-  grid-template-areas: 'top' 'bottom';
+  grid-template-areas: 'top''bottom';
 
 }
 
@@ -176,6 +176,7 @@ const calcBG3 = computed(() => {
   transition: all 0.5s ease-out;
   display: grid;
   place-content: center;
+  margin-top: -0.5px;
 }
 
 .welcome-info.big {
