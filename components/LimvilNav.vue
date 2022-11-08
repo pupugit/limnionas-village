@@ -12,7 +12,9 @@
         <Icon name="dashicons:welcome-write-blog" />
       </div>
       <div>
-        <Icon name="clarity:book-solid" />
+        <nuxt-link to="/guestbook">
+          <Icon name="clarity:book-solid" />
+        </nuxt-link>
       </div>
       <div>
         <Icon name="clarity:image-gallery-solid" />
@@ -77,12 +79,12 @@ const clickLogo = () => {
   opacity: 1;
 }
 
-.top-menu>div {
+.top-menu>div>* {
   cursor: pointer;
   transition: all .5s;
 }
 
-.top-menu>div:hover {
+.top-menu>div:hover>* {
   color: var(--col-sub);
 }
 

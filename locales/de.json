@@ -7,6 +7,8 @@
     "toggle_dark": "Dunkelmodus umschalten",
     "toggle_langs": "Sprachen ändern"
   },
+  "furnishing": "Ausstattung",
+  "guestbook": "Gästebuch",
   "house_not_found": "Haus nicht gefunden!",
   "intro": {
     "aka": "Auch bekannt als",
@@ -15,8 +17,11 @@
     "hi": "Hi, {name}!",
     "whats-your-name": "Wie heißt du?"
   },
+  "more_informations": "Mehr Informationen",
   "not-found": "Nicht gefunden",
+  "people": "Personen",
   "prices": "Preise",
+  "prices_per_night": "Preise pro Nacht",
   "seasons": {
     "autumn": "Jahresende",
     "early": "Frühsaison",
@@ -24,9 +29,5 @@
     "main": "Hauptsaison",
     "spring": "Frühling"
   },
-  "more_informations": "Mehr Informationen",
-  "people": "Personen",
-  "prices_per_night": "Preise pro Nacht",
-  "to": "bis",
-  "furnishing": "Ausstattung"
+  "to": "bis"
 }
