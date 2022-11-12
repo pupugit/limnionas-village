@@ -6,5 +6,83 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div>{{ entry.person }} um {{ entry.date_created }}</div>
+  <div class="thought">
+    <div>
+      <p>{{entry.entry}}</p>
+      <p>{{ entry.person }} um {{ entry.date_created }}</p>
+    </div>
+  </div>
 </template>
+
+<style scoped lang="scss">
+.thought {
+  display: flex;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 30px;
+  min-width: 40px;
+  max-width: 800px;
+  width: 80vw;
+  min-height: 40px;
+  margin: 20px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 0;
+
+  &:before,
+  &:after {
+    content: "";
+    background-color: #fff;
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    z-index: -1;
+  }
+}
+
+.thought:nth-child(4n+1) {
+  &:before {
+    width: 44px;
+    height: 44px;
+    top: -12px;
+    left: 28px;
+    box-shadow: -50px 30px 0 -12px #fff;
+  }
+
+  &:after {
+    bottom: -10px;
+    right: 26px;
+    width: 30px;
+    height: 30px;
+    box-shadow: 40px -34px 0 0 #fff,
+      -28px -6px 0 -2px #fff,
+      -24px 17px 0 -6px #fff,
+      -5px 25px 0 -10px #fff;
+
+  }
+}
+
+.thought:nth-child(4n+3) {
+  &:before {
+    width: 44px;
+    height: 44px;
+    top: -12px;
+    right: 28px;
+    box-shadow: -50px 30px 0 -12px #fff;
+  }
+
+  &:after {
+    bottom: -10px;
+    left: 26px;
+    width: 30px;
+    height: 30px;
+    box-shadow: 40px -34px 0 0 #fff,
+      -28px -6px 0 -2px #fff,
+      -24px 17px 0 -6px #fff,
+      -5px 25px 0 -10px #fff;
+
+  }
+}
+</style>
