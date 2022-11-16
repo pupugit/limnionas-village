@@ -28,6 +28,7 @@
       </div>
     </div>
   </div>
+  <div class="arrow-up" @click="goTop" :style="`bottom: -${y-25}px`"></div>
 </template>
 <script setup>
 import { useI18n } from 'vue-i18n'
@@ -61,6 +62,18 @@ const clickLogo = () => {
 }
 </script>
 <style>
+.arrow-up {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background-image: url(/symbols/arrow-up.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .top-menu {
   background-color: rgba(255, 255, 255, var(--trans));
   padding: 16px;
