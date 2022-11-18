@@ -2,9 +2,6 @@
   <div :class="`top-logo${miniLogo ? ' scrolled' : ''}${zenMode ? ' zen-mode' : ''}`">
     <LimvilLogo class="top-logo-inner click-it" @click="clickLogo" suid="limvil-logo" />
     <div :class="`top-menu${showMenu ? ' show-it' : ''}`">
-      <div v-if="y > 200">
-        <Icon name="mdi:arrow-up-circle" @click="goTop" />
-      </div>
       <div>
         <Icon name="clarity:house-solid" />
       </div>
@@ -28,7 +25,9 @@
       </div>
     </div>
   </div>
-  <div class="arrow-up" @click="goTop" :style="`bottom: -${y-25}px`"></div>
+  <div v-if="y > 200" class="arrow-up" @click="goTop">
+    <LimvilArrowUp></LimvilArrowUp>
+  </div>
 </template>
 <script setup>
 import { useI18n } from 'vue-i18n'
@@ -50,28 +49,23 @@ const goTop = () => {
 const clickLogo = () => {
   if (router.currentRoute.value.path === '/') {
     // const el = document.getElementById('grid-index')
-    if (showMenu.value === true) {
-      showMenu.value = false
-    } else if (window.scrollY === 0) {
-      showMenu.value = true
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }
+    showMenu.value = !showMenu.value
   }
   else router.push('/')
 }
 </script>
 <style>
 .arrow-up {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 100px;
-  height: 100px;
-  background-image: url(/symbols/arrow-up.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  width: 50px;
+  cursor: pointer;
+  transition: all .5s;
+}
+
+.arrow-up:hover {
+  color: var(--col-highlight);
 }
 
 .top-menu {

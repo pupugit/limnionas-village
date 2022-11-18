@@ -8,6 +8,11 @@
 </script>
 
 <style>
+.current-color {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
 html {
   scrollbar-width: thin;
   scrollbar-color: var(--col-main);
@@ -19,6 +24,7 @@ html {
 body {
   --col-main: #363c90;
   --col-sub: #86bd97;
+  --col-highlight: #0070b3;
   --trans: .85;
   font-family: 'Verdana', Arial, Helvetica, sans-serif;
   color: var(--col-main);
