@@ -9,7 +9,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@vueuse/nuxt": "^9.5.0",
+    "@vueuse/nuxt": "^9.6.0",
     "nuxt": "^3.0.0",
     "nuxt-directus": "^3.2.2",
     "nuxt-icon": "^0.1.7",
