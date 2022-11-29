@@ -3,21 +3,29 @@
     <LimvilLogo class="top-logo-inner click-it" @click="clickLogo" suid="limvil-logo" />
     <div :class="`top-menu${showMenu ? ' show-it' : ''}`">
       <div>
-        <Icon name="clarity:house-solid" />
-      </div>
-      <div>
-        <Icon name="dashicons:welcome-write-blog" />
-      </div>
-      <div>
-        <nuxt-link to="/guestbook">
-          <Icon name="clarity:book-solid" />
+        <nuxt-link to="/houses">
+          <SymbolHouse style="width: 100px; height: 100px;" />
         </nuxt-link>
       </div>
       <div>
-        <Icon name="clarity:image-gallery-solid" />
+        <nuxt-link to="/blog">
+          <SymbolBlog style="width: 100px; height: 100px;" />
+        </nuxt-link>
       </div>
       <div>
-        <Icon name="ic:round-contact-phone" />
+        <nuxt-link to="/guestbook">
+          <SymbolGuestbook style="width: 100px; height: 100px;" />
+        </nuxt-link>
+      </div>
+      <div>
+        <nuxt-link to="/gallery">
+          <SymbolGallery />
+        </nuxt-link>
+      </div>
+      <div>
+        <nuxt-link to="/contact">
+          <SymbolContact />
+        </nuxt-link>
       </div>
       <div>
         <Icon name="carbon:language" :title="$t('button.toggle_langs')" @click="toggleLocales()" /><span
@@ -26,7 +34,7 @@
     </div>
   </div>
   <div v-if="y > 200" class="arrow-up" @click="goTop">
-    <LimvilArrowUp></LimvilArrowUp>
+    <SymbolArrowUp />
   </div>
 </template>
 <script setup>
@@ -76,9 +84,11 @@ const clickLogo = () => {
   visibility: hidden;
   opacity: 0;
   display: grid;
-  grid-auto-flow: column;
-  gap: 8px;
+  grid-template-columns: repeat(auto-fill, 100px);
+  grid-template-rows: repeat(auto-fill, 100px);
+  gap: 16px;
   font-size: 2em;
+  width: min(400px, 85vw);
 }
 
 .top-menu.show-it {

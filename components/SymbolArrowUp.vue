@@ -1,5 +1,4 @@
 <template>
-  <!-- <img src="~~/symbols/arrow-up.svg" style="color:black;" /> -->
   <svg version="1.1" viewBox="0 0 196 199" xmlns="http://www.w3.org/2000/svg" class="current-color">
     <path
       d="m111 79c-5.5 30 12 94-12 96-29 3-11-65-16-94-13 0.44-21 21-35 27-4 2.1-13-5.8-14-13-1.8-14 51-58 60-69 14-0.56 22 16 36 31 13 14 30 25 30 35-0.27 7.2-7.3 16-12 14-12-3.4-21-25-36-30"
