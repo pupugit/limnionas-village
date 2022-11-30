@@ -4,27 +4,27 @@
     <div :class="`top-menu${showMenu ? ' show-it' : ''}`">
       <div>
         <nuxt-link to="/houses">
-          <SymbolHouse style="width: 100px; height: 100px;" />
+          <SymbolHouse class="top-symbol" />
         </nuxt-link>
       </div>
       <div>
         <nuxt-link to="/blog">
-          <SymbolBlog style="width: 100px; height: 100px;" />
+          <SymbolBlog class="top-symbol" />
         </nuxt-link>
       </div>
       <div>
         <nuxt-link to="/guestbook">
-          <SymbolGuestbook style="width: 100px; height: 100px;" />
+          <SymbolGuestbook class="top-symbol" />
         </nuxt-link>
       </div>
       <div>
         <nuxt-link to="/gallery">
-          <SymbolGallery />
+          <SymbolGallery class="top-symbol" />
         </nuxt-link>
       </div>
       <div>
         <nuxt-link to="/contact">
-          <SymbolContact />
+          <SymbolContact class="top-symbol" />
         </nuxt-link>
       </div>
       <div>
@@ -63,11 +63,16 @@ const clickLogo = () => {
 }
 </script>
 <style>
+.top-symbol {
+  width: min(100px, 25vw);
+  height: min(100px, 25vw);
+}
+
 .arrow-up {
   position: fixed;
   bottom: 5px;
   right: 5px;
-  width: 50px;
+  width: min(100px, 25vw);
   cursor: pointer;
   transition: all .5s;
 }
@@ -84,9 +89,10 @@ const clickLogo = () => {
   visibility: hidden;
   opacity: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 100px);
-  grid-template-rows: repeat(auto-fill, 100px);
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, min(100px, 25vw));
+  grid-template-rows: repeat(auto-fill, min(100px, 25vw));
+  justify-content: center;
+  gap: 32px;
   font-size: 2em;
   width: min(400px, 85vw);
 }

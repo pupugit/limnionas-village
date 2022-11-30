@@ -1,5 +1,5 @@
 <template>
-  <svg version="1.1" viewBox="0 0 260 222" xmlns="http://www.w3.org/2000/svg">
+  <svg version="1.1" viewBox="0 0 260 222" xmlns="http://www.w3.org/2000/svg" class="current-color">
     <path
       d="m100 96c6.9 9.1 6.9 30 4.7 42-0.75-0.68-2.6-0.47-2.9-1.6-2.5 1.1-2.2 4.3-3.8 6.2-2.9-3.1-4 0.99-5.7 3.1-4.8-1.7-12-1.4-13-6.2-3 1.2-0.74 6.6-5.7 6.2-5.6-12-3.6-32-3.8-47 8.1-2.6 20-4 30-2.3"
       fill-rule="evenodd" stroke-width="1.3" />

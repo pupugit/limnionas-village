@@ -107,10 +107,24 @@ h4~p {
 }
 
 a {
-  color: #0070b3;
+  color: var(--col-highlight);
   text-decoration: none;
   cursor: pointer;
 }
+
+a>svg {
+  transition: all .5s;
+  color: var(--col-main);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover>svg {
+  color: var(--col-sub);
+  text-decoration: none;
+  cursor: pointer;
+}
+
 
 h2 {
   text-align: center;
