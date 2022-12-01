@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@vueuse/nuxt': ^9.6.0
+  date-fns: ^2.29.3
   gsap: npm:@gsap/shockingly@^3.11.3
   nuxt: ^3.0.0
   nuxt-directus: ^3.2.2
@@ -11,6 +12,7 @@ specifiers:
   vue-i18n: ^9.2.2
 
 dependencies:
+  date-fns: 2.29.3
   gsap: /@gsap/shockingly/3.11.3
 
 devDependencies:
@@ -1924,6 +1926,11 @@ packages:
     resolution: {integrity: sha512-Vr3mLBA8qWmcuschSLAOogKgQ/Jwxulv3RNE4FXnYWRGujzrRWQI4m12fQqRkwX06C0KanhLr4hK+GydchZsaA==}
     engines: {node: '>= 12'}
     dev: true
+
+  /date-fns/2.29.3:
+    resolution: {integrity: sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==}
+    engines: {node: '>=0.11'}
+    dev: false
 
   /dateformat/3.0.3:
     resolution: {integrity: sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==}

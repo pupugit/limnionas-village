@@ -1,15 +1,24 @@
 <script setup lang="ts">
 import type { GuestbookEntry } from '~~/types/guestbookEntry'
+import { useI18n } from 'vue-i18n'
+
+const { locale } = useI18n()
+
 const props = defineProps<{
   entry: GuestbookEntry,
 }>()
+
+const format = new Intl.DateTimeFormat(locale.value, { day: 'numeric', month: 'long', year: 'numeric' })
+const finalDate = new Date(props.entry.date_created)
+const formatedDate = format.format(finalDate)
+
 </script>
 
 <template>
   <div class="thought">
     <div>
       <p>{{ entry.entry }}</p>
-      <p>{{ entry.person }} um {{ entry.date_created }}</p>
+      <p>{{ entry.person }}, {{ formatedDate }}</p>
     </div>
   </div>
 </template>
