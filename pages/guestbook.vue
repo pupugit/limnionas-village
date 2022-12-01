@@ -18,7 +18,6 @@ const guestbook = useGuestbook()
 
 <style scoped>
 .guestbook-page {
-  background-color: #363c90;
   min-height: 100vh;
   min-height: 100dvh;
   padding-top: 128px;

@@ -46,6 +46,9 @@ const miniLogo = computed(() => y.value > 200 || route.path !== '/')
 const router = useRouter()
 const route = useRoute()
 const showMenu = ref(false)
+router.afterEach(() => {
+  showMenu.value = false
+})
 const { availableLocales, locale } = useI18n()
 const toggleLocales = () => {
   const locales = availableLocales

@@ -8,7 +8,7 @@ const props = defineProps<{
 <template>
   <div class="thought">
     <div>
-      <p>{{entry.entry}}</p>
+      <p>{{ entry.entry }}</p>
       <p>{{ entry.person }} um {{ entry.date_created }}</p>
     </div>
   </div>
@@ -17,7 +17,7 @@ const props = defineProps<{
 <style scoped lang="scss">
 .thought {
   display: flex;
-  background-color: #fff;
+  background: var(--col-sub);
   padding: 20px;
   border-radius: 30px;
   min-width: 40px;
@@ -25,6 +25,7 @@ const props = defineProps<{
   width: 80vw;
   min-height: 40px;
   margin: 20px;
+  color: white;
   position: relative;
   align-items: center;
   justify-content: center;
@@ -34,7 +35,7 @@ const props = defineProps<{
   &:before,
   &:after {
     content: "";
-    background-color: #fff;
+    background-color: var(--col-main);
     border-radius: 50%;
     display: block;
     position: absolute;
@@ -48,7 +49,7 @@ const props = defineProps<{
     height: 44px;
     top: -12px;
     left: 28px;
-    box-shadow: -50px 30px 0 -12px #fff;
+    box-shadow: -50px 30px 0 -12px var(--col-main);
   }
 
   &:after {
@@ -56,10 +57,10 @@ const props = defineProps<{
     right: 26px;
     width: 30px;
     height: 30px;
-    box-shadow: 40px -34px 0 0 #fff,
-      -28px -6px 0 -2px #fff,
-      -24px 17px 0 -6px #fff,
-      -5px 25px 0 -10px #fff;
+    box-shadow: 40px -34px 0 0 var(--col-main),
+      -28px -6px 0 -2px var(--col-main),
+      -24px 17px 0 -6px var(--col-main),
+      -5px 25px 0 -10px var(--col-main);
 
   }
 }
@@ -70,7 +71,7 @@ const props = defineProps<{
     height: 44px;
     top: -12px;
     right: 28px;
-    box-shadow: -50px 30px 0 -12px #fff;
+    box-shadow: -50px 30px 0 -12px var(--col-main);
   }
 
   &:after {
@@ -78,10 +79,10 @@ const props = defineProps<{
     left: 26px;
     width: 30px;
     height: 30px;
-    box-shadow: 40px -34px 0 0 #fff,
-      -28px -6px 0 -2px #fff,
-      -24px 17px 0 -6px #fff,
-      -5px 25px 0 -10px #fff;
+    box-shadow: 40px -34px 0 0 var(--col-main),
+      -28px -6px 0 -2px var(--col-main),
+      -24px 17px 0 -6px var(--col-main),
+      -5px 25px 0 -10px var(--col-main);
 
   }
 }
