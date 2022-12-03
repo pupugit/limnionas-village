@@ -1,6 +1,6 @@
 <template>
   <div :class="`top-logo${miniLogo ? ' scrolled' : ''}${zenMode ? ' zen-mode' : ''}`">
-    <LimvilLogo class="top-logo-inner click-it" @click="clickLogo" suid="limvil-logo" />
+    <LimvilLogo :class="`top-logo-inner click-it${showMenu ? ' show-it' : ''}`" @click="clickLogo" suid="limvil-logo" />
     <div :class="`top-menu${showMenu ? ' show-it' : ''}`">
       <div>
         <nuxt-link to="/houses">
@@ -77,15 +77,15 @@ const clickLogo = () => {
 </script>
 <style>
 .top-symbol {
-  width: min(100px, 25vw);
-  height: min(100px, 25vw);
+  width: min(75px, 25vw);
+  height: min(75px, 25vw);
 }
 
 .arrow-up {
   position: fixed;
   bottom: 5px;
   right: 5px;
-  width: min(100px, 25vw);
+  width: min(75px, 25vw);
   cursor: pointer;
   transition: all .5s;
 }
@@ -102,12 +102,13 @@ const clickLogo = () => {
   visibility: hidden;
   opacity: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, min(100px, 25vw));
-  grid-template-rows: repeat(auto-fill, min(100px, 25vw));
+  grid-template-columns: repeat(auto-fill, min(75px, 25vw));
+  grid-template-rows: repeat(auto-fill, min(75px, 25vw));
   justify-content: center;
   gap: 32px;
-  font-size: 2em;
+  font-size: 1em;
   width: min(400px, 85vw);
+  box-sizing: border-box;
 }
 
 .top-menu.show-it {
@@ -167,6 +168,16 @@ const clickLogo = () => {
     top: 0;
     height: 64px;
     padding: 8px 0;
+  }
+}
+
+@media screen and (max-width: 515px) {
+  .scrolled>.top-logo-inner {
+    width: min(400px, 85vw);
+  }
+
+  .scrolled>.top-logo-inner.show-it {
+    border-radius: 24px 24px 0 0;
   }
 }
 </style>

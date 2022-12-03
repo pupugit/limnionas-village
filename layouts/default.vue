@@ -1,7 +1,8 @@
 <template>
   <div class="layout" :style="bgStyle">
-    <slot />
     <LimvilNav />
+    <slot />
+
   </div>
 </template>
 

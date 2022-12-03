@@ -44,11 +44,11 @@ const calcPic = computed(() => {
   display: grid;
   justify-content: center;
   align-content: start;
+  gap: 40px;
   background-attachment: fixed;
 }
 
 .entries {
   display: grid;
-  gap: 8px;
 }
 </style>

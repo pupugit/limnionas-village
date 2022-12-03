@@ -49,7 +49,7 @@ const styleIt = (d: tDot) => {
     <!-- <div v-for="(dot, idx) in dots" class="dot" :style="styleIt(dot)" :key="idx"></div> -->
     <div>
       <p>{{ entry.entry }}</p>
-      <p style="color:var(--col-sub);font-weight: bold;">{{ entry.person }}, {{ formatedDate }}</p>
+      <p style="font-weight: bold;">{{ entry.person }}, {{ formatedDate }}</p>
     </div>
   </div>
 </template>
@@ -67,7 +67,7 @@ const styleIt = (d: tDot) => {
 
 .thought {
   display: flex;
-  background: var(--col-main);
+  color: var(--col-main);
   padding: 20px;
   border-radius: 30px;
   min-width: 40px;
@@ -75,10 +75,9 @@ const styleIt = (d: tDot) => {
   width: 80vw;
   min-height: 40px;
   margin: 20px;
-  color: white;
+  background: #ffffff99;
   position: relative;
   align-items: center;
-  justify-content: center;
   text-align: center;
   z-index: 0;
 }
