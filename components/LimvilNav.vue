@@ -95,6 +95,7 @@ const clickLogo = () => {
 }
 
 .top-menu {
+  --block-size: min(80px, 25vw);
   background-color: rgba(255, 255, 255, var(--trans));
   padding: 16px;
   border-radius: 0 0 16px 16px;
@@ -102,13 +103,18 @@ const clickLogo = () => {
   visibility: hidden;
   opacity: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, min(75px, 25vw));
-  grid-template-rows: repeat(auto-fill, min(75px, 25vw));
+  grid-template-columns: repeat(auto-fill, var(--block-size));
+  grid-template-rows: repeat(auto-fill, var(--block-size));
   justify-content: center;
   gap: 32px;
   font-size: 1em;
   width: min(400px, 85vw);
   box-sizing: border-box;
+}
+
+.top-menu>div {
+  height: var(--block-size);
+  width: var(--block-size);
 }
 
 .top-menu.show-it {
