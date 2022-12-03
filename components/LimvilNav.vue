@@ -28,14 +28,19 @@
         </nuxt-link>
       </div>
       <div>
-        <nuxt-link to="/wanderungen">
-          <LimvilSymbol class="top-symbol" symbol="wanderungen" />
+        <nuxt-link to="/anreise">
+          <SymbolAnreise class="top-symbol" />
         </nuxt-link>
       </div>
       <div>
+        <nuxt-link to="/wanderungen">
+          <SymbolWanderungen class="top-symbol" />
+        </nuxt-link>
+      </div>
+      <!-- <div>
         <Icon name="carbon:language" :title="$t('button.toggle_langs')" @click="toggleLocales()" /><span
           style="font-size:.75em;">{{ locale }}</span>
-      </div>
+      </div> -->
     </div>
   </div>
   <div v-if="y > 200" class="arrow-up" @click="goTop">
