@@ -6,7 +6,8 @@ export const useSpecials = () => useState<Specials>('specials', () => {
     welcome_back: '',
     welcome_back2: '',
     welcome_back3: '',
-    welcome_back4: ''
+    welcome_back4: '',
+    guestbook: '',
   }
 })
 

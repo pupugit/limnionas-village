@@ -1,32 +1,73 @@
 <script setup lang="ts">
 import type { GuestbookEntry } from '~~/types/guestbookEntry'
 import { useI18n } from 'vue-i18n'
+import { rand } from '@vueuse/core';
 
 const { locale } = useI18n()
-
+type tDot = {
+  pos: number
+  pos2: number
+  side: number
+  size: number
+}
 const props = defineProps<{
   entry: GuestbookEntry,
 }>()
+const dots = ref<tDot[]>([])
 
 const format = new Intl.DateTimeFormat(locale.value, { day: 'numeric', month: 'long', year: 'numeric' })
 const finalDate = new Date(props.entry.date_created)
 const formatedDate = format.format(finalDate)
 
+onMounted(() => {
+  const dotCount = rand(1, 4)
+  for (let i = 0; i < dotCount; i++) {
+    dots.value.push({
+      pos: rand(-5, 5),
+      pos2: rand(-5, 5),
+      side: rand(1, 4),
+      size: rand(15, 35)
+    })
+  }
+})
+const styleIt = (d: tDot) => {
+  let ret = `width:${d.size}px;height:${d.size}px;`
+  if (d.side === 1) {
+    ret += `left:${d.pos2}px;top:${d.pos}px;`
+  } else if (d.side === 3) {
+    ret += `right:${d.pos2}px;top:${d.pos}px;`
+  } else if (d.side === 2) {
+    ret += `left:${d.pos2}px;bottom:${d.pos}px;`
+  } else if (d.side === 4) {
+    ret += `right:${d.pos2}px;bottom:${d.pos}px;`
+  } return ret
+}
 </script>
 
 <template>
   <div class="thought">
+    <!-- <div v-for="(dot, idx) in dots" class="dot" :style="styleIt(dot)" :key="idx"></div> -->
     <div>
       <p>{{ entry.entry }}</p>
-      <p>{{ entry.person }}, {{ formatedDate }}</p>
+      <p style="color:var(--col-sub);font-weight: bold;">{{ entry.person }}, {{ formatedDate }}</p>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
+.dot {
+  background: var(--col-main);
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  z-index: -1;
+}
+
 .thought {
   display: flex;
-  background: var(--col-sub);
+  background: var(--col-main);
   padding: 20px;
   border-radius: 30px;
   min-width: 40px;
@@ -40,59 +81,5 @@ const formatedDate = format.format(finalDate)
   justify-content: center;
   text-align: center;
   z-index: 0;
-
-  &:before,
-  &:after {
-    content: "";
-    background-color: var(--col-main);
-    border-radius: 50%;
-    display: block;
-    position: absolute;
-    z-index: -1;
-  }
-}
-
-.thought:nth-child(4n+1) {
-  &:before {
-    width: 44px;
-    height: 44px;
-    top: -12px;
-    left: 28px;
-    box-shadow: -50px 30px 0 -12px var(--col-main);
-  }
-
-  &:after {
-    bottom: -10px;
-    right: 26px;
-    width: 30px;
-    height: 30px;
-    box-shadow: 40px -34px 0 0 var(--col-main),
-      -28px -6px 0 -2px var(--col-main),
-      -24px 17px 0 -6px var(--col-main),
-      -5px 25px 0 -10px var(--col-main);
-
-  }
-}
-
-.thought:nth-child(4n+3) {
-  &:before {
-    width: 44px;
-    height: 44px;
-    top: -12px;
-    right: 28px;
-    box-shadow: -50px 30px 0 -12px var(--col-main);
-  }
-
-  &:after {
-    bottom: -10px;
-    left: 26px;
-    width: 30px;
-    height: 30px;
-    box-shadow: 40px -34px 0 0 var(--col-main),
-      -28px -6px 0 -2px var(--col-main),
-      -24px 17px 0 -6px var(--col-main),
-      -5px 25px 0 -10px var(--col-main);
-
-  }
 }
 </style>
