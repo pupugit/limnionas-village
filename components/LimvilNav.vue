@@ -3,7 +3,7 @@
     <LimvilLogo :class="`top-logo-inner click-it${showMenu ? ' show-it' : ''}`" @click="clickLogo" suid="limvil-logo" />
     <div :class="`top-menu${showMenu ? ' show-it' : ''}`">
       <div>
-        <nuxt-link to="/houses">
+        <nuxt-link to="/">
           <SymbolHouse class="top-symbol" />
         </nuxt-link>
       </div>
@@ -43,7 +43,7 @@
       </div> -->
     </div>
   </div>
-  <div v-if="y > 200" class="arrow-up" @click="goTop">
+  <div v-if="router.currentRoute.value.path === '/' && y > 200" class="arrow-up" @click="goTop">
     <SymbolArrowUp />
   </div>
 </template>
@@ -68,11 +68,11 @@ const goTop = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 const clickLogo = () => {
-  if (router.currentRoute.value.path === '/') {
-    // const el = document.getElementById('grid-index')
-    showMenu.value = !showMenu.value
-  }
-  else router.push('/')
+  // if (router.currentRoute.value.path === '/') {
+  // const el = document.getElementById('grid-index')
+  showMenu.value = !showMenu.value
+  // }
+  // else router.push('/')
 }
 </script>
 <style>

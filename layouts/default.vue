@@ -2,7 +2,6 @@
   <div class="layout" :style="bgStyle">
     <LimvilNav />
     <slot />
-
   </div>
 </template>
 
