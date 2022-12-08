@@ -11,14 +11,27 @@ const props = defineProps<{
 const format = new Intl.DateTimeFormat(locale.value, { day: 'numeric', month: 'long', year: 'numeric' })
 const finalDate = new Date(props.entry.date_publish)
 const formatedDate = format.format(finalDate)
+const config = useRuntimeConfig()
 
+const width = ref(0)
+const height = ref(1024)
+const zenMode = useZenMode()
+const imgcnt = ref<HTMLImageElement | null>(null)
+
+onMounted(() => {
+  if (window && imgcnt.value && props.entry.picture) {
+    width.value = imgcnt.value.width
+    imgcnt.value.src = `${config.public.directusBase}/assets/${props.entry.picture}?width=${width.value}&format=webp`
+  }
+})
 </script>
 
 <template>
   <div class="thought">
-    <div>
+    <div style="width: 100%;">
+      <img ref="imgcnt" style="width: 100%;" loading="lazy" />
       <p v-html="entry.content"></p>
-      <p>{{ formatedDate }}</p>
+      <div>{{ formatedDate }}</div>
     </div>
   </div>
 </template>

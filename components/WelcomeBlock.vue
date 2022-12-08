@@ -165,7 +165,7 @@ const calcBG3 = computed(() => {
 
 .welcome-text {
   text-align: justify;
-  text-align-last: left;
+  text-align-last: auto;
   padding: 0 24px 24px 24px;
 }
 

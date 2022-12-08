@@ -139,7 +139,7 @@ h2 {
 
 p {
   text-align: justify;
-  text-align-last: left;
+  text-align-last: auto;
 }
 
 p:first-child {
