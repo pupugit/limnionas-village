@@ -59,7 +59,7 @@ const scrollState = useScrollState()
 onMounted(async () => {
   if (scrollState.value.scrollPos > 0) {
     window.setTimeout(() => {
-      console.log('index: scrolling to ', scrollState.value.scrollPos)
+      //console.log('index: scrolling to ', scrollState.value.scrollPos)
       window.scrollTo(0, scrollState.value.scrollPos)
     }, 1200)
   }

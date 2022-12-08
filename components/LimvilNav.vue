@@ -100,13 +100,8 @@ const clickLogo = () => {
   padding: 16px;
   border-radius: 0 0 16px 16px;
   transition: all 1s;
-  visibility: hidden;
   opacity: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, var(--block-size));
-  grid-template-rows: repeat(auto-fill, var(--block-size));
-  justify-content: center;
-  gap: 32px;
+  display: none;
   font-size: 1em;
   width: min(400px, 85vw);
   box-sizing: border-box;
@@ -118,8 +113,12 @@ const clickLogo = () => {
 }
 
 .top-menu.show-it {
-  visibility: visible;
   opacity: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--block-size));
+  grid-template-rows: repeat(auto-fill, var(--block-size));
+  justify-content: center;
+  gap: 32px;
 }
 
 .top-menu>div>* {

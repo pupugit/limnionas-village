@@ -12,24 +12,31 @@ const format = new Intl.DateTimeFormat(locale.value, { day: 'numeric', month: 'l
 const finalDate = new Date(props.entry.date_publish)
 const formatedDate = format.format(finalDate)
 const config = useRuntimeConfig()
-
+const imgcnt = ref<HTMLElement | null>(null)
+const img = ref<HTMLImageElement | null>(null)
 const width = ref(0)
-const height = ref(1024)
-const zenMode = useZenMode()
-const imgcnt = ref<HTMLImageElement | null>(null)
-
 onMounted(() => {
-  if (window && imgcnt.value && props.entry.picture) {
-    width.value = imgcnt.value.width
-    imgcnt.value.src = `${config.public.directusBase}/assets/${props.entry.picture}?width=${width.value}&format=webp`
+  if (window) {
+    if (imgcnt.value?.clientWidth && img.value) {
+      img.value.src = `${config.public.directusBase}/assets/${props.entry.picture}?width=${imgcnt.value.clientWidth}&format=webp`
+      img.value.style.aspectRatio = '';
+    } else {
+      window.setTimeout(() => {
+        if (imgcnt.value && img.value) {
+          img.value.src = `${config.public.directusBase}/assets/${props.entry.picture}?width=${imgcnt.value.clientWidth}&format=webp`
+          img.value.style.aspectRatio = '';
+        }
+      }, 1400)
+    }
   }
 })
+
 </script>
 
 <template>
   <div class="thought">
-    <div style="width: 100%;">
-      <img ref="imgcnt" style="width: 100%;" loading="lazy" />
+    <div style="width: 100%;" ref="imgcnt">
+      <img ref="img" style="width: 100%;aspect-ratio: 4/3;" loading="lazy" />
       <p v-html="entry.content"></p>
       <div>{{ formatedDate }}</div>
     </div>
