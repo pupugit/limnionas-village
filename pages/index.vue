@@ -64,10 +64,6 @@ onMounted(async () => {
     }, 1200)
   }
 })
-onBeforeUnmount(() => {
-  console.log('setting scrollPos to ', window.scrollY)
-  scrollState.value.scrollPos = window.scrollY
-})
 
 const i18n = useI18n()
 const localeHouses = computed(() => {
