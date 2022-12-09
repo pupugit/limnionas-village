@@ -111,9 +111,9 @@ const calcBG3 = computed(() => {
 <style>
 .grid-index div.welcome-other {
   width: 100vw;
-  width: 100dvw;
+  /* width: 100dvw; */
   height: 100vh;
-  height: 100dvh;
+  /* height: 100dvh; */
   display: grid;
   background-position: center;
   background-size: contain;
@@ -135,9 +135,9 @@ const calcBG3 = computed(() => {
 
 .welcome-first {
   width: 100vw;
-  width: 100dvw;
+  /* width: 100dvw; */
   height: 100vh;
-  height: 100dvh;
+  /* height: 100dvh; */
   display: grid;
   place-items: center;
   place-content: center;

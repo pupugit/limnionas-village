@@ -121,12 +121,12 @@ const localeArticles = computed(() => {
 .grid-index {
   display: grid;
   min-height: 100vh;
-  min-height: 100dvh;
+  // min-height: 100dvh;
 
   &>div {
     scroll-snap-align: start;
     min-height: 100vh;
-    min-height: 100dvh;
+    // min-height: 100dvh;
     display: grid;
     place-content: center;
   }
