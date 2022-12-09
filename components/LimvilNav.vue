@@ -47,10 +47,10 @@
           <SymbolAGB class="top-symbol" />
         </nuxt-link>
       </div>
-      <!-- <div>
+      <div>
         <Icon name="carbon:language" :title="$t('button.toggle_langs')" @click="toggleLocales()" /><span
           style="font-size:.75em;">{{ locale }}</span>
-      </div> -->
+      </div>
     </div>
   </div>
   <!-- <div v-if="router.currentRoute.value.path === '/' && y > 200" class="arrow-up" @click="goTop">

@@ -2,8 +2,7 @@
   <div class="welcome-first" :style="calcPic">
   </div>
   <div :class="`welcome-other${zenMode ? ' zen-mode' : ''}`" :style="calcBG" @click.self="zenMode = !zenMode">
-    <LimvilAnimWave class="welcome-wave" fill="#fff" />
-    <div class="welcome-info">
+    <div class="welcome-info" style="padding-top:32px;">
       <div class="welcome-text" v-html="localWelcome" />
     </div>
   </div>
@@ -91,20 +90,20 @@ const calcPic = computed(() => {
 })
 const calcBGSrc = computed(() => {
   if (!specials.value.welcome_back || width.value == 0) return ''
-  return `${config.public.directusBase}/assets/${specials.value.welcome_back}?fit=cover&width=${width.value}&height=${height.value}&format=webp`
+  return `${config.public.directusBase}/assets/${specials.value.welcome_back}?fit=contain&width=${width.value}&height=${height.value}&format=webp`
 })
 const calcBG = computed(() => {
   if (!specials.value.welcome_back || width.value == 0) return ''
-  return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_back}?fit=cover&width=${width.value}&height=${height.value}&format=webp);`
+  return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_back}?fit=inside&width=${width.value}&height=${height.value}&format=webp);`
 })
 
 const calcBG2 = computed(() => {
   if (!specials.value.welcome_back || width.value == 0) return ''
-  return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_back2}?fit=cover&width=${width.value}&height=${height.value}&format=webp);`
+  return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_back2}?fit=inside&width=${width.value}&height=${height.value}&format=webp);`
 })
 const calcBG3 = computed(() => {
   if (!specials.value.welcome_back || width.value == 0) return ''
-  return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_back3}?fit=cover&width=${width.value}&height=${height.value}&format=webp);`
+  return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_back3}?fit=inside&width=${width.value}&height=${height.value}&format=webp);`
 })
 
 </script>
@@ -124,7 +123,7 @@ const calcBG3 = computed(() => {
   grid-template-rows: 1fr auto;
   justify-content: stretch;
   align-content: end;
-  grid-template-areas: 'top''bottom';
+  grid-template-areas: 'top' 'bottom';
 
 }
 
