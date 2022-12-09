@@ -38,6 +38,11 @@
         </nuxt-link>
       </div>
       <div>
+        <nuxt-link to="/samos">
+          <SymbolInsel class="top-symbol" />
+        </nuxt-link>
+      </div>
+      <div>
         <nuxt-link to="/tos">
           <SymbolAGB class="top-symbol" />
         </nuxt-link>
