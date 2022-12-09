@@ -1,5 +1,6 @@
 <template>
-  <div :class="`top-logo${miniLogo ? ' scrolled' : ''}${zenMode ? ' zen-mode' : ''}`">
+  <div
+    :class="`top-logo${miniLogo ? ' scrolled' : ''}${zenMode ? ' zen-mode' : ''}${showMenu || y < 50 || timedShowLogo ? ' show-it' : ''}`">
     <LimvilLogo :class="`top-logo-inner click-it${showMenu ? ' show-it' : ''}`" @click="clickLogo" suid="limvil-logo" />
     <div :class="`top-menu${showMenu ? ' show-it' : ''}`">
       <div>
@@ -74,16 +75,34 @@ const toggleLocales = () => {
   const locales = availableLocales
   locale.value = locales[(locales.indexOf(locale.value) + 1) % locales.length]
 }
+
 const goTop = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 const clickLogo = () => {
-  // if (router.currentRoute.value.path === '/') {
-  // const el = document.getElementById('grid-index')
   showMenu.value = !showMenu.value
-  // }
-  // else router.push('/')
+  if (!showMenu.value) {
+    timedShowLogo.value = true
+    if (timerShowLogo) window.clearTimeout(timerShowLogo)
+    timerShowLogo = window.setTimeout(() => {
+      timedShowLogo.value = false
+    }, 2000)
+  }
 }
+const timedShowLogo = ref(false)
+let timerShowLogo = null
+const lastY = ref(0)
+watch(y, () => {
+  if (y.value < lastY.value) {
+    timedShowLogo.value = true
+    if (timerShowLogo) window.clearTimeout(timerShowLogo)
+    timerShowLogo = window.setTimeout(() => {
+      timedShowLogo.value = false
+    }, 2000)
+  }
+  lastY.value = y.value
+})
+
 </script>
 <style>
 .top-symbol {
@@ -155,8 +174,12 @@ const clickLogo = () => {
   place-items: center;
   box-sizing: border-box;
   transition: all .5s;
-  top: 0;
+  top: -300px;
   /* filter: drop-shadow(1px 1px 2px white) drop-shadow(-1px 1px 2px white) drop-shadow(1px -1px 2px white) drop-shadow(-1px -1px 2px white); */
+}
+
+.top-logo.show-it {
+  top: 0;
 }
 
 .top-logo-inner {
@@ -168,8 +191,7 @@ const clickLogo = () => {
   transition: all .5s ease-out;
 }
 
-.top-logo.scrolled {
-  filter: none;
+.top-logo.scrolled.show-it {
   top: 16px;
 }
 
