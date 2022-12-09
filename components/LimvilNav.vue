@@ -28,13 +28,18 @@
         </nuxt-link>
       </div>
       <div>
-        <nuxt-link to="/anreise">
+        <nuxt-link to="/arrival">
           <SymbolAnreise class="top-symbol" />
         </nuxt-link>
       </div>
       <div>
-        <nuxt-link to="/wanderungen">
+        <nuxt-link to="/hiking">
           <SymbolWanderungen class="top-symbol" />
+        </nuxt-link>
+      </div>
+      <div>
+        <nuxt-link to="/tos">
+          <SymbolAGB class="top-symbol" />
         </nuxt-link>
       </div>
       <!-- <div>
@@ -97,14 +102,20 @@ const clickLogo = () => {
 .top-menu {
   --block-size: min(80px, 25vw);
   background-color: rgba(255, 255, 255, var(--trans));
-  padding: 16px;
   border-radius: 0 0 16px 16px;
-  transition: all 1s;
-  opacity: 0;
-  display: none;
+  transition: all .5s;
   font-size: 1em;
+  height: 0%;
+  overflow: hidden;
   width: min(400px, 85vw);
   box-sizing: border-box;
+  align-self: start;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--block-size));
+  grid-template-rows: repeat(auto-fill, var(--block-size));
+  gap: 32px;
+  padding: 0 16px;
+  justify-content: center;
 }
 
 .top-menu>div {
@@ -113,12 +124,8 @@ const clickLogo = () => {
 }
 
 .top-menu.show-it {
-  opacity: 1;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, var(--block-size));
-  grid-template-rows: repeat(auto-fill, var(--block-size));
-  justify-content: center;
-  gap: 32px;
+  height: 100%;
+  padding: 16px;
 }
 
 .top-menu>div>* {
