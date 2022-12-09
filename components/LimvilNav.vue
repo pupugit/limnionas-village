@@ -53,9 +53,9 @@
       </div> -->
     </div>
   </div>
-  <div v-if="router.currentRoute.value.path === '/' && y > 200" class="arrow-up" @click="goTop">
+  <!-- <div v-if="router.currentRoute.value.path === '/' && y > 200" class="arrow-up" @click="goTop">
     <SymbolArrowUp />
-  </div>
+  </div> -->
 </template>
 <script setup>
 import { useI18n } from 'vue-i18n'
