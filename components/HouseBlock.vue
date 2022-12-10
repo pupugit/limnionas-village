@@ -1,3 +1,23 @@
+<template>
+  <div class="house-box" ref="houseBox">
+    <div :class="`house-bg${zenMode ? ' zen-mode' : ''}`">
+      <img :src="calcBGSrc" loading="lazy" class="house-img" @click.self="zenMode = !zenMode"
+        :alt="`Background ${house.name}`">
+      <div ref="houseBlock" :class="`house-info${isBlockVisible ? ' clicked' : ''}`"
+        @click="$router.push(`/house/${house.letter.toLowerCase()}`)">
+        <h2>{{ house.name }}</h2>
+        <img loading="lazy" v-if="house.logo" :src="`${config.public.directusBase}/assets/${house.logo}`"
+          :alt="`Logo {{ house.name }}`">
+        <p class="house-details">{{ house.people }} {{ $t('people') }}</p>
+        <div class="house-details" v-html="house.short" />
+        <p class="house-details">
+          <NuxtLink :to="`/house/${house.letter.toLowerCase()}`">{{ $t('more_informations') }}</NuxtLink>
+        </p>
+      </div>
+    </div>
+  </div>
+</template>
+
 <script setup lang="ts">
 import type { House } from "~~/types/houses"
 
@@ -28,30 +48,6 @@ const calcBG = computed(() => {
 })
 
 </script>
-
-<template>
-  <div class="house-box" ref="houseBox">
-    <div :class="`house-bg${zenMode ? ' zen-mode' : ''}`">
-      <img :src="calcBGSrc" loading="lazy" class="house-img" @click.self="zenMode = !zenMode"
-        :alt="`Background ${house.name}`">
-      <div ref="houseBlock" :class="`house-info${isBlockVisible ? ' clicked' : ''}`"
-        @click="$router.push(`/house/${house.letter.toLowerCase()}`)">
-        <h2>{{ house.name }}</h2>
-        <img loading="lazy" v-if="house.logo" :src="`${config.public.directusBase}/assets/${house.logo}`"
-          :alt="`Logo {{ house.name }}`">
-        <p class="house-details">{{ house.people }} {{ $t('people') }}</p>
-        <div class="house-details" v-html="house.short" />
-        <p class="house-details">
-          <NuxtLink :to="`/house/${house.letter.toLowerCase()}`">{{ $t('more_informations') }}</NuxtLink>
-        </p>
-      </div>
-    </div>
-    <!-- <svg version="1.1" viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg">
-      <path d="m0 100v-99c195-1.6 390-3.2 550 2.8 160 5.9 286 19 429 20 143 0.79 302-11 461-23v99z" fill="#fff"
-        stroke-width="0" />
-    </svg> -->
-  </div>
-</template>
 
 <style>
 .house-bg {
