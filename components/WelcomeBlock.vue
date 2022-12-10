@@ -1,23 +1,9 @@
 <template>
-  <div class="welcome-first" :style="calcPic">
+  <div class="welcome-first" :style="calcPic" @click.self="zenMode = !zenMode">
   </div>
-  <div :class="`welcome-other${zenMode ? ' zen-mode' : ''}`" :style="calcBG" @click.self="zenMode = !zenMode">
-    <div class="welcome-info" style="padding-top:32px;">
-      <div class="welcome-text" v-html="localWelcome" />
-    </div>
-  </div>
-  <div :class="`welcome-other${zenMode ? ' zen-mode' : ''}`" :style="calcBG2" @click.self="zenMode = !zenMode">
-    <LimvilAnimWave class="welcome-wave" fill="#fff" />
-    <div class="welcome-info">
-      <div class="welcome-text" v-html="localWelcome2" />
-    </div>
-  </div>
-  <div :class="`welcome-other${zenMode ? ' zen-mode' : ''}`" :style="calcBG3" @click.self="zenMode = !zenMode">
-    <LimvilAnimWave class="welcome-wave" fill="#fff" />
-    <div class="welcome-info">
-      <div class="welcome-text" v-html="localWelcome3" />
-    </div>
-  </div>
+  <WelcomeEntry :entry="localWelcome" :pic="specials.welcome_back" />
+  <WelcomeEntry :entry="localWelcome2" :pic="specials.welcome_back2" />
+  <WelcomeEntry :entry="localWelcome3" :pic="specials.welcome_back3" />
 </template>
 
 <script setup lang="ts">
@@ -26,12 +12,9 @@ const config = useRuntimeConfig()
 await initSpecials()
 const specials = useSpecials()
 const texts = useTexts()
-const width = ref(0)
-const height = ref(1024)
-const loaded = ref(false)
 const i18n = useI18n()
 const zenMode = useZenMode()
-
+const { width, height } = useWindowSize()
 const localWelcome = computed(() => {
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
     const found = texts.value.find(t => t.id === 'welcome')
@@ -77,33 +60,9 @@ const localWelcome3 = computed(() => {
   }
   return ''
 })
-onMounted(() => {
-  if (window) {
-    width.value = window.innerWidth
-    height.value = window.innerHeight
-    loaded.value = true
-  }
-})
 const calcPic = computed(() => {
   if (!specials.value.welcome_pic || width.value == 0) return ''
   return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_pic}?fit=inside&width=${width.value}&height=${height.value}&withoutEnlargement&format=webp);`
-})
-const calcBGSrc = computed(() => {
-  if (!specials.value.welcome_back || width.value == 0) return ''
-  return `${config.public.directusBase}/assets/${specials.value.welcome_back}?fit=contain&width=${width.value}&height=${height.value}&format=webp`
-})
-const calcBG = computed(() => {
-  if (!specials.value.welcome_back || width.value == 0) return ''
-  return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_back}?fit=inside&width=${width.value}&height=${height.value}&format=webp);`
-})
-
-const calcBG2 = computed(() => {
-  if (!specials.value.welcome_back || width.value == 0) return ''
-  return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_back2}?fit=inside&width=${width.value}&height=${height.value}&format=webp);`
-})
-const calcBG3 = computed(() => {
-  if (!specials.value.welcome_back || width.value == 0) return ''
-  return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_back3}?fit=inside&width=${width.value}&height=${height.value}&format=webp);`
 })
 
 </script>
@@ -115,8 +74,7 @@ const calcBG3 = computed(() => {
   height: 100vh;
   /* height: 100dvh; */
   display: grid;
-  background-position: center;
-  background-size: contain;
+  background-position: center 16px;
   background-repeat: no-repeat;
   transition: 0.5s opacity;
   box-sizing: border-box;
@@ -165,7 +123,7 @@ const calcBG3 = computed(() => {
 .welcome-text {
   text-align: justify;
   text-align-last: auto;
-  padding: 0 24px 24px 24px;
+  padding: 16px;
 }
 
 .welcome-info {

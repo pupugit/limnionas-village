@@ -5,8 +5,7 @@ const config = useRuntimeConfig()
 const props = defineProps<{
   house: House,
 }>()
-const width = ref(0)
-const height = ref(1024)
+const { width, height } = useWindowSize()
 
 const houseBlock = ref(null)
 const isBlockVisible = ref(false)
@@ -18,12 +17,6 @@ useIntersectionObserver(
     isBlockVisible.value = isIntersecting
   },
 )
-onMounted(() => {
-  if (window) {
-    width.value = window.innerWidth
-    height.value = window.innerHeight
-  }
-})
 const calcBGSrc = computed(() => {
   if (!props.house.big_picture || width.value == 0) return ''
   return `${config.public.directusBase}/assets/${props.house.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=webp`

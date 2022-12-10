@@ -9,6 +9,7 @@ const houses = useHouses()
 const prices = usePrices()
 const i18n = useI18n()
 const now = new Date()
+const { width, height } = useWindowSize()
 const nowFormat = now.toISOString().slice(5, 10)
 const activeSeason = computed(() => {
   return prices.value.seasons.find((s) => {
@@ -43,11 +44,11 @@ const nextImage = () => {
   const img1 = new Image()
   let nextIdx = curImage.value + 1
   if (nextIdx >= house.fotos.length) nextIdx = 0
-  img1.src = `${config.public.directusBase}/assets/${house.fotos[nextIdx].directus_files_id}?fit=cover&width=${window.innerWidth}&height=${window.innerWidth}&format=webp`
+  img1.src = `${config.public.directusBase}/assets/${house.fotos[nextIdx].directus_files_id}?fit=cover&width=${width}&height=${width}&format=webp`
 }
 const curImagePath = computed(() => {
-  if (typeof window !== 'undefined' && house && curImage.value !== -1) {
-    return `${config.public.directusBase}/assets/${house.fotos[curImage.value].directus_files_id}?fit=cover&width=${window.innerWidth}&height=${window.innerWidth}&format=webp`
+  if (width.value && house && curImage.value !== -1) {
+    return `${config.public.directusBase}/assets/${house.fotos[curImage.value].directus_files_id}?fit=cover&width=${width}&height=${width}&format=webp`
   } else {
     return ''
   }
@@ -99,12 +100,12 @@ useHead({
 })
 
 const bgStyle = useBackgroundImageState()
-if (typeof window !== 'undefined' && house) {
-  bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${window.innerWidth}&height=${window.innerHeight}&format=webp);`
+if (width && house) {
+  bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${width}&height=${height}&format=webp);`
 }
 onMounted(() => {
   if (house && !bgStyle.value) {
-    bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${window.innerWidth}&height=${window.innerHeight}&format=webp);`
+    bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${width}&height=${height}&format=webp);`
   }
   window.setTimeout(() => {
     window.scrollTo(0, 0)

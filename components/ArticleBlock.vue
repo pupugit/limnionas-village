@@ -5,16 +5,8 @@ const config = useRuntimeConfig()
 const props = defineProps<{
   article: Article,
 }>()
-const width = ref(0)
-const height = ref(1024)
+const { width, height } = useWindowSize()
 const zenMode = useZenMode()
-
-onMounted(() => {
-  if (window) {
-    width.value = window.innerWidth
-    height.value = window.innerHeight
-  }
-})
 </script>
 
 <template>

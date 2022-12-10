@@ -16,19 +16,11 @@ const config = useRuntimeConfig()
 useHead({ title: i18n.t('guestbook') })
 await initSpecials()
 const specials = useSpecials()
-const width = ref(0)
-const height = ref(1024)
-const loaded = ref(false)
+const { width, height } = useWindowSize()
 await initGuestbook()
 const guestbook = useGuestbook()
 
-onMounted(() => {
-  if (window) {
-    width.value = window.innerWidth
-    height.value = window.innerHeight
-    loaded.value = true
-  }
-})
+
 const calcPic = computed(() => {
   if (!specials.value.guestbook || width.value == 0) return ''
   return `background-image: url(${config.public.directusBase}/assets/${specials.value.guestbook}?fit=cover&width=${width.value}&height=${height.value}&withoutEnlargement&format=webp);`
