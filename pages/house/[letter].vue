@@ -174,7 +174,6 @@ onMounted(() => {
 
 .house-page {
   min-height: 100vh;
-  /* min-height: 100dvh; */
   display: grid;
   justify-content: stretch;
   align-content: start;

@@ -71,9 +71,7 @@ const calcPic = computed(() => {
 <style>
 .grid-index div.welcome-other {
   width: 100vw;
-  /* width: 100dvw; */
   height: 100vh;
-  /* height: 100dvh; */
   display: grid;
   background-position: center 16px;
   background-repeat: no-repeat;
@@ -94,9 +92,7 @@ const calcPic = computed(() => {
 
 .welcome-first {
   width: 100vw;
-  /* width: 100dvw; */
   height: 100vh;
-  /* height: 100dvh; */
   display: grid;
   place-items: center;
   place-content: center;
@@ -150,15 +146,4 @@ const calcPic = computed(() => {
     padding: 6px;
   }
 }
-
-
-/* @media screen and (max-width: 400px) {
-  .welcome-info {
-    border-radius: 0;
-    width: 100vw;
-    height: unset;
-    aspect-ratio: unset;
-    max-width: unset;
-  }
-} */
 </style>

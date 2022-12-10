@@ -52,9 +52,7 @@ const calcBG = computed(() => {
 <style>
 .house-bg {
   width: 100vw;
-  /* width: 100dvw; */
   height: 100vh;
-  /* height: 100dvh; */
   display: grid;
   place-items: center;
   background-position: center;
@@ -71,9 +69,7 @@ const calcBG = computed(() => {
 
 .house-img {
   width: 100vw;
-  /* width: 100dvw; */
   height: 100vh;
-  /* height: 100dvh; */
   margin-top: -72px;
 }
 

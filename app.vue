@@ -130,13 +130,6 @@ h2 {
   text-align: center;
 }
 
-/* .svg-glow {
-  stroke: lime;
-  stroke-width: .7;
-  fill: none;
-  opacity: .5;
-} */
-
 p {
   text-align: justify;
   text-align-last: auto;

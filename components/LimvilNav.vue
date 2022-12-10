@@ -175,7 +175,6 @@ watch(y, () => {
   box-sizing: border-box;
   transition: all .5s;
   top: -300px;
-  /* filter: drop-shadow(1px 1px 2px white) drop-shadow(-1px 1px 2px white) drop-shadow(1px -1px 2px white) drop-shadow(-1px -1px 2px white); */
 }
 
 .top-logo.show-it {
@@ -184,7 +183,6 @@ watch(y, () => {
 
 .top-logo-inner {
   background-color: rgba(255, 255, 255, 0);
-  /* height: 100%; */
   width: min(600px, 85vw);
   box-sizing: border-box;
   padding-top: 16px;

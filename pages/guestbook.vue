@@ -30,7 +30,6 @@ const calcPic = computed(() => {
 <style scoped>
 .guestbook-page {
   min-height: 100vh;
-  /* min-height: 100dvh; */
   padding-top: 128px;
   box-sizing: border-box;
   display: grid;

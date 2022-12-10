@@ -7,6 +7,7 @@ const props = defineProps<{
 }>()
 const { width, height } = useWindowSize()
 const zenMode = useZenMode()
+
 </script>
 
 <template>
