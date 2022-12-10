@@ -1,5 +1,5 @@
 <template>
-  <div class="welcome-first" :style="calcPic" @click.self="zenMode = !zenMode">
+  <div class="welcome-first" :style="calcPic" @click.self="zenMode = !zenMode" ref="infoEl">
   </div>
   <WelcomeEntry :entry="localWelcome" :pic="specials.welcome_back" />
   <WelcomeEntry :entry="localWelcome2" :pic="specials.welcome_back2" />
@@ -14,6 +14,7 @@ const specials = useSpecials()
 const texts = useTexts()
 const i18n = useI18n()
 const zenMode = useZenMode()
+const infoEl = ref<HTMLElement | null>(null)
 const { width, height } = useWindowSize()
 const localWelcome = computed(() => {
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
@@ -61,7 +62,7 @@ const localWelcome3 = computed(() => {
   return ''
 })
 const calcPic = computed(() => {
-  if (!specials.value.welcome_pic || width.value == 0) return ''
+  if (!specials.value.welcome_pic || width.value === Infinity || !infoEl.value) return ''
   return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_pic}?fit=inside&width=${width.value}&height=${height.value}&withoutEnlargement&format=webp);`
 })
 

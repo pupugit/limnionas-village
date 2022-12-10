@@ -6,7 +6,7 @@ const props = defineProps<{
   house: House,
 }>()
 const { width, height } = useWindowSize()
-
+const houseBox = ref<HTMLElement | null>(null)
 const houseBlock = ref(null)
 const isBlockVisible = ref(false)
 const zenMode = useZenMode()
@@ -18,22 +18,22 @@ useIntersectionObserver(
   },
 )
 const calcBGSrc = computed(() => {
-  if (!props.house.big_picture || width.value == 0) return ''
+  if (!props.house.big_picture || width.value === Infinity || !houseBox.value) return ''
   return `${config.public.directusBase}/assets/${props.house.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=webp`
 })
 
 const calcBG = computed(() => {
-  if (!props.house.big_picture || width.value == 0) return ''
+  if (!props.house.big_picture || width.value === Infinity) return ''
   return `background-image: url(${config.public.directusBase}/assets/${props.house.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=webp);`
 })
 
 </script>
 
 <template>
-  <div class="house-box">
+  <div class="house-box" ref="houseBox">
     <div :class="`house-bg${zenMode ? ' zen-mode' : ''}`">
       <img :src="calcBGSrc" loading="lazy" class="house-img" @click.self="zenMode = !zenMode"
-        :alt="`Background {{ house.name }}`">
+        :alt="`Background ${house.name}`">
       <div ref="houseBlock" :class="`house-info${isBlockVisible ? ' clicked' : ''}`"
         @click="$router.push(`/house/${house.letter.toLowerCase()}`)">
         <h2>{{ house.name }}</h2>
