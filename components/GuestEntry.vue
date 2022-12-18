@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { GuestbookEntry } from '~~/types/guestbookEntry'
 import { useI18n } from 'vue-i18n'
-import { rand } from '@vueuse/core';
 
 const { locale } = useI18n()
 type tDot = {
@@ -20,13 +19,13 @@ const finalDate = new Date(props.entry.date_created)
 const formatedDate = format.format(finalDate)
 
 onMounted(() => {
-  const dotCount = rand(1, 4)
+  const dotCount = randInt(1, 4)
   for (let i = 0; i < dotCount; i++) {
     dots.value.push({
-      pos: rand(-5, 5),
-      pos2: rand(-5, 5),
-      side: rand(1, 4),
-      size: rand(15, 35)
+      pos: randInt(-5, 5),
+      pos2: randInt(-5, 5),
+      side: randInt(1, 4),
+      size: randInt(15, 35)
     })
   }
 })
