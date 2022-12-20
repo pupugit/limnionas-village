@@ -9,6 +9,31 @@
         </nuxt-link>
       </div>
       <div>
+        <nuxt-link to="/houses">
+          {{ $t('Houses') }}
+        </nuxt-link>
+      </div>
+      <div>
+        <nuxt-link to="/contact">
+          {{ $t('Contact') }}
+        </nuxt-link>
+      </div>
+      <div>
+        <nuxt-link to="/samos">
+          {{ $t('Samos') }}
+        </nuxt-link>
+      </div>
+      <div>
+        <nuxt-link to="/hiking">
+          {{ $t('Hiking') }}
+        </nuxt-link>
+      </div>
+      <div>
+        <nuxt-link to="/arrival">
+          {{ $t('Arrival') }}
+        </nuxt-link>
+      </div>
+      <div>
         <nuxt-link to="/blog">
           {{ $t('Blog') }}
         </nuxt-link>
@@ -21,26 +46,6 @@
       <div>
         <nuxt-link to="/gallery">
           {{ $t('Gallery') }}
-        </nuxt-link>
-      </div>
-      <div>
-        <nuxt-link to="/contact">
-          {{ $t('Contact') }}
-        </nuxt-link>
-      </div>
-      <div>
-        <nuxt-link to="/arrival">
-          {{ $t('Arrival') }}
-        </nuxt-link>
-      </div>
-      <div>
-        <nuxt-link to="/hiking">
-          {{ $t('Hiking') }}
-        </nuxt-link>
-      </div>
-      <div>
-        <nuxt-link to="/samos">
-          {{ $t('Samos') }}
         </nuxt-link>
       </div>
       <div>
