@@ -123,7 +123,7 @@ watch(y, () => {
 }
 
 .top-menu {
-  --block-size: min(160px, 25vw);
+  --block-size: min(140px, 50vw);
   background-color: rgba(255, 255, 255, var(--trans));
   border-radius: 0 0 16px 16px;
   transition: all .5s;
