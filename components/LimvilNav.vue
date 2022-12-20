@@ -5,52 +5,51 @@
     <div :class="`top-menu${showMenu ? ' show-it' : ''}`">
       <div>
         <nuxt-link to="/">
-          <SymbolHouse class="top-symbol" />
+          {{ $t('Home') }}
         </nuxt-link>
       </div>
       <div>
         <nuxt-link to="/blog">
-          <SymbolBlog class="top-symbol" />
+          {{ $t('Blog') }}
         </nuxt-link>
       </div>
       <div>
         <nuxt-link to="/guestbook">
-          <SymbolGuestbook class="top-symbol" />
+          {{ $t('Guestbook') }}
         </nuxt-link>
       </div>
       <div>
         <nuxt-link to="/gallery">
-          <SymbolGallery class="top-symbol" />
+          {{ $t('Gallery') }}
         </nuxt-link>
       </div>
       <div>
         <nuxt-link to="/contact">
-          <SymbolContact class="top-symbol" />
+          {{ $t('Contact') }}
         </nuxt-link>
       </div>
       <div>
         <nuxt-link to="/arrival">
-          <SymbolAnreise class="top-symbol" />
+          {{ $t('Arrival') }}
         </nuxt-link>
       </div>
       <div>
         <nuxt-link to="/hiking">
-          <SymbolWanderungen class="top-symbol" />
+          {{ $t('Hiking') }}
         </nuxt-link>
       </div>
       <div>
         <nuxt-link to="/samos">
-          <SymbolInsel class="top-symbol" />
+          {{ $t('Samos') }}
         </nuxt-link>
       </div>
       <div>
         <nuxt-link to="/tos">
-          <SymbolAGB class="top-symbol" />
+          {{ $t('TOS') }}
         </nuxt-link>
       </div>
       <div>
-        <Icon name="carbon:language" :title="$t('button.toggle_langs')" @click="toggleLocales()" /><span
-          style="font-size:.75em;">{{ locale }}</span>
+        {{ locale }}
       </div>
     </div>
   </div>
