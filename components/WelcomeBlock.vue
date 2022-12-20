@@ -63,7 +63,7 @@ const localWelcome3 = computed(() => {
 })
 const calcPic = computed(() => {
   if (!specials.value.welcome_pic || width.value === Infinity || !infoEl.value) return ''
-  return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_pic}?fit=inside&width=${width.value}&height=${height.value}&withoutEnlargement&format=webp);`
+  return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_pic}?fit=inside&width=${width.value}&height=${height.value}&withoutEnlargement&format=png);`
 })
 
 </script>
