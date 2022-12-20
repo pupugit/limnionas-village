@@ -69,7 +69,7 @@ const zenMode = useZenMode()
   border-radius: 50%;
   transition: all .5s ease-out;
   cursor: pointer;
-  border-radius: 32px;
+  /* border-radius: 32px; */
   color: var(--col-main);
   padding: 32px;
   width: min(600px, 85vw);

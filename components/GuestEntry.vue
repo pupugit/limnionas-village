@@ -68,7 +68,7 @@ const styleIt = (d: tDot) => {
   display: flex;
   color: var(--col-main);
   padding: 20px;
-  border-radius: 30px;
+  // border-radius: 30px;
   min-width: 40px;
   max-width: 800px;
   width: 80vw;

@@ -86,7 +86,7 @@ const calcBG = computed(() => {
   padding: 16px;
   transition: all .5s ease-out;
   cursor: pointer;
-  border-radius: 32px;
+  /* border-radius: 32px; */
   color: var(--col-main);
   width: 200px;
   height: 200px;

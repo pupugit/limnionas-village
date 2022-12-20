@@ -130,7 +130,7 @@ watch(y, () => {
 .top-menu {
   --block-size: min(140px, 50vw);
   background-color: rgba(255, 255, 255, var(--trans));
-  border-radius: 0 0 16px 16px;
+  /* border-radius: 0 0 16px 16px; */
   transition: all .5s;
   font-size: 1em;
   height: 0%;
@@ -211,7 +211,7 @@ watch(y, () => {
 .scrolled>.top-logo-inner {
   background-color: rgba(255, 255, 255, var(--trans));
   padding: 16px 24px;
-  border-radius: 24px;
+  /* border-radius: 24px; */
 
 }
 
@@ -229,7 +229,7 @@ watch(y, () => {
   }
 
   .scrolled>.top-logo-inner.show-it {
-    border-radius: 24px 24px 0 0;
+    /* border-radius: 24px 24px 0 0; */
   }
 }
 </style>
