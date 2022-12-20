@@ -48,7 +48,7 @@
           {{ $t('TOS') }}
         </nuxt-link>
       </div>
-      <div>
+      <div @click="toggleLocales">
         {{ locale }}
       </div>
     </div>
@@ -134,9 +134,10 @@ watch(y, () => {
   box-sizing: border-box;
   align-self: start;
   display: grid;
+  color: var(--col-main);
   grid-template-columns: repeat(auto-fill, var(--block-size));
   /* grid-template-rows: repeat(auto-fill, var(--block-size)); */
-  gap: 32px;
+  gap: 16px;
   padding: 0 16px;
   justify-content: center;
 }
@@ -145,6 +146,10 @@ watch(y, () => {
   height: var(--block-size);
   width: var(--block-size);
 } */
+.top-menu>div>a {
+  color: var(--col-main);
+  font-size: 1.25em;
+}
 
 .top-menu.show-it {
   height: 100%;

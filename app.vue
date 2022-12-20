@@ -19,6 +19,7 @@ html {
   scroll-snap-type: y mandatory;
   overflow-y: auto;
   overflow-x: hidden;
+  letter-spacing: 0.05ch;
 }
 
 body {
