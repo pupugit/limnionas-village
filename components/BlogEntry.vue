@@ -46,7 +46,7 @@ onMounted(() => {
 <style scoped lang="scss">
 .thought {
   display: flex;
-  background: var(--col-sub);
+  // background: var(--col-sub);
   padding: 20px;
   border-radius: 30px;
   min-width: 40px;
@@ -54,22 +54,22 @@ onMounted(() => {
   width: 80vw;
   min-height: 40px;
   margin: 20px;
-  color: white;
+
   position: relative;
   align-items: center;
   justify-content: center;
   text-align: center;
   z-index: 0;
 
-  &:before,
-  &:after {
-    content: "";
-    background-color: var(--col-main);
-    border-radius: 50%;
-    display: block;
-    position: absolute;
-    z-index: -1;
-  }
+  // &:before,
+  // &:after {
+  //   content: "";
+  //   background-color: var(--col-main);
+  //   border-radius: 50%;
+  //   display: block;
+  //   position: absolute;
+  //   z-index: -1;
+  // }
 }
 
 .thought:nth-child(4n+1) {
