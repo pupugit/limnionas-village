@@ -9,7 +9,6 @@
 
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
-import GuestEntry from '~~/components/GuestEntry.vue';
 
 const i18n = useI18n()
 const config = useRuntimeConfig()
