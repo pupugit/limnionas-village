@@ -7,10 +7,9 @@ const { locale } = useI18n()
 const props = defineProps<{
   entry: BlogEntry,
 }>()
-
-const format = new Intl.DateTimeFormat(locale.value, { day: 'numeric', month: 'long', year: 'numeric' })
+const format = ref(new Intl.DateTimeFormat(locale.value, { day: 'numeric', month: 'long', year: 'numeric' }))
 const finalDate = new Date(props.entry.date_publish)
-const formatedDate = format.format(finalDate)
+const formatedDate = computed(() => format.value.format(finalDate))
 const config = useRuntimeConfig()
 const imgcnt = ref<HTMLElement | null>(null)
 const img = ref<HTMLImageElement | null>(null)
