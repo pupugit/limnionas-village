@@ -228,8 +228,5 @@ watch(y, () => {
     width: min(400px, 85vw);
   }
 
-  .scrolled>.top-logo-inner.show-it {
-    /* border-radius: 24px 24px 0 0; */
-  }
 }
 </style>
