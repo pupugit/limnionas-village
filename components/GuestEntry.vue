@@ -58,7 +58,7 @@ const styleIt = (d: tDot) => {
   background: var(--col-main);
   position: absolute;
   content: "";
-  border-radius: 50%;
+  // border-radius: 50%;
   display: block;
   position: absolute;
   z-index: -1;

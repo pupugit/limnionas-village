@@ -66,7 +66,7 @@ const zenMode = useZenMode()
   display: grid;
   place-items: center;
   background-color: rgba(255, 255, 255, var(--trans));
-  border-radius: 50%;
+  /* border-radius: 50%; */
   transition: all .5s ease-out;
   cursor: pointer;
   /* border-radius: 32px; */
