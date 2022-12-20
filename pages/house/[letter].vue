@@ -86,11 +86,11 @@ const nextImage = () => {
   const img1 = new Image()
   let nextIdx = curImage.value + 1
   if (nextIdx >= house.fotos.length) nextIdx = 0
-  img1.src = `${config.public.directusBase}/assets/${house.fotos[nextIdx].directus_files_id}?fit=inside&width=${width.value}&height=${height.value}&format=webp`
+  img1.src = `${config.public.directusBase}/assets/${house.fotos[nextIdx].directus_files_id}?fit=inside&width=${width.value}&height=${height.value}&format=png`
 }
 const curImagePath = computed(() => {
   if (width.value !== Infinity && house && curImage.value !== -1) {
-    return `${config.public.directusBase}/assets/${house.fotos[curImage.value].directus_files_id}?fit=inside&width=${width.value}&height=${height.value}&format=webp`
+    return `${config.public.directusBase}/assets/${house.fotos[curImage.value].directus_files_id}?fit=inside&width=${width.value}&height=${height.value}&format=png`
   } else {
     return ''
   }
@@ -143,11 +143,11 @@ useHead({
 
 const bgStyle = useBackgroundImageState()
 if (width.value && house) {
-  bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=webp);`
+  bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=png);`
 }
 onMounted(() => {
   if (house && !bgStyle.value) {
-    bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=webp);`
+    bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=png);`
   }
   window.setTimeout(() => {
     window.scrollTo(0, 0)
