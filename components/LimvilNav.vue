@@ -123,7 +123,7 @@ watch(y, () => {
 }
 
 .top-menu {
-  --block-size: min(80px, 25vw);
+  --block-size: min(160px, 25vw);
   background-color: rgba(255, 255, 255, var(--trans));
   border-radius: 0 0 16px 16px;
   transition: all .5s;
@@ -135,16 +135,16 @@ watch(y, () => {
   align-self: start;
   display: grid;
   grid-template-columns: repeat(auto-fill, var(--block-size));
-  grid-template-rows: repeat(auto-fill, var(--block-size));
+  /* grid-template-rows: repeat(auto-fill, var(--block-size)); */
   gap: 32px;
   padding: 0 16px;
   justify-content: center;
 }
 
-.top-menu>div {
+/* .top-menu>div {
   height: var(--block-size);
   width: var(--block-size);
-}
+} */
 
 .top-menu.show-it {
   height: 100%;
