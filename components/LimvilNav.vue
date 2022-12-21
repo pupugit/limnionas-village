@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="`top-logo${miniLogo ? ' scrolled' : ''}${zenMode ? ' zen-mode' : ''}${showMenu || y < 50 || timedShowLogo ? ' show-it' : ''}`">
+    :class="`top-logo${miniLogo ? ' scrolled' : ''}${zenMode ? ' zen-mode' : ''}${showMenu || y < 50 || true ? ' show-it' : ''}`">
     <LimvilLogo :class="`top-logo-inner click-it${showMenu ? ' show-it' : ''}`" @click="clickLogo" suid="limvil-logo" />
     <div :class="`top-menu${showMenu ? ' show-it' : ''}`" ref="menu">
       <div>
@@ -136,15 +136,14 @@ watch(y, () => {
   /* border-radius: 0 0 16px 16px; */
   transition: all .5s;
   font-size: 1em;
-  height: 0%;
+  height: 0;
   overflow: hidden;
   width: min(400px, 85vw);
   box-sizing: border-box;
   align-self: start;
-  display: grid;
   color: var(--col-main);
+  display: grid;
   grid-template-columns: repeat(auto-fill, var(--block-size));
-  /* grid-template-rows: repeat(auto-fill, var(--block-size)); */
   gap: 16px;
   padding: 0 16px;
   justify-content: center;
@@ -160,6 +159,7 @@ watch(y, () => {
 }
 
 .top-menu.show-it {
+
   height: 100%;
   padding: 16px;
 }

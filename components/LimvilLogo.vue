@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/first-attribute-linebreak -->
 <script setup lang="ts">
-import { gsap } from 'gsap'
+// import { gsap } from 'gsap'
 const props = defineProps<{
   loading?: boolean,
   suid?: string
@@ -18,7 +18,7 @@ const random = (length = 16) => {
   return str
 }
 if (!props.suid) uid.value = random()
-const drawIt = gsap.timeline({ repeat: 0 })
+// const drawIt = gsap.timeline({ repeat: 0 })
 onMounted(async () => {
   // const { DrawSVGPlugin } = await import('gsap/dist/DrawSVGPlugin')
   // gsap.registerPlugin(DrawSVGPlugin)
