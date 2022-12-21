@@ -7,13 +7,12 @@ const { locale } = useI18n()
 const props = defineProps<{
   entry: BlogEntry,
 }>()
-const format = ref(new Intl.DateTimeFormat(locale.value, { day: 'numeric', month: 'long', year: 'numeric' }))
+const format = computed(() => new Intl.DateTimeFormat(locale.value, { day: 'numeric', month: 'long', year: 'numeric' }))
 const finalDate = new Date(props.entry.date_publish)
 const formatedDate = computed(() => format.value.format(finalDate))
 const config = useRuntimeConfig()
 const imgcnt = ref<HTMLElement | null>(null)
 const img = ref<HTMLImageElement | null>(null)
-const width = ref(0)
 onMounted(() => {
   if (window) {
     if (imgcnt.value?.clientWidth && img.value) {

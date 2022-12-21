@@ -11,8 +11,11 @@
 import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
 useHead({ title: i18n.t('blog') })
-await initBlog()
 const blog = useBlog()
+onMounted(() => {
+  initBlog()
+
+})
 </script>
 
 <style scoped>

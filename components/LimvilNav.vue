@@ -2,7 +2,7 @@
   <div
     :class="`top-logo${miniLogo ? ' scrolled' : ''}${zenMode ? ' zen-mode' : ''}${showMenu || y < 50 || timedShowLogo ? ' show-it' : ''}`">
     <LimvilLogo :class="`top-logo-inner click-it${showMenu ? ' show-it' : ''}`" @click="clickLogo" suid="limvil-logo" />
-    <div :class="`top-menu${showMenu ? ' show-it' : ''}`">
+    <div :class="`top-menu${showMenu ? ' show-it' : ''}`" ref="menu">
       <div>
         <nuxt-link to="/">
           {{ $t('Home') }}
@@ -62,7 +62,7 @@
     <SymbolArrowUp />
   </div> -->
 </template>
-<script setup>
+<script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
 
 const zenMode = useZenMode()
@@ -71,9 +71,14 @@ const miniLogo = computed(() => y.value > 200 || route.path !== '/')
 const router = useRouter()
 const route = useRoute()
 const showMenu = ref(false)
+const menu = ref<HTMLElement | null>(null)
+const timedShowLogo = ref(false)
+let timerShowLogo: number | null = null
+const lastY = ref(0)
 router.afterEach(() => {
   showMenu.value = false
 })
+onClickOutside(menu, () => { showMenu.value = false })
 const { availableLocales, locale } = useI18n()
 const toggleLocales = () => {
   const locales = availableLocales
@@ -93,9 +98,7 @@ const clickLogo = () => {
     }, 2000)
   }
 }
-const timedShowLogo = ref(false)
-let timerShowLogo = null
-const lastY = ref(0)
+
 watch(y, () => {
   if (y.value < lastY.value) {
     timedShowLogo.value = true
