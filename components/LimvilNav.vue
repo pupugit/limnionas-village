@@ -131,14 +131,14 @@ watch(y, () => {
 }
 
 .top-menu {
-  --block-size: min(140px, 50vw);
+  --block-size: min(100pt, 50vw);
   background-color: rgba(255, 255, 255, var(--trans));
   /* border-radius: 0 0 16px 16px; */
   transition: all .5s;
   font-size: 1em;
   height: 0;
   overflow: hidden;
-  width: min(400px, 85vw);
+  width: min(400pt, 85vw);
   box-sizing: border-box;
   align-self: start;
   color: var(--col-main);
@@ -195,17 +195,12 @@ watch(y, () => {
 
 .top-logo-inner {
   background-color: rgba(255, 255, 255, 0);
-  width: min(600px, 85vw);
+  width: min(400pt, 85vw);
   box-sizing: border-box;
   padding-top: 16px;
   transition: all .5s ease-out;
 }
 
-@media screen and (min-resolution: 2x) {
-  .top-logo-inner {
-    width: min(300px, 85vw);
-  }
-}
 
 .top-logo.scrolled.show-it {
   top: 16px;
@@ -228,7 +223,7 @@ watch(y, () => {
 
 @media screen and (max-width: 515px) {
   .scrolled>.top-logo-inner {
-    width: min(400px, 85vw);
+    width: min(300px, 85vw);
   }
 
 }
