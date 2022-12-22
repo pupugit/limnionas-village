@@ -1,8 +1,8 @@
 <template>
   <div
-    :class="`top-logo${miniLogo ? ' scrolled' : ''}${zenMode ? ' zen-mode' : ''}${showMenu || y < 50 || timedShowLogo ? ' show-it' : ''}`">
+    :class="`top-logo${miniLogo ? ' scrolled' : ''}${zenMode ? ' zen-mode' : ''}${showMenu || y < 50 || true ? ' show-it' : ''}`">
     <LimvilLogo :class="`top-logo-inner click-it${showMenu ? ' show-it' : ''}`" @click="clickLogo" suid="limvil-logo" />
-    <div :class="`top-menu${showMenu ? ' show-it' : ''}`">
+    <div :class="`top-menu${showMenu ? ' show-it' : ''}`" ref="menu">
       <div>
         <nuxt-link to="/">
           {{ $t('Home') }}
@@ -62,7 +62,7 @@
     <SymbolArrowUp />
   </div> -->
 </template>
-<script setup>
+<script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
 
 const zenMode = useZenMode()
@@ -71,9 +71,14 @@ const miniLogo = computed(() => y.value > 200 || route.path !== '/')
 const router = useRouter()
 const route = useRoute()
 const showMenu = ref(false)
+const menu = ref<HTMLElement | null>(null)
+const timedShowLogo = ref(false)
+let timerShowLogo: number | null = null
+const lastY = ref(0)
 router.afterEach(() => {
   showMenu.value = false
 })
+onClickOutside(menu, () => { showMenu.value = false })
 const { availableLocales, locale } = useI18n()
 const toggleLocales = () => {
   const locales = availableLocales
@@ -93,9 +98,7 @@ const clickLogo = () => {
     }, 2000)
   }
 }
-const timedShowLogo = ref(false)
-let timerShowLogo = null
-const lastY = ref(0)
+
 watch(y, () => {
   if (y.value < lastY.value) {
     timedShowLogo.value = true
@@ -128,20 +131,19 @@ watch(y, () => {
 }
 
 .top-menu {
-  --block-size: min(140px, 50vw);
+  --block-size: min(100pt, 50vw);
   background-color: rgba(255, 255, 255, var(--trans));
   /* border-radius: 0 0 16px 16px; */
   transition: all .5s;
   font-size: 1em;
-  height: 0%;
+  height: 0;
   overflow: hidden;
-  width: min(400px, 85vw);
+  width: min(400pt, 85vw);
   box-sizing: border-box;
   align-self: start;
-  display: grid;
   color: var(--col-main);
+  display: grid;
   grid-template-columns: repeat(auto-fill, var(--block-size));
-  /* grid-template-rows: repeat(auto-fill, var(--block-size)); */
   gap: 16px;
   padding: 0 16px;
   justify-content: center;
@@ -157,6 +159,7 @@ watch(y, () => {
 }
 
 .top-menu.show-it {
+
   height: 100%;
   padding: 16px;
 }
@@ -192,17 +195,12 @@ watch(y, () => {
 
 .top-logo-inner {
   background-color: rgba(255, 255, 255, 0);
-  width: min(600px, 85vw);
+  width: min(400pt, 85vw);
   box-sizing: border-box;
   padding-top: 16px;
   transition: all .5s ease-out;
 }
 
-@media screen and (min-resolution: 2x) {
-  .top-logo-inner {
-    width: min(300px, 85vw);
-  }
-}
 
 .top-logo.scrolled.show-it {
   top: 16px;
@@ -225,7 +223,7 @@ watch(y, () => {
 
 @media screen and (max-width: 515px) {
   .scrolled>.top-logo-inner {
-    width: min(400px, 85vw);
+    width: min(300px, 85vw);
   }
 
 }

@@ -3,7 +3,6 @@ lockfileVersion: 5.4
 specifiers:
   '@vueuse/nuxt': ^9.8.2
   date-fns: ^2.29.3
-  gsap: npm:@gsap/shockingly@^3.11.3
   nuxt: ^3.0.0
   nuxt-directus: ^3.2.2
   nuxt-icon: ^0.1.8
@@ -13,7 +12,6 @@ specifiers:
 
 dependencies:
   date-fns: 2.29.3
-  gsap: /@gsap/shockingly/3.11.3
 
 devDependencies:
   '@vueuse/nuxt': 9.8.2_nuxt@3.0.0+vue@3.2.45
@@ -346,10 +344,6 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
-
-  /@gsap/shockingly/3.11.3:
-    resolution: {integrity: sha512-YG1xjWe8HP6IDA2UT98xcsEVLt+6vJB2joyiYbc1RJLvXHeft/FYqlUKM0uRMOBpK1GSn2Ziq2JCaJwyrDZQVg==}
-    dev: false
 
   /@hutson/parse-repository-url/3.0.2:
     resolution: {integrity: sha512-H9XAx3hc0BQHY6l+IFSWHDySypcXsvsuLhgYLUGywmJ5pswRVQJUHpOsobnLYp2ZUaUlKiKDrgWWhosOwAEM8Q==}

@@ -14,7 +14,6 @@ const formatedDate = computed(() => format.value.format(finalDate))
 const config = useRuntimeConfig()
 const imgcnt = ref<HTMLElement | null>(null)
 const img = ref<HTMLImageElement | null>(null)
-const width = ref(0)
 onMounted(() => {
   if (window) {
     if (imgcnt.value?.clientWidth && img.value) {
