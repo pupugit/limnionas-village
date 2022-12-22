@@ -7,7 +7,8 @@ const { locale } = useI18n()
 const props = defineProps<{
   entry: BlogEntry,
 }>()
-const format = ref(new Intl.DateTimeFormat(locale.value, { day: 'numeric', month: 'long', year: 'numeric' }))
+const content = computed(() => props.entry.content)
+const format = computed(() => { return new Intl.DateTimeFormat(locale.value, { day: 'numeric', month: 'long', year: 'numeric' }) })
 const finalDate = new Date(props.entry.date_publish)
 const formatedDate = computed(() => format.value.format(finalDate))
 const config = useRuntimeConfig()
@@ -36,7 +37,7 @@ onMounted(() => {
   <div class="thought">
     <div style="width: 100%;" ref="imgcnt">
       <img ref="img" style="width: 100%;aspect-ratio: 4/3;" loading="lazy" />
-      <p v-html="entry.content"></p>
+      <p v-html="content"></p>
       <div>{{ formatedDate }}</div>
     </div>
   </div>
