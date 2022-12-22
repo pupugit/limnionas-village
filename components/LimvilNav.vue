@@ -203,7 +203,7 @@ watch(y, () => {
 
 
 .top-logo.scrolled.show-it {
-  top: 16px;
+  top: 0;
 }
 
 .scrolled>.top-logo-inner {
