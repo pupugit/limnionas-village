@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="`top-logo${miniLogo ? ' scrolled' : ''}${zenMode ? ' zen-mode' : ''}${showMenu || y < 50 || true ? ' show-it' : ''}`">
+    :class="`top-logo${miniLogo ? ' scrolled' : ''}${zenMode ? ' zen-mode' : ''}${showMenu || y < 50 || timedShowLogo ? ' show-it' : ''}`">
     <LimvilLogo :class="`top-logo-inner click-it${showMenu ? ' show-it' : ''}`" @click="clickLogo" suid="limvil-logo" />
     <div :class="`top-menu${showMenu ? ' show-it' : ''}`" ref="menu">
       <div>
@@ -78,7 +78,16 @@ const lastY = ref(0)
 router.afterEach(() => {
   showMenu.value = false
 })
-onClickOutside(menu, () => { showMenu.value = false })
+onClickOutside(menu, (evt) => {
+  console.log('click outside')
+  console.log(evt)
+  if (evt && evt.currentTarget) {
+    const t = evt.currentTarget as HTMLElement
+    if (t.classList.contains('limvil-logo'))
+      return
+  }
+  showMenu.value = false
+})
 const { availableLocales, locale } = useI18n()
 const toggleLocales = () => {
   const locales = availableLocales
@@ -89,6 +98,7 @@ const goTop = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 const clickLogo = () => {
+  console.log('clickLogo')
   showMenu.value = !showMenu.value
   if (!showMenu.value) {
     timedShowLogo.value = true
@@ -210,21 +220,6 @@ watch(y, () => {
   background-color: rgba(255, 255, 255, var(--trans));
   padding: 16px 24px;
   /* border-radius: 24px; */
-
-}
-
-@media screen and (max-height:620px) {
-  .top-logo {
-    top: 0;
-    height: 64px;
-    padding: 8px 0;
-  }
-}
-
-@media screen and (max-width: 515px) {
-  .scrolled>.top-logo-inner {
-    width: min(300px, 85vw);
-  }
 
 }
 </style>
