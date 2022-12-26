@@ -16,7 +16,7 @@
           <div>
             <h3>{{ $t('prices_per_night') }}</h3>
             <table class="prices-table">
-              <tr v-for="(s, idx) in prices.seasons" :key="s.name" :class="s === activeSeason ? 'active-season' : ''">
+              <tr v-for="(s, idx) in prices.seasons" :key="s.name">
                 <td>{{ $d(Date.parse(s.start), 'text_short_no_month') }}</td>
                 <td>{{ $t('to') }}</td>
                 <td>{{ $d(Date.parse(s.end), 'text_short_no_month') }}</td>
@@ -50,14 +50,7 @@ const config = useRuntimeConfig()
 const houses = useHouses()
 const prices = usePrices()
 const i18n = useI18n()
-const now = new Date()
 const { width, height } = useWindowSize()
-const nowFormat = now.toISOString().slice(5, 10)
-const activeSeason = computed(() => {
-  return prices.value.seasons.find((s) => {
-    return s.start.slice(5, 10).localeCompare(nowFormat) <= 0 && s.end.slice(5, 10).localeCompare(nowFormat) >= 0
-  })
-})
 const house = houses.value.find(h => h.letter.toLowerCase() === letter) || null
 const localeHouse = computed(() => {
   if (!house) return null
