@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="`top-logo${miniLogo ? ' scrolled' : ''}${zenMode ? ' zen-mode' : ''}${showMenu || (router.currentRoute.value.path === '/' && y < 50) || timedShowLogo ? ' show-it' : ''}`">
+    :class="`top-logo${miniLogo ? ' scrolled' : ''}${zenMode ? ' zen-mode' : ''}${(showMenu || y < 50 || timedShowLogo) ? ' show-it' : ''}`">
     <LimvilLogo :class="`top-logo-inner click-it${showMenu ? ' show-it' : ''}`" @click="clickLogo" suid="limvil-logo" />
     <div :class="`top-menu${showMenu ? ' show-it' : ''}`" ref="menu">
       <div>
@@ -79,11 +79,11 @@ router.afterEach(() => {
   showMenu.value = false
 })
 onClickOutside(menu, (evt) => {
-  console.log('click outside')
-  console.log(evt)
+  // console.log('click outside')
+  // console.log(evt)
   if (evt && evt.currentTarget) {
     const t = evt.currentTarget as HTMLElement
-    if (t.classList.contains('limvil-logo'))
+    if (t?.classList?.contains('limvil-logo'))
       return
   }
   showMenu.value = false

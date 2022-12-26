@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin-top:120px">
     <h1>{{ $t('houses') }}</h1>
     <div v-html="localPricesText"></div>
     <HousesTable />
@@ -8,6 +8,7 @@
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+await initTexts()
 const texts = useTexts()
 const i18n = useI18n()
 
