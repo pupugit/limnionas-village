@@ -5,52 +5,52 @@
     <div :class="`top-menu${showMenu ? ' show-it' : ''}`" ref="menu">
       <div>
         <nuxt-link to="/">
-          {{ $t('Home') }}
+          {{ $t('home') }}
         </nuxt-link>
       </div>
       <div>
         <nuxt-link to="/houses">
-          {{ $t('Houses') }}
+          {{ $t('houses') }}
         </nuxt-link>
       </div>
       <div>
         <nuxt-link to="/contact">
-          {{ $t('Contact') }}
+          {{ $t('contact') }}
         </nuxt-link>
       </div>
       <div>
         <nuxt-link to="/samos">
-          {{ $t('Samos') }}
+          {{ $t('samos') }}
         </nuxt-link>
       </div>
       <div>
         <nuxt-link to="/hiking">
-          {{ $t('Hiking') }}
+          {{ $t('hiking') }}
         </nuxt-link>
       </div>
       <div>
         <nuxt-link to="/arrival">
-          {{ $t('Arrival') }}
+          {{ $t('arrival') }}
         </nuxt-link>
       </div>
       <div>
         <nuxt-link to="/blog">
-          {{ $t('Blog') }}
+          {{ $t('blog') }}
         </nuxt-link>
       </div>
       <div>
         <nuxt-link to="/guestbook">
-          {{ $t('Guestbook') }}
+          {{ $t('guestbook') }}
         </nuxt-link>
       </div>
       <div>
         <nuxt-link to="/gallery">
-          {{ $t('Gallery') }}
+          {{ $t('gallery') }}
         </nuxt-link>
       </div>
       <div>
         <nuxt-link to="/tos">
-          {{ $t('TOS') }}
+          {{ $t('tos') }}
         </nuxt-link>
       </div>
       <div @click="toggleLocales">

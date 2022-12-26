@@ -1,34 +1,25 @@
 {
   "blog": "Blog",
-  "button": {
-    "about": "À propos",
-    "back": "Retour",
-    "go": "Essayer",
-    "home": "Accueil",
-    "toggle_dark": "Basculer en mode sombre",
-    "toggle_langs": "Changer de langue"
-  },
   "furnishing": "Ameublement",
-  "intro": {
-    "aka": "Aussi connu sous le nom de",
-    "desc": "Exemple d'application Vite",
-    "dynamic-route": "Démo de route dynamique",
-    "hi": "Salut, {name}!",
-    "whats-your-name": "Comment t'appelles-tu ?"
-  },
   "more_informations": "Plus d'informations",
   "not-found": "Page non trouvée",
   "people": "personnes",
   "prices": "Prix",
   "prices_per_night": "Prix et nuit",
+  "seasons": {
+    "autumn": "End of Year",
+    "early": "Pre Season",
+    "late": "Late Season",
+    "main": "Main Season",
+    "spring": "Spring"
+  },
   "to": "à",
-  "Home": "Accueil",
-  "Blog": "Blog",
-  "Gallery": "Galerie",
-  "Contact": "Contact",
-  "Arrival": "L'Arrivée",
-  "Hiking": "Randonnée",
-  "Samos": "Samos",
-  "TOS": "Mentions Légales",
-  "Houses": "Le Village"
+  "home": "Accueil",
+  "gallery": "Galerie",
+  "contact": "Contact",
+  "arrival": "L'Arrivée",
+  "hiking": "Randonnée",
+  "samos": "Samos",
+  "tos": "Mentions Légales",
+  "houses": "Le Village"
 }

@@ -1,23 +1,8 @@
 {
   "blog": "Blog",
-  "button": {
-    "about": "About",
-    "back": "Back",
-    "go": "GO",
-    "home": "Home",
-    "toggle_dark": "Toggle dark mode",
-    "toggle_langs": "Change languages"
-  },
   "furnishing": "Furnishing",
   "guestbook": "Guestbook",
   "house_not_found": "House not found!",
-  "intro": {
-    "aka": "Also known as",
-    "desc": "Opinionated Vite Starter Template",
-    "dynamic-route": "Demo of dynamic route",
-    "hi": "Hi, {name}!",
-    "whats-your-name": "What's your name?"
-  },
   "more_informations": "More Informations",
   "not-found": "Not found",
   "people": "people",
@@ -31,14 +16,12 @@
     "spring": "Spring"
   },
   "to": "to",
-  "Home": "Home",
-  "Blog": "Blog",
-  "Guestbook": "Guestbook",
-  "Gallery": "Gallery",
-  "Contact": "Contact",
-  "Hiking": "Hiking",
-  "Arrival": "Arrival",
-  "Samos": "Samos",
-  "TOS": "Legal Notice",
-  "Houses": "Houses"
+  "home": "Home",
+  "gallery": "Gallery",
+  "contact": "Contact",
+  "hiking": "Hiking",
+  "arrival": "Arrival",
+  "samos": "Samos",
+  "tos": "Legal Notice",
+  "houses": "Houses"
 }
