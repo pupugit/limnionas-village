@@ -8,7 +8,10 @@
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Zen+Maru+Gothic&display=swap');
 
 .current-color {
   fill: currentColor;
@@ -21,7 +24,7 @@ html {
   scroll-snap-type: y mandatory;
   overflow-y: auto;
   overflow-x: hidden;
-  letter-spacing: 0.05ch;
+  letter-spacing: 0.0ch;
 }
 
 body {
@@ -29,7 +32,7 @@ body {
   --col-sub: #86bd97;
   --col-highlight: #0070b3;
   --trans: .85;
-  font-family: 'Open Sans', 'Verdana', Arial, Helvetica, sans-serif;
+  font-family: 'Zen Maru Gothic', 'Open Sans', sans-serif;
   font-size: 16px;
   color: var(--col-main);
   border-color: var(--col-main);
@@ -40,7 +43,7 @@ body {
 }
 
 @media (min-resolution: 2x) {
-  body {
+  html>body {
     font-size: 12px;
   }
 }
