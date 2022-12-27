@@ -120,6 +120,7 @@ const calcPic = computed(() => {
 .welcome-text {
   text-align: justify;
   text-align-last: auto;
+  box-sizing: border-box;
   padding: 16px;
   width: min(720px, 100vw);
 }
