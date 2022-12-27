@@ -28,12 +28,19 @@ body {
   --col-highlight: #0070b3;
   --trans: .85;
   font-family: 'Verdana', Arial, Helvetica, sans-serif;
+  font-size: 16px;
   color: var(--col-main);
   border-color: var(--col-main);
   margin: 0;
   min-height: 100vh;
   min-height: 100dvh;
   background-color: white;
+}
+
+@media (min-resolution: 2x) {
+  body {
+    font-size: 12px;
+  }
 }
 
 h1,

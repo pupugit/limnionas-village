@@ -145,7 +145,7 @@ watch(y, () => {
   background-color: rgba(255, 255, 255, var(--trans));
   /* border-radius: 0 0 16px 16px; */
   transition: all .5s;
-  font-size: 16px;
+  font-size: 1rem;
   height: 0;
   overflow: hidden;
   width: min(400pt, 85vw);
@@ -165,7 +165,7 @@ watch(y, () => {
 } */
 .top-menu>div>a {
   color: var(--col-main);
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .top-menu.show-it {
