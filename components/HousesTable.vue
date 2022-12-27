@@ -5,13 +5,16 @@
         <th>{{ $t('house') }}</th>
         <th v-for="(s, idx) in prices.seasons" :key="s.name">
           {{ $d(Date.parse(s.start), 'text_short_no_month') }}
-          {{ $t('to') }}
+          -
           {{ $d(Date.parse(s.end), 'text_short_no_month') }}
         </th>
       </thead>
       <tbody>
         <tr v-for="house in localeHouses" :key="house.id">
-          <td><nuxt-link :to="`/houses/${house.letter.toLowerCase()}`">{{ house.name }}</nuxt-link></td>
+          <td>
+            <nuxt-link :to="`/houses/${house.letter.toLowerCase()}`">{{ house.name }}</nuxt-link><br />
+            {{ house.people }} {{ $t('persons') }}
+          </td>
           <td>{{ $n(house.price_off_season, 'currency') }}</td>
           <td>{{ $n(house.price_pre_season, 'currency') }}</td>
           <td>{{ $n(house.price_main_season, 'currency') }}</td>
@@ -57,6 +60,7 @@ table.houses-table {
   th,
   td {
     border: 1px solid var(--col-main);
+    padding: 8px;
   }
 }
 </style>

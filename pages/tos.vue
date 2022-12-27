@@ -1,21 +1,19 @@
 <template>
   <div class="default-page">
-    <h1>{{ $t('houses') }}</h1>
-    <div v-html="localPricesText" class="houses-text"></div>
-    <HousesTable style="margin-top:2em;" />
+    <h1>{{ $t('tos') }}</h1>
+    <div v-html="localTOSText" class="houses-text"></div>
   </div>
 </template>
-
-<script setup lang="ts">
+<script setup>
 import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
 await initTexts()
 const texts = useTexts()
 
 
-const localPricesText = computed(() => {
+const localTOSText = computed(() => {
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
-    const found = texts.value.find(t => t.id === 'prices_text')
+    const found = texts.value.find(t => t.id === 'imprint')
     if (!found) return ''
     let ret = found.content
     if (i18n.locale.value !== 'en') {

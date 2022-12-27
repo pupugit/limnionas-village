@@ -15,7 +15,11 @@ const { locale } = useI18n()
 //   if (e.target.scrollTop > 200) scrollState.value.isScrolled = true
 //   else scrollState.value.isScrolled = false
 // }
-
+const router = useRouter()
+const bgStyle = useBackgroundImageState()
+router.afterEach(() => {
+  bgStyle.value = ''
+})
 useHead({
   htmlAttrs: {
     lang: 'en'
@@ -42,6 +46,4 @@ onMounted(() => {
     })
   }, 500)
 })
-
-const bgStyle = useBackgroundImageState()
 </script>

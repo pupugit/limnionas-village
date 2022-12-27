@@ -50,6 +50,11 @@ h4~p {
   margin-top: .5em;
 }
 
+.default-page {
+  margin: 128px 32px 32px 32px;
+
+}
+
 .layout {
   min-height: 100vh;
   min-height: 100dvh;
