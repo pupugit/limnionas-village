@@ -2,6 +2,9 @@
   <div
     :class="`top-logo${miniLogo ? ' scrolled' : ''}${zenMode ? ' zen-mode' : ''}${(showMenu || y < 50 || timedShowLogo) ? ' show-it' : ''}`">
     <LimvilLogo :class="`top-logo-inner click-it${showMenu ? ' show-it' : ''}`" @click="clickLogo" suid="limvil-logo" />
+    <div @click="toggleLocales" style=";position:absolute;top:0;left:0;cursor:pointer;">
+      {{ locale }}
+    </div>
     <div :class="`top-menu${showMenu ? ' show-it' : ''}`" ref="menu">
       <div>
         <nuxt-link to="/">
@@ -52,9 +55,6 @@
         <nuxt-link to="/tos">
           {{ $t('tos') }}
         </nuxt-link>
-      </div>
-      <div @click="toggleLocales">
-        {{ locale }}
       </div>
     </div>
   </div>
@@ -145,7 +145,7 @@ watch(y, () => {
   background-color: rgba(255, 255, 255, var(--trans));
   /* border-radius: 0 0 16px 16px; */
   transition: all .5s;
-  font-size: 1em;
+  font-size: 16px;
   height: 0;
   overflow: hidden;
   width: min(400pt, 85vw);
@@ -154,7 +154,7 @@ watch(y, () => {
   color: var(--col-main);
   display: grid;
   grid-template-columns: repeat(auto-fill, var(--block-size));
-  gap: 16px;
+  gap: 24px;
   padding: 0 16px;
   justify-content: center;
 }
@@ -165,7 +165,7 @@ watch(y, () => {
 } */
 .top-menu>div>a {
   color: var(--col-main);
-  font-size: 1.25em;
+  font-size: 20px;
 }
 
 .top-menu.show-it {

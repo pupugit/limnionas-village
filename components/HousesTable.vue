@@ -58,6 +58,7 @@ table.houses-table {
 
   th,
   td {
+    padding: 8px;
     border: 1px solid var(--col-main);
   }
 }
