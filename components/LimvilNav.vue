@@ -165,7 +165,7 @@ watch(y, () => {
 } */
 .top-menu>div>a {
   color: var(--col-main);
-  font-size: 1.25rem;
+  font-size: 20px;
 }
 
 .top-menu.show-it {
