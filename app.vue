@@ -8,6 +8,8 @@
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 .current-color {
   fill: currentColor;
   stroke: currentColor;
@@ -27,7 +29,7 @@ body {
   --col-sub: #86bd97;
   --col-highlight: #0070b3;
   --trans: .85;
-  font-family: 'Verdana', Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', 'Verdana', Arial, Helvetica, sans-serif;
   font-size: 16px;
   color: var(--col-main);
   border-color: var(--col-main);
