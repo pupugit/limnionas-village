@@ -11,7 +11,7 @@
       </thead>
       <tbody>
         <tr v-for="house in localeHouses" :key="house.id">
-          <td>
+          <td style="text-align: left;">
             <nuxt-link :to="`/houses/${house.letter.toLowerCase()}`">{{ house.name }}</nuxt-link><br />
             {{ house.people }} {{ $t('persons') }}
           </td>
@@ -60,6 +60,10 @@ table.houses-table {
   td {
     padding: 8px;
     border: 1px solid var(--col-main);
+  }
+
+  td {
+    text-align: right;
   }
 }
 </style>
