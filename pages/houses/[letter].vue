@@ -157,7 +157,7 @@ onMounted(() => {
   }, 500)
   window.setInterval(() => {
     nextImage()
-  }, 4000)
+  }, 6000)
 })
 </script>
 
@@ -211,7 +211,8 @@ onMounted(() => {
 }
 
 .house-infos {
-  max-width: 600px;
+  padding: 0 10vw;
+  /* max-width: 600px; */
 }
 
 @media screen and (max-width: 400px) {
