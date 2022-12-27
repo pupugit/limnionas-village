@@ -73,7 +73,7 @@ const calcPic = computed(() => {
   width: 100vw;
   height: 100vh;
   display: grid;
-  background-position: center 16px;
+  background-position: center top;
   background-repeat: no-repeat;
   transition: 0.5s opacity;
   box-sizing: border-box;

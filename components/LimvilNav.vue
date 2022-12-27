@@ -119,8 +119,8 @@ watch(y, () => {
   }
   lastY.value = y.value
 })
-
 </script>
+
 <style>
 .top-symbol {
   width: min(75px, 25vw);
@@ -159,10 +159,6 @@ watch(y, () => {
   justify-content: center;
 }
 
-/* .top-menu>div {
-  height: var(--block-size);
-  width: var(--block-size);
-} */
 .top-menu>div>a {
   color: var(--col-main);
   font-size: 20px;
@@ -210,7 +206,6 @@ watch(y, () => {
   padding-top: 16px;
   transition: all .5s ease-out;
 }
-
 
 .top-logo.scrolled.show-it {
   top: 0;
