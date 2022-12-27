@@ -19,6 +19,6 @@ const props = defineProps<{
 const { width, height } = useWindowSize()
 const calcBG = computed(() => {
   if (!props.pic || width.value === Infinity || !infoEl.value) return ''
-  return `background-image: url(${config.public.directusBase}/assets/${props.pic}?fit=inside&width=${width.value}&height=${height.value - infoEl.value.clientHeight}&format=png);`
+  return `background-image: url(${config.public.directusBase}/assets/${props.pic}?fit=inside&width=${width.value}&height=${height.value - infoEl.value.clientHeight}&format=webp);`
 })
 </script>

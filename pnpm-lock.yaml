@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@splidejs/vue-splide': ^0.6.12
   '@vueuse/nuxt': ^9.9.0
   date-fns: ^2.29.3
   nuxt: ^3.0.0
@@ -14,6 +15,7 @@ dependencies:
   date-fns: 2.29.3
 
 devDependencies:
+  '@splidejs/vue-splide': 0.6.12
   '@vueuse/nuxt': 9.9.0_nuxt@3.0.0+vue@3.2.45
   nuxt: 3.0.0_sass@1.57.1
   nuxt-directus: 3.2.2
@@ -826,6 +828,16 @@ packages:
       estree-walker: 2.0.2
       picomatch: 2.3.1
       rollup: 2.79.1
+    dev: true
+
+  /@splidejs/splide/4.1.4:
+    resolution: {integrity: sha512-5I30evTJcAJQXt6vJ26g2xEkG+l1nXcpEw4xpKh0/FWQ8ozmAeTbtniVtVmz2sH1Es3vgfC4SS8B2X4o5JMptA==}
+    dev: true
+
+  /@splidejs/vue-splide/0.6.12:
+    resolution: {integrity: sha512-eQb8pnGMN8Tr0FVaQo1PUMZlMHl8fSqHNXPTx79eeE2dkZqbsvq6jRzXoT9ZF7hFkxdOEmB6qYNp93SUwV684g==}
+    dependencies:
+      '@splidejs/splide': 4.1.4
     dev: true
 
   /@trysound/sax/0.2.0:

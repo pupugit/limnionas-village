@@ -39,12 +39,12 @@ useIntersectionObserver(
 )
 const calcBGSrc = computed(() => {
   if (!props.house.big_picture || width.value === Infinity || !houseBox.value) return ''
-  return `${config.public.directusBase}/assets/${props.house.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=png`
+  return `${config.public.directusBase}/assets/${props.house.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=webp`
 })
 
 const calcBG = computed(() => {
   if (!props.house.big_picture || width.value === Infinity) return ''
-  return `background-image: url(${config.public.directusBase}/assets/${props.house.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=png);`
+  return `background-image: url(${config.public.directusBase}/assets/${props.house.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=webp);`
 })
 
 </script>

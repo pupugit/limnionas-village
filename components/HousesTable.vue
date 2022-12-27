@@ -11,7 +11,7 @@
       </thead>
       <tbody>
         <tr v-for="house in localeHouses" :key="house.id">
-          <td>{{ house.name }}</td>
+          <td><nuxt-link :to="`/houses/${house.letter.toLowerCase()}`">{{ house.name }}</nuxt-link></td>
           <td>{{ $n(house.price_off_season, 'currency') }}</td>
           <td>{{ $n(house.price_pre_season, 'currency') }}</td>
           <td>{{ $n(house.price_main_season, 'currency') }}</td>

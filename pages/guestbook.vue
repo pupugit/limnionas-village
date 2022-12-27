@@ -22,7 +22,7 @@ const guestbook = useGuestbook()
 
 const calcPic = computed(() => {
   if (!specials.value.guestbook || width.value == 0) return ''
-  return `background-image: url(${config.public.directusBase}/assets/${specials.value.guestbook}?fit=cover&width=${width.value}&height=${height.value}&withoutEnlargement&format=png);`
+  return `background-image: url(${config.public.directusBase}/assets/${specials.value.guestbook}?fit=cover&width=${width.value}&height=${height.value}&withoutEnlargement&format=webp);`
 })
 </script>
 

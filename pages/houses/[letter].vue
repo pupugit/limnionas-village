@@ -29,9 +29,16 @@
         </div>
       </div>
     </div>
-    <div class="house-fotos">
+    <!-- <Splide :options="{ rewind: true }" :aria-label="`${house.name} Pictures`" v-if="width !== Infinity">
+      <SplideSlide v-for="(foto, idx) in house.fotos" :key="foto.directus_files_id">
+        <img
+          :src="`${config.public.directusBase}/assets/${foto.directus_files_id}?fit=inside&width=${width}&height=${height}&format=webp`"
+          :alt="`Picture ${idx + 1}`">
+      </SplideSlide>
+    </Splide> -->
+    <div class="house-fotos" :style="`width: ${width}px; height: ${height}px`" v-if="width !== Infinity">
       <Transition name="pic-fade" :duration="500">
-        <img :key="`i-${curImage}`" :src="curImagePath" lazy class="house-foto" />
+        <img :key="`i - ${curImage}`" :src="curImagePath" lazy class="house-foto" />
       </Transition>
     </div>
   </div>
@@ -41,6 +48,8 @@
 </template>
 
 <script setup lang="ts">
+import '@splidejs/vue-splide/css'
+import { Splide, SplideSlide } from '@splidejs/vue-splide'
 import { useI18n } from 'vue-i18n'
 const route = useRoute()
 const letter: string = route.params.letter.toString().toLowerCase()
@@ -79,11 +88,11 @@ const nextImage = () => {
   const img1 = new Image()
   let nextIdx = curImage.value + 1
   if (nextIdx >= house.fotos.length) nextIdx = 0
-  img1.src = `${config.public.directusBase}/assets/${house.fotos[nextIdx].directus_files_id}?fit=inside&width=${width.value}&height=${height.value}&format=png`
+  img1.src = `${config.public.directusBase}/assets/${house.fotos[nextIdx].directus_files_id}?fit=inside&width=${width.value}&height=${height.value}&format=webp`
 }
 const curImagePath = computed(() => {
   if (width.value !== Infinity && house && curImage.value !== -1) {
-    return `${config.public.directusBase}/assets/${house.fotos[curImage.value].directus_files_id}?fit=inside&width=${width.value}&height=${height.value}&format=png`
+    return `${config.public.directusBase}/assets/${house.fotos[curImage.value].directus_files_id}?fit=inside&width=${width.value}&height=${height.value}&format=webp`
   } else {
     return ''
   }
@@ -135,12 +144,12 @@ useHead({
 })
 
 const bgStyle = useBackgroundImageState()
-if (width.value && house) {
-  bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=png);`
+if (width.value !== Infinity && house) {
+  bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=webp);`
 }
 onMounted(() => {
   if (house && !bgStyle.value) {
-    bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=png);`
+    bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=webp);`
   }
   window.setTimeout(() => {
     window.scrollTo(0, 0)
