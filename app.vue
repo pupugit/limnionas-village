@@ -50,6 +50,10 @@ h4~p {
   margin-top: .5em;
 }
 
+table {
+  border-collapse: collapse;
+}
+
 .default-page {
   margin: 128px 32px 32px 32px;
 
