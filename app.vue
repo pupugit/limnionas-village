@@ -44,7 +44,7 @@ body {
 
 @media (min-resolution: 2x) {
   html>body {
-    font-size: 12px;
+    font-size: 16px;
   }
 }
 
