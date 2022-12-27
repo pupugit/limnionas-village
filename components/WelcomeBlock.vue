@@ -121,6 +121,7 @@ const calcPic = computed(() => {
   text-align: justify;
   text-align-last: auto;
   padding: 16px;
+  width: min(720px, 100vw);
 }
 
 .welcome-info {
@@ -131,11 +132,9 @@ const calcPic = computed(() => {
   display: grid;
   place-content: center;
   margin-top: -1px;
+
 }
 
-.welcome-info.big {
-  width: min(800px, 100vw);
-}
 
 @media screen and (max-width: 600px) {
   .welcome-info.big {

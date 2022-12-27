@@ -72,7 +72,9 @@ th {
 }
 
 .default-page {
-  margin: 128px 32px 32px 32px;
+  margin: 128px 10vw 32px 10vw;
+  /* max-width: min(1280px, 100vw); */
+  justify-self: center;
 
 }
 
