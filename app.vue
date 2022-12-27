@@ -54,6 +54,11 @@ table {
   border-collapse: collapse;
 }
 
+td,
+th {
+  padding: 8px;
+}
+
 .default-page {
   margin: 128px 32px 32px 32px;
 

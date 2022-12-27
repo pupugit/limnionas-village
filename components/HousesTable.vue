@@ -55,12 +55,10 @@ const localeHouses = computed(() => {
 
 <style lang="scss">
 table.houses-table {
-  border-collapse: collapse;
 
   th,
   td {
     border: 1px solid var(--col-main);
-    padding: 8px;
   }
 }
 </style>
