@@ -212,6 +212,7 @@ onMounted(() => {
 
 .house-infos {
   padding: 0 10vw;
+  box-sizing: border-box;
   /* max-width: 600px; */
 }
 
@@ -228,6 +229,11 @@ onMounted(() => {
 }
 
 @media screen and (max-width: 600px) {
+  .house-infos {
+    padding: 0 2vw;
+    /* max-width: 600px; */
+  }
+
   .house-furnishing-and-prices {
     grid-template-columns: 1fr;
   }
