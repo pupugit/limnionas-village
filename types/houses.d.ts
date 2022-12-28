@@ -32,6 +32,8 @@ export type House = {
   /** uid of the assigned big picture */
   big_picture: string | null
   fotos: LimvilFile[]
+  ground_plan: string | null
+  ground_plan_new: string | null
 }
 export type LimvilFile = {
   directus_files_id: string

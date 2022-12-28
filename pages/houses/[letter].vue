@@ -10,21 +10,31 @@
         <div v-html="localeHouse.description" />
         <div class="house-furnishing-and-prices">
           <div>
-            <h3>{{ $t('furnishing') }}</h3>
-            <p style="white-space: pre;">{{ localeHouse.furnishing }}</p>
-          </div>
-          <div>
             <h3>{{ $t('prices_per_night') }}</h3>
             <table class="prices-table">
               <tr v-for="(s, idx) in prices.seasons" :key="s.name">
                 <td>{{ $d(Date.parse(s.start), 'text_short_no_month') }}</td>
                 <td>{{ $t('to') }}</td>
                 <td>{{ $d(Date.parse(s.end), 'text_short_no_month') }}</td>
-                <td v-if="idx === 0 || idx === 4">{{ $n(house.price_off_season, 'currency') }}</td>
-                <td v-else-if="idx === 1 || idx === 3">{{ $n(house.price_pre_season, 'currency') }}</td>
-                <td v-else-if="idx === 2">{{ $n(house.price_main_season, 'currency') }}</td>
+                <td style="text-align:right;" v-if="idx === 0 || idx === 4">
+                  {{ $n(house.price_off_season, 'currency') }}
+                </td>
+                <td style="text-align:right;" v-else-if="idx === 1 || idx === 3">
+                  {{ $n(house.price_pre_season, 'currency') }}
+                </td>
+                <td style="text-align:right;" v-else-if="idx === 2">
+                  {{ $n(house.price_main_season, 'currency') }}
+                </td>
               </tr>
             </table>
+          </div>
+          <div style="display:grid; place-items: center;">
+            <img v-if="house.ground_plan_new" loading="lazy" style="width:50%"
+              :src="`${config.public.directusBase}/assets/${house.ground_plan_new}`">
+          </div>
+          <div>
+            <h3>{{ $t('furnishing') }}</h3>
+            <p style="white-space: pre;">{{ localeHouse.furnishing }}</p>
           </div>
         </div>
       </div>
@@ -225,7 +235,8 @@ onMounted(() => {
 
 .house-furnishing-and-prices {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto 400px auto;
+  place-content: center;
 }
 
 @media screen and (max-width: 600px) {
