@@ -31,7 +31,7 @@ body {
   --col-main: #363c90;
   --col-sub: #86bd97;
   --col-highlight: #0070b3;
-  --trans: .85;
+  --trans: .80;
   font-family: 'Zen Maru Gothic', 'Open Sans', sans-serif;
   font-size: 16px;
   color: var(--col-main);
