@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@splidejs/vue-splide": "^0.6.12",
-    "@vueuse/nuxt": "^9.9.0",
+    "@vueuse/nuxt": "^9.10.0",
     "nuxt": "^3.0.0",
     "nuxt-directus": "^3.2.2",
     "nuxt-icon": "^0.1.8",
