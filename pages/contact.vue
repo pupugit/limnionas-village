@@ -3,6 +3,28 @@
     <div class="contact-content">
       <h1>{{ $t('contact') }}</h1>
       <div v-html="localContactText"></div>
+      <div class="contact-form">
+        <v-text-field :label="$t('contact-name')" />
+        <v-text-field :label="$t('contact-email')" />
+        <v-text-field :label="$t('contact-phone')" />
+        <v-text-field :label="$t('contact-message')" />
+        <div>
+          <label for="contact-name">{{ $t('contact-name') }}</label><br />
+          <input id="contact-name" required />
+        </div>
+        <div>
+          <label for="contact-email">{{ $t('contact-email') }}</label><br />
+          <input id="contact-email" required />
+        </div>
+        <div>
+          <label for="contact-phone">{{ $t('contact-phone') }}</label><br />
+          <input id="contact-phone" />
+        </div>
+        <div>
+          <label for="contact-message">{{ $t('contact-message') }}</label><br />
+          <input id="contact-message" required />
+        </div>
+      </div>
     </div>
   </div>
 </template>

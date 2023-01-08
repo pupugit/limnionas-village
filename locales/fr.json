@@ -1,7 +1,7 @@
 {
   "blog": "Blog",
   "furnishing": "Ameublement",
-  "more_informations": "Plus d'informations",
+  "more-informations": "Plus d'informations",
   "not-found": "Page non trouvée",
   "people": "personnes",
   "prices": "Prix",
@@ -23,5 +23,8 @@
   "tos": "Mentions Légales",
   "houses": "Le Village",
   "house": "Maison",
-  "persons": "personnes"
+  "persons": "personnes",
+  "contact-name": "Votre nom",
+  "contact-email": "Votre adresse de courriel",
+  "contact-message": "Votre numéro de téléphone"
 }

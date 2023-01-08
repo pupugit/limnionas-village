@@ -15,8 +15,10 @@
     "nuxt-directus": "^3.2.2",
     "nuxt-icon": "^0.1.8",
     "sass": "^1.57.1",
+    "vite-plugin-vuetify": "^1.0.1",
     "vue": "^3.2.45",
-    "vue-i18n": "^9.2.2"
+    "vue-i18n": "^9.2.2",
+    "vuetify": "^3.1.0"
   },
   "dependencies": {
     "date-fns": "^2.29.3"

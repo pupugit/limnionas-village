@@ -3,7 +3,7 @@
   "furnishing": "Furnishing",
   "guestbook": "Guestbook",
   "house_not_found": "House not found!",
-  "more_informations": "More Informations",
+  "more-informations": "More Informations",
   "not-found": "Not found",
   "people": "people",
   "prices": "Prices",
@@ -25,5 +25,9 @@
   "tos": "Legal Notice",
   "houses": "Houses",
   "house": "House",
-  "persons": "persons"
+  "persons": "persons",
+  "contact-name": "Your name",
+  "contact-email": "Your email address",
+  "contact-phone": "Your phone number",
+  "contact-message": "Message"
 }

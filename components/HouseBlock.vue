@@ -11,7 +11,7 @@
         <p class="house-details">{{ house.people }} {{ $t('people') }}</p>
         <div class="house-details" v-html="house.short" />
         <p class="house-details">
-          <NuxtLink :to="`/houses/${house.letter.toLowerCase()}`">{{ $t('more_informations') }}</NuxtLink>
+          <NuxtLink :to="`/houses/${house.letter.toLowerCase()}`">{{ $t('more-informations') }}</NuxtLink>
         </p>
       </div>
     </div>
