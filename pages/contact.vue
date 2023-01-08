@@ -85,6 +85,5 @@ onMounted(() => {
     margin: 128px 0 32px 0;
     padding: 1.5rem;
   }
-
 }
 </style>
