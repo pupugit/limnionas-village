@@ -2,25 +2,13 @@
 // import { resolve, dirname } from 'node:path'
 // import { fileURLToPath } from 'url'
 // import VueI18nVitePlugin from '@intlify/unplugin-vue-i18n/vite'
-import vuetify from 'vite-plugin-vuetify'
 
 export default defineNuxtConfig({
   modules: [
     'nuxt-directus',
     '@vueuse/nuxt',
     'nuxt-icon',
-    async (options, nuxt) => {
-      nuxt.hooks.hook('vite:extendConfig', (config) => {
-        config.plugins?.push(
-          vuetify(),
-        )
-      })
-    }],
-  vite: {
-    ssr: {
-      noExternal: ['vuetify'], // add the vuetify vite plugin
-    },
-  },
+  ],
   directus: {
     url: process.env.NUXT_PUBLIC_DIRECTUS_BASE,
   },

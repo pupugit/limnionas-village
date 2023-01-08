@@ -4,25 +4,25 @@
       <h1>{{ $t('contact') }}</h1>
       <div v-html="localContactText"></div>
       <div class="contact-form">
-        <v-text-field :label="$t('contact-name')" />
+        <!-- <v-text-field :label="$t('contact-name')" />
         <v-text-field :label="$t('contact-email')" />
         <v-text-field :label="$t('contact-phone')" />
-        <v-text-field :label="$t('contact-message')" />
-        <div>
+        <v-text-field :label="$t('contact-message')" /> -->
+        <div class="contact-firstline">
           <label for="contact-name">{{ $t('contact-name') }}</label><br />
           <input id="contact-name" required />
         </div>
-        <div>
+        <div class="contact-firstline">
           <label for="contact-email">{{ $t('contact-email') }}</label><br />
           <input id="contact-email" required />
         </div>
-        <div>
+        <div class="contact-firstline">
           <label for="contact-phone">{{ $t('contact-phone') }}</label><br />
           <input id="contact-phone" />
         </div>
-        <div>
+        <div class="contact-secondline">
           <label for="contact-message">{{ $t('contact-message') }}</label><br />
-          <input id="contact-message" required />
+          <textarea id="contact-message" required />
         </div>
       </div>
     </div>
@@ -32,7 +32,7 @@
 import { useI18n } from 'vue-i18n'
 const config = useRuntimeConfig()
 const i18n = useI18n()
-useHead({ title: i18n.t('tos') })
+useHead({ title: i18n.t('contact') })
 await initTexts()
 const texts = useTexts()
 await initSpecials()
@@ -68,11 +68,23 @@ onMounted(() => {
   min-height: 100vh;
   box-sizing: border-box;
   background-attachment: fixed;
+  display: grid;
 }
 
 .contact-content {
   background: rgba(255, 255, 255, 80%);
   margin: 128px 10vw 32px 10vw;
   padding: 2rem;
+  max-width: 600px;
+  align-self: start;
+  justify-self: center;
+}
+
+@media screen and (max-width:600px) {
+  .contact-content {
+    margin: 128px 0 32px 0;
+    padding: 1.5rem;
+  }
+
 }
 </style>

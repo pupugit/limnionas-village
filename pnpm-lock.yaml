@@ -8,10 +8,8 @@ specifiers:
   nuxt-directus: ^3.2.2
   nuxt-icon: ^0.1.8
   sass: ^1.57.1
-  vite-plugin-vuetify: ^1.0.1
   vue: ^3.2.45
   vue-i18n: ^9.2.2
-  vuetify: ^3.1.0
 
 dependencies:
   date-fns: 2.29.3
@@ -23,10 +21,8 @@ devDependencies:
   nuxt-directus: 3.2.2
   nuxt-icon: 0.1.8_vue@3.2.45
   sass: 1.57.1
-  vite-plugin-vuetify: 1.0.1_vue@3.2.45+vuetify@3.1.0
   vue: 3.2.45
   vue-i18n: 9.2.2_vue@3.2.45
-  vuetify: 3.1.0_afqjtynelhegalqup45hjpge7a
 
 packages:
 
@@ -1064,18 +1060,6 @@ packages:
 
   /@vue/shared/3.2.45:
     resolution: {integrity: sha512-Ewzq5Yhimg7pSztDV+RH1UDKBzmtqieXQlpTVm2AwraoRL/Rks96mvd8Vgi7Lj+h+TH8dv7mXD3FRZR3TUvbSg==}
-    dev: true
-
-  /@vuetify/loader-shared/1.7.0_vue@3.2.45+vuetify@3.1.0:
-    resolution: {integrity: sha512-Db4K67wMhduDsbvdRBYkrYuomti+j0E/1vlz1lnDng5F9LYYBcXa60qypIazVGI6GX/CuY1vshN6XGtGQI4FKg==}
-    peerDependencies:
-      vue: ^3.0.0
-      vuetify: ^3.0.0-beta.4
-    dependencies:
-      find-cache-dir: 3.3.2
-      upath: 2.0.1
-      vue: 3.2.45
-      vuetify: 3.1.0_afqjtynelhegalqup45hjpge7a
     dev: true
 
   /@vueuse/core/9.10.0_vue@3.2.45:
@@ -2530,15 +2514,6 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       to-regex-range: 5.0.1
-    dev: true
-
-  /find-cache-dir/3.3.2:
-    resolution: {integrity: sha512-wXZV5emFEjrridIgED11OoUKLxiYjAcqot/NJdAkOhlJ+vGzwhOAfcG5OX1jP+S0PcjEn8bdMJv+g2jwQ3Onig==}
-    engines: {node: '>=8'}
-    dependencies:
-      commondir: 1.0.1
-      make-dir: 3.1.0
-      pkg-dir: 4.2.0
     dev: true
 
   /find-up/2.1.0:
@@ -4127,13 +4102,6 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /pkg-dir/4.2.0:
-    resolution: {integrity: sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==}
-    engines: {node: '>=8'}
-    dependencies:
-      find-up: 4.1.0
-    dev: true
-
   /pkg-types/1.0.1:
     resolution: {integrity: sha512-jHv9HB+Ho7dj6ItwppRDDl0iZRYBD0jsakHXtFgoLr+cHSF6xC+QL54sJmWxyGxOLYSHm0afhXhXcQDQqH9z8g==}
     dependencies:
@@ -5342,11 +5310,6 @@ packages:
       - supports-color
     dev: true
 
-  /upath/2.0.1:
-    resolution: {integrity: sha512-1uEe95xksV1O0CYKXo8vQvN1JEbtJp7lb7C5U9HMsIp6IVwntkH/oNUzyVNQSd4S1sYk2FpSSW44FqMc8qee5w==}
-    engines: {node: '>=4'}
-    dev: true
-
   /update-browserslist-db/1.0.10_browserslist@4.21.4:
     resolution: {integrity: sha512-OztqDenkfFkbSG+tRxBeAnCVPckDBcvibKd35yDONx6OU8N7sqgwc7rCbkJ/WcYtVRZ4ba68d6byhC21GFh7sQ==}
     hasBin: true
@@ -5434,22 +5397,6 @@ packages:
       vscode-languageserver: 7.0.0
       vscode-languageserver-textdocument: 1.0.8
       vscode-uri: 3.0.7
-    dev: true
-
-  /vite-plugin-vuetify/1.0.1_vue@3.2.45+vuetify@3.1.0:
-    resolution: {integrity: sha512-/xHsIDuHxq7f6fDqCBYxNascLhDi+X8dV3RzTwmo4mGPrSnGq9pHv8wJsXBIQIT3nY8s16V0lmd6sXMjm0F8wg==}
-    engines: {node: '>=12'}
-    peerDependencies:
-      vite: ^2.7.0 || ^3.0.0 || ^4.0.0
-      vuetify: ^3.0.0-beta.4
-    dependencies:
-      '@vuetify/loader-shared': 1.7.0_vue@3.2.45+vuetify@3.1.0
-      debug: 4.3.4
-      upath: 2.0.1
-      vuetify: 3.1.0_afqjtynelhegalqup45hjpge7a
-    transitivePeerDependencies:
-      - supports-color
-      - vue
     dev: true
 
   /vite/3.2.5_sass@1.57.1:
@@ -5581,27 +5528,6 @@ packages:
       '@vue/runtime-dom': 3.2.45
       '@vue/server-renderer': 3.2.45_vue@3.2.45
       '@vue/shared': 3.2.45
-    dev: true
-
-  /vuetify/3.1.0_afqjtynelhegalqup45hjpge7a:
-    resolution: {integrity: sha512-v0+5eNq4GPXGcJ0F2dwJDbQOhuZhEgoiUDWHXqgWJixzc9mzwt+4nSmPz0vYPYl9oC3UFf3Se+vh0xNoRjv4Ig==}
-    engines: {node: ^12.20 || >=14.13}
-    peerDependencies:
-      vite-plugin-vuetify: ^1.0.0-alpha.12
-      vue: ^3.2.0
-      vue-i18n: ^9.0.0
-      webpack-plugin-vuetify: ^2.0.0-alpha.11
-    peerDependenciesMeta:
-      vite-plugin-vuetify:
-        optional: true
-      vue-i18n:
-        optional: true
-      webpack-plugin-vuetify:
-        optional: true
-    dependencies:
-      vite-plugin-vuetify: 1.0.1_vue@3.2.45+vuetify@3.1.0
-      vue: 3.2.45
-      vue-i18n: 9.2.2_vue@3.2.45
     dev: true
 
   /wcwidth/1.0.1:
