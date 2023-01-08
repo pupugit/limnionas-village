@@ -8,6 +8,8 @@ export const useSpecials = () => useState<Specials>('specials', () => {
     welcome_back3: '',
     welcome_back4: '',
     guestbook: '',
+    contact: '',
+    tos: '',
   }
 })
 
