@@ -6,4 +6,6 @@ export type Specials = {
   welcome_back3: string
   welcome_back4: string
   guestbook: string
+  tos: string
+  contact: string
 }
