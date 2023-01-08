@@ -1,8 +1,8 @@
 <template>
-  <div class="tos-page" :style="calcPic">
-    <div class="tos-content">
-      <h1>{{ $t('tos') }}</h1>
-      <div v-html="localTOSText"></div>
+  <div class="contact-page" :style="calcPic">
+    <div class="contact-content">
+      <h1>{{ $t('contact') }}</h1>
+      <div v-html="localContactText"></div>
     </div>
   </div>
 </template>
@@ -16,11 +16,12 @@ const texts = useTexts()
 await initSpecials()
 const specials = useSpecials()
 const { width, height } = useWindowSize()
+
 const calcPic = ref('')
 
-const localTOSText = computed(() => {
+const localContactText = computed(() => {
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
-    const found = texts.value.find(t => t.id === 'imprint')
+    const found = texts.value.find(t => t.id === 'contact')
     if (!found) return ''
     let ret = found.content
     if (i18n.locale.value !== 'en') {
@@ -34,19 +35,20 @@ const localTOSText = computed(() => {
   return ''
 })
 onMounted(() => {
-  if (!specials.value.tos || width.value === 0 || width.value === Infinity) return
-  calcPic.value = `background-image: url(${config.public.directusBase}/assets/${specials.value.tos}?fit=cover&width=${width.value}&height=${height.value}&withoutEnlargement&format=webp);`
+  if (!specials.value.contact || width.value === 0 || width.value === Infinity) return
+  calcPic.value = `background-image: url(${config.public.directusBase}/assets/${specials.value.contact}?fit=cover&width=${width.value}&height=${height.value}&withoutEnlargement&format=webp);`
 })
+
 </script>
 
 <style>
-.tos-page {
+.contact-page {
   min-height: 100vh;
   box-sizing: border-box;
   background-attachment: fixed;
 }
 
-.tos-content {
+.contact-content {
   background: rgba(255, 255, 255, 80%);
   margin: 128px 10vw 32px 10vw;
   padding: 2rem;

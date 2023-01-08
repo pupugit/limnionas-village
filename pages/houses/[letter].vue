@@ -58,8 +58,8 @@
 </template>
 
 <script setup lang="ts">
-import '@splidejs/vue-splide/css'
-import { Splide, SplideSlide } from '@splidejs/vue-splide'
+// import '@splidejs/vue-splide/css'
+// import { Splide, SplideSlide } from '@splidejs/vue-splide'
 import { useI18n } from 'vue-i18n'
 const route = useRoute()
 const letter: string = route.params.letter.toString().toLowerCase()
