@@ -171,4 +171,8 @@ p:first-child {
 p:last-child {
   margin-bottom: 0;
 }
+
+table {
+  line-height: 1;
+}
 </style>

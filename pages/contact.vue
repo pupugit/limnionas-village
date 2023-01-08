@@ -9,11 +9,11 @@
         <v-text-field :label="$t('contact-phone')" />
         <v-text-field :label="$t('contact-message')" /> -->
         <div class="contact-firstline">
-          <label for="contact-name">{{ $t('contact-name') }}</label><br />
+          <label for="contact-name" class="required">{{ $t('contact-name') }}</label><br />
           <input id="contact-name" required />
         </div>
         <div class="contact-firstline">
-          <label for="contact-email">{{ $t('contact-email') }}</label><br />
+          <label for="contact-email" class="required">{{ $t('contact-email') }}</label><br />
           <input id="contact-email" required />
         </div>
         <div class="contact-firstline">
@@ -21,8 +21,8 @@
           <input id="contact-phone" />
         </div>
         <div class="contact-secondline">
-          <label for="contact-message">{{ $t('contact-message') }}</label><br />
-          <textarea id="contact-message" required />
+          <label for="contact-message" class="required">{{ $t('contact-message') }}</label><br />
+          <textarea id="contact-message" required rows="5" />
         </div>
       </div>
     </div>
@@ -78,6 +78,31 @@ onMounted(() => {
   max-width: 600px;
   align-self: start;
   justify-self: center;
+}
+
+.contact-form {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px
+}
+
+.contact-secondline {
+  grid-column: 1/-1;
+}
+
+.contact-form label {
+  font-weight: bold;
+}
+
+label.required:after {
+  content: " *";
+  color: red;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
 }
 
 @media screen and (max-width:600px) {
