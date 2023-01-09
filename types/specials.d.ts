@@ -8,4 +8,5 @@ export type Specials = {
   guestbook: string
   tos: string
   contact: string
+  samos: string
 }

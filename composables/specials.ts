@@ -10,6 +10,7 @@ export const useSpecials = () => useState<Specials>('specials', () => {
     guestbook: '',
     contact: '',
     tos: '',
+    samos: '',
   }
 })
 
