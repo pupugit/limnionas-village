@@ -173,6 +173,6 @@ p:last-child {
 }
 
 table {
-  line-height: 1;
+  line-height: normal;
 }
 </style>
