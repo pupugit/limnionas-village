@@ -210,7 +210,7 @@ watch(y, () => {
 
 @media screen and (-webkit-min-device-pixel-ratio: 2) {
   .top-logo-inner {
-    width: min(200pt, 85vw);
+    width: min(250pt, 85vw);
   }
 }
 
