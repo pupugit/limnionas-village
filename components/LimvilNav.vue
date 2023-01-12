@@ -207,6 +207,12 @@ watch(y, () => {
   transition: all .5s ease-out;
 }
 
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .top-logo-inner {
+    width: min(200pt, 85vw);
+  }
+}
+
 .top-logo.scrolled.show-it {
   top: 0;
 }
