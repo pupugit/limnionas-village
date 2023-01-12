@@ -17,16 +17,22 @@ const zenMode = useZenMode()
       <div class="about-us-content" v-html="aboutUs.content">
       </div>
     </div>
-    <div v-for="(f, idx) in aboutUs.fotos" v-if="width" :key="idx"
-      :style="`width: 100vw;height:100vh;background-image: url(${config.public.directusBase}/assets/${f.directus_files_id}?fit=cover&width=${width}&height=${height}&format=${config.public.imageFormat})`">
+    <div v-for="(f, idx) in aboutUs.fotos" v-if="width" :key="idx" class="about-us-foto"
+      :style="`background-image: url(${config.public.directusBase}/assets/${f.directus_files_id}?fit=cover&width=${width}&height=${height}&format=${config.public.imageFormat})`">
     </div>
   </ClientOnly>
 </template>
 
 <style>
-.about-us-bg {
-  scroll-snap-align: unset;
+.grid-index>div.about-us-bg {
+  scroll-snap-align: none;
   background-attachment: fixed;
+}
+
+.grid-index>div.about-us-foto {
+  scroll-snap-align: none;
+  width: 100vw;
+  height: 100vh;
 }
 
 .about-us-content {
