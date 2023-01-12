@@ -19,7 +19,7 @@ const zenMode = useZenMode()
         </div>
       </div>
       <div v-for="(f, idx) in aboutUs.fotos" v-if="width" :key="idx" class="about-us-foto"
-        :style="`background-image: url(${config.public.directusBase}/assets/${f.directus_files_id}?fit=cover&width=${width}&height=${height}&format=${config.public.imageFormat})`">
+        :style="`${idx !== 0 ? 'scroll-snap-align: start;' : ''}background-image: url(${config.public.directusBase}/assets/${f.directus_files_id}?fit=cover&width=${width}&height=${height}&format=${config.public.imageFormat})`">
       </div>
     </div>
   </ClientOnly>
