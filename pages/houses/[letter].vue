@@ -10,7 +10,7 @@
         <div v-html="localeHouse.description" />
         <div class="house-furnishing-and-prices">
           <div>
-            <h3>{{ $t('prices_per_night') }}</h3>
+            <h3 style="margin-top:0">{{ $t('prices_per_night') }}</h3>
             <table class="prices-table">
               <tr v-for="(s, idx) in prices.seasons" :key="s.name">
                 <td>{{ $d(Date.parse(s.start), 'text_short_no_month') }}</td>
@@ -29,25 +29,18 @@
             </table>
           </div>
           <div style="display:grid; place-items: center;">
-            <img v-if="house.ground_plan_new" loading="lazy" style="width:50%"
+            <img v-if="house.ground_plan_new" loading="lazy" style="height:100%"
               :src="`${config.public.directusBase}/assets/${house.ground_plan_new}`">
-            <img v-else-if="house.ground_plan" loading="lazy" style="width:50%"
+            <img v-else-if="house.ground_plan" loading="lazy" style="height:100%"
               :src="`${config.public.directusBase}/assets/${house.ground_plan}`">
           </div>
           <div>
-            <h3>{{ $t('furnishing') }}</h3>
+            <h3 style="margin-top:0">{{ $t('furnishing') }}</h3>
             <p style="white-space: pre;">{{ localeHouse.furnishing }}</p>
           </div>
         </div>
       </div>
     </div>
-    <!-- <Splide :options="{ rewind: true }" :aria-label="`${house.name} Pictures`" v-if="width !== Infinity">
-      <SplideSlide v-for="(foto, idx) in house.fotos" :key="foto.directus_files_id">
-        <img
-          :src="`${config.public.directusBase}/assets/${foto.directus_files_id}?fit=inside&width=${width}&height=${height}&format=webp`"
-          :alt="`Picture ${idx + 1}`">
-      </SplideSlide>
-    </Splide> -->
     <div class="house-fotos" :style="`width: ${width}px; height: ${height}px`" v-if="width !== Infinity">
       <Transition name="pic-fade" :duration="500">
         <img :key="`i - ${curImage}`" :src="curImagePath" lazy class="house-foto" />
