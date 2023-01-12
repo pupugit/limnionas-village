@@ -12,25 +12,25 @@ const zenMode = useZenMode()
 
 <template>
   <ClientOnly>
-    <div v-if="width" :class="`about-us-bg`"
-      :style="`background-image: url(${config.public.directusBase}/assets/${aboutUs.background}?fit=cover&width=${width}&height=${height}&format=${config.public.imageFormat})`">
-      <div class="about-us-content" v-html="aboutUs.content">
+    <div>
+      <div v-if="width" :class="`about-us-bg`"
+        :style="`background-image: url(${config.public.directusBase}/assets/${aboutUs.background}?fit=cover&width=${width}&height=${height}&format=${config.public.imageFormat})`">
+        <div class="about-us-content" v-html="aboutUs.content">
+        </div>
       </div>
-    </div>
-    <div v-for="(f, idx) in aboutUs.fotos" v-if="width" :key="idx" class="about-us-foto"
-      :style="`background-image: url(${config.public.directusBase}/assets/${f.directus_files_id}?fit=cover&width=${width}&height=${height}&format=${config.public.imageFormat})`">
+      <div v-for="(f, idx) in aboutUs.fotos" v-if="width" :key="idx" class="about-us-foto"
+        :style="`background-image: url(${config.public.directusBase}/assets/${f.directus_files_id}?fit=cover&width=${width}&height=${height}&format=${config.public.imageFormat})`">
+      </div>
     </div>
   </ClientOnly>
 </template>
 
 <style>
-.grid-index>div.about-us-bg {
-  scroll-snap-align: none;
+.about-us-bg {
   background-attachment: fixed;
 }
 
-.grid-index>div.about-us-foto {
-  scroll-snap-align: none;
+.about-us-foto {
   width: 100vw;
   height: 100vh;
 }
