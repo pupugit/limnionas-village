@@ -24,6 +24,13 @@
           <label for="contact-message" class="required">{{ $t('contact-message') }}</label><br />
           <textarea id="contact-message" required rows="5" />
         </div>
+        <div class="contact-firstline">
+          <label for="contact-newsletter">{{ $t('contact-newsletter') }}</label>
+          <input style="width:auto;" type="checkbox" id="contact-newsletter" />
+        </div>
+        <div class="contact-firstline" style="text-align:center">
+          <button>{{ $t('send_message') }}</button>
+        </div>
       </div>
     </div>
   </div>

@@ -29,5 +29,7 @@
   "contact-name": "Ihr Name",
   "contact-email": "Ihre E-Mail-Adresse",
   "contact-phone": "Ihre Telefonnummer",
-  "contact-message": "Nachricht"
+  "contact-message": "Nachricht",
+  "contact-newsletter": "Newsletter abonieren",
+  "send_message": "Nachricht senden"
 }

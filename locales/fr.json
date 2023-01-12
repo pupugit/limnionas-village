@@ -26,5 +26,7 @@
   "persons": "personnes",
   "contact-name": "Votre nom",
   "contact-email": "Votre adresse de courriel",
-  "contact-message": "Votre numéro de téléphone"
+  "contact-message": "Votre numéro de téléphone",
+  "contact-newsletter": "S'inscrire à la Newsletter",
+  "send_message": "Envoyer le message"
 }
