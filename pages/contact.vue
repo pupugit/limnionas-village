@@ -58,7 +58,7 @@ const localContactText = computed(() => {
 })
 onMounted(() => {
   if (!specials.value.contact || width.value === 0 || width.value === Infinity) return
-  calcPic.value = `background-image: url(${config.public.directusBase}/assets/${specials.value.contact}?fit=cover&width=${width.value}&height=${height.value}&withoutEnlargement&format=webp);`
+  calcPic.value = `background-image: url(${config.public.directusBase}/assets/${specials.value.contact}?fit=cover&width=${width.value}&height=${height.value}&withoutEnlargement&format=${config.public.imageFormat});`
 })
 
 </script>

@@ -14,7 +14,7 @@
             <table class="prices-table">
               <tr v-for="(s, idx) in prices.seasons" :key="s.name">
                 <td>{{ $d(Date.parse(s.start), 'text_short_no_month') }}</td>
-                <td>{{ $t('to') }}</td>
+                <td>-</td>
                 <td>{{ $d(Date.parse(s.end), 'text_short_no_month') }}</td>
                 <td style="text-align:right;" v-if="idx === 0 || idx === 4">
                   {{ $n(house.price_off_season, 'currency') }}
@@ -239,6 +239,7 @@ onMounted(() => {
   display: grid;
   grid-template-columns: auto 400px auto;
   place-content: center;
+  margin-top: 32px;
 }
 
 @media screen and (max-width: 600px) {
