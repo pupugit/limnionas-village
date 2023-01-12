@@ -2,7 +2,7 @@
   <div id="grid-index" class="grid-index">
     <WelcomeBlock />
     <HouseBlock v-for="house in localeHouses" :house="house" :key="house.id" />
-    <ArticleBlock v-for="article in localeArticles" :article="article" :key="article.id" />
+    <AboutUsBlock :about-us="aboutUs" />
   </div>
 </template>
 
@@ -52,9 +52,11 @@ bgStyle.value = ''
 await initHousesBasic()
 await initTexts()
 await initArticles()
+await initAboutUs()
 const houses = useHousesBasic()
 const articles = useArticles()
 const scrollState = useScrollState()
+const aboutUs = useAboutUs()
 
 onMounted(async () => {
   if (scrollState.value.scrollPos > 0) {
@@ -83,6 +85,8 @@ const localeHouses = computed(() => {
   }
   return []
 })
+
+
 const localeArticles = computed(() => {
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
     return articles.value.map((a) => {

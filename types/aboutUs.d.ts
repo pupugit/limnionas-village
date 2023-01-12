@@ -3,6 +3,7 @@ import { DirectusFile } from "nuxt-directus/dist/runtime/types"
 export type AboutUs = {
   id: string | null
   content: string
+  background: string
   fotos: AboutUsFile[]
   translations: AboutUsTranslation[]
 
