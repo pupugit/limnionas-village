@@ -22,7 +22,7 @@ const calcPic = ref('')
 
 onMounted(() => {
   if (!specials.value.guestbook || width.value == 0) return ''
-  calcPic.value = `background-image: url(${config.public.directusBase}/assets/${specials.value.guestbook}?fit=cover&width=${width.value}&height=${height.value}&withoutEnlargement&format=webp);`
+  calcPic.value = `background-image: url(${config.public.directusBase}/assets/${specials.value.guestbook}?fit=cover&width=${width.value}&height=${height.value}&withoutEnlargement&format=${config.public.imageFormat});`
 })
 </script>
 

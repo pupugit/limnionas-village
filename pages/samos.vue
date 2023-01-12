@@ -34,7 +34,7 @@ const localSamosText = computed(() => {
 })
 onMounted(() => {
   if (!specials.value.tos || width.value === 0 || width.value === Infinity) return
-  calcPic.value = `background-image: url(${config.public.directusBase}/assets/${specials.value.samos}?fit=cover&width=${width.value}&height=${height.value}&withoutEnlargement&format=webp);`
+  calcPic.value = `background-image: url(${config.public.directusBase}/assets/${specials.value.samos}?fit=cover&width=${width.value}&height=${height.value}&withoutEnlargement&format=${config.public.imageFormat});`
 })
 </script>
 

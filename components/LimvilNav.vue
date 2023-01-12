@@ -157,6 +157,7 @@ watch(y, () => {
   gap: 24px;
   padding: 0 16px;
   justify-content: center;
+  text-align: center;
 }
 
 .top-menu>div>a {

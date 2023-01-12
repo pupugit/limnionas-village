@@ -15,7 +15,8 @@ export default defineNuxtConfig({
   typescript: { shim: false },
   runtimeConfig: {
     public: {
-      directusBase: process.env.NUXT_PUBLIC_DIRECTUS_BASE || ''
+      directusBase: process.env.NUXT_PUBLIC_DIRECTUS_BASE || '',
+      imageFormat: process.env.NUXT_PUBLIC_IMAGE_FORMAT || 'webp'
     }
   },
   app: {

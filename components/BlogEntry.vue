@@ -17,12 +17,12 @@ const img = ref<HTMLImageElement | null>(null)
 onMounted(() => {
   if (window) {
     if (imgcnt.value?.clientWidth && img.value) {
-      img.value.src = `${config.public.directusBase}/assets/${props.entry.picture}?width=${imgcnt.value.clientWidth}&format=webp`
+      img.value.src = `${config.public.directusBase}/assets/${props.entry.picture}?width=${imgcnt.value.clientWidth}&format=${config.public.imageFormat}`
       img.value.style.aspectRatio = '';
     } else {
       window.setTimeout(() => {
         if (imgcnt.value && img.value) {
-          img.value.src = `${config.public.directusBase}/assets/${props.entry.picture}?width=${imgcnt.value.clientWidth}&format=webp`
+          img.value.src = `${config.public.directusBase}/assets/${props.entry.picture}?width=${imgcnt.value.clientWidth}&format=${config.public.imageFormat}`
           img.value.style.aspectRatio = '';
         }
       }, 1400)
