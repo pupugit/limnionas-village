@@ -15,12 +15,10 @@ const zenMode = useZenMode()
     <div v-for="(s, idx) in article.sections" class="article-block" :key="s.id">
       <div v-if="width" :class="`article-section-bg${zenMode ? ' zen-mode' : ''}`" @click.self="zenMode = !zenMode"
         :style="`background-image: url(${config.public.directusBase}/assets/${s.image_back}?fit=cover&width=${width}&height=${height}&format=${config.public.imageFormat})`">
-        <div v-if="idx > 0" class="article-section-top"></div>
         <div class="article-section-info">
           <div v-html="s.content"></div>
           <p v-if="article.title && idx == article.sections.length - 1" class="source">{{ article.title }}</p>
         </div>
-        <div v-if="idx < article.sections.length - 1" class="article-section-bottom"></div>
       </div>
     </div>
   </ClientOnly>
