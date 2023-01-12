@@ -239,7 +239,7 @@ onMounted(() => {
   display: grid;
   grid-template-columns: auto 400px auto;
   place-content: center;
-  margin-top: 32px;
+  margin: 32px 0;
 }
 
 @media screen and (max-width: 600px) {
