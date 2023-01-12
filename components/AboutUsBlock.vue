@@ -28,6 +28,7 @@ const zenMode = useZenMode()
 <style>
 .about-us-bg {
   background-attachment: fixed;
+  min-height: 100vh;
 }
 
 .about-us-foto {
