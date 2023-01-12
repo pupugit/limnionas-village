@@ -31,6 +31,8 @@
           <div style="display:grid; place-items: center;">
             <img v-if="house.ground_plan_new" loading="lazy" style="width:50%"
               :src="`${config.public.directusBase}/assets/${house.ground_plan_new}`">
+            <img v-else-if="house.ground_plan" loading="lazy" style="width:50%"
+              :src="`${config.public.directusBase}/assets/${house.ground_plan}`">
           </div>
           <div>
             <h3>{{ $t('furnishing') }}</h3>
