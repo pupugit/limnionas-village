@@ -7,7 +7,6 @@ export default defineNuxtConfig({
   modules: [
     'nuxt-directus',
     '@vueuse/nuxt',
-    'nuxt-icon',
   ],
   directus: {
     url: process.env.NUXT_PUBLIC_DIRECTUS_BASE,
