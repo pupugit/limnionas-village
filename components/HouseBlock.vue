@@ -1,8 +1,8 @@
 <template>
   <div class="house-box" ref="houseBox">
     <div :class="`house-bg${zenMode ? ' zen-mode' : ''}`">
-      <img :src="calcBGSrc" loading="lazy" class="house-img" @click.self="zenMode = !zenMode"
-        :alt="`Background ${house.name}`">
+      <img :src="calcBGSrc" loading="lazy" class="house-img"
+        @click.self="$config.public.featureZen ? zenMode = !zenMode" :alt="`Background ${house.name}`" />
       <div ref="houseBlock" :class="`house-info${isBlockVisible ? ' clicked' : ''}`"
         @click="$router.push(`/houses/${house.letter.toLowerCase()}`)">
         <h2>{{ house.name }}</h2>
