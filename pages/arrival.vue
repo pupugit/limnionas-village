@@ -1,10 +1,10 @@
 <template>
   <div class="arrival-page">
     <div class="arrival-content" style="width:100%">
-      Other things
-      <div id="mapbox" style="width: 100%;height:40vh;">
+      <div v-html="arrival.intro"></div>
+      <div id="mapbox" style="width: 100%;height:40vh;margin-top:1em;">
       </div>
-      Other stuff
+      <div v-html="arrival.north"></div>
     </div>
   </div>
 </template>
@@ -13,6 +13,8 @@
 import 'mapbox-gl/dist/mapbox-gl.css'
 import mapboxgl from 'mapbox-gl'
 const config = useRuntimeConfig()
+await initArrival()
+const arrival = useArrival()
 onMounted(() => {
   if (config.public.mapboxToken) {
     mapboxgl.accessToken = config.public.mapboxToken
