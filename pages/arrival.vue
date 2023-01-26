@@ -16,16 +16,17 @@ const config = useRuntimeConfig()
 await initArrival()
 const arrival = useArrival()
 onMounted(() => {
-  if (config.public.mapboxToken) {
-    mapboxgl.accessToken = config.public.mapboxToken
-    const map = new mapboxgl.Map({
-      container: 'mapbox',
-      style: 'mapbox://styles/mapbox/streets-v12',
-      center: { lon: 26.63102221522945, lat: 37.69445784330787 },
-      zoom: 13
-    })
+  if (config.public.mapboxToken && window) {
+    window.setTimeout(() => {
+      mapboxgl.accessToken = config.public.mapboxToken
+      const map = new mapboxgl.Map({
+        container: 'mapbox',
+        style: 'mapbox://styles/mapbox/streets-v12',
+        center: { lon: 26.63102221522945, lat: 37.69445784330787 },
+        zoom: 13
+      })
+    }, 1400)
   }
-
 })
 </script>
 
