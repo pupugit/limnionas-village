@@ -2,9 +2,10 @@
   <div class="arrival-page">
     <div class="arrival-content" style="width:100%">
       <div v-html="arrival.intro"></div>
-      <div id="mapbox" style="width: 100%;height:40vh;margin-top:1em;">
+      <div><span>{{ $t('northern-route') }}</span>|<span>{{ $t('southern-route') }}</span></div>
+      <div id="mapbox" style="width: 100%;height:50vh;margin-top:1em;">
       </div>
-      <div v-html="arrival.north"></div>
+      <div v-html="showNorth ? arrival.north : arrival.south"></div>
     </div>
   </div>
 </template>
@@ -12,9 +13,25 @@
 <script setup lang="ts">
 import 'mapbox-gl/dist/mapbox-gl.css'
 import mapboxgl from 'mapbox-gl'
+import southernRoute from '@/assets/southernRoute.json'
 const config = useRuntimeConfig()
 await initArrival()
 const arrival = useArrival()
+const showNorth = ref(false)
+
+/*
+ airport
+ { lon: 26.914984778344206, lat: 37.691671384443 }
+ 26.914984778344206,37.691671384443
+
+ 26.967811,37.690881
+
+ limnionas village
+ { lon: 26.63102221522945, lat: 37.69445784330787 }
+ 26.63095129176827,37.69426001068132
+
+ 26.621206,37.691813
+*/
 onMounted(() => {
   if (config.public.mapboxToken && window) {
     window.setTimeout(() => {
@@ -22,9 +39,37 @@ onMounted(() => {
       const map = new mapboxgl.Map({
         container: 'mapbox',
         style: 'mapbox://styles/mapbox/streets-v12',
-        center: { lon: 26.63102221522945, lat: 37.69445784330787 },
-        zoom: 13
+        bounds: [{ lon: 26.611206, lat: 37.691813 }, { lon: 26.937811, lat: 37.690881 }]
       })
+      const geojson = {
+        type: 'Feature',
+        properties: {},
+        geometry: {
+          type: 'LineString',
+          coordinates: southernRoute
+        }
+      }
+      const layer: mapboxgl.LineLayer = {
+        id: 'route',
+        type: 'line',
+        source: {
+          type: 'geojson',
+          data: geojson
+        },
+        layout: {
+          'line-join': 'round',
+          'line-cap': 'round'
+        },
+        paint: {
+          'line-color': '#3887be',
+          'line-width': 5,
+          'line-opacity': 0.75
+        }
+      }
+      map.on('load', () => {
+        map.addLayer(layer);
+      })
+
     }, 1400)
   }
 })
