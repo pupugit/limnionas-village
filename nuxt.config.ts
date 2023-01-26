@@ -16,7 +16,8 @@ export default defineNuxtConfig({
     public: {
       directusBase: '',
       imageFormat: 'webp',
-      featureZen: false
+      featureZen: false,
+      mapboxToken: '',
     }
   },
   app: {

@@ -1,5 +1,6 @@
 <template>
-  <div class="welcome-first" :style="calcPic" @click.self="$config.public.featureZen ? zenMode = !zenMode" ref="infoEl">
+  <div class="welcome-first" :style="calcPic"
+    @click.self="config.public.featureZen ? zenMode = !zenMode : zenMode = zenMode" ref="infoEl">
   </div>
   <WelcomeEntry :entry="localWelcome" :pic="specials.welcome_back" />
   <WelcomeEntry :entry="localWelcome2" :pic="specials.welcome_back2" />

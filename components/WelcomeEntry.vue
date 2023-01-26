@@ -1,6 +1,6 @@
 <template>
   <div :class="`welcome-other${zenMode ? ' zen-mode' : ''}`" :style="calcBG"
-    @click.self="$config.public.featureZen ? zenMode = !zenMode">
+    @click.self="config.public.featureZen ? zenMode = !zenMode : zenMode = zenMode">
     <div class="welcome-info" ref="infoEl">
       <div class="welcome-text" v-html="entry" />
     </div>

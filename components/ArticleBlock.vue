@@ -14,7 +14,7 @@ const zenMode = useZenMode()
   <ClientOnly>
     <div v-for="(s, idx) in article.sections" class="article-block" :key="s.id">
       <div v-if="width" :class="`article-section-bg${zenMode ? ' zen-mode' : ''}`"
-        @click.self="$config.public.featureZen ? zenMode = !zenMode"
+        @click.self="config.public.featureZen ? zenMode = !zenMode : zenMode = zenMode"
         :style="`background-image: url(${config.public.directusBase}/assets/${s.image_back}?fit=cover&width=${width}&height=${height}&format=${config.public.imageFormat})`">
         <div class="article-section-info">
           <div v-html="s.content"></div>
