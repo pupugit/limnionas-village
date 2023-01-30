@@ -12,7 +12,7 @@
     "@splidejs/vue-splide": "^0.6.12",
     "@types/mapbox-gl": "^2.7.10",
     "@types/node": "^18.11.18",
-    "@vueuse/nuxt": "^9.11.1",
+    "@vueuse/nuxt": "^9.12.0",
     "nuxt": "^3.1.1",
     "nuxt-directus": "^3.2.2",
     "sass": "^1.57.1",
