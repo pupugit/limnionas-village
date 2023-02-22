@@ -2,7 +2,14 @@
   <div class="arrival-page">
     <div class="arrival-content" style="width:100%">
       <div v-html="arrival.intro"></div>
-      <div><span>{{ $t('northern-route') }}</span>|<span>{{ $t('southern-route') }}</span></div>
+      <div><span @click="showNorth = true"
+          :style="`cursor:pointer;${showNorth ? 'background-color:var(--col-main);color:white;' : 'text-decoration:underline;'}`">{{
+            $t('northern-route') }}</span>
+        |
+        <span @click="showNorth = false"
+          :style="`cursor:pointer;${!showNorth ? 'background-color:var(--col-main);color:white;' : 'text-decoration:underline;'}`">{{
+            $t('southern-route') }}</span>
+      </div>
       <div id="mapbox" style="width: 100%;height:50vh;margin-top:1em;">
       </div>
       <div v-html="showNorth ? arrival.north : arrival.south"></div>
@@ -14,6 +21,7 @@
 import 'mapbox-gl/dist/mapbox-gl.css'
 import mapboxgl from 'mapbox-gl'
 import southernRoute from '@/assets/southernRoute.json'
+// import northernRoute from '@/assets/northernRoute.json'
 const config = useRuntimeConfig()
 await initArrival()
 const arrival = useArrival()
@@ -54,6 +62,7 @@ onMounted(() => {
         type: 'line',
         source: {
           type: 'geojson',
+          // @ts-ignore
           data: geojson
         },
         layout: {
