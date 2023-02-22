@@ -2,11 +2,11 @@
   <div class="arrival-page">
     <div class="arrival-content" style="width:100%">
       <div v-html="arrival.intro"></div>
-      <div><span @click="showNorth = true"
+      <div><span @click="switchRoute(true)"
           :style="`cursor:pointer;${showNorth ? 'background-color:var(--col-main);color:white;' : 'text-decoration:underline;'}`">{{
             $t('northern-route') }}</span>
         |
-        <span @click="showNorth = false"
+        <span @click="switchRoute(false)"
           :style="`cursor:pointer;${!showNorth ? 'background-color:var(--col-main);color:white;' : 'text-decoration:underline;'}`">{{
             $t('southern-route') }}</span>
       </div>
@@ -21,11 +21,74 @@
 import 'mapbox-gl/dist/mapbox-gl.css'
 import mapboxgl from 'mapbox-gl'
 import southernRoute from '@/assets/southernRoute.json'
-// import northernRoute from '@/assets/northernRoute.json'
+import northernRoute from '@/assets/northernRoute.json'
 const config = useRuntimeConfig()
 await initArrival()
 const arrival = useArrival()
 const showNorth = ref(false)
+const map = ref<mapboxgl.Map | null>(null)
+const southernGeojson = {
+  type: 'Feature',
+  properties: {},
+  geometry: {
+    type: 'LineString',
+    coordinates: southernRoute
+  }
+}
+const southernLayer: mapboxgl.LineLayer = {
+  id: 'southernRoute',
+  type: 'line',
+  source: {
+    type: 'geojson',
+    // @ts-ignore
+    data: southernGeojson
+  },
+  layout: {
+    'line-join': 'round',
+    'line-cap': 'round'
+  },
+  paint: {
+    'line-color': '#3887be',
+    'line-width': 5,
+    'line-opacity': 0.75
+  }
+}
+const northernGeojson = {
+  type: 'Feature',
+  properties: {},
+  geometry: {
+    type: 'LineString',
+    coordinates: northernRoute
+  }
+}
+const northernLayer: mapboxgl.LineLayer = {
+  id: 'northernRoute',
+  type: 'line',
+  source: {
+    type: 'geojson',
+    // @ts-ignore
+    data: northernGeojson
+  },
+  layout: {
+    'line-join': 'round',
+    'line-cap': 'round'
+  },
+  paint: {
+    'line-color': '#3887be',
+    'line-width': 5,
+    'line-opacity': 0.75
+  }
+}
+const switchRoute = (goNorth = true) => {
+  if (!map.value) return
+  if (goNorth && !showNorth) {
+    map.value.removeLayer('southernRoute')
+    map.value.addLayer(northernLayer)
+  } else if (!goNorth && showNorth) {
+    map.value.removeLayer('northernLayer')
+    map.value.addLayer(southernLayer)
+  }
+}
 
 /*
  airport
@@ -39,44 +102,26 @@ const showNorth = ref(false)
  26.63095129176827,37.69426001068132
 
  26.621206,37.691813
+
+ var locFlughafen = {name: 'Samos Airport', lat: 37.6902823, lng: 26.9035715};
+var locLimvil = {name: 'Limnionas Village', lat: 37.694334, lng: 26.631163};
+var locVathy = {lat: 37.7495953, lng: 26.976421};
+26.976421,37.7495953
+var locKokkari = {lat: 37.7773689, lng: 26.869398};
+26.869398,37.7773689
 */
 onMounted(() => {
   if (config.public.mapboxToken && window) {
     window.setTimeout(() => {
       mapboxgl.accessToken = config.public.mapboxToken
-      const map = new mapboxgl.Map({
+      map.value = new mapboxgl.Map({
         container: 'mapbox',
         style: 'mapbox://styles/mapbox/streets-v12',
         bounds: [{ lon: 26.611206, lat: 37.691813 }, { lon: 26.937811, lat: 37.690881 }]
       })
-      const geojson = {
-        type: 'Feature',
-        properties: {},
-        geometry: {
-          type: 'LineString',
-          coordinates: southernRoute
-        }
-      }
-      const layer: mapboxgl.LineLayer = {
-        id: 'route',
-        type: 'line',
-        source: {
-          type: 'geojson',
-          // @ts-ignore
-          data: geojson
-        },
-        layout: {
-          'line-join': 'round',
-          'line-cap': 'round'
-        },
-        paint: {
-          'line-color': '#3887be',
-          'line-width': 5,
-          'line-opacity': 0.75
-        }
-      }
-      map.on('load', () => {
-        map.addLayer(layer);
+      map.value.on('load', () => {
+        if (map.value)
+          map.value.addLayer(southernLayer);
       })
 
     }, 1400)
