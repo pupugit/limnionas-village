@@ -11,16 +11,16 @@
   "devDependencies": {
     "@splidejs/vue-splide": "^0.6.12",
     "@types/mapbox-gl": "^2.7.10",
-    "@types/node": "^18.13.0",
-    "@vueuse/nuxt": "^9.12.0",
-    "nuxt": "^3.2.0",
+    "@types/node": "^18.14.0",
+    "@vueuse/nuxt": "^9.13.0",
+    "nuxt": "^3.2.2",
     "nuxt-directus": "^3.2.2",
-    "sass": "^1.58.1",
+    "sass": "^1.58.3",
     "vue": "^3.2.47",
     "vue-i18n": "^9.2.2"
   },
   "dependencies": {
     "date-fns": "^2.29.3",
-    "mapbox-gl": "^2.12.1"
+    "mapbox-gl": "^2.13.0"
   }
 }
