@@ -11,7 +11,7 @@
   "devDependencies": {
     "@splidejs/vue-splide": "^0.6.12",
     "@types/mapbox-gl": "^2.7.10",
-    "@types/node": "^18.14.0",
+    "@types/node": "^18.14.1",
     "@vueuse/nuxt": "^9.13.0",
     "nuxt": "^3.2.2",
     "nuxt-directus": "^3.2.2",
