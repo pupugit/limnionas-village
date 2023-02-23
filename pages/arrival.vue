@@ -1,6 +1,6 @@
 <template>
   <div class="arrival-page">
-    <div class="arrival-content" style="width:100%">
+    <div class="arrival-content">
       <div v-html="arrival.intro"></div>
       <div><span @click="switchRoute(true)"
           :style="`cursor:pointer;${showNorth ? 'background-color:var(--col-main);color:white;' : 'text-decoration:underline;'}`">{{
@@ -169,5 +169,12 @@ onMounted(() => {
   max-width: 1000px;
   align-self: start;
   justify-self: center;
+}
+
+@media screen and (max-width:600px) {
+  .arrival-content {
+    margin: 128px 0 32px 0;
+    padding: 1.5rem;
+  }
 }
 </style>
