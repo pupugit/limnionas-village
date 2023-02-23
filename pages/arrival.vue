@@ -115,16 +115,14 @@ const switchRoute = (goNorth = true) => {
     map.setLayoutProperty('southernRoute', 'visibility', 'none')
     const newCam: CameraOptions | void = map.cameraForBounds(northernBounds, mapPadding)
     if (newCam && newCam.center && newCam.zoom) {
-      map.setCenter(newCam.center)
-      map.setZoom(newCam.zoom)
+      map.flyTo({ center: newCam.center, zoom: newCam.zoom })
     }
   } else if (!goNorth && showNorth.value) {
     map.setLayoutProperty('northernRoute', 'visibility', 'none')
     map.setLayoutProperty('southernRoute', 'visibility', 'visible')
     const newCam: CameraOptions | void = map.cameraForBounds(southernBounds, mapPadding)
     if (newCam && newCam.center && newCam.zoom) {
-      map.setCenter(newCam.center)
-      map.setZoom(newCam.zoom)
+      map.flyTo({ center: newCam.center, zoom: newCam.zoom })
     }
   }
   showNorth.value = goNorth
@@ -141,6 +139,10 @@ onMounted(() => {
       })
       map.on('load', () => {
         if (map) {
+          const markerAirport = new mapboxgl.Marker({ color: '#0070b3', scale: 0.75 }).setLngLat({ lon: 26.914984778344206, lat: 37.691671384443 })
+          const markerLimvil = new mapboxgl.Marker({ color: '#363c90' }).setLngLat({ lon: 26.63102221522945, lat: 37.69445784330787 })
+          markerAirport.addTo(map)
+          markerLimvil.addTo(map)
           map.addLayer(northernLayer)
           map.addLayer(southernLayer)
           map.setLayoutProperty('northernRoute', 'visibility', 'none')
