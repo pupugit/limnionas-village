@@ -18,6 +18,8 @@
 </template>
 
 <script setup lang="ts">
+import type { LngLatBoundsLike, CameraOptions } from 'mapbox-gl'
+
 import 'mapbox-gl/dist/mapbox-gl.css'
 import mapboxgl from 'mapbox-gl'
 import southernRoute from '@/assets/southernRoute.json'
@@ -26,7 +28,7 @@ const config = useRuntimeConfig()
 await initArrival()
 const arrival = useArrival()
 const showNorth = ref(false)
-const map = ref<mapboxgl.Map | null>(null)
+let map: mapboxgl.Map | null = null
 const southernGeojson = {
   type: 'Feature',
   properties: {},
@@ -34,6 +36,32 @@ const southernGeojson = {
     type: 'LineString',
     coordinates: southernRoute
   }
+}
+/*
+ airport
+ { lon: 26.914984778344206, lat: 37.691671384443 }
+ 26.914984778344206,37.691671384443
+
+ 26.967811,37.690881
+
+ limnionas village
+ { lon: 26.63102221522945, lat: 37.69445784330787 }
+ 26.63095129176827,37.69426001068132
+
+ 26.621206,37.691813
+
+ var locFlughafen = {name: 'Samos Airport', lat: 37.6902823, lng: 26.9035715};
+var locLimvil = {name: 'Limnionas Village', lat: 37.694334, lng: 26.631163};
+var locVathy = {lat: 37.7495953, lng: 26.976421};
+26.976421,37.7495953
+var locKokkari = {lat: 37.7773689, lng: 26.869398};
+26.869398,37.7773689
+top end: 37.8174,26.7527
+*/
+const southernBounds: LngLatBoundsLike = [{ lon: 26.611206, lat: 37.691813 }, { lon: 26.937811, lat: 37.690881 }]
+const northernBounds: LngLatBoundsLike = [{ lon: 26.611206, lat: 37.8174 }, { lon: 26.9899, lat: 37.690881 }]
+const mapPadding = {
+  padding: { top: 10, bottom: 10, left: 10, right: 10 }
 }
 const southernLayer: mapboxgl.LineLayer = {
   id: 'southernRoute',
@@ -80,48 +108,43 @@ const northernLayer: mapboxgl.LineLayer = {
   }
 }
 const switchRoute = (goNorth = true) => {
-  if (!map.value) return
-  if (goNorth && !showNorth) {
-    map.value.removeLayer('southernRoute')
-    map.value.addLayer(northernLayer)
-  } else if (!goNorth && showNorth) {
-    map.value.removeLayer('northernLayer')
-    map.value.addLayer(southernLayer)
+  //console.log(map)
+  if (!map) return
+  if (goNorth && !showNorth.value) {
+    map.setLayoutProperty('northernRoute', 'visibility', 'visible')
+    map.setLayoutProperty('southernRoute', 'visibility', 'none')
+    const newCam: CameraOptions | void = map.cameraForBounds(northernBounds, mapPadding)
+    if (newCam && newCam.center && newCam.zoom) {
+      map.setCenter(newCam.center)
+      map.setZoom(newCam.zoom)
+    }
+  } else if (!goNorth && showNorth.value) {
+    map.setLayoutProperty('northernRoute', 'visibility', 'none')
+    map.setLayoutProperty('southernRoute', 'visibility', 'visible')
+    const newCam: CameraOptions | void = map.cameraForBounds(southernBounds, mapPadding)
+    if (newCam && newCam.center && newCam.zoom) {
+      map.setCenter(newCam.center)
+      map.setZoom(newCam.zoom)
+    }
   }
+  showNorth.value = goNorth
 }
 
-/*
- airport
- { lon: 26.914984778344206, lat: 37.691671384443 }
- 26.914984778344206,37.691671384443
-
- 26.967811,37.690881
-
- limnionas village
- { lon: 26.63102221522945, lat: 37.69445784330787 }
- 26.63095129176827,37.69426001068132
-
- 26.621206,37.691813
-
- var locFlughafen = {name: 'Samos Airport', lat: 37.6902823, lng: 26.9035715};
-var locLimvil = {name: 'Limnionas Village', lat: 37.694334, lng: 26.631163};
-var locVathy = {lat: 37.7495953, lng: 26.976421};
-26.976421,37.7495953
-var locKokkari = {lat: 37.7773689, lng: 26.869398};
-26.869398,37.7773689
-*/
 onMounted(() => {
   if (config.public.mapboxToken && window) {
     window.setTimeout(() => {
       mapboxgl.accessToken = config.public.mapboxToken
-      map.value = new mapboxgl.Map({
+      map = new mapboxgl.Map({
         container: 'mapbox',
         style: 'mapbox://styles/mapbox/streets-v12',
-        bounds: [{ lon: 26.611206, lat: 37.691813 }, { lon: 26.937811, lat: 37.690881 }]
+        bounds: southernBounds
       })
-      map.value.on('load', () => {
-        if (map.value)
-          map.value.addLayer(southernLayer);
+      map.on('load', () => {
+        if (map) {
+          map.addLayer(northernLayer)
+          map.addLayer(southernLayer)
+          map.setLayoutProperty('northernRoute', 'visibility', 'none')
+        }
       })
 
     }, 1400)
