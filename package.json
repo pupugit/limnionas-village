@@ -11,10 +11,10 @@
   "devDependencies": {
     "@splidejs/vue-splide": "^0.6.12",
     "@types/mapbox-gl": "^2.7.10",
-    "@types/node": "^18.14.2",
+    "@types/node": "^18.14.6",
     "@vueuse/nuxt": "^9.13.0",
     "nuxt": "^3.2.3",
-    "nuxt-directus": "^3.2.2",
+    "nuxt-directus": "^5.0.1",
     "sass": "^1.58.3",
     "vue": "^3.2.47",
     "vue-i18n": "^9.2.2"
