@@ -2984,7 +2984,7 @@ packages:
     dev: true
 
   /fresh/0.5.2:
-    resolution: {integrity: sha512-zJ2mQYM18rEFOudeV4GShTGIQ7RbzA7ozbU9I/XBpm7kqgMywgmylMwXHxZJmkVoYkna9d2pVXVXPdYTP9ej8Q==}
+    resolution: {integrity: sha1-PYyt2Q2XZWn6g1qx+OSyOhBWBac=}
     engines: {node: '>= 0.6'}
     dev: true
 
@@ -3665,8 +3665,8 @@ packages:
       yallist: 4.0.0
     dev: true
 
-  /lru-cache/7.18.1:
-    resolution: {integrity: sha512-8/HcIENyQnfUTCDizRu9rrDyG6XG/21M4X7/YEGZeD76ZJilFPAUVb/2zysFf7VVO1LEjCDFyHp8pMMvozIrvg==}
+  /lru-cache/7.18.2:
+    resolution: {integrity: sha512-KytVYmZ3reaw/f3d7GCISvWWjTYxszNdvD5rDvm/zECga3eSWzryRY7iauJsjo6aaw03lHYTSNTk7lW83Bv+zQ==}
     engines: {node: '>=12'}
     dev: true
 
@@ -5364,7 +5364,7 @@ packages:
       h3: 1.5.0
       ioredis: 5.3.1
       listhen: 1.0.3
-      lru-cache: 7.18.1
+      lru-cache: 7.18.2
       mri: 1.2.0
       node-fetch-native: 1.0.2
       ofetch: 1.0.1

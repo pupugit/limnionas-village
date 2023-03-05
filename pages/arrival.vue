@@ -24,6 +24,9 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import mapboxgl from 'mapbox-gl'
 import southernRoute from '@/assets/southernRoute.json'
 import northernRoute from '@/assets/northernRoute.json'
+import { useI18n } from 'vue-i18n'
+const i18n = useI18n()
+useHead({ title: i18n.t('arrival') })
 const config = useRuntimeConfig()
 await initArrival()
 const arrival = useArrival()
