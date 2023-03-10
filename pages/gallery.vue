@@ -8,6 +8,9 @@ import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
 const config = useRuntimeConfig()
 useHead({ title: i18n.t('gallery') })
+await initGallery()
+const gallery = useGallery()
+
 </script>
 
 <style scoped>
