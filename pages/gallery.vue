@@ -81,5 +81,6 @@ const modules = [FreeMode]
   display: block;
   object-fit: contain;
   height: calc(100vh - 164px);
+  max-width: 100vw;
 }
 </style>
