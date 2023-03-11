@@ -9,18 +9,18 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@splidejs/vue-splide": "^0.6.12",
     "@types/mapbox-gl": "^2.7.10",
     "@types/node": "^18.15.0",
     "@vueuse/nuxt": "^9.13.0",
     "nuxt": "^3.2.3",
     "nuxt-directus": "^5.0.1",
-    "sass": "^1.58.3",
+    "sass": "^1.59.2",
     "vue": "^3.2.47",
     "vue-i18n": "^9.2.2"
   },
   "dependencies": {
     "date-fns": "^2.29.3",
-    "mapbox-gl": "^2.13.0"
+    "mapbox-gl": "^2.13.0",
+    "nuxt-swiper": "^1.0.1"
   }
 }
