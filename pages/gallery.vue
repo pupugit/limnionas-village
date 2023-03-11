@@ -67,7 +67,7 @@ const modules = [FreeMode]
 
 .mySwiper .swiper-slide {
   /* width: 25%; */
-  height: calc(100vh - 128px);
+  height: calc(100vh - 164px);
   /* max-width: 100vw; */
   /* opacity: 0.4; */
   width: unset;
