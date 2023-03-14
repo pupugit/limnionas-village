@@ -14,13 +14,6 @@ export default defineNuxtConfig({
   },
   typescript: {
     shim: false,
-    typeCheck: true,
-    tsConfig: {
-      compilerOptions: {
-        typeRoots: ['./types'],
-        types: ['mapbox-gl']
-      }
-    }
   },
   runtimeConfig: {
     public: {
