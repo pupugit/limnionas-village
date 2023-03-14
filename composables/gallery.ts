@@ -1,4 +1,4 @@
-import type { Gallery } from "~~/types/gallery"
+import type { Gallery } from "~/types/gallery"
 
 export const useGallery = () => useState<Gallery>('gallery', () => {
   return {

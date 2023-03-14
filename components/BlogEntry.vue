@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BlogEntry } from '~~/types/blogEntry'
+import type { BlogEntry } from '~/types/blogEntry'
 import { useI18n } from 'vue-i18n'
 
 const { locale } = useI18n()

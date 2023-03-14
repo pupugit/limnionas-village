@@ -1,4 +1,4 @@
-import type { Texts } from "~~/types/texts"
+import type { Texts } from "~/types/texts"
 
 export const useTexts = () => useState<Texts[]>('texts', () => {
   return []

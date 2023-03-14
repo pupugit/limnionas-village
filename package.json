@@ -10,9 +10,9 @@
   },
   "devDependencies": {
     "@types/mapbox-gl": "^2.7.10",
-    "@types/node": "^18.15.0",
+    "@types/node": "^18.15.3",
     "@vueuse/nuxt": "^9.13.0",
-    "nuxt": "^3.2.3",
+    "nuxt": "^3.3.1",
     "nuxt-directus": "^5.0.1",
     "sass": "^1.59.2",
     "vue": "^3.2.47",

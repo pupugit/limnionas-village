@@ -1,4 +1,4 @@
-import type { Specials } from "~~/types/specials"
+import type { Specials } from "~/types/specials"
 
 export const useSpecials = () => useState<Specials>('specials', () => {
   return {

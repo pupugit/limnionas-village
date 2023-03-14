@@ -1,4 +1,4 @@
-import type { House } from "~~/types/houses"
+import type { House } from "~/types/houses"
 
 export const useHouses = () => useState<House[]>('houses', () => {
   return []

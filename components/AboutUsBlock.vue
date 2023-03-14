@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { AboutUs } from "~~/types/aboutUs"
+import type { AboutUs } from "~/types/aboutUs"
 
 const config = useRuntimeConfig()
 const props = defineProps<{

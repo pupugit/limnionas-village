@@ -12,6 +12,7 @@
 </template>
 
 <script lang="ts" setup>
+import type { Swiper } from 'swiper'
 import 'swiper/css/bundle'
 import { useI18n } from 'vue-i18n'
 import { FreeMode, Navigation, Thumbs } from 'swiper'
@@ -24,7 +25,7 @@ const gallery = useGallery()
 
 let thumbsSwiper = null;
 
-const setThumbsSwiper = (swiper) => {
+const setThumbsSwiper = (swiper: Swiper) => {
   thumbsSwiper = swiper
 }
 const modules = [FreeMode]

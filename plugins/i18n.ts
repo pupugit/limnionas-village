@@ -1,7 +1,7 @@
 import { createI18n } from 'vue-i18n'
-import en from '~~/locales/en.json'
-import de from '~~/locales/de.json'
-import fr from '~~/locales/fr.json'
+import en from '~/locales/en.json'
+import de from '~/locales/de.json'
+import fr from '~/locales/fr.json'
 const numberFormats = {
   'en': {
     currency: {
@@ -67,6 +67,7 @@ const datetimeFormats = {
   },
 }
 export default defineNuxtPlugin(({ vueApp }) => {
+  /* @ts-ignore */
   const i18n = createI18n({
     legacy: false,
     globalInjection: true,

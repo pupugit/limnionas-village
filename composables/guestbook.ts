@@ -1,4 +1,4 @@
-import type { GuestbookEntry } from "~~/types/guestbookEntry"
+import type { GuestbookEntry } from "~/types/guestbookEntry"
 
 export const useGuestbook = () => useState<GuestbookEntry[]>('guestbook', () => {
   return []

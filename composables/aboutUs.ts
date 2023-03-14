@@ -1,4 +1,4 @@
-import type { AboutUs } from "~~/types/aboutUs"
+import type { AboutUs } from "~/types/aboutUs"
 
 export const useAboutUs = () => useState<AboutUs>('about_us', () => {
   return {

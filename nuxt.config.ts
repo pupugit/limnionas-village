@@ -12,7 +12,16 @@ export default defineNuxtConfig({
   directus: {
     url: process.env.NUXT_PUBLIC_DIRECTUS_BASE,
   },
-  typescript: { shim: false },
+  typescript: {
+    shim: false,
+    typeCheck: true,
+    tsConfig: {
+      compilerOptions: {
+        typeRoots: ['./types'],
+        types: ['mapbox-gl']
+      }
+    }
+  },
   runtimeConfig: {
     public: {
       directusBase: '',

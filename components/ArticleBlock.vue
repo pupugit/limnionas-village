@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Article } from "~~/types/articles"
+import type { Article } from "~/types/articles"
 
 const config = useRuntimeConfig()
 const props = defineProps<{

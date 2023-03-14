@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setuplang="ts">
 import type { LngLatBoundsLike, CameraOptions } from 'mapbox-gl'
 
 import 'mapbox-gl/dist/mapbox-gl.css'

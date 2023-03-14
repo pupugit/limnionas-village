@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { GuestbookEntry } from '~~/types/guestbookEntry'
+import type { GuestbookEntry } from '~/types/guestbookEntry'
 import { useI18n } from 'vue-i18n'
 
 const { locale } = useI18n()

@@ -1,4 +1,4 @@
-import type { Prices } from "~~/types/prices"
+import type { Prices } from "~/types/prices"
 
 export const usePrices = () => useState<Prices>('prices', () => {
   return { id: 0, seasons: [], visitors_tax: [] }

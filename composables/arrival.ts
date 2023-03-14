@@ -1,4 +1,4 @@
-import type { Arrival } from "~~/types/arrival"
+import type { Arrival } from "~/types/arrival"
 
 export const useArrival = () => useState<Arrival>('arrival', () => {
   return {

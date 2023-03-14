@@ -1,4 +1,4 @@
-import type { Article } from "~~/types/articles"
+import type { Article } from "~/types/articles"
 
 export const useArticles = () => useState<Article[]>('articles', () => {
   return []

@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import type { House } from "~~/types/houses"
+import type { House } from "~/types/houses"
 
 const config = useRuntimeConfig()
 const props = defineProps<{
