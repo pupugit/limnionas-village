@@ -2,19 +2,19 @@ export type Article = {
   id: string
   title: string
   content: string
-  sections: ArticleSection[]
+  category: string
+  translations: ArticleTranslation[]
+  fotos: ArticleFile[]
+  sort: number | null
 }
 
-export type ArticleSection = {
-  id: string
-  name: string
-  content: string
-  image_back: string
-  translations: TextsTranslation[]
-}
-
-export type ArticleSectionTranslation = {
+export type ArticleTranslation = {
   id: string
   languages_code: string
+  title: string
   content: string
+}
+
+export type ArticleFile = {
+  directus_files_id: string
 }
