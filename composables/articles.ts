@@ -1,14 +1,21 @@
 import type { Article } from "~/types/articles"
 
-export const useArticles = () => useState<Article[]>('articles', () => {
+export const useHikes = () => useState<Article[]>('hikes', () => {
   return []
 })
 
-export const initArticles = async () => {
+export const initHikes = async () => {
   const { getItems } = useDirectusItems()
-  const articles = useArticles()
-  if (articles.value.length === 0) {
-    const hItems = await getItems<Article[]>({ collection: 'articles', params: { sort: 'sort', fields: ['*', 'fotos.directus_files_id', 'translations.*'] } })
-    articles.value = hItems
+  const hikes = useHikes()
+  if (hikes.value.length === 0) {
+    const hItems = await getItems<Article[]>({
+      collection: 'articles',
+      params: {
+        sort: 'sort',
+        filter: { category: 'hikes' },
+        fields: ['*', 'fotos.directus_files_id', 'translations.*']
+      }
+    })
+    hikes.value = hItems
   }
 }
