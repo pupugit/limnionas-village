@@ -51,10 +51,10 @@ bgStyle.value = ''
 
 await initHousesBasic()
 await initTexts()
-await initArticles()
+//await initArticles()
 await initAboutUs()
 const houses = useHousesBasic()
-const articles = useArticles()
+// const articles = useArticles()
 const scrollState = useScrollState()
 const aboutUs = useAboutUs()
 
@@ -87,38 +87,38 @@ const localeHouses = computed(() => {
 })
 
 
-const localeArticles = computed(() => {
-  if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
-    return articles.value.map((a) => {
-      const ret = Object.assign({}, a)
-      ret.sections = []
-      a.sections.forEach((s) => {
-        if (i18n.locale.value !== 'en') {
-          const t = s.translations.find(trans => trans.languages_code === i18n.locale.value)
-          if (t && t.content?.length) {
-            ret.sections.push({
-              id: s.id,
-              name: s.name,
-              image_back: s.image_back,
-              content: t.content,
-              translations: []
-            })
-          }
-        } else if (s.content?.length) {
-          ret.sections.push({
-            id: s.id,
-            name: s.name,
-            image_back: s.image_back,
-            content: s.content,
-            translations: []
-          })
-        }
-      })
-      return ret
-    }).filter(a => a.sections.length)
-  }
-  return []
-})
+// const localeArticles = computed(() => {
+//   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
+//     return articles.value.map((a) => {
+//       const ret = Object.assign({}, a)
+//       ret.sections = []
+//       a.sections.forEach((s) => {
+//         if (i18n.locale.value !== 'en') {
+//           const t = s.translations.find(trans => trans.languages_code === i18n.locale.value)
+//           if (t && t.content?.length) {
+//             ret.sections.push({
+//               id: s.id,
+//               name: s.name,
+//               image_back: s.image_back,
+//               content: t.content,
+//               translations: []
+//             })
+//           }
+//         } else if (s.content?.length) {
+//           ret.sections.push({
+//             id: s.id,
+//             name: s.name,
+//             image_back: s.image_back,
+//             content: s.content,
+//             translations: []
+//           })
+//         }
+//       })
+//       return ret
+//     }).filter(a => a.sections.length)
+//   }
+//   return []
+// })
 </script>
 
 <style lang="scss">
