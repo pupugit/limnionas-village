@@ -37,7 +37,10 @@ onMounted(() => {
   place-content: center;
   width: 100vw;
   min-height: 100vh;
+  min-height: 100lvh;
   background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-color: white;
 }
 
