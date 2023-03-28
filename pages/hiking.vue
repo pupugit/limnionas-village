@@ -37,10 +37,8 @@ onMounted(() => {
   place-content: center;
   width: 100vw;
   min-height: 100vh;
-  min-height: 100lvh;
   background-attachment: fixed;
   background-color: white;
-  background-size: 100vw 100lvh;
 }
 
 .hikes-content {
