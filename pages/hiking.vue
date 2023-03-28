@@ -1,5 +1,5 @@
 <template>
-  <div class="hikes-page" v-if="width !== Infinity">
+  <div class="hikes-page" v-if="width">
     <div v-for="(h, idx) in hikes" :key="h.id" class="hikes-section"
       :style="h.fotos.length ? `background-image: url(${config.public.directusBase}/assets/${h.fotos[0].directus_files_id}?fit=cover&width=${width}&height=${height}&withoutEnlargement&format=${config.public.imageFormat});` : ''">
       <div class="hikes-content" :style="idx === 0 ? 'margin-top:128px;' : ''">
@@ -11,13 +11,20 @@
 </template>
 
 <script setup lang="ts">
+import { on } from 'events';
 import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
 useHead({ title: i18n.t('hiking') })
 const config = useRuntimeConfig()
 await initHikes()
 const hikes = useHikes()
-const { width, height } = useWindowSize()
+const width = ref(0)
+const height = ref(0)
+onMounted(() => {
+  width.value = window.outerWidth
+  height.value = window.outerHeight
+})
+// const { width, height } = useWindowSize()
 </script>
 
 <style>
