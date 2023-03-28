@@ -22,11 +22,7 @@ const { width, height } = useWindowSize()
 
 <style>
 .hikes-page {
-  min-height: 100vh;
   box-sizing: border-box;
-  background-attachment: fixed;
-  display: grid;
-  /* gap: 16px; */
 }
 
 .hikes-section {
@@ -35,7 +31,7 @@ const { width, height } = useWindowSize()
   width: 100vw;
   min-height: 100vh;
   background-attachment: fixed;
-  background-color: green;
+  background-color: white;
 }
 
 .hikes-content {
