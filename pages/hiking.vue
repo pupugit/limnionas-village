@@ -30,15 +30,17 @@ const { width, height } = useWindowSize()
   place-content: center;
   width: 100vw;
   min-height: 100vh;
+  min-height: 100lvh;
   background-attachment: fixed;
   background-color: white;
 }
 
 .hikes-content {
   background: rgba(255, 255, 255, 80%);
-  margin: 10vw;
+  box-sizing: border-box;
+  width: min(1000px, 85vw);
   padding: 2rem;
-  max-width: 1000px;
+  margin: 10vw 0;
   align-self: start;
   justify-self: center;
 }
