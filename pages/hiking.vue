@@ -40,7 +40,7 @@ onMounted(() => {
   min-height: 100lvh;
   background-attachment: fixed;
   background-color: white;
-  background-size: cover;
+  background-size: 100vw 100lvh;
 }
 
 .hikes-content {
