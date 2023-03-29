@@ -71,9 +71,9 @@ const styleIt = (d: tDot) => {
   // border-radius: 30px;
   min-width: 40px;
   max-width: 800px;
-  width: 80vw;
+  width: 85vw;
+  box-sizing: border-box;
   min-height: 40px;
-  margin: 20px;
   background: #ffffff99;
   position: relative;
   align-items: center;

@@ -30,6 +30,6 @@ onMounted(() => {
 
 .entries {
   display: grid;
-  gap: 8px;
+  gap: 20px;
 }
 </style>

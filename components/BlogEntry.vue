@@ -46,14 +46,13 @@ onMounted(() => {
 .thought {
   display: flex;
   // background: var(--col-sub);
-  padding: 20px;
   // border-radius: 30px;
+  padding-bottom: 10px;
   min-width: 40px;
   max-width: 800px;
-  width: 80vw;
+  width: 85vw;
   min-height: 40px;
-  margin: 20px;
-
+  border-bottom: 1px solid var(--col-main);
   position: relative;
   align-items: center;
   justify-content: center;
