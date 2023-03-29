@@ -15,6 +15,9 @@ const zenMode = useZenMode()
     <div>
       <div v-if="width" :class="`about-us-bg`"
         :style="`background-image: url(${config.public.directusBase}/assets/${aboutUs.background}?fit=cover&width=${width}&height=${height}&format=${config.public.imageFormat})`">
+        <div class="about-us-content"><iframe allowfullscreen
+            src="https://player.vimeo.com/video/785195296?h=51b039a95d&portrait=0&title=0"
+            style="width: 100%; aspect-ratio: 16/9;" title="vimeo-player" frameborder="0"></iframe></div>
         <div class="about-us-content" v-html="aboutUs.content">
         </div>
       </div>
