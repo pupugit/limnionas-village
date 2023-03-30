@@ -1,6 +1,11 @@
 <template>
   <div id="grid-index" class="grid-index">
     <WelcomeBlock />
+    <div style="width:100vw;height:100vh;">
+      <iframe allowfullscreen loading="lazy"
+        src="https://player.vimeo.com/video/785195296?h=51b039a95d&portrait=0&title=0"
+        style="width: 100vw; aspect-ratio: 16/9;" title="vimeo-player" frameborder="0"></iframe>
+    </div>
     <HouseBlock v-for="house in localeHouses" :house="house" :key="house.id" />
     <AboutUsBlock v-if="localeAboutUs" :about-us="localeAboutUs" :show-little-travel-society="curLang === 'de'" />
   </div>
