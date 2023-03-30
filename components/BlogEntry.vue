@@ -37,7 +37,7 @@ onMounted(() => {
     <div style="width: 100%;" ref="imgcnt">
       <img ref="img" style="width: 100%;aspect-ratio: 4/3;" loading="lazy" />
       <p v-html="content" style="margin-bottom:0;margin-top:.5em;"></p>
-      <div style="margin-bottom:16px">{{ formatedDate }}</div>
+      <div style="margin-bottom:16px;font-size:.85em;">{{ formatedDate }}</div>
     </div>
   </div>
 </template>
