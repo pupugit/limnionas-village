@@ -41,14 +41,14 @@
         </div>
       </div>
     </div>
-    <!-- <swiper @swiper="setThumbsSwiper" :loop="true" :spaceBetween="10" slidesPerView="auto" :freeMode="true"
-      :modules="modules" class="mySwiper" v-if="gallery.id">
-      <swiper-slide v-for="p in gallery.fotos" :key="p.directus_files_id">
+    <swiper @swiper="setThumbsSwiper" :loop="true" :spaceBetween="10" slidesPerView="auto" :freeMode="true"
+      :modules="modules" class="mySwiper">
+      <swiper-slide v-for="p in house.fotos" :key="p.directus_files_id">
         <img
           :src="`${config.public.directusBase}/assets/${p.directus_files_id}?fit=inside&width=1024&height=1024&format=${config.public.imageFormat}`"
           alt="Picture" loading="lazy">
       </swiper-slide>
-    </swiper> -->
+    </swiper>
     <!-- <div class="house-fotos" :style="`width: ${width}px; height: ${height}px`" v-if="width !== Infinity">
       <Transition name="pic-fade" :duration="500">
         <img :key="`i - ${curImage}`" :src="curImagePath" lazy class="house-foto" />

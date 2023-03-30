@@ -176,4 +176,46 @@ p:last-child {
 table {
   line-height: normal;
 }
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.mySwiper {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.mySwiper .swiper-slide {
+  /* width: 25%; */
+  height: calc(100vh - 164px);
+  /* max-width: 100vw; */
+  /* opacity: 0.4; */
+  width: unset;
+}
+
+/* .mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+} */
+
+.swiper-slide img {
+  display: block;
+  object-fit: contain;
+  height: calc(100vh - 164px);
+  max-width: 100vw;
+}
 </style>
