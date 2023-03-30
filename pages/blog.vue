@@ -14,7 +14,6 @@ useHead({ title: i18n.t('blog') })
 const blog = useBlog()
 onMounted(() => {
   initBlog()
-
 })
 </script>
 
