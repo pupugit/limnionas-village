@@ -10,7 +10,7 @@
           :style="`cursor:pointer;${!showNorth ? 'background-color:var(--col-main);color:white;' : 'text-decoration:underline;'}`">{{
             $t('southern-route') }}</span>
       </div>
-      <div id="mapbox" style="width: 100%;height:50vh;margin-top:1em;">
+      <div id="mapbox" style="width: 100%;height:50vh;margin-top:2em;">
       </div>
       <div v-html="showNorth ? arrival.north : arrival.south"></div>
     </div>
