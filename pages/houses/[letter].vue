@@ -237,7 +237,7 @@ onMounted(() => {
   grid-template-columns: auto 400px auto;
   place-content: center;
   margin: 32px 0;
-  gap: 32px;
+  gap: 64px;
 }
 
 @media screen and (max-width: 600px) {
