@@ -2,7 +2,7 @@
   <div class="default-page">
     <h1>{{ $t('houses') }}</h1>
     <div v-html="localPricesText"></div>
-    <HousesTable style="margin-top:2em;" />
+    <HousesTable style="margin-top:4em;" />
   </div>
 </template>
 
