@@ -36,8 +36,8 @@ onMounted(() => {
   <div class="thought">
     <div style="width: 100%;" ref="imgcnt">
       <img ref="img" style="width: 100%;aspect-ratio: 4/3;" loading="lazy" />
-      <p v-html="content"></p>
-      <div>{{ formatedDate }}</div>
+      <p v-html="content" style="margin-bottom:0;margin-top:.5em;"></p>
+      <div style="margin-bottom:16px">{{ formatedDate }}</div>
     </div>
   </div>
 </template>
@@ -52,7 +52,7 @@ onMounted(() => {
   max-width: 800px;
   width: 85vw;
   min-height: 40px;
-  border-bottom: 1px solid var(--col-main);
+  // border-bottom: 1px solid var(--col-main);
   position: relative;
   align-items: center;
   justify-content: center;
