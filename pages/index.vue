@@ -51,6 +51,9 @@ useHead({
       content: 'Our small Cycladic style holiday village Limnionas Village is embedded in a spacious old olive grove directly beside the sea.',
     }],
 })
+definePageMeta({
+  pageTransition: false
+})
 const bgStyle = useBackgroundImageState()
 bgStyle.value = ''
 
@@ -60,18 +63,18 @@ await initTexts()
 await initAboutUs()
 const houses = useHousesBasic()
 // const articles = useArticles()
-const scrollState = useScrollState()
+// const scrollState = useScrollState()
 const aboutUs = useAboutUs()
 const vimeo = ref()
 
-onMounted(() => {
+/* onMounted(() => {
   if (scrollState.value.scrollPos > 0) {
     window.setTimeout(() => {
       //console.log('index: scrolling to ', scrollState.value.scrollPos)
       window.scrollTo(0, scrollState.value.scrollPos)
     }, 1200)
   }
-})
+}) */
 
 const i18n = useI18n()
 const curLang = i18n.locale
