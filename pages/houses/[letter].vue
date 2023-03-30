@@ -41,11 +41,19 @@
         </div>
       </div>
     </div>
-    <div class="house-fotos" :style="`width: ${width}px; height: ${height}px`" v-if="width !== Infinity">
+    <!-- <swiper @swiper="setThumbsSwiper" :loop="true" :spaceBetween="10" slidesPerView="auto" :freeMode="true"
+      :modules="modules" class="mySwiper" v-if="gallery.id">
+      <swiper-slide v-for="p in gallery.fotos" :key="p.directus_files_id">
+        <img
+          :src="`${config.public.directusBase}/assets/${p.directus_files_id}?fit=inside&width=1024&height=1024&format=${config.public.imageFormat}`"
+          alt="Picture" loading="lazy">
+      </swiper-slide>
+    </swiper> -->
+    <!-- <div class="house-fotos" :style="`width: ${width}px; height: ${height}px`" v-if="width !== Infinity">
       <Transition name="pic-fade" :duration="500">
         <img :key="`i - ${curImage}`" :src="curImagePath" lazy class="house-foto" />
       </Transition>
-    </div>
+    </div> -->
   </div>
   <div v-else>
     {{ $t('house_not_found') }}
@@ -53,9 +61,9 @@
 </template>
 
 <script setup lang="ts">
-// import '@splidejs/vue-splide/css'
-// import { Splide, SplideSlide } from '@splidejs/vue-splide'
+import type { Swiper } from 'swiper'
 import { useI18n } from 'vue-i18n'
+import { FreeMode, Navigation, Thumbs } from 'swiper'
 const route = useRoute()
 const letter: string = route.params.letter.toString().toLowerCase()
 await initHouses()
@@ -65,6 +73,12 @@ const houses = useHouses()
 const prices = usePrices()
 const i18n = useI18n()
 const { width, height } = useWindowSize()
+let thumbsSwiper = null;
+
+const setThumbsSwiper = (swiper: Swiper) => {
+  thumbsSwiper = swiper
+}
+const modules = [FreeMode]
 const house = houses.value.find(h => h.letter.toLowerCase() === letter) || null
 const localeHouse = computed(() => {
   if (!house) return null

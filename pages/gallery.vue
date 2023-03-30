@@ -13,7 +13,6 @@
 
 <script lang="ts" setup>
 import type { Swiper } from 'swiper'
-import 'swiper/css/bundle'
 import { useI18n } from 'vue-i18n'
 import { FreeMode, Navigation, Thumbs } from 'swiper'
 
