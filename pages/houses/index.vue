@@ -4,7 +4,7 @@
     <div v-html="localPricesText"></div>
     <h1>{{ $t('prices') }}</h1>
     <div v-html="localPricesText2"></div>
-    <HousesTable style="margin-top:4em;" />
+    <HousesTable style="margin-top:2em;" />
   </div>
 </template>
 
