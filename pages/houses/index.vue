@@ -2,9 +2,9 @@
   <div class="default-page">
     <h1>{{ $t('houses') }}</h1>
     <div v-html="localPricesText"></div>
-    <h1>{{ $t('prices') }}</h1>
+    <h1 style="margin-top:1.5em;">{{ $t('prices') }}</h1>
     <div v-html="localPricesText2"></div>
-    <HousesTable style="margin-top:2em;" />
+    <HousesTable style="margin-top:.5em;" />
   </div>
 </template>
 
