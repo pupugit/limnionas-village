@@ -2,7 +2,7 @@
   <div id="grid-index" class="grid-index">
     <WelcomeBlock />
     <HouseBlock v-for="house in localeHouses" :house="house" :key="house.id" />
-    <AboutUsBlock :about-us="aboutUs" />
+    <AboutUsBlock v-if="localeAboutUs" :about-us="localeAboutUs" :show-little-travel-society="curLang === 'de'" />
   </div>
 </template>
 
@@ -68,6 +68,7 @@ onMounted(async () => {
 })
 
 const i18n = useI18n()
+const curLang = i18n.locale
 const localeHouses = computed(() => {
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
     return houses.value.map((h) => {
@@ -86,6 +87,20 @@ const localeHouses = computed(() => {
   return []
 })
 
+const localeAboutUs = computed(() => {
+  if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
+    const ret = Object.assign({}, aboutUs.value)
+    ret.translations = []
+    if (i18n.locale.value !== 'en') {
+      const t = aboutUs.value.translations.find(trans => trans.languages_code === i18n.locale.value)
+      if (t) {
+        ret.content = t.content
+      }
+    }
+    return ret
+  }
+  return null
+})
 
 // const localeArticles = computed(() => {
 //   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {

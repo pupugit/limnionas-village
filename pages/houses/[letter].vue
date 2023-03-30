@@ -29,9 +29,9 @@
             </table>
           </div>
           <div style="display:grid; place-items: center;">
-            <img v-if="house.ground_plan_new" loading="lazy" style="height:100%"
+            <img v-if="house.ground_plan_new" loading="lazy" class="house-plan"
               :src="`${config.public.directusBase}/assets/${house.ground_plan_new}`">
-            <img v-else-if="house.ground_plan" loading="lazy" style="height:100%"
+            <img v-else-if="house.ground_plan" loading="lazy" class="house-plan"
               :src="`${config.public.directusBase}/assets/${house.ground_plan}`">
           </div>
           <div>
@@ -215,6 +215,10 @@ onMounted(() => {
   justify-content: center;
 }
 
+.house-plan {
+  width: 100%;
+}
+
 .house-infos {
   padding: 0 10vw;
   box-sizing: border-box;
@@ -233,6 +237,7 @@ onMounted(() => {
   grid-template-columns: auto 400px auto;
   place-content: center;
   margin: 32px 0;
+  gap: 32px;
 }
 
 @media screen and (max-width: 600px) {
@@ -243,6 +248,17 @@ onMounted(() => {
 
   .house-furnishing-and-prices {
     grid-template-columns: 1fr;
+    place-items: center;
+  }
+
+  .house-furnishing-and-prices p,
+  .house-furnishing-and-prices h3 {
+    text-align: center;
+  }
+
+  .house-plan {
+    height: unset;
+    width: 80vw;
   }
 }
 

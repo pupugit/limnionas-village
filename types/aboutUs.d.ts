@@ -1,4 +1,3 @@
-import { DirectusFile } from "nuxt-directus/dist/runtime/types"
 
 export type AboutUs = {
   id: string | null
@@ -16,5 +15,6 @@ export type AboutUsTranslation = {
   id: string
   about_us_id: string
   languages_id: string
+  languages_code: string
   content: string
 }
