@@ -17,14 +17,18 @@ const imgcnt = ref<HTMLElement | null>(null)
 const img = ref<HTMLImageElement | null>(null)
 onMounted(() => {
   if (window) {
-    if (imgcnt.value?.clientWidth && img.value) {
+    if (imgcnt?.value?.clientWidth && img.value) {
+      console.log('clientWidth instantly set to ', imgcnt?.value?.clientWidth)
       img.value.src = `${config.public.directusBase}/assets/${props.entry.picture}?width=${imgcnt.value.clientWidth}&format=${config.public.imageFormat}`
       img.value.style.aspectRatio = '';
     } else {
       window.setTimeout(() => {
-        if (imgcnt.value && img.value) {
+        if (imgcnt?.value?.clientWidth && img.value) {
+          console.log('clientWidth set after timeout to ', imgcnt?.value?.clientWidth)
           img.value.src = `${config.public.directusBase}/assets/${props.entry.picture}?width=${imgcnt.value.clientWidth}&format=${config.public.imageFormat}`
           img.value.style.aspectRatio = '';
+        } else {
+          console.log('clientWidth not set', imgcnt.value)
         }
       }, 1400)
     }
@@ -34,7 +38,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="blog-small" v-if="small"></div>
+  <div class="blog-small" v-if="small">
+    <div style="width: 100%;" ref="imgcnt">
+      <img ref="img" style="width: 100%;aspect-ratio: 4/3;" loading="lazy" />
+    </div>
+  </div>
   <div class="thought" v-else>
     <div style="width: 100%;" ref="imgcnt">
       <img ref="img" style="width: 100%;aspect-ratio: 4/3;" loading="lazy" />
