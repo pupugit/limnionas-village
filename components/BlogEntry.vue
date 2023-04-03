@@ -6,6 +6,7 @@ const { locale } = useI18n()
 
 const props = defineProps<{
   entry: BlogEntry,
+  small?: boolean,
 }>()
 const content = computed(() => props.entry.content)
 const format = computed(() => { return new Intl.DateTimeFormat(locale.value, { day: 'numeric', month: 'long', year: 'numeric' }) })
@@ -33,7 +34,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="thought">
+  <div class="blog-small" v-if="small"></div>
+  <div class="thought" v-else>
     <div style="width: 100%;" ref="imgcnt">
       <img ref="img" style="width: 100%;aspect-ratio: 4/3;" loading="lazy" />
       <p v-html="content" style="margin-bottom:0;margin-top:.5em;"></p>

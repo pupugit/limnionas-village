@@ -2,7 +2,7 @@
   <div class="blog-page">
     <div></div>
     <div class="entries">
-      <BlogEntry v-for="e in blog" :entry="e" :key="e.id" />
+      <BlogEntry v-for="e in blog" :entry="e" :key="e.id" small />
     </div>
   </div>
 </template>
