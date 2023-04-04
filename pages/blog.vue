@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
 useHead({ title: i18n.t('blog') })
@@ -28,7 +28,12 @@ onMounted(() => {
 }
 
 .entries {
-  display: grid;
+  display: flex;
   gap: 20px;
+  grid-template-columns: repeat(auto-fit, 400px);
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  max-width: calc(100vw - 40px);
 }
 </style>
