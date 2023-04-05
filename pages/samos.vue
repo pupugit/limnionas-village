@@ -9,7 +9,7 @@
 import { useI18n } from 'vue-i18n'
 const config = useRuntimeConfig()
 const i18n = useI18n()
-useHead({ title: `${i18n.t('samos')} - Limnionas Village` })
+mergeHead(i18n.locale.value, i18n.t('samos'), 'Grundlegende Informationen zu Samos', '')
 await initTexts()
 const texts = useTexts()
 await initSpecials()

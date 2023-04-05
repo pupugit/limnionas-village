@@ -18,7 +18,7 @@ import { FreeMode, Navigation, Thumbs } from 'swiper'
 
 const i18n = useI18n()
 const config = useRuntimeConfig()
-useHead({ title: i18n.t('gallery') })
+mergeHead(i18n.locale.value, i18n.t('gallery'), 'Eine kleine Fototour', '')
 await initGallery()
 const gallery = useGallery()
 

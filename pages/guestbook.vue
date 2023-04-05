@@ -13,7 +13,7 @@ import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
 const config = useRuntimeConfig()
 definePageMeta({
-  title: `${i18n.t('guestbook')}`,
+  title: 'Gästebuch',
   description: 'Was unsere Gäste über Limnionas Village erzählen'
 })
 await initSpecials()

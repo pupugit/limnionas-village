@@ -117,11 +117,12 @@ const curImagePath = computed(() => {
   }
 
 })
-definePageMeta({
-  title: localeHouse?.value?.name || house?.name,
-  description: localeHouse?.value?.short.replace(/<[^>]+>/g, '') || '',
-  image: house?.logo_raster ? `${config.public.directusBase}/assets/${house.logo_raster}` : 'https://limnionas.netlify.app/limvil-picture.png'
-})
+mergeHead(
+  i18n.locale.value,
+  localeHouse?.value?.name || house?.name || '',
+  localeHouse?.value?.short.replace(/<[^>]+>/g, '') || '',
+  house?.logo_raster ? `${config.public.directusBase}/assets/${house.logo_raster}` : ''
+)
 
 const bgStyle = useBackgroundImageState()
 if (width.value !== Infinity && house) {
@@ -131,13 +132,13 @@ onMounted(() => {
   if (house && !bgStyle.value) {
     bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=${config.public.imageFormat});`
   }
-  window.setTimeout(() => {
-    window.scrollTo(0, 0)
-    nextImage()
-  }, 500)
-  window.setInterval(() => {
-    nextImage()
-  }, 6000)
+  // window.setTimeout(() => {
+  //   window.scrollTo(0, 0)
+  //   nextImage()
+  // }, 500)
+  // window.setInterval(() => {
+  //   nextImage()
+  // }, 6000)
 })
 </script>
 
