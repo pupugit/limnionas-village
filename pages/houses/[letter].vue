@@ -127,7 +127,7 @@ useHead({
   }],
   meta: [{
     name: 'description',
-    content: house?.short || ''
+    content: house?.short.replace(/<[^>]+>/g, '') || ''
 
   }, {
     hid: 'og:site_name',
