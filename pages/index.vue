@@ -31,7 +31,7 @@ useHead({
       hid: 'og:title',
       name: 'og:title',
       property: 'og:title',
-      content: 'Herzlich Willkommen!',
+      content: 'Herzlich Willkommen! - Limnionas Village',
     },
     {
       hid: 'og:site_name',

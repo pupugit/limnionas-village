@@ -12,7 +12,12 @@ import { useI18n } from 'vue-i18n'
 
 const i18n = useI18n()
 const config = useRuntimeConfig()
-useHead({ title: `${i18n.t('guestbook')} - Limnionas Village` })
+useServerSeoMeta({
+  title: `${i18n.t('guestbook')} - Limnionas Village`,
+  ogTitle: `${i18n.t('guestbook')} - Limnionas Village`,
+  description: 'Was unsere Gäste über Limnionas Village erzählen',
+  ogDescription: 'Was unsere Gäste über Limnionas Village erzählen',
+})
 await initSpecials()
 const specials = useSpecials()
 const { width, height } = useWindowSize()
