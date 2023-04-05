@@ -117,49 +117,10 @@ const curImagePath = computed(() => {
   }
 
 })
-
-useHead({
-  title: localeHouse?.value?.name || house?.name || 'Limnionas Village',
-  link: [{
-    rel: 'icon',
-    href: 'https://limnionas.netlify.app/favicon.ico',
-    type: 'image/x-icon'
-  }],
-  meta: [{
-    name: 'description',
-    content: localeHouse?.value?.short.replace(/<[^>]+>/g, '') || ''
-
-  }, {
-    hid: 'og:site_name',
-    name: 'og:site_name',
-    property: 'og:site_name',
-    content: 'Limnionas Village',
-  }, {
-    hid: 'og:title',
-    name: 'og:title',
-    property: 'og:title',
-    content: localeHouse?.value?.name || 'Limnionas Village'
-  }, {
-    hid: 'og:image',
-    name: 'og:image',
-    property: 'og:image',
-    content: house?.logo_raster ? `${config.public.directusBase}/assets/${house.logo_raster}` : 'https://limnionas.netlify.app/limvil-picture.png'
-  }, {
-    hid: 'og:image:height',
-    name: 'og:image:height',
-    property: 'og:image:height',
-    content: '350',
-  }, {
-    hid: 'og:image:width',
-    name: 'og:image:width',
-    property: 'og:image:width',
-    content: '350',
-  }, {
-    hid: 'og:description',
-    name: 'og:description',
-    property: 'og:description',
-    content: localeHouse?.value?.short.replace(/<[^>]+>/g, '') || ''
-  }]
+definePageMeta({
+  title: localeHouse?.value?.name || house?.name,
+  description: localeHouse?.value?.short.replace(/<[^>]+>/g, '') || '',
+  image: house?.logo_raster ? `${config.public.directusBase}/assets/${house.logo_raster}` : 'https://limnionas.netlify.app/limvil-picture.png'
 })
 
 const bgStyle = useBackgroundImageState()

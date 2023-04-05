@@ -12,11 +12,9 @@ import { useI18n } from 'vue-i18n'
 
 const i18n = useI18n()
 const config = useRuntimeConfig()
-useServerSeoMeta({
-  title: `${i18n.t('guestbook')} - Limnionas Village`,
-  ogTitle: `${i18n.t('guestbook')} - Limnionas Village`,
-  description: 'Was unsere Gäste über Limnionas Village erzählen',
-  ogDescription: 'Was unsere Gäste über Limnionas Village erzählen',
+definePageMeta({
+  title: `${i18n.t('guestbook')}`,
+  description: 'Was unsere Gäste über Limnionas Village erzählen'
 })
 await initSpecials()
 const specials = useSpecials()
