@@ -43,7 +43,7 @@ if (!props.small) {
   <div class="blog-small" v-if="small">
     <img
       :src="`${config.public.directusBase}/assets/${props.entry.picture}?width=400&height=400&fit=cover&format=${config.public.imageFormat}`"
-      style="width: 400px;" loading="lazy" />
+      loading="lazy" />
   </div>
   <div class="thought" v-else>
     <div style="width: 100%;" ref="imgcnt">
@@ -56,8 +56,12 @@ if (!props.small) {
 
 <style scoped lang="scss">
 .blog-small {
-  width: 400px;
-  height: 400px;
+  width: min(calc(100vw - 40px), 400px);
+  height: min(calc(100vw - 40px), 400px);
+
+  img {
+    width: 100%;
+  }
 }
 
 .thought {
