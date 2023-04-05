@@ -13,6 +13,7 @@
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+const i18n = useI18n()
 useHead({
   title: 'Limnionas Village',
   link: [{
@@ -24,13 +25,13 @@ useHead({
     [{
       hid: 'description',
       name: 'description',
-      content: 'Our small Cycladic style holiday village Limnionas Village is embedded in a spacious old olive grove directly beside the sea.',
+      content: 'Eingebettet in einem alten, weitläufigen Olivenhain, direkt am Meer, liegt unser kleines, im Kykladenstil erbautes Feriendorf Limnionas Village.',
     },
     {
       hid: 'og:title',
       name: 'og:title',
       property: 'og:title',
-      content: 'Welcome!',
+      content: 'Herzlich Willkommen!',
     },
     {
       hid: 'og:site_name',
@@ -48,7 +49,7 @@ useHead({
       hid: 'og:description',
       name: 'og:description',
       property: 'og:description',
-      content: 'Our small Cycladic style holiday village Limnionas Village is embedded in a spacious old olive grove directly beside the sea.',
+      content: 'Eingebettet in einem alten, weitläufigen Olivenhain, direkt am Meer, liegt unser kleines, im Kykladenstil erbautes Feriendorf Limnionas Village.',
     }],
 })
 definePageMeta({
@@ -76,7 +77,7 @@ const vimeo = ref()
   }
 }) */
 
-const i18n = useI18n()
+
 const curLang = i18n.locale
 const localeHouses = computed(() => {
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {

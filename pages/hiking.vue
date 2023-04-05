@@ -14,7 +14,7 @@
 import { on } from 'events';
 import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
-useHead({ title: i18n.t('hiking') })
+useHead({ title: `${i18n.t('hiking')} - Limnionas Village` })
 const config = useRuntimeConfig()
 await initHikes()
 const hikes = useHikes()

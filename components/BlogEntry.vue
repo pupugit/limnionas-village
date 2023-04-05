@@ -1,7 +1,44 @@
 <script setup lang="ts">
 import type { BlogEntry } from '~/types/blogEntry'
 import { useI18n } from 'vue-i18n'
-
+useHead({
+  title: 'Blog - Limnionas Village',
+  link: [{
+    rel: 'icon',
+    href: 'https://limnionas.netlify.app/favicon.ico',
+    type: 'image/x-icon'
+  }],
+  meta:
+    [{
+      hid: 'description',
+      name: 'description',
+      content: 'Eingebettet in einem alten, weitläufigen Olivenhain, direkt am Meer, liegt unser kleines, im Kykladenstil erbautes Feriendorf Limnionas Village.',
+    },
+    {
+      hid: 'og:title',
+      name: 'og:title',
+      property: 'og:title',
+      content: 'Herzlich Willkommen!',
+    },
+    {
+      hid: 'og:site_name',
+      name: 'og:site_name',
+      property: 'og:site_name',
+      content: 'Limnionas Village',
+    },
+    {
+      hid: 'og:image',
+      name: 'og:image',
+      property: 'og:image',
+      content: 'https://limnionas.netlify.app/limvil-picture.png',
+    },
+    {
+      hid: 'og:description',
+      name: 'og:description',
+      property: 'og:description',
+      content: 'Eingebettet in einem alten, weitläufigen Olivenhain, direkt am Meer, liegt unser kleines, im Kykladenstil erbautes Feriendorf Limnionas Village.',
+    }],
+})
 const { locale } = useI18n()
 
 const props = defineProps<{

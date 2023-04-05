@@ -10,7 +10,7 @@
 import { useI18n } from 'vue-i18n'
 const config = useRuntimeConfig()
 const i18n = useI18n()
-useHead({ title: i18n.t('tos') })
+useHead({ title: `${i18n.t('tos')} - Limnionas Village` })
 await initTexts()
 const texts = useTexts()
 await initSpecials()
