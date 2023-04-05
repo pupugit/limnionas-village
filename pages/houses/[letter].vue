@@ -127,7 +127,7 @@ useHead({
   }],
   meta: [{
     name: 'description',
-    content: house?.short.replace(/<[^>]+>/g, '') || ''
+    content: localeHouse?.value?.short.replace(/<[^>]+>/g, '') || ''
 
   }, {
     hid: 'og:site_name',
@@ -138,7 +138,7 @@ useHead({
     hid: 'og:title',
     name: 'og:title',
     property: 'og:title',
-    content: house?.name || 'Limnionas Village'
+    content: localeHouse?.value?.name || 'Limnionas Village'
   }, {
     hid: 'og:image',
     name: 'og:image',
@@ -158,7 +158,7 @@ useHead({
     hid: 'og:description',
     name: 'og:description',
     property: 'og:description',
-    content: house?.short.replace(/<[^>]+>/g, '') || ''
+    content: localeHouse?.value?.short.replace(/<[^>]+>/g, '') || ''
   }]
 })
 
