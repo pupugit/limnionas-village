@@ -1,6 +1,6 @@
 <template>
   <div>
-    <table class="houses-table small" v-if="small">
+    <table class="houses-table-small" v-if="small" key="tsmall">
       <template v-for="house in localeHouses" :key="house.id">
         <tr>
           <td colspan="2" style="text-align:center;font-weight: bold;">
@@ -22,7 +22,7 @@
         </tr>
       </template>
     </table>
-    <table class="houses-table" v-else>
+    <table class="houses-table" v-else key="tnotsmall">
       <thead>
         <th>{{ $t('house') }}</th>
         <th v-for="(s, idx) in prices.seasons" :key="s.name">
@@ -59,10 +59,11 @@ const { width, height } = useWindowSize()
 
 
 const i18n = useI18n()
-const small = computed(() => {
-  if (width.value === Infinity || width.value === 0 || width.value >= 800) return false
-  return true
+const small = ref(true)
+onMounted(() => {
+  if (width.value !== Infinity && width.value >= 800) small.value = false
 })
+
 const localeHouses = computed(() => {
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
     return houses.value.map((h) => {
@@ -82,10 +83,21 @@ const localeHouses = computed(() => {
 </script>
 
 <style lang="scss">
-table.houses-table {
-  &.small {
-    width: 100%;
+table.houses-table-small {
+  width: 100%;
+
+  th,
+  td {
+    padding: 8px;
+    border: 1px solid var(--col-main);
   }
+
+  td {
+    text-align: right;
+  }
+}
+
+table.houses-table {
 
   th,
   td {
