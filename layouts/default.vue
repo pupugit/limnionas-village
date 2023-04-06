@@ -6,8 +6,6 @@
 </template>
 
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
-const { locale } = useI18n()
 // const scrollState = useScrollState()
 // const wScroll = useWindowScroll()
 // const onScroll = (e) => {
@@ -22,23 +20,4 @@ router.afterEach(() => {
   bgStyle.value = ''
 })
 
-onMounted(() => {
-  const prefLangs = usePreferredLanguages()
-  for (const l of prefLangs.value) {
-    if (l.includes('de')) {
-      locale.value = 'de'
-      break
-    }
-    if (l.includes('fr')) {
-      locale.value = 'fr'
-      break
-    }
-    locale.value = 'en'
-  }
-  useHead({
-    htmlAttrs: {
-      lang: locale.value
-    }
-  })
-})
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="houses-table-root">
     <table class="houses-table-small" v-if="small" key="tsmall">
       <template v-for="house in localeHouses" :key="house.id">
         <tr>
@@ -49,20 +49,16 @@
 </template>
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+const props = defineProps<{
+  small?: boolean,
+}>()
 
 await initPrices()
 await initHouses()
 const config = useRuntimeConfig()
 const houses = useHouses()
 const prices = usePrices()
-const { width, height } = useWindowSize()
-
-
 const i18n = useI18n()
-const small = ref(true)
-onMounted(() => {
-  if (width.value !== Infinity && width.value >= 800) small.value = false
-})
 
 const localeHouses = computed(() => {
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
@@ -82,7 +78,11 @@ const localeHouses = computed(() => {
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+div.houses-table {
+  margin-top: 1em;
+}
+
 table.houses-table-small {
   width: 100%;
 
