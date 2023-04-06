@@ -1,6 +1,28 @@
 <template>
   <div>
-    <table class="houses-table">
+    <table class="houses-table" v-if="small" style="width:100%;">
+      <template v-for="house in localeHouses" :key="house.id">
+        <tr>
+          <td colspan="2" style="text-align:center;font-weight: bold;">
+            <nuxt-link :to="`/houses/${house.letter.toLowerCase()}`">{{ house.name }}</nuxt-link> - {{ house.people }} {{
+              $t('persons') }}
+          </td>
+        </tr>
+        <tr v-for="(s, idx) in prices.seasons" :key="s.name">
+          <td>
+            {{ $d(Date.parse(s.start), 'text_short_no_month') }}
+            -
+            {{ $d(Date.parse(s.end), 'text_short_no_month') }}
+          </td>
+          <td>
+            <template v-if="idx === 0 || idx === 4">{{ $n(house.price_off_season, 'currency') }}</template>
+            <template v-else-if="idx === 1 || idx === 3">{{ $n(house.price_pre_season, 'currency') }}</template>
+            <template v-else>{{ $n(house.price_main_season, 'currency') }}</template>
+          </td>
+        </tr>
+      </template>
+    </table>
+    <table class="houses-table" v-else>
       <thead>
         <th>{{ $t('house') }}</th>
         <th v-for="(s, idx) in prices.seasons" :key="s.name">
@@ -33,8 +55,14 @@ await initHouses()
 const config = useRuntimeConfig()
 const houses = useHouses()
 const prices = usePrices()
+const { width, height } = useWindowSize()
+
 
 const i18n = useI18n()
+const small = computed(() => {
+  if (width.value === Infinity || width.value === 0 || width.value >= 800) return false
+  return true
+})
 const localeHouses = computed(() => {
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
     return houses.value.map((h) => {
