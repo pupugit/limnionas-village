@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
-mergeHead(i18n.locale.value, i18n.t('houses'), 'Informationen zu unseren Häusern und den Preisen', '')
+mergeHead(i18n.locale.value, i18n.t('houses'), 'Informationen about our houses and prices', '')
 const { width, height } = useWindowSize()
 const small = computed(() => {
   if (width.value !== Infinity && width.value >= 800) return false

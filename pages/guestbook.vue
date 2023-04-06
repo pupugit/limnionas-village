@@ -14,7 +14,7 @@ const i18n = useI18n()
 const config = useRuntimeConfig()
 definePageMeta({
   title: 'Gästebuch',
-  description: 'Was unsere Gäste über Limnionas Village erzählen'
+  description: 'What our guests say about Limnionas Village'
 })
 await initSpecials()
 const specials = useSpecials()

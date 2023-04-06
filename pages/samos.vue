@@ -9,7 +9,7 @@
 import { useI18n } from 'vue-i18n'
 const config = useRuntimeConfig()
 const i18n = useI18n()
-mergeHead(i18n.locale.value, i18n.t('samos'), 'Grundlegende Informationen zu Samos', '')
+mergeHead(i18n.locale.value, i18n.t('samos'), 'Some basic informations about Samos', '')
 await initTexts()
 const texts = useTexts()
 await initSpecials()
