@@ -7,9 +7,9 @@ export const randInt = (min: number, max: number) => {
 export const mergeHead = (locale: string, title: string, desc: string, image: string) => {
   let mergeTitle = 'Limnionas Village'
   if (title) mergeTitle = `${title} - Limnionas Village`
-  const mergeDesc = desc || 'Eingebettet in einem alten, weitläufigen Olivenhain, direkt am Meer, liegt unser kleines, im Kykladenstil erbautes Feriendorf Limnionas Village.'
+  const mergeDesc = desc || 'Our small Cycladic style holiday village Limnionas Village is embedded in a spacious old olive grove directly beside the sea. Through its simplicity and beauty it is a place of regeneration, encounter and tranquillity.'
   const mergeImage = image || 'https://limnionas.netlify.app/limvil-picture.png'
-  const mergeLocale = locale || 'de'
+  const mergeLocale = locale || 'en'
   useHead({
     htmlAttrs: {
       lang: mergeLocale,
