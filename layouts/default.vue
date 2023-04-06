@@ -17,23 +17,23 @@ router.afterEach(() => {
 })
 
 onMounted(() => {
-  // window.setTimeout(() => {
-  const prefLangs = usePreferredLanguages()
-  for (const l of prefLangs.value) {
-    if (l.includes('de')) {
-      locale.value = 'de'
-      break
+  window.setTimeout(() => {
+    const prefLangs = usePreferredLanguages()
+    for (const l of prefLangs.value) {
+      if (l.includes('de')) {
+        locale.value = 'de'
+        break
+      }
+      if (l.includes('fr')) {
+        locale.value = 'fr'
+        break
+      }
     }
-    if (l.includes('fr')) {
-      locale.value = 'fr'
-      break
-    }
-  }
-  useHead({
-    htmlAttrs: {
-      lang: locale.value
-    }
-  })
-  // }, 100)
+    useHead({
+      htmlAttrs: {
+        lang: locale.value
+      }
+    })
+  }, 100)
 })
 </script>
