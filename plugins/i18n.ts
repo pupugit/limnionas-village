@@ -76,8 +76,8 @@ export default defineNuxtPlugin(({ vueApp, hook }) => {
     datetimeFormats,
     numberFormats,
     messages: {
-      de,
       en,
+      de,
       fr,
     }
   })
