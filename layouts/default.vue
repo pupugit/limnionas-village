@@ -6,6 +6,8 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
 // const scrollState = useScrollState()
 // const wScroll = useWindowScroll()
 // const onScroll = (e) => {
@@ -13,6 +15,21 @@
 //   if (e.target.scrollTop > 200) scrollState.value.isScrolled = true
 //   else scrollState.value.isScrolled = false
 // }
+const { locale } = useI18n()
+const prefLangs = usePreferredLanguages()
+console.log(prefLangs.value)
+for (const l of prefLangs.value) {
+  if (l.includes('de')) {
+    locale.value = 'de'
+    break
+  }
+  if (l.includes('fr')) {
+    locale.value = 'fr'
+    break
+  }
+  locale.value = 'en'
+}
+
 const router = useRouter()
 const route = useRoute()
 const bgStyle = useBackgroundImageState()
