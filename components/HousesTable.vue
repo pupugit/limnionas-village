@@ -3,7 +3,7 @@
     <table class="houses-table-small" v-if="small" key="tsmall">
       <template v-for="house in localeHouses" :key="house.id">
         <tr>
-          <td colspan="2" style="text-align:center;font-weight: bold;">
+          <td colspan="2" style="font-weight: bold;padding-top: 16px;">
             <nuxt-link :to="`/houses/${house.letter.toLowerCase()}`">{{ house.name }} - {{ house.people }} {{
               $t('persons') }}</nuxt-link>
           </td>
@@ -79,25 +79,19 @@ const localeHouses = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-div.houses-table {
-  margin-top: 1em;
-}
-
 table.houses-table-small {
-  width: 100%;
-
-  th,
   td {
-    padding: 8px;
-    border: 1px solid var(--col-main);
+    text-align: left;
+    padding: 4px 16px 4px 0;
   }
 
-  td {
+  td:nth-child(2) {
     text-align: right;
   }
 }
 
 table.houses-table {
+  margin-top: 1em;
 
   th,
   td {
