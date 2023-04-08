@@ -66,18 +66,18 @@ const datetimeFormats = {
     }
   },
 }
-export default defineNuxtPlugin(({ vueApp }) => {
+export default defineNuxtPlugin(({ vueApp, hook }) => {
   /* @ts-ignore */
   const i18n = createI18n({
     legacy: false,
     globalInjection: true,
-    locale: 'de',
-    fallbackLocale: 'de',
+    locale: 'en',
+    fallbackLocale: 'en',
     datetimeFormats,
     numberFormats,
     messages: {
-      de,
       en,
+      de,
       fr,
     }
   })

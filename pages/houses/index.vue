@@ -4,14 +4,19 @@
     <div v-html="localPricesText"></div>
     <h1 style="margin-top:1.5em;">{{ $t('prices') }}</h1>
     <div v-html="localPricesText2"></div>
-    <HousesTable style="margin-top:1em;" />
+    <HousesTable :small="small" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
-mergeHead(i18n.locale.value, i18n.t('houses'), 'Informations about our houses and prices', '')
+mergeHead(i18n.locale.value, i18n.t('houses'), 'General information about our houses and prices', '')
+const { width, height } = useWindowSize()
+const small = computed(() => {
+  if (width.value !== Infinity && width.value >= 800) return false
+  return true
+})
 await initTexts()
 const texts = useTexts()
 

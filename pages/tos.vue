@@ -10,7 +10,7 @@
 import { useI18n } from 'vue-i18n'
 const config = useRuntimeConfig()
 const i18n = useI18n()
-mergeHead(i18n.locale.value, i18n.t('tos'), 'Terms of Service and Legal Notice', '')
+mergeHead(i18n.locale.value, i18n.t('tos'), 'Our terms of service', '')
 await initTexts()
 const texts = useTexts()
 await initSpecials()

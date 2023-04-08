@@ -14,7 +14,7 @@
 import { on } from 'events';
 import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
-mergeHead(i18n.locale.value, i18n.t('hiking'), 'Hikes you can do around Limnionas Village', '')
+mergeHead(i18n.locale.value, i18n.t('hiking'), 'Hiking paths around Limnionas Village', '')
 const config = useRuntimeConfig()
 await initHikes()
 const hikes = useHikes()

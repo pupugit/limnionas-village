@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="houses-table-root">
     <table class="houses-table-small" v-if="small" key="tsmall">
       <template v-for="house in localeHouses" :key="house.id">
         <tr>
-          <td colspan="2" style="text-align:center;font-weight: bold;">
+          <td colspan="2" style="font-weight: bold;padding-top: 16px;">
             <nuxt-link :to="`/houses/${house.letter.toLowerCase()}`">{{ house.name }} - {{ house.people }} {{
               $t('persons') }}</nuxt-link>
           </td>
@@ -49,20 +49,16 @@
 </template>
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+const props = defineProps<{
+  small?: boolean,
+}>()
 
 await initPrices()
 await initHouses()
 const config = useRuntimeConfig()
 const houses = useHouses()
 const prices = usePrices()
-const { width, height } = useWindowSize()
-
-
 const i18n = useI18n()
-const small = ref(true)
-onMounted(() => {
-  if (width.value !== Infinity && width.value >= 800) small.value = false
-})
 
 const localeHouses = computed(() => {
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
@@ -82,22 +78,20 @@ const localeHouses = computed(() => {
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 table.houses-table-small {
-  width: 100%;
-
-  th,
   td {
-    padding: 8px;
-    border: 1px solid var(--col-main);
+    text-align: left;
+    padding: 4px 16px 4px 0;
   }
 
-  td {
+  td:nth-child(2) {
     text-align: right;
   }
 }
 
 table.houses-table {
+  margin-top: 1em;
 
   th,
   td {
