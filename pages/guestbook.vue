@@ -12,10 +12,8 @@ import { useI18n } from 'vue-i18n'
 
 const i18n = useI18n()
 const config = useRuntimeConfig()
-definePageMeta({
-  title: 'Gästebuch',
-  description: 'Was unsere Gäste über Limnionas Village erzählen'
-})
+mergeHead(i18n.locale.value, i18n.t('guestbook'), 'What our guests have to say about Limnionas Village', '')
+
 await initSpecials()
 const specials = useSpecials()
 const { width, height } = useWindowSize()

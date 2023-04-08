@@ -14,7 +14,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
-mergeHead('Herzlich Willkommen!', '', '', '')
+mergeHead(i18n.locale.value, '', '', '')
 definePageMeta({
   pageTransition: false
 })

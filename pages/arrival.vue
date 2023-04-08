@@ -26,7 +26,7 @@ import southernRoute from '@/assets/southernRoute.json'
 import northernRoute from '@/assets/northernRoute.json'
 import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
-mergeHead(i18n.locale.value, i18n.t('arrival'), 'So gelangen Sie nach Limnionas Village', '')
+mergeHead(i18n.locale.value, i18n.t('arrival'), 'How to reach Limnionas Village', '')
 const config = useRuntimeConfig()
 await initArrival()
 const arrival = useArrival()

@@ -9,7 +9,7 @@
 import { useI18n } from 'vue-i18n'
 const config = useRuntimeConfig()
 const i18n = useI18n()
-mergeHead(i18n.locale.value, i18n.t('samos'), 'Grundlegende Informationen zu Samos', '')
+mergeHead(i18n.locale.value, i18n.t('samos'), 'Samos lies in the eastern Aegean Sea. The island is a 45 minutes long flight or 12 hours long ferry trip away from Athens.', '')
 await initTexts()
 const texts = useTexts()
 await initSpecials()

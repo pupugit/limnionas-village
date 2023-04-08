@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
-mergeHead(i18n.locale.value, i18n.t('houses'), 'Informationen zu unseren Häusern und den Preisen', '')
+mergeHead(i18n.locale.value, i18n.t('houses'), 'Informations about our houses and prices', '')
 await initTexts()
 const texts = useTexts()
 

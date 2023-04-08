@@ -10,7 +10,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
-mergeHead(i18n.locale.value, i18n.t('blog'), 'Stillen Sie hier Ihre Sehnsucht mit immer wieder neuen Eindrücken aus Limnionas Village.', '')
+mergeHead(i18n.locale.value, i18n.t('blog'), 'Welcome to our Blog', '')
 const blog = useBlog()
 onMounted(() => {
   initBlog()
