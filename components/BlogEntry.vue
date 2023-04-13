@@ -43,7 +43,7 @@ if (!props.small) {
       :src="`${config.public.directusBase}/assets/${props.entry.picture}?width=400&height=400&fit=cover&format=${config.public.imageFormat}`"
       loading="lazy" />
     <div>
-      <p v-html="content"></p>
+      <p v-html="content" class="blog-content"></p>
       <div style="font-size:.85em;">{{ formatedDate }}</div>
     </div>
   </div>
@@ -65,6 +65,7 @@ if (!props.small) {
 
   &>img {
     grid-area: main;
+    width: 100%;
   }
 
   &>div {
@@ -83,6 +84,22 @@ if (!props.small) {
   &:hover>div {
     opacity: 1;
   }
+}
+
+@media screen and (max-width:600px) {
+  .blog-small>div {
+    padding: 8px;
+    background: white;
+    align-self: stretch;
+    border-width: 1px;
+    align-content: center;
+    display: grid;
+  }
+
+  .blog-content :deep(p) {
+    text-align: center;
+  }
+
 }
 
 .thought {
