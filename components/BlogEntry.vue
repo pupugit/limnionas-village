@@ -69,14 +69,14 @@ if (!props.small) {
 
   &>div {
     grid-area: main;
-    background-color: white;
+    background: linear-gradient(to bottom, #ffffff00, #fff 20%, #fff);
     align-self: end;
     border-color: var(--col-main);
     border-style: solid;
     border-width: 0 1px 1px 1px;
     opacity: 0;
-    transition: opacity linear .5s;
-    padding: 16px;
+    transition: opacity linear .25s;
+    padding: 48px 16px 16px 16px;
     text-align: center;
   }
 
