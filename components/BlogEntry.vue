@@ -42,6 +42,10 @@ if (!props.small) {
     <img
       :src="`${config.public.directusBase}/assets/${props.entry.picture}?width=400&height=400&fit=cover&format=${config.public.imageFormat}`"
       loading="lazy" />
+    <div>
+      <p v-html="content"></p>
+      <div style="font-size:.85em;">{{ formatedDate }}</div>
+    </div>
   </div>
   <div class="thought" v-else>
     <div style="width: 100%;" ref="imgcnt">
@@ -56,9 +60,28 @@ if (!props.small) {
 .blog-small {
   width: min(calc(100vw - 40px), 400px);
   height: min(calc(100vw - 40px), 400px);
+  display: grid;
+  grid-template-areas: main;
 
-  img {
-    width: 100%;
+  &>img {
+    grid-area: main;
+  }
+
+  &>div {
+    grid-area: main;
+    background-color: white;
+    align-self: end;
+    border-color: var(--col-main);
+    border-style: solid;
+    border-width: 0 1px 1px 1px;
+    opacity: 0;
+    transition: opacity linear .5s;
+    padding: 16px;
+    text-align: center;
+  }
+
+  &:hover>div {
+    opacity: 1;
   }
 }
 
