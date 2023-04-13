@@ -76,7 +76,7 @@ if (!props.small) {
     border-style: solid;
     border-width: 0 1px 1px 1px;
     opacity: 0;
-    transition: opacity linear .25s;
+    transition: .5s;
     padding: 48px 16px 16px 16px;
     text-align: center;
   }
