@@ -4,6 +4,9 @@
 // import VueI18nVitePlugin from '@intlify/unplugin-vue-i18n/vite'
 
 export default defineNuxtConfig({
+  experimental: {
+    payloadExtraction: false,
+  },
   modules: [
     'nuxt-directus',
     '@vueuse/nuxt',
