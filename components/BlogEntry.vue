@@ -16,7 +16,7 @@ const config = useRuntimeConfig()
   <div class="blog-small" v-if="small">
     <NuxtLink :to="`/blog/${props.entry.id}`" class="image-block"><img
         :src="`${config.public.directusBase}/assets/${props.entry.picture}?width=400&height=400&fit=cover&format=${config.public.imageFormat}`"
-        loading="lazy" /></NuxtLink>
+        style="display:block;" loading="lazy" /></NuxtLink>
     <NuxtLink :to="`/blog/${props.entry.id}`" class="font-block">
       <p v-html="entry.content" class="blog-content"></p>
       <div style="font-size:.85em;">{{ formatedDate }}</div>
@@ -43,6 +43,10 @@ const config = useRuntimeConfig()
   &>.image-block {
     grid-area: main;
     width: 100%;
+
+    img {
+      width: 100%;
+    }
   }
 
   &>.font-block {
