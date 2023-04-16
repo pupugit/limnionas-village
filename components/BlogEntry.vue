@@ -18,7 +18,9 @@ const config = useRuntimeConfig()
         :src="`${config.public.directusBase}/assets/${props.entry.picture}?width=400&height=400&fit=cover&format=${config.public.imageFormat}`"
         style="display:block;" loading="lazy" /></NuxtLink>
     <NuxtLink :to="`/blog/${props.entry.id}`" class="font-block">
-      <p v-html="entry.content" class="blog-content"></p>
+      <ClientOnly>
+        <p v-html="props.entry.content" class="blog-content"></p>
+      </ClientOnly>
       <div style="font-size:.85em;">{{ formatedDate }}</div>
     </NuxtLink>
   </div>
@@ -26,7 +28,9 @@ const config = useRuntimeConfig()
     <div style="width: 100%;">
       <img style="width: 100%;" loading="lazy"
         :src="`${config.public.directusBase}/assets/${props.entry.picture}?format=${config.public.imageFormat}`" />
-      <p v-html="entry.content" style="margin-bottom:0;margin-top:.5em;"></p>
+      <ClientOnly>
+        <p v-html="props.entry.content" style="margin-bottom:0;margin-top:.5em;"></p>
+      </ClientOnly>
       <div style="margin-bottom:16px;font-size:.85em;">{{ formatedDate }}</div>
     </div>
   </div>
