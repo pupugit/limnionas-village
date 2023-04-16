@@ -6,35 +6,10 @@ const props = defineProps<{
   entry: BlogEntry,
   small?: boolean,
 }>()
-const content = computed(() => props.entry.content)
 const format = computed(() => { return new Intl.DateTimeFormat(locale.value, { day: 'numeric', month: 'long', year: 'numeric' }) })
 const finalDate = new Date(props.entry.date_publish)
 const formatedDate = computed(() => format.value.format(finalDate))
 const config = useRuntimeConfig()
-const imgcnt = ref<HTMLElement | null>(null)
-const img = ref<HTMLImageElement | null>(null)
-if (!props.small) {
-  onMounted(() => {
-    if (window) {
-      if (imgcnt?.value?.clientWidth && img.value) {
-        console.log('clientWidth instantly set to ', imgcnt?.value?.clientWidth)
-        img.value.src = `${config.public.directusBase}/assets/${props.entry.picture}?width=${imgcnt.value.clientWidth}&format=${config.public.imageFormat}`
-        img.value.style.aspectRatio = '';
-      } else {
-        window.setTimeout(() => {
-          if (imgcnt?.value?.clientWidth && img.value) {
-            console.log('clientWidth set after timeout to ', imgcnt?.value?.clientWidth)
-            img.value.src = `${config.public.directusBase}/assets/${props.entry.picture}?width=${imgcnt.value.clientWidth}&format=${config.public.imageFormat}`
-            img.value.style.aspectRatio = '';
-          } else {
-            console.log('clientWidth not set', imgcnt.value)
-          }
-        }, 1400)
-      }
-    }
-  })
-}
-
 </script>
 
 <template>
@@ -43,14 +18,15 @@ if (!props.small) {
         :src="`${config.public.directusBase}/assets/${props.entry.picture}?width=400&height=400&fit=cover&format=${config.public.imageFormat}`"
         loading="lazy" /></NuxtLink>
     <NuxtLink :to="`/blog/${props.entry.id}`" class="font-block">
-      <p v-html="content" class="blog-content"></p>
+      <p v-html="entry.content" class="blog-content"></p>
       <div style="font-size:.85em;">{{ formatedDate }}</div>
     </NuxtLink>
   </div>
   <div class="thought" v-else>
-    <div style="width: 100%;" ref="imgcnt">
-      <img ref="img" style="width: 100%;aspect-ratio: 4/3;" loading="lazy" />
-      <p v-html="content" style="margin-bottom:0;margin-top:.5em;"></p>
+    <div style="width: 100%;">
+      <img style="width: 100%;" loading="lazy"
+        :src="`${config.public.directusBase}/assets/${props.entry.picture}?format=${config.public.imageFormat}`" />
+      <p v-html="entry.content" style="margin-bottom:0;margin-top:.5em;"></p>
       <div style="margin-bottom:16px;font-size:.85em;">{{ formatedDate }}</div>
     </div>
   </div>
