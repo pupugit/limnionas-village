@@ -10,6 +10,7 @@ import { useI18n } from 'vue-i18n'
 import type { BlogEntry } from '~/types/blogEntry'
 const route = useRoute()
 const id: string = route.params.id.toString()
+const config = useRuntimeConfig()
 const i18n = useI18n()
 const blog = useBlog()
 await initBlog()
@@ -19,7 +20,7 @@ if (selectedBlog) {
   const finalDate = new Date(selectedBlog.date_publish)
   const formatedDate = computed(() => format.value.format(finalDate))
 
-  mergeHead(i18n.locale.value, `${formatedDate.value} - ${i18n.t('blog')}`, selectedBlog.content.replace(/<[^>]+>/g, ''), '')
+  mergeHead(i18n.locale.value, `${formatedDate.value} - ${i18n.t('blog')}`, selectedBlog.content.replace(/<[^>]+>/g, ''), `${config.public.directusBase}/assets/${selectedBlog.picture}?width=400&height=400&fit=cover&format=${config.public.imageFormat}`)
 }
 </script>
 
