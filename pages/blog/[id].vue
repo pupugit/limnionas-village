@@ -19,7 +19,7 @@ if (selectedBlog) {
   const finalDate = new Date(selectedBlog.date_publish)
   const formatedDate = computed(() => format.value.format(finalDate))
 
-  mergeHead(i18n.locale.value, `${formatedDate.value} - ${i18n.t('blog')}`, selectedBlog?.content, '')
+  mergeHead(i18n.locale.value, `${formatedDate.value} - ${i18n.t('blog')}`, selectedBlog.content.replace(/<[^>]+>/g, ''), '')
 }
 </script>
 
