@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "date-fns": "^2.29.3",
-    "mapbox-gl": "^2.14.0",
+    "mapbox-gl": "^2.14.1",
     "nuxt-swiper": "^1.1.0"
   }
 }

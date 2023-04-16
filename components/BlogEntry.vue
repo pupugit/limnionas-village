@@ -62,6 +62,7 @@ if (!props.small) {
   height: min(calc(100vw - 40px), 400px);
   display: grid;
   grid-template-areas: main;
+  cursor: pointer;
 
   &>img {
     grid-area: main;
