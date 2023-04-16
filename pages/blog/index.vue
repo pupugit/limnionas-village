@@ -1,9 +1,8 @@
 <template>
   <div class="blog-page">
     <div></div>
-    <BlogEntry :entry="selectedBlog" v-if="selectedBlog" />
-    <div class="entries" v-else>
-      <BlogEntry v-for="e in blog" :entry="e" :key="e.id" small @click="selectedBlog = e" />
+    <div class="entries">
+      <BlogEntry v-for="e in blog" :entry="e" :key="e.id" small />
     </div>
   </div>
 </template>
@@ -14,7 +13,6 @@ import type { BlogEntry } from '~/types/blogEntry'
 const i18n = useI18n()
 mergeHead(i18n.locale.value, i18n.t('blog'), 'Satisfy your longing here with new impressions from Limnionas Village.', '')
 const blog = useBlog()
-const selectedBlog = ref<BlogEntry | null>(null)
 onMounted(() => {
   initBlog()
 })

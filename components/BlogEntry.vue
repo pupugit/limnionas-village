@@ -39,13 +39,13 @@ if (!props.small) {
 
 <template>
   <div class="blog-small" v-if="small">
-    <img
-      :src="`${config.public.directusBase}/assets/${props.entry.picture}?width=400&height=400&fit=cover&format=${config.public.imageFormat}`"
-      loading="lazy" />
-    <div>
+    <NuxtLink :to="`/blog/${props.entry.id}`" class="image-block"><img
+        :src="`${config.public.directusBase}/assets/${props.entry.picture}?width=400&height=400&fit=cover&format=${config.public.imageFormat}`"
+        loading="lazy" /></NuxtLink>
+    <NuxtLink :to="`/blog/${props.entry.id}`" class="font-block">
       <p v-html="content" class="blog-content"></p>
       <div style="font-size:.85em;">{{ formatedDate }}</div>
-    </div>
+    </NuxtLink>
   </div>
   <div class="thought" v-else>
     <div style="width: 100%;" ref="imgcnt">
@@ -64,12 +64,13 @@ if (!props.small) {
   grid-template-areas: main;
   cursor: pointer;
 
-  &>img {
+  &>.image-block {
     grid-area: main;
     width: 100%;
   }
 
-  &>div {
+  &>.font-block {
+    display: block;
     grid-area: main;
     background: linear-gradient(to bottom, #ffffff00, #fff 20%, #fff);
     align-self: end;
@@ -82,13 +83,13 @@ if (!props.small) {
     text-align: center;
   }
 
-  &:hover>div {
+  &:hover>.font-block {
     opacity: 1;
   }
 }
 
 @media screen and (max-width:600px) {
-  .blog-small>div {
+  .blog-small>.font-block {
     padding: 8px;
     background: white;
     align-self: stretch;
