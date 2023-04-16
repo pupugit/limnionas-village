@@ -59,6 +59,7 @@ const config = useRuntimeConfig()
     background: linear-gradient(to bottom, #ffffff00, #fff 20%, #fff);
     align-self: end;
     border-color: var(--col-main);
+    color: var(--col-main);
     border-style: solid;
     border-width: 0 1px 1px 1px;
     opacity: 0;
