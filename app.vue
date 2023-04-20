@@ -214,8 +214,8 @@ table {
 
 .swiper-slide img {
   display: block;
-  object-fit: contain;
-  height: calc(100vh - 164px);
+  object-fit: cover;
+  height: min(100vw, calc(100vh - 164px));
   max-width: 100vw;
 }
 </style>
