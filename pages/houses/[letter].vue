@@ -35,8 +35,8 @@
               :src="`${config.public.directusBase}/assets/${house.ground_plan}`">
           </div>
           <div>
-            <h3 style="margin-top:0">{{ $t('furnishing') }}</h3>
-            <p style="white-space: pre;">{{ localeHouse.furnishing }}</p>
+            <h3 style="margin-top:0;text-align:left;">{{ $t('furnishing') }}</h3>
+            <p style="white-space: pre;text-align: left;">{{ localeHouse.furnishing }}</p>
           </div>
         </div>
       </div>
