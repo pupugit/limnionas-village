@@ -17,6 +17,7 @@ const config = useRuntimeConfig()
     <NuxtLink :to="`/blog/${props.entry.id}`" class="image-block"><img
         :src="`${config.public.directusBase}/assets/${props.entry.picture}?width=400&height=400&fit=cover&format=${config.public.imageFormat}`"
         style="display:block;" loading="lazy" /></NuxtLink>
+    <LimvilWave />
     <NuxtLink :to="`/blog/${props.entry.id}`" class="font-block">
       <ClientOnly>
         <p v-html="props.entry.content" class="blog-content"></p>
@@ -41,34 +42,45 @@ const config = useRuntimeConfig()
   width: min(calc(100vw - 40px), 400px);
   height: min(calc(100vw - 40px), 400px);
   display: grid;
-  grid-template-areas: main;
+  grid-template-rows: 1fr 24px auto;
   cursor: pointer;
+  align-content: end;
 
   &>.image-block {
-    grid-area: main;
     width: 100%;
+    grid-row: 1/3;
 
     img {
       width: 100%;
     }
   }
 
+  &>svg {
+    border-color: var(--col-main);
+    border-width: 0 1px;
+    border-style: solid;
+    opacity: 0;
+    transition: .5s;
+  }
+
   &>.font-block {
     display: block;
-    grid-area: main;
-    background: linear-gradient(to bottom, #ffffff00, #fff 20%, #fff);
-    align-self: end;
+    background-color: rgba(255, 255, 255, var(--trans));
     border-color: var(--col-main);
     color: var(--col-main);
     border-style: solid;
     border-width: 0 1px 1px 1px;
     opacity: 0;
     transition: .5s;
-    padding: 48px 16px 16px 16px;
+    padding: 0 16px 16px 16px;
     text-align: center;
   }
 
   &:hover>.font-block {
+    opacity: 1;
+  }
+
+  &:hover>svg {
     opacity: 1;
   }
 }
