@@ -10,7 +10,7 @@
 import { useI18n } from 'vue-i18n'
 const config = useRuntimeConfig()
 const i18n = useI18n()
-mergeHead(i18n.locale.value, i18n.t('contact'), 'Feel free to contact us via contact form, however we are best reached by phone.', '')
+mergeHead(i18n.locale.value, i18n.t('contact'), 'Feel free to contact us via email, however we are best reached by phone.', '')
 await initTexts()
 const texts = useTexts()
 await initSpecials()
