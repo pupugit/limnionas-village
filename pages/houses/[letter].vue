@@ -121,7 +121,7 @@ mergeHead(
   i18n.locale.value,
   localeHouse?.value?.name || house?.name || '',
   localeHouse?.value?.short.replace(/<[^>]+>/g, '') || '',
-  `${config.public.directusBase}/assets/${house?.big_picture}?fit=cover&width=400&height=400&format=${config.public.imageFormat}`
+  `${config.public.directusBase}/assets/${house?.big_picture}?fit=contain&width=400&height=400&format=${config.public.imageFormat}`
 )
 
 const bgStyle = useBackgroundImageState()
