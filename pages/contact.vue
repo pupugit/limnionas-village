@@ -3,35 +3,6 @@
     <div class="contact-content">
       <h1>{{ $t('contact') }}</h1>
       <div v-html="localContactText"></div>
-      <div class="contact-form">
-        <!-- <v-text-field :label="$t('contact-name')" />
-        <v-text-field :label="$t('contact-email')" />
-        <v-text-field :label="$t('contact-phone')" />
-        <v-text-field :label="$t('contact-message')" /> -->
-        <div class="contact-firstline">
-          <label for="contact-name" class="required">{{ $t('contact-name') }}</label><br />
-          <input id="contact-name" required />
-        </div>
-        <div class="contact-firstline">
-          <label for="contact-email" class="required">{{ $t('contact-email') }}</label><br />
-          <input id="contact-email" required />
-        </div>
-        <div class="contact-firstline">
-          <label for="contact-phone">{{ $t('contact-phone') }}</label><br />
-          <input id="contact-phone" />
-        </div>
-        <div class="contact-secondline">
-          <label for="contact-message" class="required">{{ $t('contact-message') }}</label><br />
-          <textarea id="contact-message" required rows="5" />
-        </div>
-        <div class="contact-firstline">
-          <label for="contact-newsletter">{{ $t('contact-newsletter') }}</label>
-          <input style="width:auto;" type="checkbox" id="contact-newsletter" />
-        </div>
-        <div class="contact-firstline" style="text-align:center">
-          <button>{{ $t('send_message') }}</button>
-        </div>
-      </div>
     </div>
   </div>
 </template>
