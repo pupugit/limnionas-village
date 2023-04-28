@@ -39,12 +39,17 @@ const config = useRuntimeConfig()
 
 <style scoped lang="scss">
 .blog-small {
+  --trans: 0.9;
   width: min(calc(100vw - 40px), 400px);
   height: min(calc(100vw - 40px), 400px);
   display: grid;
   grid-template-rows: 1fr 24px auto;
   cursor: pointer;
   align-content: end;
+  box-sizing: border-box;
+  transition: .5s;
+  border: white 1px solid;
+
 
   &>.image-block {
     width: 100%;
@@ -56,9 +61,7 @@ const config = useRuntimeConfig()
   }
 
   &>svg {
-    border-color: var(--col-main);
-    border-width: 0 1px;
-    border-style: solid;
+    --trans: 0.9;
     opacity: 0;
     transition: .5s;
   }
@@ -66,14 +69,15 @@ const config = useRuntimeConfig()
   &>.font-block {
     display: block;
     background-color: rgba(255, 255, 255, var(--trans));
-    border-color: var(--col-main);
     color: var(--col-main);
-    border-style: solid;
-    border-width: 0 1px 1px 1px;
     opacity: 0;
     transition: .5s;
     padding: 0 16px 16px 16px;
     text-align: center;
+  }
+
+  &:hover {
+    border: var(--col-main) 1px solid;
   }
 
   &:hover>.font-block {
@@ -88,9 +92,7 @@ const config = useRuntimeConfig()
 @media screen and (max-width:600px) {
   .blog-small>.font-block {
     padding: 8px;
-    background: white;
     align-self: stretch;
-    border-width: 1px;
     align-content: center;
     display: grid;
   }
@@ -116,59 +118,5 @@ const config = useRuntimeConfig()
   justify-content: center;
   text-align: center;
   z-index: 0;
-
-  // &:before,
-  // &:after {
-  //   content: "";
-  //   background-color: var(--col-main);
-  //   border-radius: 50%;
-  //   display: block;
-  //   position: absolute;
-  //   z-index: -1;
-  // }
-}
-
-.thought:nth-child(4n+1) {
-  &:before {
-    width: 44px;
-    height: 44px;
-    top: -12px;
-    left: 28px;
-    box-shadow: -50px 30px 0 -12px var(--col-main);
-  }
-
-  &:after {
-    bottom: -10px;
-    right: 26px;
-    width: 30px;
-    height: 30px;
-    box-shadow: 40px -34px 0 0 var(--col-main),
-      -28px -6px 0 -2px var(--col-main),
-      -24px 17px 0 -6px var(--col-main),
-      -5px 25px 0 -10px var(--col-main);
-
-  }
-}
-
-.thought:nth-child(4n+3) {
-  &:before {
-    width: 44px;
-    height: 44px;
-    top: -12px;
-    right: 28px;
-    box-shadow: -50px 30px 0 -12px var(--col-main);
-  }
-
-  &:after {
-    bottom: -10px;
-    left: 26px;
-    width: 30px;
-    height: 30px;
-    box-shadow: 40px -34px 0 0 var(--col-main),
-      -28px -6px 0 -2px var(--col-main),
-      -24px 17px 0 -6px var(--col-main),
-      -5px 25px 0 -10px var(--col-main);
-
-  }
 }
 </style>
