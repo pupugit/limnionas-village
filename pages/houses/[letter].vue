@@ -41,8 +41,13 @@
         </div>
       </div>
     </div>
-    <swiper @swiper="setThumbsSwiper" :loop="true" :spaceBetween="10" slidesPerView="auto" :freeMode="true"
-      :modules="modules" class="mySwiper">
+    <swiper @swiper="setThumbsSwiper" :loop="true" :spaceBetween="10" slidesPerView="auto" :speed="10000" :freeMode="{
+        enabled: true,
+        sticky: false
+      }" :autoplay="{
+      delay: 100,
+      disableOnInteraction: true
+    }" :modules="modules" class="mySwiper">
       <swiper-slide v-for="p in house.fotos" :key="p.directus_files_id">
         <img
           :src="`${config.public.directusBase}/assets/${p.directus_files_id}?fit=inside&width=1024&height=1024&format=${config.public.imageFormat}`"
@@ -63,7 +68,7 @@
 <script setup lang="ts">
 import type { Swiper } from 'swiper'
 import { useI18n } from 'vue-i18n'
-import { FreeMode, Navigation, Thumbs } from 'swiper'
+import { FreeMode, Autoplay } from 'swiper'
 const route = useRoute()
 const letter: string = route.params.letter.toString().toLowerCase()
 await initHouses()
@@ -78,7 +83,7 @@ let thumbsSwiper = null;
 const setThumbsSwiper = (swiper: Swiper) => {
   thumbsSwiper = swiper
 }
-const modules = [FreeMode]
+const modules = [FreeMode, Autoplay]
 const house = houses.value.find(h => h.letter.toLowerCase() === letter) || null
 const localeHouse = computed(() => {
   if (!house) return null
