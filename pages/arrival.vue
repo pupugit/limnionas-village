@@ -2,6 +2,12 @@
   <div class="arrival-page">
     <div class="arrival-content">
       <div v-html="arrival.intro"></div>
+      <div v-if="loadingWeather">{{ $t('loading_weather') }}</div>
+      <div v-else-if="weatherData" class="weather-data">
+        <div>{{ $t('weather_at_limnionas') }}</div>
+        <img :src="weatherData.info.condition.icon">
+        <strong>{{ Math.round(weatherData.info.temp_c) }}°C</strong>
+      </div>
       <div><span @click="switchRoute(true)"
           :style="`cursor:pointer;${showNorth ? 'background-color:var(--col-main);color:white;' : 'text-decoration:underline;'}`">{{
             $t('northern-route') }}</span>
@@ -19,18 +25,24 @@
 
 <script setup lang="ts">
 import type { LngLatBoundsLike, CameraOptions } from 'mapbox-gl'
+import type { Weather } from '~/types/weather'
+
 
 import 'mapbox-gl/dist/mapbox-gl.css'
 import mapboxgl from 'mapbox-gl'
 import southernRoute from '@/assets/southernRoute.json'
 import northernRoute from '@/assets/northernRoute.json'
 import { useI18n } from 'vue-i18n'
+const { getSingletonItem } = useDirectusItems()
+
 const i18n = useI18n()
 mergeHead(i18n.locale.value, i18n.t('arrival'), 'How to reach Limnionas Village', '')
 const config = useRuntimeConfig()
 await initArrival()
 const arrival = useArrival()
 const showNorth = ref(false)
+const loadingWeather = ref(true)
+const weatherData = ref<Weather | null>(null)
 let map: mapboxgl.Map | null = null
 const southernGeojson = {
   type: 'Feature',
@@ -133,7 +145,10 @@ const switchRoute = (goNorth = true) => {
 
 onMounted(() => {
   if (config.public.mapboxToken && window) {
-    window.setTimeout(() => {
+    window.setTimeout(async () => {
+      weatherData.value = await getSingletonItem<Weather>({ collection: 'weather' })
+      console.log(weatherData.value)
+      loadingWeather.value = false
       mapboxgl.accessToken = config.public.mapboxToken
       map = new mapboxgl.Map({
         container: 'mapbox',
@@ -179,5 +194,13 @@ onMounted(() => {
     margin: 128px 0 32px 0;
     padding: 1.5rem;
   }
+}
+
+.weather-data {
+  display: grid;
+  gap: 16px;
+  grid-auto-flow: column;
+  justify-content: start;
+  align-items: center;
 }
 </style>

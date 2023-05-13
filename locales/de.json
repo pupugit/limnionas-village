@@ -33,5 +33,7 @@
   "send_message": "Nachricht senden",
   "southern-route": "Südstrecke",
   "to": "bis",
-  "tos": "Impressum"
+  "tos": "Impressum",
+  "loading_weather": "Lade Wetterdaten...",
+  "weather_at_limnionas": "Das Wetter in Limnionas Village derzeit:"
 }

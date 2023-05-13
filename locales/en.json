@@ -33,5 +33,7 @@
   "contact-newsletter": "Subscribe to Newsletter",
   "send_message": "Send Message",
   "northern-route": "Northern route",
-  "southern-route": "Southern route"
+  "southern-route": "Southern route",
+  "loading_weather": "loading weatherdata...",
+  "weather_at_limnionas": "The weather at Limnionas Village currently:"
 }
