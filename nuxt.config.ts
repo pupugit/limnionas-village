@@ -31,6 +31,11 @@ export default defineNuxtConfig({
       name: 'page', mode: 'out-in'
     },
   },
+  vite: {
+    build: {
+      target: "esnext",
+    },
+  },
   // hooks: {
   //   'vite:extendConfig'(config, { isServer }) {
   //     if (isServer) {
