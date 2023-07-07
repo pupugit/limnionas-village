@@ -49,9 +49,11 @@
 </template>
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-const props = defineProps<{
-  small?: boolean,
-}>()
+const { width, height } = useWindowSize()
+const small = computed(() => {
+  if (width.value !== Infinity && width.value >= 800) return false
+  return true
+})
 
 await initPrices()
 await initHouses()

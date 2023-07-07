@@ -11,4 +11,5 @@ export type Prices = {
   id: number
   seasons: Season[]
   visitors_tax: TaxEntry[]
+  foto: string
 }
