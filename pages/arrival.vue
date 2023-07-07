@@ -34,7 +34,7 @@ import southernRoute from '@/assets/southernRoute.json'
 import northernRoute from '@/assets/northernRoute.json'
 import { useI18n } from 'vue-i18n'
 const { getSingletonItem } = useDirectusItems()
-
+// TODO: make multilingual
 const i18n = useI18n()
 mergeHead(i18n.locale.value, i18n.t('arrival'), 'How to reach Limnionas Village', '')
 const config = useRuntimeConfig()

@@ -26,7 +26,7 @@
           {{ $t('samos') }}
         </nuxt-link>
       </div>
-      <div>
+      <div v-if="locale === 'de'">
         <nuxt-link to="/hiking">
           {{ $t('hiking') }}
         </nuxt-link>
