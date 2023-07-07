@@ -5,13 +5,14 @@
     <h1 style="margin-top:1.5em;">{{ $t('prices') }}</h1>
     <div v-html="localPricesText2"></div>
     <HousesTable />
-    <img src="" />
+    <img :src="`${config.public.directusBase}/assets/${prices.foto}`" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
+const config = useRuntimeConfig()
 mergeHead(i18n.locale.value, i18n.t('houses'), 'General information about our houses and prices', '')
 await initTexts()
 const texts = useTexts()
