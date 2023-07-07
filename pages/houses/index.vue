@@ -5,9 +5,9 @@
     <h1 style="margin-top:1.5em;">{{ $t('prices') }}</h1>
     <div v-html="localPricesText2"></div>
     <HousesTable />
-    <img v-if="width" style="margin-top:24px;margin-bottom:-38px;margin-left:-10vw"
-      :src="`${config.public.directusBase}/assets/${prices.foto}?fit=cover&width=${width}&height=150&withoutEnlargement`" />
   </div>
+  <img v-if="width"
+    :src="`${config.public.directusBase}/assets/${prices.foto}?fit=cover&width=${width}&height=150&withoutEnlargement`" />
 </template>
 
 <script setup lang="ts">
