@@ -5,7 +5,8 @@
     <h1 style="margin-top:1.5em;">{{ $t('prices') }}</h1>
     <div v-html="localPricesText2"></div>
     <HousesTable />
-    <img :src="`${config.public.directusBase}/assets/${prices.foto}`" />
+    <img v-if="width" style="margin-top:32px;margin-bottom:-38px;margin-left:-10vw"
+      :src="`${config.public.directusBase}/assets/${prices.foto}?fit=cover&width=${width}&height=120&withoutEnlargement`" />
   </div>
 </template>
 
@@ -17,6 +18,10 @@ mergeHead(i18n.locale.value, i18n.t('houses'), 'General information about our ho
 await initTexts()
 const texts = useTexts()
 const prices = usePrices()
+const width = ref(0)
+onMounted(() => {
+  width.value = window.outerWidth
+})
 
 const localPricesText = computed(() => {
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
