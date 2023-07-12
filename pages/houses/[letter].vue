@@ -54,11 +54,6 @@
           alt="Picture" loading="lazy">
       </swiper-slide>
     </swiper>
-    <!-- <div class="house-fotos" :style="`width: ${width}px; height: ${height}px`" v-if="width !== Infinity">
-      <Transition name="pic-fade" :duration="500">
-        <img :key="`i - ${curImage}`" :src="curImagePath" lazy class="house-foto" />
-      </Transition>
-    </div> -->
   </div>
   <div v-else>
     {{ $t('house_not_found') }}
@@ -84,14 +79,18 @@ const setThumbsSwiper = (swiper: Swiper) => {
   thumbsSwiper = swiper
 }
 const modules = [FreeMode, Autoplay]
-const house = houses.value.find(h => h.letter.toLowerCase() === letter) || null
+console.log(letter)
+const house = computed(() => {
+  // console.log(`looking for house ${letter} in `, houses.value)
+  return houses.value.find(h => h.letter.toLowerCase() === letter) || null
+})
 const localeHouse = computed(() => {
-  if (!house) return null
+  if (!house.value) return null
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
-    const ret = Object.assign({}, house)
+    const ret = Object.assign({}, house.value)
     ret.translations = []
     if (i18n.locale.value !== 'en') {
-      const t = house.translations.find(trans => trans.languages_id === i18n.locale.value)
+      const t = house.value.translations.find(trans => trans.languages_id === i18n.locale.value)
       if (t) {
         ret.name = t.name
         ret.description = t.description
@@ -104,38 +103,22 @@ const localeHouse = computed(() => {
 })
 
 const curImage = ref<number>(-1)
-const nextImage = () => {
-  if (!house) return
-  curImage.value += 1
-  if (curImage.value >= house.fotos.length)
-    curImage.value = 0
-  const img1 = new Image()
-  let nextIdx = curImage.value + 1
-  if (nextIdx >= house.fotos.length) nextIdx = 0
-  img1.src = `${config.public.directusBase}/assets/${house.fotos[nextIdx].directus_files_id}?fit=inside&width=${width.value}&height=${height.value}&format=${config.public.imageFormat}`
-}
-const curImagePath = computed(() => {
-  if (width.value !== Infinity && house && curImage.value !== -1) {
-    return `${config.public.directusBase}/assets/${house.fotos[curImage.value].directus_files_id}?fit=inside&width=${width.value}&height=${height.value}&format=${config.public.imageFormat}`
-  } else {
-    return ''
-  }
 
-})
+
 mergeHead(
   i18n.locale.value,
-  localeHouse?.value?.name || house?.name || '',
+  localeHouse?.value?.name || house?.value?.name || '',
   localeHouse?.value?.short.replace(/<[^>]+>/g, '') || '',
-  `${config.public.directusBase}/assets/${house?.big_picture}?fit=cover&width=400&height=400&format=png`
+  `${config.public.directusBase}/assets/${house?.value?.big_picture}?fit=cover&width=400&height=400&format=png`
 )
 
 const bgStyle = useBackgroundImageState()
-if (width.value !== Infinity && house) {
-  bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=${config.public.imageFormat});`
+if (width.value !== Infinity && house.value) {
+  bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.value.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=${config.public.imageFormat});`
 }
 onMounted(() => {
-  if (house && !bgStyle.value) {
-    bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=${config.public.imageFormat});`
+  if (house.value && !bgStyle.value) {
+    bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.value.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=${config.public.imageFormat});`
   }
   // window.setTimeout(() => {
   //   window.scrollTo(0, 0)

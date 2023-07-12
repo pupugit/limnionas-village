@@ -1,13 +1,15 @@
 <template>
-  <div class="default-page">
-    <h1>{{ $t('houses') }}</h1>
-    <div v-html="localPricesText"></div>
-    <h1 style="margin-top:1.5em;">{{ $t('prices') }}</h1>
-    <div v-html="localPricesText2"></div>
-    <HousesTable />
+  <div style="width: 100vw;">
+    <div class="default-page">
+      <h1>{{ $t('houses') }}</h1>
+      <div v-html="localPricesText"></div>
+      <h1 style="margin-top:1.5em;">{{ $t('prices') }}</h1>
+      <div v-html="localPricesText2"></div>
+      <HousesTable />
+    </div>
+    <img v-if="width" style="display:block"
+      :src="`${config.public.directusBase}/assets/${prices.foto}?fit=cover&width=${width}&height=150&withoutEnlargement`" />
   </div>
-  <img v-if="width"
-    :src="`${config.public.directusBase}/assets/${prices.foto}?fit=cover&width=${width}&height=150&withoutEnlargement`" />
 </template>
 
 <script setup lang="ts">

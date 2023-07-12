@@ -22,7 +22,7 @@
         </nuxt-link>
       </div>
       <div v-if="locale !== 'fr'">
-        <nuxt-link to=" /samos">
+        <nuxt-link to="/samos">
           {{ $t('samos') }}
         </nuxt-link>
       </div>

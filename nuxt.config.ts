@@ -12,9 +12,21 @@ export default defineNuxtConfig({
   ],
   directus: {
     url: process.env.NUXT_PUBLIC_DIRECTUS_BASE,
+    autoFetch: false,
+    autoRefresh: false,
   },
   typescript: {
     shim: false,
+  },
+  nitro: {
+    prerender: {
+      ignore: [
+        '/%23a',
+        '/%23b',
+        '/%2523a',
+        '/%2523b'
+      ]
+    }
   },
   runtimeConfig: {
     public: {
