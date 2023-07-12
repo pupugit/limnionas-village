@@ -4,9 +4,7 @@
 // import VueI18nVitePlugin from '@intlify/unplugin-vue-i18n/vite'
 
 export default defineNuxtConfig({
-  // experimental: {
-  //   payloadExtraction: false,
-  // },
+
   modules: [
     'nuxt-directus',
     '@vueuse/nuxt',
@@ -36,14 +34,4 @@ export default defineNuxtConfig({
       target: "esnext",
     },
   },
-  // hooks: {
-  //   'vite:extendConfig'(config, { isServer }) {
-  //     if (isServer) {
-  //       // Workaround for netlify issue
-  //       // https://github.com/nuxt/framework/issues/6204
-  //       // @ts-ignore
-  //       config.build.rollupOptions.output.inlineDynamicImports = true
-  //     }
-  //   }
-  // },
 })

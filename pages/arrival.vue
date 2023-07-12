@@ -1,7 +1,7 @@
 <template>
   <div class="arrival-page">
     <div class="arrival-content">
-      <div v-html="arrival.intro"></div>
+      <div v-html="localeArrival.intro"></div>
       <div v-if="loadingWeather">{{ $t('loading_weather') }}</div>
       <div v-else-if="weatherData" class="weather-data">
         <div>{{ $t('weather_at_limnionas') }}</div>
@@ -18,7 +18,7 @@
       </div>
       <div id="mapbox" style="width: 100%;height:50vh;margin-top:2em;">
       </div>
-      <div v-html="showNorth ? arrival.north : arrival.south"></div>
+      <div v-html="showNorth ? localeArrival.north : localeArrival.south"></div>
     </div>
   </div>
 </template>
@@ -52,27 +52,22 @@ const southernGeojson = {
     coordinates: southernRoute
   }
 }
-/*
- airport
- { lon: 26.914984778344206, lat: 37.691671384443 }
- 26.914984778344206,37.691671384443
-
- 26.967811,37.690881
-
- limnionas village
- { lon: 26.63102221522945, lat: 37.69445784330787 }
- 26.63095129176827,37.69426001068132
-
- 26.621206,37.691813
-
- var locFlughafen = {name: 'Samos Airport', lat: 37.6902823, lng: 26.9035715};
-var locLimvil = {name: 'Limnionas Village', lat: 37.694334, lng: 26.631163};
-var locVathy = {lat: 37.7495953, lng: 26.976421};
-26.976421,37.7495953
-var locKokkari = {lat: 37.7773689, lng: 26.869398};
-26.869398,37.7773689
-top end: 37.8174,26.7527
-*/
+const localeArrival = computed(() => {
+  if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
+    const ret = Object.assign({}, arrival.value)
+    ret.translations = []
+    if (i18n.locale.value !== 'en') {
+      const t = arrival.value.translations.find(trans => trans.languages_code === i18n.locale.value)
+      if (t) {
+        ret.intro = t.intro
+        ret.north = t.north
+        ret.south = t.south
+      }
+    }
+    return ret
+  }
+  return arrival.value
+})
 const southernBounds: LngLatBoundsLike = [{ lon: 26.611206, lat: 37.691813 }, { lon: 26.937811, lat: 37.690881 }]
 const northernBounds: LngLatBoundsLike = [{ lon: 26.611206, lat: 37.8174 }, { lon: 26.9899, lat: 37.690881 }]
 const mapPadding = {
