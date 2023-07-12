@@ -12,7 +12,7 @@
     "@types/mapbox-gl": "^2.7.11",
     "@types/node": "^18.16.19",
     "@vueuse/nuxt": "^10.2.1",
-    "nuxt": "^3.6.2",
+    "nuxt": "3.6.1",
     "nuxt-directus": "^5.4.4",
     "sass": "^1.63.6",
     "vue": "^3.3.4",
