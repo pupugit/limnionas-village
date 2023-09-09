@@ -9,9 +9,6 @@ import 'swiper/css/bundle'
 </script>
 
 <style>
-/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Zen+Maru+Gothic&display=swap');
 
 .current-color {
