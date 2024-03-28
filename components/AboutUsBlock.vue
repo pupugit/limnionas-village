@@ -60,11 +60,13 @@ const zenMode = useZenMode()
 .about-us-bg {
   background-attachment: fixed;
   min-height: 100vh;
+  min-height: 100lvh;
 }
 
 .about-us-foto {
   width: 100vw;
   height: 100vh;
+  height: 100lvh;
 }
 
 .about-us-content {
