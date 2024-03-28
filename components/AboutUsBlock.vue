@@ -43,8 +43,6 @@ const zenMode = useZenMode()
 
 .little-travel>* {
   padding: .5ex;
-  border: 1px solid #ccc;
-  background: #f3f3f3;
   display: block;
   max-width: 100%;
 }
@@ -52,11 +50,6 @@ const zenMode = useZenMode()
 .little-travel>figcaption {
   padding-top: .5ex;
   text-align: center;
-  border: 1px solid #ccc;
-  border-top-color: rgb(204, 204, 204);
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top: 0;
   font-size: small;
   display: table-caption;
   max-width: none;
