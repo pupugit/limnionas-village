@@ -42,11 +42,6 @@
         </nuxt-link>
       </div>
       <div>
-        <nuxt-link to="/guestbook">
-          {{ $t('guestbook') }}
-        </nuxt-link>
-      </div>
-      <div>
         <nuxt-link to="/gallery">
           {{ $t('gallery') }}
         </nuxt-link>
