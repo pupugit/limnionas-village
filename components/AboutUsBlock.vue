@@ -11,8 +11,10 @@ const height = ref(0)
 const zenMode = useZenMode()
 
 onMounted(() => {
-  width.value = useWindowSize().width.value
-  height.value = useWindowSize().height.value
+  if (window) {
+    width.value = window.outerWidth
+    height.value = window.outerHeight
+  }
 })
 
 </script>
