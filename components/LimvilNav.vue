@@ -2,7 +2,7 @@
   <div
     :class="`top-logo${miniLogo ? ' scrolled' : ''}${zenMode ? ' zen-mode' : ''}${(showMenu || y < 50 || timedShowLogo) ? ' show-it' : ''}`">
     <LimvilLogo :class="`top-logo-inner click-it${showMenu ? ' show-it' : ''}`" @click="clickLogo" suid="limvil-logo" />
-    <div @click="toggleLocales" style=";position:absolute;top:0;left:0;cursor:pointer;">
+    <div @click="toggleLocales" style="position:absolute;top:0;left:0;cursor:pointer;">
       {{ locale }}
     </div>
     <div :class="`top-menu${showMenu ? ' show-it' : ''}`" ref="menu">

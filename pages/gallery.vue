@@ -1,9 +1,9 @@
 <template>
   <div class="gallery-page">
     <swiper @swiper="setThumbsSwiper" :loop="true" :spaceBetween="10" slidesPerView="auto" :speed="10000" :freeMode="{
-        enabled: true,
-        sticky: false
-      }" :autoplay="{
+      enabled: true,
+      sticky: false
+    }" :autoplay="{
       delay: 100,
       disableOnInteraction: true
     }" :modules="modules" class="mySwiper" v-if="gallery.id">
@@ -19,7 +19,7 @@
 <script lang="ts" setup>
 import type { Swiper } from 'swiper'
 import { useI18n } from 'vue-i18n'
-import { FreeMode, Autoplay } from 'swiper'
+import { FreeMode, Autoplay } from 'swiper/modules'
 
 const i18n = useI18n()
 const config = useRuntimeConfig()
