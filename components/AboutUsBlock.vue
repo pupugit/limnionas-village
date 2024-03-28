@@ -30,7 +30,7 @@ const zenMode = useZenMode()
         </div>
       </div>
       <div v-for="(f, idx) in aboutUs.fotos" v-if="width" :key="idx" class="about-us-foto"
-        :style="`${idx !== 0 ? 'scroll-snap-align: start;' : ''}background-image: url(${config.public.directusBase}/assets/${f.directus_files_id}?fit=cover&width=${width}&height=${height}&format=${config.public.imageFormat})`">
+        :style="`background-image: url(${config.public.directusBase}/assets/${f.directus_files_id}?fit=cover&width=${width}&height=${height}&format=${config.public.imageFormat})`">
       </div>
     </div>
   </ClientOnly>
@@ -59,13 +59,11 @@ const zenMode = useZenMode()
 
 .about-us-bg {
   background-attachment: fixed;
-  min-height: 100vh;
   min-height: 100lvh;
 }
 
 .about-us-foto {
-  width: 100vw;
-  height: 100vh;
+  width: 100lvw;
   height: 100lvh;
 }
 
