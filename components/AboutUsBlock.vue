@@ -18,7 +18,7 @@ const zenMode = useZenMode()
         :style="`background-image: url(${config.public.directusBase}/assets/${aboutUs.background}?fit=cover&width=${width}&height=${height}&format=${config.public.imageFormat})`">
         <div class="about-us-content">
           <div v-html="aboutUs.content"></div>
-          <div style="display:grid;justify-content: end;" v-if="showLittleTravelSociety">
+          <div v-if="showLittleTravelSociety">
             <figure role="group" class="little-travel">
               <a href="https://www.littletravelsociety.de/urlaubsziele/limnionas-village-samos-griechenland/"><img
                   alt="Logo Little Travel Society" data-entity-type="file"
@@ -39,16 +39,17 @@ const zenMode = useZenMode()
 <style>
 .little-travel {
   display: table;
+  margin: 1.5em 0 0 0;
 }
 
 .little-travel>* {
-  padding: .5ex;
+  padding: .5ex .5ex .5ex 0;
   display: block;
   max-width: 100%;
 }
 
 .little-travel>figcaption {
-  padding-top: .5ex;
+  padding-top: .5ex .5ex .5ex 0;
   text-align: center;
   font-size: small;
   display: table-caption;
