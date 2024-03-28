@@ -17,9 +17,17 @@ const props = defineProps<{
   entry: string,
   pic: string
 }>()
-const { width, height } = useWindowSize()
+const width = ref(0)
+const height = ref(0)
+
+onMounted(() => {
+  if (window) {
+    width.value = window.outerWidth
+    height.value = window.outerHeight
+  }
+})
 const calcBG = computed(() => {
-  if (!props.pic || width.value === Infinity || !infoEl.value) return ''
+  if (!props.pic || !width.value || !infoEl.value) return ''
   return `background-image: url(${config.public.directusBase}/assets/${props.pic}?fit=inside&width=${width.value}&height=${height.value - infoEl.value.clientHeight}&format=${config.public.imageFormat});`
 })
 </script>

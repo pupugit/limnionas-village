@@ -16,7 +16,15 @@ const texts = useTexts()
 const i18n = useI18n()
 const zenMode = useZenMode()
 const infoEl = ref<HTMLElement | null>(null)
-const { width, height } = useWindowSize()
+const width = ref(0)
+const height = ref(0)
+
+onMounted(() => {
+  if (window) {
+    width.value = window.outerWidth
+    height.value = window.outerHeight
+  }
+})
 const localWelcome = computed(() => {
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
     const found = texts.value.find(t => t.id === 'welcome')
@@ -63,7 +71,7 @@ const localWelcome3 = computed(() => {
   return ''
 })
 const calcPic = computed(() => {
-  if (!specials.value.welcome_pic || width.value === Infinity || !infoEl.value) return ''
+  if (!specials.value.welcome_pic || !width.value || !infoEl.value) return ''
   return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_pic}?fit=inside&width=${width.value}&height=${height.value}&withoutEnlargement&format=${config.public.imageFormat});`
 })
 
