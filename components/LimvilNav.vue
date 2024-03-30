@@ -21,7 +21,7 @@
           {{ $t('contact') }}
         </nuxt-link>
       </div>
-      <div v-if="locale !== 'fr'">
+      <div>
         <nuxt-link to="/samos">
           {{ $t('samos') }}
         </nuxt-link>
