@@ -8,7 +8,7 @@ export const mergeHead = (locale: string, title: string, desc: string, image: st
   let mergeTitle = 'Limnionas Village'
   if (title) mergeTitle = `${title} - Limnionas Village`
   const mergeDesc = desc || 'Welcome to Limnionas Village'
-  const mergeImage = image || 'https://limnionas.netlify.app/limvil-picture.png'
+  const mergeImage = image || 'https://limnionas-village.net/limvil-picture.png'
   const mergeLocale = locale || 'en'
   useHead({
     htmlAttrs: {
@@ -17,7 +17,7 @@ export const mergeHead = (locale: string, title: string, desc: string, image: st
     title: mergeTitle,
     link: [{
       rel: 'icon',
-      href: 'https://limnionas.netlify.app/favicon.ico',
+      href: 'https://limnionas-village.net/favicon.ico',
       type: 'image/x-icon'
     }],
     meta: [{
