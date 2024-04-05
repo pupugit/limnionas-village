@@ -54,7 +54,7 @@ onMounted(() => {
 
 @media screen and (max-width:600px) {
   .tos-content {
-    margin: 128px 0 32px 0;
+    margin: 128px 0 0 0;
     padding: 1.5rem;
   }
 }
