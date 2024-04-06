@@ -114,9 +114,11 @@ mergeHead(
 
 const bgStyle = useBackgroundImageState()
 onMounted(() => {
-  if (house.value) {
-    bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.value.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=${config.public.imageFormat});`
-  }
+  nextTick(() => {
+    if (house?.value?.big_picture) {
+      bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.value.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=${config.public.imageFormat});`
+    }
+  })
   // window.setTimeout(() => {
   //   window.scrollTo(0, 0)
   //   nextImage()
