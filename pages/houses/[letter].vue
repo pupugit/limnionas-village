@@ -117,6 +117,7 @@ onMounted(() => {
   nextTick(() => {
     if (house?.value?.big_picture) {
       bgStyle.value = `background-image: url(${config.public.directusBase}/assets/${house.value.big_picture}?fit=cover&width=${width.value}&height=${height.value}&format=${config.public.imageFormat});`
+      console.log(`setting bg to ${bgStyle.value}`)
     }
   })
   // window.setTimeout(() => {
