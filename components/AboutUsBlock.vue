@@ -22,7 +22,7 @@ onMounted(() => {
 <template>
   <div style="scroll-snap-align: start;">
     <div v-if="width" :class="`about-us-bg`"
-      :style="`background-image: url(${config.public.directusBase}/assets/${aboutUs.background}?fit=cover&width=${width}&height=${height}&format=${config.public.imageFormat})`">
+      :style="aboutUs.background ? `background-image: url(${config.public.directusBase}/assets/${aboutUs.background}?fit=cover&width=${width}&height=${height}&format=${config.public.imageFormat})` : ''">
       <div class="about-us-content">
         <div v-html="aboutUs.content"></div>
         <div v-if="showLittleTravelSociety">
