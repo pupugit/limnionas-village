@@ -10,17 +10,17 @@
   },
   "devDependencies": {
     "@types/mapbox-gl": "^3.1.0",
-    "@types/node": "^18.19.31",
+    "@types/node": "^18.19.33",
     "@vueuse/nuxt": "^10.9.0",
     "nuxt": "^3.11.2",
     "nuxt-directus": "^5.6.1",
-    "sass": "^1.76.0",
+    "sass": "^1.77.1",
     "vue-i18n": "^9.13.1"
   },
   "dependencies": {
     "date-fns": "^3.6.0",
     "mapbox-gl": "^3.3.0",
     "nuxt-swiper": "^1.2.2",
-    "swiper": "^11.1.1"
+    "swiper": "^11.1.3"
   }
 }
