@@ -8,7 +8,6 @@ export const initPrices = async () => {
   const { getSingletonItem } = useDirectusItems()
   const prices = usePrices()
   if (prices.value.id === 0) {
-    const hItems: Prices = await getSingletonItem<Prices>({ collection: 'prices' })
-    prices.value = hItems
+    prices.value = await getSingletonItem<Prices>({ collection: 'prices' })
   }
 }

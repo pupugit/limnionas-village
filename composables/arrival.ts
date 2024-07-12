@@ -14,7 +14,6 @@ export const initArrival = async () => {
   const { getSingletonItem } = useDirectusItems()
   const arrival = useArrival()
   if (arrival.value.id === null) {
-    const hItems: Arrival = await getSingletonItem<Arrival>({ collection: 'arrival', params: { fields: ['*', 'translations.*'] } })
-    arrival.value = hItems
+    arrival.value = await getSingletonItem<Arrival>({ collection: 'arrival', params: { fields: ['*', 'translations.*'] } })
   }
 }

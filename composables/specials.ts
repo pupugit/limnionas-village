@@ -18,7 +18,6 @@ export const initSpecials = async () => {
   const { getSingletonItem, getItems } = useDirectusItems()
   const specials = useSpecials()
   if (specials.value.id === 0) {
-    const hItems: Specials = await getSingletonItem<Specials>({ collection: 'specials' })
-    specials.value = hItems
+    specials.value = await getSingletonItem<Specials>({ collection: 'specials' })
   }
 }

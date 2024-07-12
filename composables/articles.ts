@@ -8,7 +8,7 @@ export const initHikes = async () => {
   const { getItems } = useDirectusItems()
   const hikes = useHikes()
   if (hikes.value.length === 0) {
-    const hItems = await getItems<Article[]>({
+    hikes.value = await getItems<Article>({
       collection: 'articles',
       params: {
         sort: 'sort',
@@ -16,6 +16,5 @@ export const initHikes = async () => {
         fields: ['*', 'fotos.directus_files_id', 'translations.*']
       }
     })
-    hikes.value = hItems
   }
 }
