@@ -10,8 +10,8 @@ import { useI18n } from 'vue-i18n'
 const config = useRuntimeConfig()
 const i18n = useI18n()
 mergeHead(i18n.locale.value, i18n.t('samos'), 'Samos lies in the eastern Aegean Sea. The island is a 45 minutes long flight or 12 hours long ferry trip away from Athens.', '')
-const { data: texts } = useTexts()
-const { data: specials } = useSpecials()
+const { data: texts } = await useTexts()
+const { data: specials } = await useSpecials()
 const { width, height } = useWindowSize()
 const calcPic = ref('')
 

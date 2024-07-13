@@ -22,8 +22,8 @@ definePageMeta({
 const bgStyle = useBackgroundImageState()
 bgStyle.value = ''
 
-const { data: houses } = useHousesBasic()
-const { data: aboutUs } = useAboutUs()
+const { data: houses } = await useHousesBasic()
+const { data: aboutUs } = await useAboutUs()
 const vimeo = ref()
 
 const curLang = i18n.locale

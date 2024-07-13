@@ -12,7 +12,7 @@ import { useI18n } from 'vue-i18n'
 import type { BlogEntry } from '~/types/blogEntry'
 const i18n = useI18n()
 mergeHead(i18n.locale.value, i18n.t('blog'), 'Satisfy your longing here with new impressions from Limnionas Village.', '')
-const { data: blog } = useBlog()
+const { data: blog } = await useBlog()
 </script>
 
 <style scoped>

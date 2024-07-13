@@ -24,7 +24,7 @@ import { FreeMode, Autoplay } from 'swiper/modules'
 const i18n = useI18n()
 const config = useRuntimeConfig()
 mergeHead(i18n.locale.value, i18n.t('gallery'), 'Some impressions of Limnionas Village', '')
-const { data: gallery } = useGallery()
+const { data: gallery } = await useGallery()
 
 let thumbsSwiper = null;
 

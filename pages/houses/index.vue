@@ -17,8 +17,8 @@ import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
 const config = useRuntimeConfig()
 mergeHead(i18n.locale.value, i18n.t('houses'), 'General information about our houses and prices', '')
-const { data: texts } = useTexts()
-const { data: prices } = usePrices()
+const { data: texts } = await useTexts()
+const { data: prices } = await usePrices()
 const width = ref(0)
 onMounted(() => {
   width.value = window.outerWidth

@@ -11,7 +11,7 @@ const route = useRoute()
 const id: string = route.params.id.toString()
 const config = useRuntimeConfig()
 const i18n = useI18n()
-const { data: blog } = useBlog()
+const { data: blog } = await useBlog()
 const selectedBlog = computed(() => {
   if (!blog.value) return null
   return blog.value.find(b => b.id === id)

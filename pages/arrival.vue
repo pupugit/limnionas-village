@@ -37,7 +37,7 @@ import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
 mergeHead(i18n.locale.value, i18n.t('arrival'), 'How to reach Limnionas Village', '')
 const config = useRuntimeConfig()
-const { data: arrival } = useArrival()
+const { data: arrival } = await useArrival()
 const showNorth = ref(false)
 const loadingWeather = ref(true)
 const weatherData = ref<Weather | null>(null)

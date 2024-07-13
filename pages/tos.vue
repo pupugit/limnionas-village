@@ -11,8 +11,8 @@ import { useI18n } from 'vue-i18n'
 const config = useRuntimeConfig()
 const i18n = useI18n()
 mergeHead(i18n.locale.value, i18n.t('tos'), 'Our terms of service', '')
-const { data: texts } = useTexts()
-const { data: specials } = useSpecials()
+const { data: texts } = await useTexts()
+const { data: specials } = await useSpecials()
 const { width, height } = useWindowSize()
 const calcPic = ref('')
 

@@ -15,7 +15,7 @@ import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
 mergeHead(i18n.locale.value, i18n.t('hiking'), 'Hiking paths around Limnionas Village', '')
 const config = useRuntimeConfig()
-const { data: hikes } = useHikes()
+const { data: hikes } = await useHikes()
 const width = ref(0)
 const height = ref(0)
 onMounted(() => {

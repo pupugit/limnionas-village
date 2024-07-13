@@ -60,8 +60,8 @@ const small = computed(() => {
 
 
 const config = useRuntimeConfig()
-const { data: houses } = useHouses()
-const { data: prices } = usePrices()
+const { data: houses } = await useHouses()
+const { data: prices } = await usePrices()
 const i18n = useI18n()
 
 const localeHouses = computed(() => {

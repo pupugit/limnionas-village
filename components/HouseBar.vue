@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { data: houses } = useHouses()
+const { data: houses } = await useHouses()
 </script>
 
 <template>

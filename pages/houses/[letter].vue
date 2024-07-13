@@ -67,8 +67,8 @@ import { FreeMode, Autoplay } from 'swiper/modules'
 const route = useRoute()
 const letter: string = route.params.letter.toString().toLowerCase()
 const config = useRuntimeConfig()
-const { data: houses } = useHouses()
-const { data: prices } = usePrices()
+const { data: houses } = await useHouses()
+const { data: prices } = await usePrices()
 const i18n = useI18n()
 const { width, height } = useWindowSize()
 let thumbsSwiper = null
@@ -84,7 +84,7 @@ const house = computed(() => {
   return houses.value.find(h => h.letter.toLowerCase() === letter) || null
 })
 const localeHouse = computed(() => {
-  if (!house.value) return null
+  if (!houses.value || !house.value) return null
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
     const ret = Object.assign({}, house.value)
     ret.translations = []
