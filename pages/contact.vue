@@ -12,8 +12,7 @@ const config = useRuntimeConfig()
 const i18n = useI18n()
 mergeHead(i18n.locale.value, i18n.t('contact'), 'Feel free to contact us via email, however we are best reached by phone.', '')
 const { data: texts } = useTexts()
-await initSpecials()
-const specials = useSpecials()
+const { data: specials } = useSpecials()
 const { width, height } = useWindowSize()
 
 const calcPic = ref('')
@@ -35,7 +34,7 @@ const localContactText = computed(() => {
   return ''
 })
 onMounted(() => {
-  if (!specials.value.contact || width.value === 0 || width.value === Infinity) return
+  if (!specials?.value?.contact || width.value === 0 || width.value === Infinity) return
   calcPic.value = `background-image: url(${config.public.directusBase}/assets/${specials.value.contact}?fit=cover&width=${width.value}&height=${height.value}&withoutEnlargement&format=${config.public.imageFormat});`
 })
 

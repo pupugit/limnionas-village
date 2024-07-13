@@ -1,19 +1,7 @@
 import type { Arrival } from "~/types/arrival"
 
-export const useArrival = () => useState<Arrival>('arrival', () => {
-  return {
-    id: null,
-    intro: '',
-    north: '',
-    south: '',
-    translations: [],
-  }
-})
-
-export const initArrival = async () => {
+export function useArrival() {
   const { getSingletonItem } = useDirectusItems()
-  const arrival = useArrival()
-  if (arrival.value.id === null) {
-    arrival.value = await getSingletonItem<Arrival>({ collection: 'arrival', params: { fields: ['*', 'translations.*'] } })
-  }
+  return useAsyncData('arrival', () => getSingletonItem<Arrival>({ collection: 'arrival', params: { fields: ['*', 'translations.*'] } })
+  )
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="blog-page">
     <div></div>
-    <div class="entries">
+    <div class="entries" v-if="blog">
       <BlogEntry v-for="e in blog" :entry="e" :key="e.id" small />
     </div>
   </div>
@@ -12,8 +12,7 @@ import { useI18n } from 'vue-i18n'
 import type { BlogEntry } from '~/types/blogEntry'
 const i18n = useI18n()
 mergeHead(i18n.locale.value, i18n.t('blog'), 'Satisfy your longing here with new impressions from Limnionas Village.', '')
-await initBlog()
-const blog = useBlog()
+const { data: blog } = useBlog()
 </script>
 
 <style scoped>

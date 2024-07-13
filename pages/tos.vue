@@ -12,8 +12,7 @@ const config = useRuntimeConfig()
 const i18n = useI18n()
 mergeHead(i18n.locale.value, i18n.t('tos'), 'Our terms of service', '')
 const { data: texts } = useTexts()
-await initSpecials()
-const specials = useSpecials()
+const { data: specials } = useSpecials()
 const { width, height } = useWindowSize()
 const calcPic = ref('')
 
@@ -34,7 +33,7 @@ const localTOSText = computed(() => {
   return ''
 })
 onMounted(() => {
-  if (!specials.value.tos || width.value === 0 || width.value === Infinity) return
+  if (!specials?.value?.tos || width.value === 0 || width.value === Infinity) return
   calcPic.value = `background-image: url(${config.public.directusBase}/assets/${specials.value.tos}?fit=cover&width=${width.value}&height=${height.value}&withoutEnlargement&format=${config.public.imageFormat});`
 })
 </script>

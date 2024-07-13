@@ -3,7 +3,7 @@
     <WelcomeBlock />
     <div style="width:100vw;height:100vh;">
       <iframe allowfullscreen loading="lazy" ref="vimeo"
-        src="https://player.vimeo.com/video/855637155?h=c1acd52662&portrait=0&title=0"
+        :src="`https://player.vimeo.com/video/${config.public.vimeoPart1}?h=${config.public.vimeoPart2}&portrait=0&title=0`"
         style="width: 100vw;max-height:100vh;aspect-ratio: 16/9;" title="vimeo-player" frameborder="0"></iframe>
     </div>
     <HouseBlock v-for="house in localeHouses" :house="house" :key="house.id" />
@@ -14,6 +14,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
+const config = useRuntimeConfig()
 mergeHead(i18n.locale.value, '', '', '')
 definePageMeta({
   pageTransition: false
@@ -21,23 +22,9 @@ definePageMeta({
 const bgStyle = useBackgroundImageState()
 bgStyle.value = ''
 
-//await initArticles()
-await initAboutUs()
 const { data: houses } = useHousesBasic()
-// const articles = useArticles()
-// const scrollState = useScrollState()
-const aboutUs = useAboutUs()
+const { data: aboutUs } = useAboutUs()
 const vimeo = ref()
-
-/* onMounted(() => {
-  if (scrollState.value.scrollPos > 0) {
-    window.setTimeout(() => {
-      //console.log('index: scrolling to ', scrollState.value.scrollPos)
-      window.scrollTo(0, scrollState.value.scrollPos)
-    }, 1200)
-  }
-}) */
-
 
 const curLang = i18n.locale
 const localeHouses = computed(() => {
@@ -60,6 +47,7 @@ const localeHouses = computed(() => {
 })
 
 const localeAboutUs = computed(() => {
+  if (!aboutUs.value) return null
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
     const ret = Object.assign({}, aboutUs.value)
     ret.translations = []
@@ -74,38 +62,6 @@ const localeAboutUs = computed(() => {
   return null
 })
 
-// const localeArticles = computed(() => {
-//   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
-//     return articles.value.map((a) => {
-//       const ret = Object.assign({}, a)
-//       ret.sections = []
-//       a.sections.forEach((s) => {
-//         if (i18n.locale.value !== 'en') {
-//           const t = s.translations.find(trans => trans.languages_code === i18n.locale.value)
-//           if (t && t.content?.length) {
-//             ret.sections.push({
-//               id: s.id,
-//               name: s.name,
-//               image_back: s.image_back,
-//               content: t.content,
-//               translations: []
-//             })
-//           }
-//         } else if (s.content?.length) {
-//           ret.sections.push({
-//             id: s.id,
-//             name: s.name,
-//             image_back: s.image_back,
-//             content: s.content,
-//             translations: []
-//           })
-//         }
-//       })
-//       return ret
-//     }).filter(a => a.sections.length)
-//   }
-//   return []
-// })
 </script>
 
 <style lang="scss">

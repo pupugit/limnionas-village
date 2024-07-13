@@ -1,7 +1,7 @@
 <template>
   <div class="arrival-page">
     <div class="arrival-content">
-      <div v-html="localeArrival.intro"></div>
+      <div v-if="localeArrival" v-html="localeArrival.intro"></div>
       <div v-if="loadingWeather">{{ $t('loading_weather') }}</div>
       <div v-else-if="weatherData" class="weather-data">
         <div>{{ $t('weather_at_limnionas') }}</div>
@@ -18,7 +18,7 @@
       </div>
       <div id="mapbox" style="width: 100%;height:50vh;margin-top:2em;">
       </div>
-      <div v-html="showNorth ? localeArrival.north : localeArrival.south"></div>
+      <div v-if="localeArrival" v-html="showNorth ? localeArrival.north : localeArrival.south"></div>
     </div>
   </div>
 </template>
@@ -33,13 +33,11 @@ import mapboxgl from 'mapbox-gl'
 import southernRoute from '@/assets/southernRoute.json'
 import northernRoute from '@/assets/northernRoute.json'
 import { useI18n } from 'vue-i18n'
-const { getSingletonItem } = useDirectusItems()
-// TODO: make multilingual
+
 const i18n = useI18n()
 mergeHead(i18n.locale.value, i18n.t('arrival'), 'How to reach Limnionas Village', '')
 const config = useRuntimeConfig()
-await initArrival()
-const arrival = useArrival()
+const { data: arrival } = useArrival()
 const showNorth = ref(false)
 const loadingWeather = ref(true)
 const weatherData = ref<Weather | null>(null)
@@ -53,6 +51,7 @@ const southernGeojson = {
   }
 }
 const localeArrival = computed(() => {
+  if (!arrival.value) return null
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
     const ret = Object.assign({}, arrival.value)
     ret.translations = []

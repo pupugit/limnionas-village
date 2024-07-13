@@ -7,20 +7,25 @@
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import type { BlogEntry } from '~/types/blogEntry'
 const route = useRoute()
 const id: string = route.params.id.toString()
 const config = useRuntimeConfig()
 const i18n = useI18n()
-const blog = useBlog()
-await initBlog()
-const selectedBlog = blog.value.find(b => b.id === id)
-if (selectedBlog) {
+const { data: blog } = useBlog()
+const selectedBlog = computed(() => {
+  if (!blog.value) return null
+  return blog.value.find(b => b.id === id)
+})
+if (selectedBlog.value) {
   const format = computed(() => { return new Intl.DateTimeFormat(i18n.locale.value, { day: 'numeric', month: 'long', year: 'numeric' }) })
-  const finalDate = new Date(selectedBlog.date_publish)
+  const finalDate = new Date(selectedBlog.value.date_publish)
   const formatedDate = computed(() => format.value.format(finalDate))
 
-  mergeHead(i18n.locale.value, `${formatedDate.value} - ${i18n.t('blog')}`, selectedBlog.content.replace(/<[^>]+>/g, ''), `${config.public.directusBase}/assets/${selectedBlog.picture}?width=400&height=400&fit=cover&format=${config.public.imageFormat}`)
+  mergeHead(i18n.locale.value,
+    `${formatedDate.value} - ${i18n.t('blog')}`,
+    selectedBlog.value.content.replace(/<[^>]+>/g, ''),
+    `${config.public.directusBase}/assets/${selectedBlog.value.picture}?width=400&height=400&fit=cover&format=${config.public.imageFormat}`
+  )
 }
 </script>
 

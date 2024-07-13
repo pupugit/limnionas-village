@@ -34,6 +34,9 @@ export default defineNuxtConfig({
       imageFormat: 'webp',
       featureZen: false,
       mapboxToken: '',
+      galleryId: '',
+      vimeoPart1: '',
+      vimeoPart2: ''
     }
   },
   app: {

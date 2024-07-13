@@ -1,5 +1,5 @@
 <template>
-  <div class="gallery-page">
+  <div class="gallery-page" v-if="gallery">
     <swiper @swiper="setThumbsSwiper" :loop="true" :spaceBetween="10" slidesPerView="auto" :speed="10000" :freeMode="{
       enabled: true,
       sticky: false
@@ -24,8 +24,7 @@ import { FreeMode, Autoplay } from 'swiper/modules'
 const i18n = useI18n()
 const config = useRuntimeConfig()
 mergeHead(i18n.locale.value, i18n.t('gallery'), 'Some impressions of Limnionas Village', '')
-await initGallery()
-const gallery = useGallery()
+const { data: gallery } = useGallery()
 
 let thumbsSwiper = null;
 

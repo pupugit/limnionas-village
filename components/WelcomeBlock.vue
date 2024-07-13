@@ -1,17 +1,18 @@
 <template>
-  <div class="welcome-first" :style="calcPic"
-    @click.self="config.public.featureZen ? zenMode = !zenMode : zenMode = zenMode" ref="infoEl">
+  <div v-if="specials">
+    <div class="welcome-first" :style="calcPic"
+      @click.self="config.public.featureZen ? zenMode = !zenMode : zenMode = zenMode" ref="infoEl">
+    </div>
+    <WelcomeEntry :entry="localWelcome" :pic="specials.welcome_back" />
+    <WelcomeEntry :entry="localWelcome2" :pic="specials.welcome_back2" />
+    <WelcomeEntry :entry="localWelcome3" :pic="specials.welcome_back3" />
   </div>
-  <WelcomeEntry :entry="localWelcome" :pic="specials.welcome_back" />
-  <WelcomeEntry :entry="localWelcome2" :pic="specials.welcome_back2" />
-  <WelcomeEntry :entry="localWelcome3" :pic="specials.welcome_back3" />
 </template>
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 const config = useRuntimeConfig()
-await initSpecials()
-const specials = useSpecials()
+const { data: specials } = useSpecials()
 const { data: texts } = useTexts()
 const i18n = useI18n()
 const zenMode = useZenMode()
@@ -74,7 +75,7 @@ const localWelcome3 = computed(() => {
   return ''
 })
 const calcPic = computed(() => {
-  if (!specials.value.welcome_pic || !width.value || !infoEl.value) return ''
+  if (!specials?.value?.welcome_pic || !width.value || !infoEl.value) return ''
   return `background-image: url(${config.public.directusBase}/assets/${specials.value.welcome_pic}?fit=inside&width=${width.value}&height=${height.value}&withoutEnlargement&format=${config.public.imageFormat});`
 })
 
