@@ -10,14 +10,14 @@ import { useI18n } from 'vue-i18n'
 const config = useRuntimeConfig()
 const i18n = useI18n()
 mergeHead(i18n.locale.value, i18n.t('samos'), 'Samos lies in the eastern Aegean Sea. The island is a 45 minutes long flight or 12 hours long ferry trip away from Athens.', '')
-await initTexts()
-const texts = useTexts()
+const { data: texts } = useTexts()
 await initSpecials()
 const specials = useSpecials()
 const { width, height } = useWindowSize()
 const calcPic = ref('')
 
 const localSamosText = computed(() => {
+  if (!texts.value) return ''
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
     const found = texts.value.find(t => t.id === 'samos')
     if (!found) return ''

@@ -12,7 +12,7 @@ import { useI18n } from 'vue-i18n'
 const config = useRuntimeConfig()
 await initSpecials()
 const specials = useSpecials()
-const texts = useTexts()
+const { data: texts } = useTexts()
 const i18n = useI18n()
 const zenMode = useZenMode()
 const infoEl = ref<HTMLElement | null>(null)
@@ -26,6 +26,7 @@ onMounted(() => {
   }
 })
 const localWelcome = computed(() => {
+  if (!texts.value) return ''
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
     const found = texts.value.find(t => t.id === 'welcome')
     if (!found) return ''
@@ -41,6 +42,7 @@ const localWelcome = computed(() => {
   return ''
 })
 const localWelcome2 = computed(() => {
+  if (!texts.value) return ''
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
     const found = texts.value.find(t => t.id === 'welcome2')
     if (!found) return ''
@@ -56,6 +58,7 @@ const localWelcome2 = computed(() => {
   return ''
 })
 const localWelcome3 = computed(() => {
+  if (!texts.value) return ''
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
     const found = texts.value.find(t => t.id === 'welcome3')
     if (!found) return ''

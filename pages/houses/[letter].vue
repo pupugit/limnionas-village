@@ -11,7 +11,7 @@
         <div class="house-furnishing-and-prices">
           <div>
             <h3 style="margin-top:0">{{ $t('prices_per_night') }}</h3>
-            <table class="prices-table">
+            <table class="prices-table" v-if="prices">
               <tr v-for="(s, idx) in prices.seasons" :key="s.name">
                 <td>{{ $d(Date.parse(s.start), 'text_short_no_month') }}</td>
                 <td>-</td>
@@ -42,12 +42,12 @@
       </div>
     </div>
     <swiper @swiper="setThumbsSwiper" :loop="true" :spaceBetween="10" slidesPerView="auto" :speed="10000" :freeMode="{
-    enabled: true,
-    sticky: false
-  }" :autoplay="{
-    delay: 100,
-    disableOnInteraction: true
-  }" :modules="modules" class="mySwiper">
+      enabled: true,
+      sticky: false
+    }" :autoplay="{
+      delay: 100,
+      disableOnInteraction: true
+    }" :modules="modules" class="mySwiper">
       <swiper-slide v-for="p in house.fotos" :key="p.directus_files_id">
         <img
           :src="`${config.public.directusBase}/assets/${p.directus_files_id}?fit=inside&width=1024&height=1024&format=${config.public.imageFormat}`"
@@ -66,14 +66,12 @@ import { useI18n } from 'vue-i18n'
 import { FreeMode, Autoplay } from 'swiper/modules'
 const route = useRoute()
 const letter: string = route.params.letter.toString().toLowerCase()
-await initHouses()
-await initPrices()
 const config = useRuntimeConfig()
-const houses = useHouses()
-const prices = usePrices()
+const { data: houses } = useHouses()
+const { data: prices } = usePrices()
 const i18n = useI18n()
 const { width, height } = useWindowSize()
-let thumbsSwiper = null;
+let thumbsSwiper = null
 
 const setThumbsSwiper = (swiper: Swiper) => {
   thumbsSwiper = swiper
@@ -81,6 +79,7 @@ const setThumbsSwiper = (swiper: Swiper) => {
 const modules = [FreeMode, Autoplay]
 console.log(letter)
 const house = computed(() => {
+  if (!houses.value) return null
   // console.log(`looking for house ${letter} in `, houses.value)
   return houses.value.find(h => h.letter.toLowerCase() === letter) || null
 })

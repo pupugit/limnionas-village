@@ -21,11 +21,9 @@ definePageMeta({
 const bgStyle = useBackgroundImageState()
 bgStyle.value = ''
 
-await initHousesBasic()
-await initTexts()
 //await initArticles()
 await initAboutUs()
-const houses = useHousesBasic()
+const { data: houses } = useHousesBasic()
 // const articles = useArticles()
 // const scrollState = useScrollState()
 const aboutUs = useAboutUs()
@@ -43,6 +41,7 @@ const vimeo = ref()
 
 const curLang = i18n.locale
 const localeHouses = computed(() => {
+  if (!houses.value) return []
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
     return houses.value.map((h) => {
       const ret = Object.assign({}, h)

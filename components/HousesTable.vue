@@ -1,5 +1,5 @@
 <template>
-  <div class="houses-table-root">
+  <div class="houses-table-root" v-if="localeHouses && prices">
     <table class="houses-table-small" v-if="small" key="tsmall">
       <template v-for="house in localeHouses" :key="house.id">
         <tr>
@@ -58,14 +58,14 @@ const small = computed(() => {
   return true
 })
 
-await initPrices()
-await initHouses()
+
 const config = useRuntimeConfig()
-const houses = useHouses()
-const prices = usePrices()
+const { data: houses } = useHouses()
+const { data: prices } = usePrices()
 const i18n = useI18n()
 
 const localeHouses = computed(() => {
+  if (!houses.value) return []
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
     return houses.value.map((h) => {
       const ret = Object.assign({}, h)

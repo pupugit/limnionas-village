@@ -11,14 +11,14 @@ import { useI18n } from 'vue-i18n'
 const config = useRuntimeConfig()
 const i18n = useI18n()
 mergeHead(i18n.locale.value, i18n.t('tos'), 'Our terms of service', '')
-await initTexts()
-const texts = useTexts()
+const { data: texts } = useTexts()
 await initSpecials()
 const specials = useSpecials()
 const { width, height } = useWindowSize()
 const calcPic = ref('')
 
 const localTOSText = computed(() => {
+  if (!texts.value) return ''
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
     const found = texts.value.find(t => t.id === 'imprint')
     if (!found) return ''

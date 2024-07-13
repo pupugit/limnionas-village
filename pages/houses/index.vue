@@ -7,7 +7,7 @@
       <div v-html="localPricesText2"></div>
       <HousesTable />
     </div>
-    <img v-if="width" style="display:block"
+    <img v-if="width && prices?.foto" style="display:block"
       :src="`${config.public.directusBase}/assets/${prices.foto}?fit=cover&width=${width}&height=150&withoutEnlargement`" />
   </div>
 </template>
@@ -17,15 +17,15 @@ import { useI18n } from 'vue-i18n'
 const i18n = useI18n()
 const config = useRuntimeConfig()
 mergeHead(i18n.locale.value, i18n.t('houses'), 'General information about our houses and prices', '')
-await initTexts()
-const texts = useTexts()
-const prices = usePrices()
+const { data: texts } = useTexts()
+const { data: prices } = usePrices()
 const width = ref(0)
 onMounted(() => {
   width.value = window.outerWidth
 })
 
 const localPricesText = computed(() => {
+  if (!texts.value) return ''
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
     const found = texts.value.find(t => t.id === 'prices_text')
     if (!found) return ''
@@ -41,6 +41,7 @@ const localPricesText = computed(() => {
   return ''
 })
 const localPricesText2 = computed(() => {
+  if (!texts.value) return ''
   if (i18n.locale.value === 'de' || i18n.locale.value === 'fr' || i18n.locale.value === 'en') {
     const found = texts.value.find(t => t.id === 'prices_text2')
     if (!found) return ''

@@ -1,13 +1,6 @@
 import type { Prices } from "~/types/prices"
-
-export const usePrices = () => useState<Prices>('prices', () => {
-  return { id: 0, seasons: [], visitors_tax: [] }
-})
-
-export const initPrices = async () => {
+export function usePrices() {
   const { getSingletonItem } = useDirectusItems()
-  const prices = usePrices()
-  if (prices.value.id === 0) {
-    prices.value = await getSingletonItem<Prices>({ collection: 'prices' })
-  }
+  return useAsyncData('houses', () => getSingletonItem<Prices>({ collection: 'prices' })
+  )
 }

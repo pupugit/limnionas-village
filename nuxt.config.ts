@@ -46,4 +46,5 @@ export default defineNuxtConfig({
       target: "esnext",
     },
   },
+  compatibilityDate: "2024-07-13"
 })

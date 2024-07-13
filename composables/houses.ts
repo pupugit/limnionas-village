@@ -1,25 +1,13 @@
 import type { House } from "~/types/houses"
 
-export const useHouses = () => useState<House[]>('houses', () => {
-  return []
-})
-
-export const useHousesBasic = () => useState<House[]>('housesBasic', () => {
-  return []
-})
-
-export const initHouses = async () => {
+export function useHouses() {
   const { getItems } = useDirectusItems()
-  const houses = useHouses()
-  if (houses.value.length === 0) {
-    houses.value = await getItems<House>({ collection: 'houses', params: { sort: 'letter', fields: ['id', 'letter', 'name', 'people', 'short', 'color', 'logo', 'logo_raster', 'big_picture', 'price_main_season', 'price_pre_season', 'price_off_season', 'description', 'furnishing', 'ground_plan_new', 'fotos.directus_files_id', 'translations.*'] } })
-  }
+  return useAsyncData('houses', () => getItems<House>({ collection: 'houses', params: { sort: 'letter', fields: ['id', 'letter', 'name', 'people', 'short', 'color', 'logo', 'logo_raster', 'big_picture', 'price_main_season', 'price_pre_season', 'price_off_season', 'description', 'furnishing', 'ground_plan_new', 'fotos.directus_files_id', 'translations.*'] } })
+  )
 }
 
-export const initHousesBasic = async () => {
+export function useHousesBasic() {
   const { getItems } = useDirectusItems()
-  const houses = useHousesBasic()
-  if (houses.value.length === 0) {
-    houses.value = await getItems({ collection: 'houses', params: { sort: 'letter', fields: ['id', 'letter', 'logo', 'name', 'people', 'short', 'big_picture', 'translations.languages_id', 'translations.name', 'translations.short'] } })
-  }
+  return useAsyncData('housesbasic', () => getItems<House>({ collection: 'houses', params: { sort: 'letter', fields: ['id', 'letter', 'logo', 'name', 'people', 'short', 'big_picture', 'translations.languages_id', 'translations.name', 'translations.short'] } })
+  )
 }
