@@ -12,8 +12,8 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 const config = useRuntimeConfig()
-const { data: specials } = useSpecials()
-const { data: texts } = useTexts()
+const { data: specials } = await useSpecials()
+const { data: texts } = await useTexts()
 const i18n = useI18n()
 const zenMode = useZenMode()
 const infoEl = ref<HTMLElement | null>(null)
