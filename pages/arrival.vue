@@ -27,7 +27,6 @@
 import type { LngLatBoundsLike, CameraOptions } from 'mapbox-gl'
 import type { Weather } from '~/types/weather'
 
-
 import 'mapbox-gl/dist/mapbox-gl.css'
 import mapboxgl from 'mapbox-gl'
 import southernRoute from '@/assets/southernRoute.json'
@@ -41,6 +40,7 @@ const { data: arrival } = await useArrival()
 const showNorth = ref(false)
 const loadingWeather = ref(true)
 const weatherData = ref<Weather | null>(null)
+const { getSingletonItem } = useDirectusItems()
 let map: mapboxgl.Map | null = null
 const southernGeojson = {
   type: 'Feature',
