@@ -24,12 +24,14 @@
     </table>
     <table class="houses-table" v-else key="tnotsmall">
       <thead>
-        <th>{{ $t('house') }}</th>
-        <th v-for="(s, idx) in prices.seasons" :key="s.name">
-          {{ $d(Date.parse(s.start), 'text_short_no_month') }}
-          -
-          {{ $d(Date.parse(s.end), 'text_short_no_month') }}
-        </th>
+        <tr>
+          <th>{{ $t('house') }}</th>
+          <th v-for="(s, idx) in prices.seasons" :key="s.name">
+            {{ $d(Date.parse(s.start), 'text_short_no_month') }}
+            -
+            {{ $d(Date.parse(s.end), 'text_short_no_month') }}
+          </th>
+        </tr>
       </thead>
       <tbody>
         <tr v-for="house in localeHouses" :key="house.id">
