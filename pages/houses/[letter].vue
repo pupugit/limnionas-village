@@ -165,6 +165,7 @@ onMounted(() => {
 }
 
 .house-content {
+  width: 100vw;
   padding: 32px;
   background: linear-gradient(rgba(255, 255, 255, var(--trans)), white 200px);
   border-radius: 0;
@@ -185,6 +186,7 @@ onMounted(() => {
 
 @media screen and (max-width: 400px) {
   .house-content {
+    width: 100vw;
     margin: 0;
     padding: 16px;
   }
