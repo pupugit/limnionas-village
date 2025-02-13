@@ -137,6 +137,7 @@ onMounted(() => {
 
 .house-page {
   min-height: 100vh;
+  width: 100vw;
   display: grid;
   justify-content: stretch;
   align-content: start;
