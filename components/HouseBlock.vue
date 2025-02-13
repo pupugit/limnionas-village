@@ -1,9 +1,7 @@
 <template>
   <div class="house-box" ref="houseBox">
-    <div :class="`house-bg${zenMode ? ' zen-mode' : ''}`">
-      <img :src="calcBGSrc" loading="lazy" class="house-img"
-        @click.self="config.public.featureZen ? zenMode = !zenMode : zenMode = zenMode"
-        :alt="`Background ${house.name}`" />
+    <div class="house-bg">
+      <img :src="calcBGSrc" loading="lazy" class="house-img" :alt="`Background ${house.name}`" />
       <div ref="houseBlock" :class="`house-info${isBlockVisible ? ' clicked' : ''}`"
         @click="$router.push(`/houses/${house.letter.toLowerCase()}`)">
         <h2>{{ house.name }}</h2>
@@ -30,7 +28,6 @@ const { width, height } = useWindowSize()
 const houseBox = ref<HTMLElement | null>(null)
 const houseBlock = ref(null)
 const isBlockVisible = ref(false)
-const zenMode = useZenMode()
 
 useIntersectionObserver(
   houseBlock,

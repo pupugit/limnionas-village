@@ -32,7 +32,6 @@ export default defineNuxtConfig({
     public: {
       directusBase: '',
       imageFormat: 'webp',
-      featureZen: false,
       mapboxToken: '',
       galleryId: '',
       vimeoPart1: '',

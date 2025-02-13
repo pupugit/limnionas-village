@@ -1,6 +1,5 @@
 <template>
-  <div
-    :class="`top-logo${miniLogo ? ' scrolled' : ''}${zenMode ? ' zen-mode' : ''}${(showMenu || y < 50 || timedShowLogo) ? ' show-it' : ''}`">
+  <div :class="`top-logo${miniLogo ? ' scrolled' : ''}${(showMenu || timedShowLogo) ? ' show-it' : ''}`">
     <LimvilLogo :class="`top-logo-inner click-it${showMenu ? ' show-it' : ''}`" @click="clickLogo" suid="limvil-logo" />
     <div @click="toggleLocales" style="position:absolute;top:0;left:0;cursor:pointer;">
       {{ locale }}
@@ -60,9 +59,8 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
 
-const zenMode = useZenMode()
 const { y } = useWindowScroll()
-const miniLogo = computed(() => y.value > 200 || route.path !== '/')
+const miniLogo = computed(() => y.value > 600 || route.path !== '/')
 const router = useRouter()
 const route = useRoute()
 const showMenu = ref(false)

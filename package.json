@@ -11,18 +11,18 @@
   },
   "devDependencies": {
     "@types/mapbox-gl": "^3.4.1",
-    "@types/node": "^20.17.10",
-    "@vueuse/core": "^12.2.0",
-    "@vueuse/nuxt": "^12.2.0",
-    "nuxt": "^3.15.0",
+    "@types/node": "^20.17.18",
+    "@vueuse/core": "^12.5.0",
+    "@vueuse/nuxt": "^12.5.0",
+    "nuxt": "^3.15.4",
     "nuxt-directus": "^5.7.0",
-    "sass": "^1.83.0",
-    "vue-i18n": "^11.0.1"
+    "sass": "^1.84.0",
+    "vue-i18n": "^11.1.1"
   },
   "dependencies": {
     "date-fns": "^4.1.0",
-    "mapbox-gl": "^3.9.1",
+    "mapbox-gl": "^3.9.4",
     "nuxt-swiper": "^2.0.0",
-    "swiper": "^11.1.15"
+    "swiper": "^11.2.3"
   }
 }

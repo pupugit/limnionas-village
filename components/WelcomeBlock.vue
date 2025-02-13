@@ -1,7 +1,6 @@
 <template>
   <div v-if="specials">
-    <div class="welcome-first" :style="calcPic"
-      @click.self="config.public.featureZen ? zenMode = !zenMode : zenMode = zenMode" ref="infoEl">
+    <div class="welcome-first" :style="calcPic" ref="infoEl">
     </div>
     <WelcomeEntry :entry="localWelcome" :pic="specials.welcome_back" />
     <WelcomeEntry :entry="localWelcome2" :pic="specials.welcome_back2" />
@@ -15,7 +14,6 @@ const config = useRuntimeConfig()
 const { data: specials } = await useSpecials()
 const { data: texts } = await useTexts()
 const i18n = useI18n()
-const zenMode = useZenMode()
 const infoEl = ref<HTMLElement | null>(null)
 const width = ref(0)
 const height = ref(0)

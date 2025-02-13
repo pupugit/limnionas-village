@@ -8,7 +8,6 @@ const props = defineProps<{
 }>()
 const width = ref(0)
 const height = ref(0)
-const zenMode = useZenMode()
 
 onMounted(() => {
   if (window) {
