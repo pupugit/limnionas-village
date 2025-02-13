@@ -1,5 +1,5 @@
 <template>
-  <div :class="`top-logo${miniLogo ? ' scrolled' : ''}${(showMenu || timedShowLogo) ? ' show-it' : ''}`">
+  <div :class="`top-logo${miniLogo ? ' scrolled' : ''}${(showMenu || y < 50 || timedShowLogo) ? ' show-it' : ''}`">
     <LimvilLogo :class="`top-logo-inner click-it${showMenu ? ' show-it' : ''}`" @click="clickLogo" suid="limvil-logo" />
     <div @click="toggleLocales" style="position:absolute;top:0;left:0;cursor:pointer;">
       {{ locale }}
@@ -60,7 +60,7 @@
 import { useI18n } from 'vue-i18n'
 
 const { y } = useWindowScroll()
-const miniLogo = computed(() => y.value > 600 || route.path !== '/')
+const miniLogo = computed(() => y.value > 200 || route.path !== '/')
 const router = useRouter()
 const route = useRoute()
 const showMenu = ref(false)
@@ -72,8 +72,7 @@ router.afterEach(() => {
   showMenu.value = false
 })
 onClickOutside(menu, (evt) => {
-  // console.log('click outside')
-  // console.log(evt)
+
   if (evt && evt.currentTarget) {
     const t = evt.currentTarget as HTMLElement
     if (t?.classList?.contains('limvil-logo'))
@@ -87,9 +86,7 @@ const toggleLocales = () => {
   locale.value = locales[(locales.indexOf(locale.value) + 1) % locales.length]
 }
 
-const goTop = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' })
-}
+
 const clickLogo = () => {
   console.log('clickLogo')
   showMenu.value = !showMenu.value
@@ -102,16 +99,20 @@ const clickLogo = () => {
   }
 }
 
+
 watch(y, () => {
   if (y.value < lastY.value) {
+    //    console.log(`changed y from ${lastY.value} to ${y.value}`)
     timedShowLogo.value = true
     if (timerShowLogo) window.clearTimeout(timerShowLogo)
     timerShowLogo = window.setTimeout(() => {
       timedShowLogo.value = false
+      //    console.log(`setting timedShowLogo to false`)
     }, 2000)
   }
   lastY.value = y.value
 })
+
 </script>
 
 <style>

@@ -71,7 +71,7 @@ const localeAboutUs = computed(() => {
   // min-height: 100dvh;
 
   &>div {
-    scroll-snap-align: start;
+    //    scroll-snap-align: start;
     min-height: 100vh;
     // min-height: 100dvh;
     display: grid;

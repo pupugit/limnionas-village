@@ -4,9 +4,9 @@
   </NuxtLayout>
 </template>
 
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import 'swiper/css/bundle'
-</script>
+</script> -->
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Zen+Maru+Gothic&display=swap');
@@ -19,7 +19,7 @@ import 'swiper/css/bundle'
 html {
   scrollbar-width: thin;
   scrollbar-color: var(--col-main);
-  scroll-snap-type: y mandatory;
+  /* scroll-snap-type: y mandatory; */
   overflow-y: auto;
   overflow-x: hidden;
   letter-spacing: 0.0ch;

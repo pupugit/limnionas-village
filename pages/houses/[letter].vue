@@ -41,19 +41,19 @@
         </div>
       </div>
     </div>
-    <swiper @swiper="setThumbsSwiper" :loop="true" :spaceBetween="10" slidesPerView="auto" :speed="10000" :freeMode="{
+    <swiper-container :loop="true" :spaceBetween="10" slidesPerView="auto" :speed="10000" :freeMode="{
       enabled: true,
       sticky: false
     }" :autoplay="{
       delay: 100,
       disableOnInteraction: true
-    }" :modules="modules" class="mySwiper">
+    }" class="mySwiper">
       <swiper-slide v-for="p in house.fotos" :key="p.directus_files_id">
         <img
           :src="`${config.public.directusBase}/assets/${p.directus_files_id}?fit=inside&width=1024&height=1024&format=${config.public.imageFormat}`"
           alt="Picture" loading="lazy">
       </swiper-slide>
-    </swiper>
+    </swiper-container>
   </div>
   <div v-else>
     {{ $t('house_not_found') }}
@@ -61,9 +61,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Swiper } from 'swiper'
 import { useI18n } from 'vue-i18n'
-import { FreeMode, Autoplay } from 'swiper/modules'
 const route = useRoute()
 const letter: string = route.params.letter.toString().toLowerCase()
 const config = useRuntimeConfig()
@@ -71,12 +69,7 @@ const { data: houses } = await useHouses()
 const { data: prices } = await usePrices()
 const i18n = useI18n()
 const { width, height } = useWindowSize()
-let thumbsSwiper = null
 
-const setThumbsSwiper = (swiper: Swiper) => {
-  thumbsSwiper = swiper
-}
-const modules = [FreeMode, Autoplay]
 console.log(letter)
 const house = computed(() => {
   if (!houses.value) return null

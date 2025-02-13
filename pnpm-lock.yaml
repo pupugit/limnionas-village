@@ -14,12 +14,6 @@ importers:
       mapbox-gl:
         specifier: ^3.9.4
         version: 3.9.4
-      nuxt-swiper:
-        specifier: ^2.0.0
-        version: 2.0.0(magicast@0.3.5)
-      swiper:
-        specifier: ^11.2.3
-        version: 11.2.3
     devDependencies:
       '@types/mapbox-gl':
         specifier: ^3.4.1
@@ -39,6 +33,9 @@ importers:
       nuxt-directus:
         specifier: ^5.7.0
         version: 5.7.0(magicast@0.3.5)
+      nuxt-swiper:
+        specifier: 2.0.0
+        version: 2.0.0(magicast@0.3.5)
       sass:
         specifier: ^1.84.0
         version: 1.84.0
